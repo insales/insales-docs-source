@@ -1,0 +1,12 @@
+site_name: InSales docs
+
+theme:
+  name: 'material'
+
+extra:
+  search:
+    language: 'en, ru'
+
+markdown_extensions:
+  - admonition
+  - codehilite

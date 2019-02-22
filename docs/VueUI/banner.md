@@ -1,27 +1,28 @@
-# ui-banner
+# Баннер. ui-banner
+
 Представляет собой ссылку с картинкой и описание внутри.
 
 ## Пример использования
 ````html
 <ui-banner-list
-  hr-gutter="1rem"
-  vr-gutter="1rem"
-  layout="mansonry-2-column"
+	hr-gutter="1rem"
+	vr-gutter="1rem"
+	layout="mansonry-2-column"
 >
-  {% for slide in data.blocks %}
-
-  <ui-banner
-    class="editable-block"
-    cells="12"
-    ratio="{{ slide.ratio }}"
-    data-block-id="{{ slide.id }}"
-    img-src="{{ slide.image }}" 
-    link="{{ slide.link }}"
-    layout="mansonry-item"
-    theme="image-hover-shadow, title-bolder, title-margin"
-  >
-  </ui-banner>
-  {% endfor %}
+	{% for slide in data.blocks %}
+	
+		<ui-banner
+			class="editable-block"
+			cells="12"
+			ratio="{{ slide.ratio }}"
+			data-block-id="{{ slide.id }}"
+			img-src="{{ slide.image }}" 
+			link="{{ slide.link }}"
+			layout="mansonry-item"
+			theme="image-hover-shadow, title-bolder, title-margin"
+		>
+		</ui-banner>
+	{% endfor %}
 </ui-banner-list>
 ````
 

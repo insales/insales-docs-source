@@ -1,4 +1,4 @@
-# ui-article-preview
+# Превью статьи. ui-article-preview
 
 Данный компонент представляет собой предпросмотр статьи в любом контексте.
 
@@ -6,15 +6,15 @@
 
 ````html
 <a is="ui-article-preview"
-  href="{{ article.url }}"
-  hide-image="false"
-  direction="row"
-  title="{{ article.title }}"
-  article-json="{{ article | custom_json: "author", "published_at", "comments_count" | escape}}"
+	href="{{ article.url }}"
+	hide-image="false"
+	direction="row"
+	title="{{ article.title }}"
+	article-json="{{ article | custom_json: "author", "published_at", "comments_count" | escape}}"
 >
-  <img src="image.png"
-    slot="image"
-  />
+	<img src="image.png"
+		slot="image"
+	/>
 </a>
 ````
 
@@ -59,7 +59,7 @@
 
 ## Особенности и что важно помнить
 
-### Использование тега <a> как базового для компонента в верстке
+### Использование тега ссылки как базового для компонента в верстке
 
 Настоятельно рекомендуем использовать для обозначения этого компонента в верстке комбинацию
 `<a is="ui-article-preview"></a>`

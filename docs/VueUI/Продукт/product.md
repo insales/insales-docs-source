@@ -1,4 +1,4 @@
-# ui-product
+# Продукт. ui-product
 
 Данный компонент является основным при работе с продуктом. Все остальные продуктовые компоненты (галерея, селектор модификаций и прочее) взаимодействуют с ним. Так же он являет источником добавления товра в корзину из верстки.
 
@@ -7,28 +7,28 @@
 ````html
 <!-- Компоненты внутри -->
 <ui-product
-  product-id="{{ product.id }}"
+	product-id="{{ product.id }}"
 >
-  <ui-product-variants></ui-product-variants>
-  <ui-price><ui-price>
-  <ui-product-buy>Купить</ui-product-by>
+	<ui-product-variants></ui-product-variants>
+	<ui-price><ui-price>
+	<ui-product-buy>Купить</ui-product-by>
 </ui-product>
 
 <!-- Компоненты снаружи -->
 <ui-product
-  product-id="{{ product.id }}"
-  instance-name="main"
+	product-id="{{ product.id }}"
+	instance-name="main"
 >
 </ui-product>
 
 <ui-product-variants
-  instance-name="main"
+	instance-name="main"
 ></ui-product-variants>
 <ui-price
-  instance-name="main"
+	instance-name="main"
 ><ui-price>
 <ui-product-buy
-  instance-name="main"
+	instance-name="main"
 >Купить</ui-product-by>
 ````
 

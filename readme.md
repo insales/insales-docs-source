@@ -9,17 +9,12 @@
 Установка
 
 ```
-pip install mkdocs
-pip install mkdocs-material
+pip install --no-cache-dir -r requirements.txt
 ```
 
 Запуск локального сервера
 
 `mkdocs serve`
-
-## Сборка документации
-
-Сборка документации делается с помощью GitHub CI при каждом коммите в мастер.
 
 ## Docker
 
@@ -37,3 +32,7 @@ docker-compose up --build
 ```
 
 После запуска сервер будет доступен по адресу http://localhost:8000
+
+## Сборка документации
+
+Сборка документации делается с помощью GitHub CI при каждом коммите в мастер.

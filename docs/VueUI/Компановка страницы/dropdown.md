@@ -1,4 +1,4 @@
-# ui-dropdown
+# Компонент с выпадающим контентом. ui-dropdown
 
 Данный компонент представляет собой выпадающий блок с кнопкой и произвольным контентом.
 
@@ -6,16 +6,16 @@
 
 ````html
 <ui-dropdown
-  class="some_class"
-  caption="Открывалко"
-  position="top"
-  open-on-hover
-  toggle-icon="fa fa-angle-down"
+	class="some_class"
+	caption="Открывалко"
+	position="top"
+	open-on-hover
+	toggle-icon="fa fa-angle-down"
 >
-  Привет!! я какой-то контент, который виден при открытии
-  <div>
-    можно вставлять произвольный контент
-  </div>
+	Привет!! я какой-то контент, который виден при открытии
+	<div>
+		можно вставлять произвольный контент
+	</div>
 </ui-dropdown>
 ````
 
@@ -34,16 +34,16 @@
 
 ### Переключатель
 
-`.dropdown__toggle` - опорный класс переключателя
-`.dropdown__toggle.is-focused` - кнопка в фокусе, эквивалент `:focus`
-`.dropdown__toggle.is-hovered` - кнопка, под курсором, эквивалент `:hover`
-`.dropdown__toggle.is-opened` - дроп открыт
-`.dropdown__toggle.is-closed` - дроп закрыт
+* `.dropdown__toggle` - опорный класс переключателя
+* `.dropdown__toggle.is-focused` - кнопка в фокусе, эквивалент `:focus`
+* `.dropdown__toggle.is-hovered` - кнопка, под курсором, эквивалент `:hover`
+* `.dropdown__toggle.is-opened` - дроп открыт
+* `.dropdown__toggle.is-closed` - дроп закрыт
 
 ### выпадашка
 
-`dropdown__popup` - контейнер пвыпадающего списка
-`dropdown__popup_opened` - контейнер показан
-`dropdown__popup_closed` - контейнер спрятаня
+* `dropdown__popup` - контейнер пвыпадающего списка
+* `dropdown__popup_opened` - контейнер показан
+* `dropdown__popup_closed` - контейнер спрятаня
 
 ## Особенности

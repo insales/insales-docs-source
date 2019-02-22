@@ -1,23 +1,24 @@
-# ui-grid
-  Компонент использует для реализации 12 колоночной системы сеток. Является контейнером для компонента `ui-grid-cell`.
-  Отвечает за направленение и позиционирование дочерних элементов. Сетка реализована на базе `flexbox`.
+# Контейнер сетки. ui-grid
+Компонент использует для реализации 12 колоночной системы сеток. Является контейнером для компонента `ui-grid-cell`.
+Отвечает за направленение и позиционирование дочерних элементов. Сетка реализована на базе `flexbox`.
+
 ## Пример использования
 
 ````html
 <ui-grid
-    :vr-gutter="1rem"
-    :hr-gutter="2rem"
+	:vr-gutter="1rem"
+	:hr-gutter="2rem"
 >
-  <ui-grid-cell
-    cells="6"
-  >
-    Какой то контент...
-  </ui-grid-cell>
-  <ui-grid-cell
-    cells="6"
-  >
-    Какой то контент...
-  </ui-grid-cell>
+	<ui-grid-cell
+		cells="6"
+	>
+		Какой то контент...
+	</ui-grid-cell>
+	<ui-grid-cell
+		cells="6"
+	>
+		Какой то контент...
+	</ui-grid-cell>
 </ui-grid>
 ````
 
@@ -38,16 +39,16 @@
 
 ### Переключатель
 
-`.dropdown__toggle` - опорный класс переключателя
-`.dropdown__toggle.is-focused` - кнопка в фокусе, эквивалент `:focus`
-`.dropdown__toggle.is-hovered` - кнопка, под курсором, эквивалент `:hover`
-`.dropdown__toggle.is-opened` - дроп открыт
-`.dropdown__toggle.is-closed` - дроп закрыт
+* `.dropdown__toggle` - опорный класс переключателя
+* `.dropdown__toggle.is-focused` - кнопка в фокусе, эквивалент `:focus`
+* `.dropdown__toggle.is-hovered` - кнопка, под курсором, эквивалент `:hover`
+* `.dropdown__toggle.is-opened` - дроп открыт
+* `.dropdown__toggle.is-closed` - дроп закрыт
 
 ### выпадашка
 
-`dropdown__popup` - контейнер пвыпадающего списка
-`dropdown__popup_opened` - контейнер показан
-`dropdown__popup_closed` - контейнер спрятаня
+* `dropdown__popup` - контейнер пвыпадающего списка
+* `dropdown__popup_opened` - контейнер показан
+* `dropdown__popup_closed` - контейнер спрятаня
 
 ## Особенности

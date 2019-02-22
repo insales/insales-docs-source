@@ -1,27 +1,27 @@
-# ui-grid-cell
-  Является дочерним узлом компонетна `ui-grid`. Служит для создания ячейком с контентом.
-  Возможное колличество ячеек от `1` до `12`
+# Ячейка Сетки. ui-grid-cell
+Является дочерним узлом компонетна `ui-grid`. Служит для создания ячейком с контентом.
+Возможное колличество ячеек от `1` до `12`
 
 ## Пример использования
 
 ````html
 <ui-grid
-    :vr-gutter="1rem"
-    :hr-gutter="2rem"
+	:vr-gutter="1rem"
+	:hr-gutter="2rem"
 >
-  <ui-grid-cell
-    cells="6"
-    cells-xs="12"
-  >
-    Какой то контент...
-  </ui-grid-cell>
-  <ui-grid-cell
-    cells="6"
-    cells-sm="10"
-    cells-xs="12"
-  >
-    Какой то контент...
-  </ui-grid-cell>
+	<ui-grid-cell
+		cells="6"
+		cells-xs="12"
+	>
+		Какой то контент...
+	</ui-grid-cell>
+	<ui-grid-cell
+		cells="6"
+		cells-sm="10"
+		cells-xs="12"
+	>
+		Какой то контент...
+	</ui-grid-cell>
 </ui-grid>
 ````
 

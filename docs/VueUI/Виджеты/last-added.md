@@ -1,14 +1,15 @@
-# ui-last-added
-  Компонент выводит последний добавленый товар в корзину/сравнение.
+# Последгтй добавленный товар. ui-last-added
+
+Компонент выводит последний добавленый товар в корзину/сравнение.
 
 ## Пример использования
 
 ````html
 <ui-last-added
-  unit-title ="{{ widget_messages.unit_title }} "
-  total-items-caption= "{{ widget_messages.total_item_cart }}"
-  in-cart
-  >
+	unit-title ="{{ widget_messages.unit_title }} "
+	total-items-caption= "{{ widget_messages.total_item_cart }}"
+	in-cart
+>
 </ui-last-added>
 ````
 

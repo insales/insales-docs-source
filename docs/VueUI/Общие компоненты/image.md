@@ -1,4 +1,4 @@
-# ui-image
+# Картинки. ui-image
 
 Данный компонент служит для вывода изображений в основне лежит элемент `<picture>`. Умеет подстраивать размер изображение под размер контейнера родителя в случае указания параметра `image-size`. Имеет поддержку ленивой загрузки.
 
@@ -6,13 +6,13 @@
 
 ```html
 <img is="ui-image"
-    lazy
-    :image-size="{% include 'system_image_size', target_url: target %}"
-    title= "{{ product.title | escape }}"
-    alt= "{{ product.title | escape }}"
-    ratio="1:1"
-    contain
-    />
+	lazy
+	:image-size="{% include 'system_image_size', target_url: target %}"
+	title= "{{ product.title | escape }}"
+	alt= "{{ product.title | escape }}"
+	ratio="1:1"
+	contain
+/>
 ```
 
 ## Параметры
@@ -43,4 +43,5 @@
 ```
 
 ## Дополнительно
+
 Для анимации появления картинки при ленивой загрузки можно использовать класс `.image-container__image.lazy_show` в шаблоне.

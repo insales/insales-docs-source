@@ -1,0 +1,11 @@
+version: '3'
+services:
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # command: mkdocs serve --dev-addr=0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/usr/src/app

@@ -11,17 +11,13 @@ script:
   # just checking if build successful 
   - mkdocs build
   - git clean -f -d -x
-
-deploy:
-  on:
-    branch: master
-  provider: script
-  script:
-    - git config user.name "Sergey Miroshnichenko"
-    - git config user.email "serg.zorg@gmail.com"
-    - git remote add gh-token "https://${GITHUB_TOKEN}@github.com/insales/insales-docs-source"
-    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages
-    - mkdocs gh-deploy -v --clean --remote-name gh-token
+  - if [ "$TRAVIS_BRANCH" = master ]; then
+      git config user.name "Sergey Miroshnichenko"
+      git config user.email "serg.zorg@gmail.com"
+      git remote add gh-token "https://${GITHUB_TOKEN}@github.com/insales/insales-docs-source"
+      git fetch gh-token && git fetch gh-token gh-pages:gh-pages
+      mkdocs gh-deploy -v --clean --remote-name gh-token
+    fi
 
 
 

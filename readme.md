@@ -20,3 +20,20 @@ pip install mkdocs-material
 ## Сборка документации
 
 Сборка документации делается с помощью GitHub CI при каждом коммите в мастер.
+
+## Docker
+
+Используем Docker для запуска локального сервера
+
+```
+docker-compose build docs
+docker-compose up
+```
+
+или
+
+```
+docker-compose up --build
+```
+
+После запуска сервер будет доступен по адресу http://localhost:8000

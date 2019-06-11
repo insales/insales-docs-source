@@ -6,9 +6,7 @@
 
 ```
 <ui-select
-	:options=" {
-		[{ label: 'chose', value: '1' }, { label: 'wat', value: '2' }, { label: 'nom', value: 'wooop' }]
-	}"
+	:options="[{ label: 'chose', value: '1' }, { label: 'wat', value: '2' }, { label: 'nom', value: 'wooop' }]"
 	selected="1"
 	name="select_any"
 />

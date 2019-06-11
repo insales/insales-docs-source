@@ -7,11 +7,11 @@
 ```html
 <ui-checkbox-group
 	name="checkbox_rule"
-	label="НИже будет группа чекбоксов"
+	label="Ниже будет группа чекбоксов"
 	:options="[{ label: 'chose', value: '1' }, { label: 'wat', value: '2' }, { label: 'nom', value: 'wooop' }]"
 	:rules="{
 		required: true,
-	}
+	}"
 	:selected="[0,2]"
 	:hide-native="true"
 />

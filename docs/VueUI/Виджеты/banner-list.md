@@ -11,13 +11,13 @@
 	layout="mansonry-2-column"
 >
 	{% for slide in data.blocks %}
-	
+
 		<ui-banner
 			class="editable-block"
 			cells="12"
 			ratio="{{ slide.ratio }}"
 			data-block-id="{{ slide.id }}"
-			img-src="{{ slide.image }}" 
+			img-src="{{ slide.image }}"
 			link="{{ slide.link }}"
 			layout="mansonry-item"
 			theme="image-hover-shadow, title-bolder, title-margin"
@@ -29,10 +29,10 @@
 
 ## Параметры
 
-Данный компонент поддерживает следущие параметры:
+Данный компонент поддерживает следующие параметры:
 
-* `vr-gutter` - вертикальный отступ для дочерних узлов. По умолачание `1rem`.
-* `hr-gutter` - горизонтальный отступ для дочерних узлов. По умолачание `1rem`.
+* `vr-gutter` - вертикальный отступ для дочерних узлов. По умолчанию `1rem`.
+* `hr-gutter` - горизонтальный отступ для дочерних узлов. По умолчанию `1rem`.
 * `direction` - ориентация раскладки дочерних блоков. Доступны значения `row`, `column`.
 
 ## Темизация

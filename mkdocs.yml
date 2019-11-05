@@ -1,8 +1,17 @@
 site_name: InSales docs
 repo_url: https://github.com/insales/insales-docs-source/
 
+# see: https://www.mkdocs.org/user-guide/configuration/
+extra:
+  version: 1.0.0
+
 theme:
   name: 'material'
+  language: 'ru'
+  # logo:
+  #   icon: 'shopping-cart'
+  feature:
+    tabs: true
 
 extra:
   search:
@@ -11,3 +20,25 @@ extra:
 markdown_extensions:
   - admonition
   - codehilite
+  - meta
+  - footnotes
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

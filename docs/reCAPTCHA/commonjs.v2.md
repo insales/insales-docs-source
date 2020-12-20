@@ -2,7 +2,7 @@
 
 ## Добавить в форму
 ```html
-<div  data-feedback-form-recaptcha></div>
+<div data-feedback-form-recaptcha></div>
 ```
 
 ## settings.html

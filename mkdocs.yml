@@ -4,6 +4,9 @@ repo_url: https://github.com/insales/insales-docs-source/
 theme:
   name: 'material'
 
+extra_css:
+  - css/extra.css
+
 extra:
   search:
     language: 'en, ru'

@@ -1,0 +1,4 @@
+.md-typeset h2, .md-typeset h1 {
+  font-weight: bold;
+  color: var(--md-code-fg-color);
+}

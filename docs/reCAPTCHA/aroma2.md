@@ -201,6 +201,44 @@ Shop.sendMessage(msg)
 {% endif %}
 ```
 
+## scripts.liquid
+
+Вставить в Site.messages строку
+
+```
+field_captcha: '{{ messages.field_captcha }}',
+```
+
+Полный кусок
+```
+    messages: {
+      field_name: '{{ messages.field_name }}',
+      field_email: '{{ messages.field_email }}',
+      field_message: '{{ messages.field_message }}',
+      label_product: '{{ messages.label_product }}',
+      label_variant: '{{ messages.label_variant }}',
+      field_captcha: '{{ messages.field_captcha }}',
+
+      preorder: '{{ messages.preorder }}',
+      button_submit: '{{ messages.button_submit }}'
+    }
+```
+
+## product.js
+
+Вставить перед `alertify.modal({ formDefination: preorderForm }).set('title', Site.messages.preorder);`
+
+```
+    if(Shop.config.config.feedback_captcha_enabled) {
+      preorderForm.fields.push({
+        title: Site.messages.field_captcha,
+        type: 'captcha',
+        required: true,
+      })
+    }
+
+```
+
 ## settings.html
 
 ```

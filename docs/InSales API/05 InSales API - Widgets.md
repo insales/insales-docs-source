@@ -2,7 +2,7 @@
 
 ## Суть виджета
 
-![Пример виджета](/articles/Widget_screenshot.png)
+![Пример виджета](/img/Widget_screenshot.png)
 
 Виджет - это [iframe](http://htmlbook.ru/html/iframe) выводимый на странице заказа в бэкофисе.
 
@@ -224,4 +224,4 @@ _height_ - высота блока виджета
 
 **3\. Результат**
 
-![Пример реализации виджета](/articles/Widget_realization_example.png)
+![Пример реализации виджета](/img/Widget_realization_example.png)

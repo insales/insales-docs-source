@@ -14,7 +14,7 @@
     
     
       
-        <title>Шина событий - LiquidHub</title>
+        <title>Как интегрироваться с InSales - LiquidHub</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#insales" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Шина событий
+              Как интегрироваться с InSales
             
           </span>
         </div>
@@ -208,12 +208,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       InSales API
@@ -232,11 +234,131 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../InSales%20API/01%20readme/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Как интегрироваться с InSales
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Как интегрироваться с InSales
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Введение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appstore" class="md-nav__link">
+    Создание приложения для AppStore
+  </a>
+  
+    <nav class="md-nav" aria-label="Создание приложения для AppStore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Добавление приложения
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Процедура установки
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Авторизация
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Оповещение о событии
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    Процедура авто-логина пользователя
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Процедура удаления аккаунта
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Ограничения
+  </a>
+  
+    <nav class="md-nav" aria-label="Ограничения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    Частота запросов к API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    Возможные варианты http кодов в ответах
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -247,7 +369,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InSales%20API/02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/" class="md-nav__link">
+    <a href="../02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/" class="md-nav__link">
       Подключение внешнего способа оплаты (для разработчиков интеграций)
     </a>
   </li>
@@ -260,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InSales%20API/03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/" class="md-nav__link">
+    <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/" class="md-nav__link">
       Получение только изменившихся данных
     </a>
   </li>
@@ -273,7 +395,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InSales%20API/04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/" class="md-nav__link">
+    <a href="../04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/" class="md-nav__link">
       API для работы с частичными скидками
     </a>
   </li>
@@ -286,7 +408,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InSales%20API/05%20InSales%20API%20-%20Widgets/" class="md-nav__link">
+    <a href="../05%20InSales%20API%20-%20Widgets/" class="md-nav__link">
       InSales API - Widgets
     </a>
   </li>
@@ -299,7 +421,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InSales%20API/06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/" class="md-nav__link">
+    <a href="../06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/" class="md-nav__link">
       InSales API - Счета приложения
     </a>
   </li>
@@ -1365,14 +1487,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
     
     <label class="md-nav__link" for="nav-4">
       Common.v2.js
@@ -1393,7 +1513,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../_readme/" class="md-nav__link">
+    <a href="../../common.v2.js/_readme/" class="md-nav__link">
       Вводная.
     </a>
   </li>
@@ -1406,7 +1526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../%D0%9A%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0/" class="md-nav__link">
+    <a href="../../common.v2.js/%D0%9A%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0/" class="md-nav__link">
       Корзина
     </a>
   </li>
@@ -1417,63 +1537,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Шина событий
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../common.v2.js/%D0%A8%D0%B8%D0%BD%D0%B0%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9/" class="md-nav__link">
       Шина событий
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Пример подключения
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Особенности работы
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    Работа со стандартными действиями на сайте (API)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1786,22 +1854,90 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Введение
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appstore" class="md-nav__link">
+    Создание приложения для AppStore
+  </a>
+  
+    <nav class="md-nav" aria-label="Создание приложения для AppStore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Пример подключения
+    Добавление приложения
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Особенности работы
+    Процедура установки
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Авторизация
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Оповещение о событии
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    Процедура авто-логина пользователя
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Процедура удаления аккаунта
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Ограничения
+  </a>
+  
+    <nav class="md-nav" aria-label="Ограничения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#api" class="md-nav__link">
-    Работа со стандартными действиями на сайте (API)
+    Частота запросов к API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    Возможные варианты http кодов в ответах
   </a>
   
 </li>
@@ -1818,69 +1954,108 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insales/insales-docs-source/edit/master/docs/common.v2.js/Шина событий.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insales/insales-docs-source/edit/master/docs/InSales API/01 readme.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">Шина событий</h1>
-<p>Если вам нужно, чтобы после определенного действия на сайте (например добавления товара в корзину) у вас сработал ваш скрипт (например высветил сообщение что у вас добавлен товар), то с этим вам поможет <strong>Шина событий (EventBus)</strong>.</p>
-<p>Для понимания, у шины событий есть 2 главных лица: Издатель (Pub) и Подписчик (Sub).
-Издатели генерируют любое событие (в том числе системное), а Подписчики цепляются к Издателю,
-чтобы запуститься после его запуска.
-Если разобрать пример выше, то Издателем будет добавление товара в корзину, а подписчиком будет ваш скрипт, который высвечивает сообщение о добавленном товаре.</p>
-<p>Для подключения <strong>подписчика</strong> используется команда <code>EventBus.subscribe( event_name, function (data))</code>, где:  </p>
+                <h1 id="insales">Как интегрироваться с InSales</h1>
+<h2 id="_1">Введение</h2>
+<p>Для того чтобы интегрироваться с InSales есть API позволяющее создавать, читать и удалять объекты бэк-офиса. Также есть механизм для оповещения внешних систем о событиях.</p>
+<p>Кроме того, есть механизм позволяющий другим пользователям подключить написанную Вами интеграцию нажатием одной кнопки. Это механизм называется приложениями.</p>
+<p>Так же рекомендуем посмотреть презентацию <a href="http://www.slideshare.net/insales/in-sales-32846771">http://www.slideshare.net/insales/in-sales-32846771</a> , чтобы в целом составить представление о принципах работы и возможностях API .</p>
+<p>API InSales работает через HTTP протокол с использованием (GET/POST/PUT/DELETE) запросов. Данные при обмене передаются в <a href="http://ru.wikipedia.org/wiki/XML">XML-формате</a> или JSON-формате.</p>
+<p>Для корректной работы необходимо указывать Content-Type в запросе (<strong>Content-Type</strong>: <strong>application/xml</strong> или <strong>Content-Type</strong>: <strong>application/json</strong> ).</p>
+<p>Для каждой группы объектов: заказов, товаров, категорий и т. д. есть свой URL при помощи которого вы можете управлять соответствующими объектами. Другими словами мы попытались организовать свое API в соответствии с принципами <a href="http://ru.wikipedia.org/wiki/REST">REST</a>, насколько это было возможно.</p>
+<p>Если возникли вопросы пишите на <a href="mailto:partners@insales.ru">partners@insales.ru</a> .</p>
+<p>Заготовки под разные языки можно посмотреть здесь <a href="https://github.com/insales">https://github.com/insales</a> .</p>
+<h2 id="appstore">Создание приложения для AppStore</h2>
+<h3 id="_2">Добавление приложения</h3>
+<p>Для начала вам необходимо создать партнерский аккаунт ( <a href="https://www.insales.ru/partnership">https://www.insales.ru/partnership</a> ) , после в разделе Приложения -&gt; Разработчикам вы сможете создать приложение, указав поля:</p>
 <ul>
-<li><code>event_name</code> - имя Издателя, на которое мы хотим подписаться.  </li>
-<li><code>data</code> - данные от Издателя, которые мы хотим использовать (если нужно).</li>
+<li>Название приложения (будет показываться в списке приложений)</li>
+<li>Идентификатор приложения (должен состоять из латинских букв и цифр, используется в качестве логина для basic авторизации при отправке запросов)</li>
+<li>Секрет (секретный ключ приложения, он не должен быть никому известен, используется для установки приложения. При создании приложения в форме его, он сформируется автоматически, если что его потом можно отредактировать)</li>
+<li>Текст краткого описания приложения (в html формате, будет показываться в списке приложений)</li>
+<li>URL для установки приложения (без параметров, например <a href="http://myapp.ru/install">http://myapp.ru/install</a>)</li>
+<li>URL страницы приложения, куда попадает пользователь после нажатия кнопки установки приложения</li>
+<li>URL страницы приложения, куда попадает шлется запрос для удаления приложения</li>
+<li>Картинку приложения, размером 250x100</li>
+<li>Название компании разработчика</li>
+<li>Контакты для пользователей</li>
 </ul>
-<p>Для запуска <strong>издателя</strong> используется команда <code>EventBus.publish( event_name, data )</code>, где:  </p>
+<h3 id="_3">Процедура установки</h3>
+<p>После того как пользователь нажал кнопку установить приложение InSales генерирует <strong>token</strong> (одноразовая строка, хранить у себя не нужно) и устанавливает пароль для подключения <strong>password = MD5(token + secret_key)</strong>, где <strong>seсret_key</strong> - секрет (секретный ключ приложения). Этот пароль нужно сохранить на своей стороне и использовать в дальнейшем при запросах. Пароль для каждого магазина свой.</p>
+<p>После этого отправляется GET запрос на URL для установки приложений с параметрами <strong>token</strong> , <strong>shop</strong> и <strong>insales_id</strong>, где <strong>shop</strong> - адрес магазина на домене myinsales.ru, например myshop.myinsales.ru , <strong>insales_id</strong> - внутренний уникальный иденитификатор магазина, который не меняется и по нему однозначно идентифицируется магазин.</p>
+<p>Если приложение отвечает 200 OK, то InSales считает, что приложение успешно установлено. Теперь можно слать запросы к InSales через API используя сгенерированный пароль и идентификатор приложения в качестве логина.</p>
+<p>Поле того как приложение ответило 200 OK, приложение может установить свои обработчики для событий, создать в InSales необходимые данные или загрузить данные в приложение из InSales.</p>
+<p>Особое внимание надо обратить на то, что до тех пор пока InSales не получили ответ 200 OK в ответ на запрос установки приложение считается не установленным, и оно не может совершать запросы к InSales через API.</p>
+<p>Рассмотрим на конкретном примере:</p>
+<ol>
+<li>
+<p>Вы создали приложение со следующими настройками:</p>
+<p>идентификатор приложения - myapplogin</p>
+<p>секретный ключ приложения - mysecret</p>
+<p>урл установки - <a href="http://myapp.ru/install">http://myapp.ru/install</a></p>
+</li>
+<li>
+<p>Пользователь магазина test.myinsales.ru (insales_id = 123) нажимает на установку вашего приложения, генерируется случайный token (для примера token123) и идет запрос:</p>
+<p><a href="http://myapp.ru/install?shop=test.myinsales.ru&amp;token=token123&amp;insales_id=123">http://myapp.ru/install?shop=test.myinsales.ru&amp;token=token123&amp;insales_id=123</a></p>
+<p>При обработке этого запроса у себя вам нужно по токену вычислить пароль и записать его в своей базе для этого магазина, чтобы в дальнейшем слать запросы по API к нему. В данном случае получается такой пароль: password = MD5(token + secret_key) = MD5("token123mysecret") = 4c3f4c197336eb97475506e71c839c71</p>
+</li>
+<li>
+<p>Теперь можно послать запрос по API в магазин:</p>
+<p><a href="http://myapplogin:4c3f4c197336eb97475506e71c839c71@test.myinsales.ru/admin/account.xml">http://myapplogin:4c3f4c197336eb97475506e71c839c71@test.myinsales.ru/admin/account.xml</a></p>
+</li>
+</ol>
+<h3 id="_4">Авторизация</h3>
+<p>Для авторизации используется Basic Authorization. Логин задается в настройках приложения (идентификатор приложения) и он общий при запросах в разные магазины, пароль же формируется в момент установки, процедура описана выше.</p>
+<h3 id="_5">Оповещение о событии</h3>
+<p>Для оповещения о событиях, в InSales есть webhook-и: для определенных событий по заданному HTTP адресу отправляется POST запрос. В теле запроса в xml формате передается объект, с которым связанно событие. Для того чтобы оповещение заработало, надо через API установить обработчик, для событий соответствующего типа. Пока доступны три типа событий: создание, изменение и удаление заказа.</p>
+<h3 id="-">Процедура авто-логина пользователя</h3>
+<p>Для того чтобы пользователь не утруждал себя запоминанием логина и пароля, для каждого есть процедура, позволяющая авторизовать пользователя по адресу его магазина - shop_host. Для этого надо отправить GET запрос на адрес</p>
+<p><a href="http://">http://</a><strong>shop_host</strong>/admin/applications/<strong>api_key</strong>/login?token=<strong>token</strong>&amp;login=<strong>api_autologin_url</strong></p>
+<p>где <strong>shop_host</strong> - адрес интернет магазина на под-домене myinsales.ru, <strong>api_key</strong> - идентификатора приложения, <strong>token</strong> - одноразовый токен (формируете сами, никак не связан с token из установки приложения), <strong>api_autologin_url</strong> - URL, на который будет выполнено перенаправление в приложение. Важно(!), чтобы домен из урла api_autologin_url совпадал с доменом из урла входа в приложение из настроек, такая проверка сделана для безопасности.</p>
+<p>Если пользователь уже вошел в бэк-офис магазина, и у него установлено приложение, его перенаправляют на URL</p>
+<p><strong>api_autologin_url</strong>?token=<strong>MD5(token + password)</strong></p>
+<p>где <strong>password</strong> - пароль приложения в конкретном магазине (не путать с секретным ключем приложения).</p>
+<p>Если пользователь еще не вошел в приложение, то ему предложат войти в бэк-офис, а потом перенаправят на указанный URL.</p>
+<p>В частности так может работать механизм автологина при нажатии на кнопку "Войти" в приложение из бэкофиса:</p>
+<ol>
+<li>
+<p>Пользователя кидает урл входа в приложение, который указан его настройках. В GET-параметрах передаются название и id магазина, например: <a href="http://myapp.ru/login?shop=test.myinsales.ru&amp;insales_id=123&amp;user_id=1">http://myapp.ru/login?shop=test.myinsales.ru&amp;insales_id=123&amp;user_id=1</a></p>
+</li>
+<li>
+<p>Приложение смотрит сессию в cookies пользователя и если он уже логинился, то все в порядке, показывает ему бэкофис приложения.</p>
+</li>
+<li>
+<p>Если пользователь не залогинен в приложение, то редиректим его на урл автологина в InSales: <a href="http://test.myinsales.ru/admin/applications/my_app_key/login?token=3ad376b668c48c15d4beed467a567ef7&amp;login=http://myapp.ru/autologin">http://test.myinsales.ru/admin/applications/my_app_key/login?token=3ad376b668c48c15d4beed467a567ef7&amp;login=http://myapp.ru/autologin</a> test.myinsales.ru - имя магазина, которое пришло в пункте 1. my_app_key - идентификатор приложения, который был указан в настройках при его создании token - случайная одноразовая фраза login - урл, где мы ждем пользователя назад для логина после редиректа с InSales</p>
+</li>
+<li>
+<p>На стороне InSales идет проверка по сессии, что пользователь залогинен в этот магазин и если все нормально редирект его назад в приложение: <a href="http://myapp.ru/autologin?token3=c7a19acbbd574b0391233bf946f653fd&amp;user_email=user@myshop.ru&amp;user_name=igor&amp;user_id=1&amp;email_сonfirmed=true">http://myapp.ru/autologin?token3=c7a19acbbd574b0391233bf946f653fd&amp;user_email=user@myshop.ru&amp;user_name=igor&amp;user_id=1&amp;email_сonfirmed=true</a> token3 - MD5(token + user_email + user_name + user_id</p>
+</li>
+</ol>
+<p>+email_сonfirmed + password) - md5-сумма от токена, которыл был передан в пункте 3, параметров user_email, user_name, user_id, email_сonfirmed (флаг что e-mail был подтвержден по почте юзером) и пароля приложения, который был сформирован при его установке, по этому token можно убедиться, чтобы пользователь действительно логинен в магазин на InSales, а не подделал этот урл.</p>
+<h3 id="_6">Процедура удаления аккаунта</h3>
+<p>Если пользователь решил удалить приложение. То после нажатия на соответствующую кнопку cистема InSales отправляет приложению запрос вида:</p>
+<p><strong>uninstall_url</strong>?shop=<strong>shop</strong>&amp;token=<strong>password</strong>&amp;insales_id=<strong>insales_id</strong></p>
+<p>где <strong>pasword</strong> - пароль приложения, <strong>shop</strong> - адрес магазина на поддомене myinsales.ru, а <strong>insales_id</strong> - внутренний уникальный иденитификатор магазина. Если приложение отвечает 200 ОК, то приложение считается удаленным.</p>
+<h2 id="_7">Ограничения</h2>
+<h3 id="api">Частота запросов к API</h3>
+<p>На приложение накладываются ограничение в 500 запросов к API одного магазина за 5 минут. Время расчитывается с момента первого запроса в серии. Количество выполненых запросов в текущем промежутке времени передается в HTTP заголовке <code>API-Usage-Limit</code> (пример: <code>API-Usage-Limit: 1/500</code>).</p>
+<p>При превышении лимита доступ к API становится недоступным до окончания текущих 5 минут. В таком случае код ответа сервера - 503 и при этом в HTTP заголовке <code>Retry-After</code> передается время до начала предоставления доступа в секундах.</p>
+<h2 id="http">Возможные варианты http кодов в ответах</h2>
 <ul>
-<li><code>event_name</code> - имя , для подключения подписчиков.  </li>
-<li><code>data</code> - данные, которые мы хотим передать для последующей обработки подписчиками.</li>
+<li>200 - штатный ответ на операцию, означает что никаких ошибок не возникло</li>
+<li>201 - в некоторых случаях при создании объектов может вернуться этот код, по сути тоже самое, что и 200-й ответ</li>
+<li>400 - пришел некорректный http-запрос, http-сервер не смог его обработать, возможно слишком большой заголовок или еще какая-то проблема</li>
+<li>401 - не прошла авторизация, необходимо проверить логин и пароль для basic-авторизации приложения</li>
+<li>403 - нет прав для данной операции, необходимо проверить настройки прав для приложения</li>
+<li>404 - запрашиваемый объект не найден, видимо его уже удалили или подставлен ошибочный id объекта</li>
+<li>500 - внутренняя ошибка на нашей стороне, возможно вы некорректно передали сформировали данные для запроса или что-то еще случилось, необходимо обратиться в поддержку, чтобы разобраться</li>
+<li>503 - вы привысили лимиты в API, если вам не хватает лимитов напишите в поддержку, чтобы разобраться в ситуации</li>
+<li>504 - мы не смогли обработать ваш запрос за 50 секунд и прервали его выполнение, возможно вы пробуете получить слишком много данных за раз или еще какая-то проблема, можно так же обратиться в поддержку</li>
 </ul>
-<h2 id="_2">Пример подключения</h2>
-<div class="codehilite"><pre><span></span><code><span class="c">/*Подключаем Подписчика №1*/</span>
-
-<span class="nt">EventBus</span><span class="p">.</span><span class="nc">subscribe</span><span class="o">(</span><span class="s1">&#39;event1&#39;</span><span class="o">,</span> <span class="nt">function</span> <span class="o">(</span><span class="nt">data</span><span class="o">)</span> <span class="p">{</span>
-  <span class="err">console.log(&#39;</span><span class="n">event1</span><span class="p">:</span><span class="s1">&#39;, data);</span>
-<span class="s1">});</span>
-
-<span class="s1">/*Запускаем Издателя*/</span>
-
-<span class="s1">EventBus.publish(&#39;</span><span class="n">event1</span><span class="s1">&#39;, &#39;</span><span class="n">hello</span> <span class="n">World</span><span class="o">!</span><span class="s1">&#39;);</span>
-<span class="s1">// -&gt; event1:hello World!</span>
-
-<span class="s1">/*Подключаем Подписчика №2*/</span>
-
-<span class="s1">EventBus.subscribe(&#39;</span><span class="n">event1</span><span class="s1">&#39;, function (data) {</span>
-<span class="s1">  console.log(data, &#39;</span><span class="n">Let</span><span class="err">\</span><span class="s1">&#39;s rock&#39;</span><span class="p">);</span>
-<span class="p">}</span><span class="o">)</span>
-<span class="o">//</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">hello</span> <span class="nt">World</span><span class="o">!</span><span class="nt">Let</span><span class="s1">&#39;s rock</span>
-
-<span class="s1">/*Запускаем Издателя*/</span>
-
-<span class="s1">EventBus.publish(&#39;</span><span class="nt">event1</span><span class="s1">&#39;, &#39;</span><span class="nt">hello</span> <span class="nt">Mars</span><span class="o">!</span><span class="s1">&#39;);</span>
-<span class="s1">// -&gt; event1:hello Mars!</span>
-<span class="s1">// -&gt; hello Mars!Let&#39;</span><span class="nt">s</span> <span class="nt">rock</span>
-</code></pre></div>
-
-<h2 id="_3">Особенности работы</h2>
-<ul>
-<li>Издателям не важно, в каком месте кода написан подписчик, они все равно подцепятся и сработают.</li>
-<li>К одному Издателю можно подключить сколько угодно подписчиков, сработают они по порядку написания</li>
-</ul>
-<h2 id="api">Работа со стандартными действиями на сайте (API)</h2>
-<p>Наиболее часто используемые действия пользователя в интернет-магазине, уже написаны в API и подключены как Издатели.
-Чтобы подключиться к ним (подписаться), нужно только написать имя Издателя (события)( например добавление товара в корзину забито как <code>add_items:insales:cart</code>) и в функции написать свой скрипт.</p>
-<p>Выглядеть это будет примерно так:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">EventBus.subscribe(&#39;add_items:insales:cart&#39;, function (data) {</span>
-<span class="err">console.log(&#39;add_items:insales:cart:&#39;, data);</span>
-<span class="err">});</span>
-</code></pre></div>
-
-<p>Где <code>data</code> - это json обьект с данными о добавленном товаре (название, количество и т.д.), который отдается Издателем (в данном случае <code>add_items:insales:cart</code>).</p>
-<p>Таким образом, мы можем реагировать на большинство стандартных событий в нашем Интернет-магазине при его срабатывании, или создать свое собственное событие, и подключать туда слушателей.</p>
                 
               
               
@@ -1899,7 +2074,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../%D0%9A%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1908,19 +2083,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Корзина
+                Добро пожаловать!
               </div>
             </div>
           </a>
         
         
-          <a href="../../reCAPTCHA/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Общие сведения
+                Подключение внешнего способа оплаты (для разработчиков интеграций)
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

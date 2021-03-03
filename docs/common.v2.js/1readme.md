@@ -1,4 +1,4 @@
-# Вводная.
+# Вводная
 
 Данный раздел посвящен библиотеке `common.v2.js`
 
@@ -6,7 +6,11 @@
 
 ## Подключение
 
-В шаблоны `layots.{layout,checkout2,client_account}.liquid` добавить тег `{% include_insales_scripts "common-js@v2" %}`
+В шаблоны `layots.{layout,checkout2,client_account}.liquid` добавить тег `include_insales_scripts` с параметром `common-js@v2`
+
+```
+{% include_insales_scripts "common-js@v2" %}
+```
 
 Так же можно подключить через settings_data.json, прописав там поле - "common_js_version": "v2".
 

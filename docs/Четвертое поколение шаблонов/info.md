@@ -17,6 +17,7 @@
 - С блоками
 
 Значения:
+
 - SimpleWidgetType
 - block_list_widget_type
 
@@ -52,6 +53,7 @@
 widget_list_kinds":["content", "sidebar"],
 ```
 Может содержать элементы из следующего списка:
+
 - content
 - header
 - footer
@@ -91,6 +93,9 @@ widget_list_kinds":["content", "sidebar"],
 - Фильтры	| filters
 - Формы	| forms
 - Шапки	| headers
+- Ранее просмотренные товары | recently-viewed
+- Избранное | favorites
+- Статьи | articles
 
 
 ## block_template_handle

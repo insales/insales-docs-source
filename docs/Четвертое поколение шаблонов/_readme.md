@@ -98,3 +98,9 @@
   {% widget widgetDrop %}
 {% endfor %}
 ```
+
+Стили и скрипты виджетов выводятся отдельным тегом `widgets_assets`, в качестве параметра указываются названия виджет-листов через запятую.
+
+```liquid
+{% widgets_assets "header-list, footer-list, index-list" %}
+```

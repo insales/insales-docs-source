@@ -1683,6 +1683,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Вывод на сайт
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1878,6 +1885,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Вывод на сайт
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1965,6 +1979,14 @@
 <h3 id="_6">редактора сайта</h3>
 <p>В редакторе достаточно нажать на кнопку <code>+</code>. Будет предоставлен список доступных виджетов.</p>
 <p>Разместив виджет на сайте, он автоматически запишется в setup.json при скачивании архива шаблона.</p>
+<hr />
+<h2 id="_7">Вывод на сайт</h2>
+<p>Виджет-листы доступны в переменной <code>widget_lists</code>.</p>
+<p>Пример вывода виджетов из виджет-листа <code>index-list</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>widgetDrop<span class="w"> </span>in<span class="w"> </span>widget_lists.index-list.widgets<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">widget</span><span class="w"> </span>widgetDrop<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
                 
               
               

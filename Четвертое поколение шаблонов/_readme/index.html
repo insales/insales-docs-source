@@ -1656,6 +1656,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Добавление
+  </a>
+  
+    <nav class="md-nav" aria-label="Добавление">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setupjson" class="md-nav__link">
+    setup.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    редактора сайта
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1824,6 +1851,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Добавление
+  </a>
+  
+    <nav class="md-nav" aria-label="Добавление">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setupjson" class="md-nav__link">
+    setup.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    редактора сайта
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1866,10 +1920,51 @@
 <h3 id="-">Через бек-офис</h3>
 <p>Заходим в раздел <code>Настройки -&gt; Виджеты</code></p>
 <p>Там доступно 2 варианта, создать с нуля или импортировать уже готовый виджет.</p>
+<p>При создании нужно будет выбрать тему к которой привяжется виджет.</p>
 <h3 id="_4">При загрузке шаблона</h3>
 <p>В директории шаблона, виджеты находятся в папке <code>widget_types</code>.</p>
 <p>Имя папки виджета должно совпадать с полем <code>handle</code> в файле <code>info.json</code>.</p>
 <p>Запрещено указывать названия с префиксом <code>system_</code>.</p>
+<hr />
+<h2 id="_5">Добавление</h2>
+<p>Добавить виджет можно 2 способами:</p>
+<ol>
+<li>Через setup.json</li>
+<li>Через интерфейс визуального редактора сайта</li>
+</ol>
+<h3 id="setupjson">setup.json</h3>
+<p>Фрагмент в котором мы добавили виджет с пермалинком <code>system_widget_v4_promo_slider_4</code> к виджет-листу <code>index-list</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;theme_widgets&quot;</span><span class="p">:{</span>
+  <span class="nt">&quot;widget_lists&quot;</span><span class="p">:[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;index&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;index-list&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;content&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;widgets&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;settings_data&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;hide-mobile&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;hide-desktop&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;img-ratio&quot;</span><span class="p">:</span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;autoplay&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;autoplay-delay&quot;</span><span class="p">:</span><span class="s2">&quot;5&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;widget_type&quot;</span><span class="p">:</span><span class="s2">&quot;system_widget_v4_promo_slider_4&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;data_handle&quot;</span><span class="p">:</span><span class="s2">&quot;block-list-slider&quot;</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<blockquote>
+<p>Виджет-листы требуются для разделения списков на области и страницы.</p>
+<p>Так как список виджетов главной страницы будет отличаться от списка виджетов каталога. И для виджеты основного контента необходимо отделить от виджетов подвала/сайдбара/хедера.</p>
+</blockquote>
+<h3 id="_6">редактора сайта</h3>
+<p>В редакторе достаточно нажать на кнопку <code>+</code>. Будет предоставлен список доступных виджетов.</p>
+<p>Разместив виджет на сайте, он автоматически запишется в setup.json при скачивании архива шаблона.</p>
                 
               
               

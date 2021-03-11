@@ -1,32 +1,10 @@
 # Товар
 
-### Назначение атрибутов
+## Назначение атрибутов
 
 ![](/img/product-sheme.jpg)
 
-| Атрибут               | Назначение                                                                                                                                                | Расположение                                                  |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| data-product-id       | Обязательный атрибут для инициализации товара, принимает id товара                                                                                        | Тег form который является обёрткой для всех полей товара      |
-|data-product-without-cache| Отключить кеширование информации о данном товаре| Тег с атрибутом data-product-id |
-| action                | Обязательный атрибут для формы добавления товара в корзину, принимает url корзины. Тег необходим для отправки формы при отключенном JavaScript в браузере | Тег form который является обёрткой для всех полей товара      |
-| data-product-variants | Обязательный атрибут для вывода Option Selectors                                                                                                          | Тег select в котором выведены все модификации товара          |
-| data-quantity         | Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity                                                                           | Внутри формы с атрибутом data-product-id                      |
-| data-quantity-change  | Атрибут для кнопок +/-, принимает число                                                                                                                   | Внутри обёртки с атрибутом data-quantity                      |
-| data-item-add         | Добавление товара в корзину, для данного атрибута следует использовать тег button\[type="submit"\]                                                        | Внутри формы с атрибутом data-product-id                      |
-| name="comment"        | Комментарий к позиции заказа, для работы поля с данным атрибутом комментарии к заказам должны быть включены в бэк-офисе                                   | Input\[type="text"\] внутри формы с атрибутом data-product-id |
-|data-product-json="{{ product\|json\|escape }}"|Передать данные о товаре через ликвид. Это может ускорить отображение селектора модификаций|Тег form который является обёрткой для всех полей товара|
-
-Для установки минимального значения в инпуте кол-ва товара укажите атрибут data-min
-```twig
-  <div data-quantity data-min="10">
-    <input type="text" name="quantity" value="10" />
-    <span data-quantity-change="-10">-</span>
-    <span data-quantity-change="10">+</span>
-  </div>
-```
-
-
-### Разметка товара
+## Пример разметки товара
 
 ```twig
 <form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
@@ -50,6 +28,74 @@
   </button>
 </form>
 ```
+
+### Атрибуты корневого элемента
+
+#### data-product-id
+
+Обязательный атрибут для инициализации товара, принимает id товара
+
+#### data-product-without-cache
+
+Отключить кеширование информации о данном товаре
+
+#### data-product-json
+
+Передать данные о товаре через ликвид. Это может ускорить отображение селектора модификаций
+
+```
+data-product-json="{{ product|json|escape }}"
+```
+
+### Вложенные элементы
+
+#### data-product-variants
+
+Обязательный атрибут для вывода Option Selectors
+
+```
+  {% if product.show_variants? %}
+    <select name="variant_id" data-product-variants>
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
+  {% endif %}
+```
+
+#### data-quantity
+
+Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity
+
+Для установки минимального значения в инпуте кол-ва товара укажите атрибут data-min
+```twig
+  <div data-quantity data-min="10">
+    <input type="text" name="quantity" value="10" />
+    <span data-quantity-change="-10">-</span>
+    <span data-quantity-change="10">+</span>
+  </div>
+```
+
+#### data-quantity-change
+
+Атрибут для кнопок +/-, принимает число
+
+
+#### data-item-add
+
+Добавление товара в корзину
+
+
+#### name="comment"
+
+Комментарий к позиции заказа, для работы поля с данным атрибутом комментарии к заказам должны быть включены в бэк-офисе
+
+```
+<input type="text" name="comment" value="">
+```
+
 
 
 ## События

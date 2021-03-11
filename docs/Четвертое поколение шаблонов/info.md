@@ -42,6 +42,7 @@
 - blog
 - compare
 - article
+- favorite
 
 ## widget_list_kinds
 

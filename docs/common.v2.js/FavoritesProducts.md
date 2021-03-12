@@ -134,7 +134,7 @@ EventBus.subscribe('update_items:insales:favorites_products', (data) => {
 
 ```js
 EventBus.subscribe('remove_item:insales:favorites_products', (data) => {
-  $widget.find('[data-product-id="'+data.action.item+'"]').fadeOut()
+  $('.favorites [data-product-id="'+data.action.item+'"]').fadeOut()
 })
 ```
 

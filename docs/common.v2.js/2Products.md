@@ -8,6 +8,23 @@
 
 ```twig
 <form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
+  <div class="product__sku">
+    <span data-product-card-sku='{
+        "skuLabel": "Артикул."
+      }'
+    ></span>
+  </div>
+
+  <span data-product-card-available='{
+      "availableText": "Товар в наличии",
+      "notAvailableText": "Нет в наличии"
+    }'
+  >
+  </span>
+
+  <div data-product-card-old-price></div>
+  <div data-product-card-price></div>
+
   {% if product.show_variants? %}
     <select name="variant_id" data-product-variants>
       {% for variant in product.variants %}
@@ -17,15 +34,24 @@
   {% else %}
     <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
   {% endif %}
+
   <input type="text" name="comment" value="">
-  <div data-quantity>
+
+  <div data-quantity data-min="1">
     <input type="text" name="quantity" value="1" />
     <span data-quantity-change="-1">-</span>
     <span data-quantity-change="1">+</span>
   </div>
+
   <button type="submit" data-item-add>
     Добавить в корзину
   </button>
+
+  {% if account.quick_checkout.enabled %}
+    <button data-quick-checkout="[data-product-id='{{ product.id }}']">
+      Купить в 1 клик
+    </button>
+  {% endif %}
 </form>
 ```
 

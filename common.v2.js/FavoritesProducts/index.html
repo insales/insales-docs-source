@@ -2188,7 +2188,7 @@
 <h3 id="remove_iteminsalesfavorites_products">remove_item:insales:favorites_products</h3>
 <p>Товар удален из избранного</p>
 <div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">$widget</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.favorites [data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span>
 <span class="p">})</span>
 </code></pre></div>
 

@@ -85,11 +85,70 @@ data-product-json="{{ product|json|escape }}"
 
 #### data-product-variants
 
-Обязательный атрибут для вывода Option Selectors
+Выбрать вариант для добавления в корзину.
+
+Вариант состоит из свойств, например "Красный/42, Синий/38".
+
+Каждое свойство нужно отобразить отдельно.
+
+Для отображения свойств, нужно добавить атрибут `data-product-variants` в селект со списком вариантов.
+
+В качестве значения можно передать вид отображения свойств.
+
+Доступные виды:
+
+- option-select
+- option-span
+- option-radio
+- option-preview
+- option-default (option-select)
+
+В следующем примере установлен вид по умолчанию `option-select`, для свойства "Цвет" `option-preview`, для свойства "Размер" `option-span`.
 
 ```
   {% if product.show_variants? %}
-    <select name="variant_id" data-product-variants='{"default": "option-radio"}'>
+    <select name="variant_id" data-product-variants='{
+      "default": "option-select",
+      "Цвет": "option-preview",
+      "Размер": "option-span"
+    }'>
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
+  {% endif %}
+```
+
+Можно написать свой вид для выбора свойств. 
+
+В разметку нужно добавить тег script с дата атрибутом `data-template-id` в качестве значения указывается id вида.
+
+```
+<script type="text/template" data-template-id="custom-span">
+  <div class="<%= classes.option %> is-span">
+    <label class="<%= classes.label %>"><%= title %></label>
+    <div class="<%= classes.values %>">
+      <% _.forEach(values, function (value){ %>
+        <button class="<%= value.classes.all %> is-span"
+          <%= value.controls %>
+          <%= value.state %>
+        >
+          <%= value.title %>
+        </button>
+      <% }) %>
+    </div>
+  </div>
+</script>
+```
+
+После чего можно указать свой шаблон по умолчанию.
+```
+  {% if product.show_variants? %}
+    <select name="variant_id" data-product-variants='{
+      "default": "custom-span"
+    }'>
       {% for variant in product.variants %}
         <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
       {% endfor %}

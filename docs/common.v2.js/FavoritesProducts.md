@@ -19,7 +19,7 @@
     </div>
   {% endfor %}
 {% else %}
-Избранное пусто
+  Избранное пусто
 {% endif %}
 ```
 
@@ -118,6 +118,12 @@ FavoritesProducts.update();
 
 Список избранного обновлен
 
+```js
+EventBus.subscribe('update_items:insales:favorites_products', (data) => {
+  console.log(`Товаров в избранном: ${data.products.length}`)
+})
+```
+
 ### add_item:insales:favorites_products
 
 Товар добавлен в избранное 
@@ -125,6 +131,12 @@ FavoritesProducts.update();
 ### remove_item:insales:favorites_products
 
 Товар удален из избранного
+
+```js
+EventBus.subscribe('remove_item:insales:favorites_products', (data) => {
+  $widget.find('[data-product-id="'+data.action.item+'"]').fadeOut()
+})
+```
 
 ### overload:insales:favorites_products
 

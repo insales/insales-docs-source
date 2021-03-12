@@ -2113,7 +2113,7 @@
     &lt;/div&gt;
   <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
-Избранное пусто
+  Избранное пусто
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div>
 
@@ -2178,10 +2178,20 @@
 <h2 id="_5">События</h2>
 <h3 id="update_itemsinsalesfavorites_products">update_items:insales:favorites_products</h3>
 <p>Список избранного обновлен</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update_items:insales:favorites_products&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Товаров в избранном: </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
 <h3 id="add_iteminsalesfavorites_products">add_item:insales:favorites_products</h3>
 <p>Товар добавлен в избранное </p>
 <h3 id="remove_iteminsalesfavorites_products">remove_item:insales:favorites_products</h3>
 <p>Товар удален из избранного</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$widget</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;[data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span>
+<span class="p">})</span>
+</code></pre></div>
+
 <h3 id="overloadinsalesfavorites_products">overload:insales:favorites_products</h3>
 <p>Достигнуто максимальное кол-во товаров избранного</p>
                 

@@ -1402,6 +1402,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#data-set-config" class="md-nav__link">
+    data-set-config
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1991,6 +1998,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#data-set-config" class="md-nav__link">
+    data-set-config
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2178,7 +2192,7 @@
 <span class="x">  &lt;div data-product-card-price&gt;&lt;/div&gt;</span>
 
 <span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="o">?</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">    &lt;select name=&quot;variant_id&quot; data-product-variants&gt;</span>
+<span class="x">    &lt;select name=&quot;variant_id&quot; data-product-variants=&#39;{&quot;default&quot;: &quot;option-radio&quot;}&#39;&gt;</span>
 <span class="x">      </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">        &lt;option value=&quot;</span><span class="cp">{{</span> <span class="nv">variant.id</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span><span class="cp">{{</span> <span class="nv">variant.title</span> <span class="o">|</span> <span class="nf">escape</span> <span class="cp">}}</span><span class="x">&lt;/option&gt;</span>
 <span class="x">      </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
@@ -2217,11 +2231,16 @@
 <div class="codehilite"><pre><span></span><code><span class="x">data-product-json=&quot;</span><span class="cp">{{</span> <span class="nv">product</span><span class="o">|</span><span class="nf">json</span><span class="o">|</span><span class="nf">escape</span> <span class="cp">}}</span><span class="x">&quot;</span>
 </code></pre></div>
 
+<h4 id="data-set-config">data-set-config</h4>
+<p>Передать настройки товара через дата атрибут</p>
+<div class="codehilite"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; data-set-config=&#39;{&quot;decimal&quot;: {&quot;kgm&quot;: 1}}&#39; method=&quot;post&quot; data-product-id=&quot;</span><span class="cp">{{</span> <span class="nv">product.id</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+</code></pre></div>
+
 <h3 id="_5">Вложенные элементы</h3>
 <h4 id="data-product-variants">data-product-variants</h4>
 <p>Обязательный атрибут для вывода Option Selectors</p>
 <div class="codehilite"><pre><span></span><code>  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="p">?</span> <span class="cp">%}</span>
-    <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="err">data-product-variants</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants=</span><span class="s">&#39;{&quot;default&quot;: &quot;option-radio&quot;}&#39;</span><span class="nt">&gt;</span>
       <span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span>
         <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">variant.id</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">variant.title</span> <span class="o">|</span> <span class="nf">escape</span> <span class="cp">}}</span><span class="nt">&lt;/option&gt;</span>
       <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>

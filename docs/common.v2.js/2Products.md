@@ -26,7 +26,7 @@
   <div data-product-card-price></div>
 
   {% if product.show_variants? %}
-    <select name="variant_id" data-product-variants>
+    <select name="variant_id" data-product-variants='{"default": "option-radio"}'>
       {% for variant in product.variants %}
         <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
       {% endfor %}
@@ -73,6 +73,14 @@
 data-product-json="{{ product|json|escape }}"
 ```
 
+#### data-set-config
+
+Передать настройки товара через дата атрибут
+
+```
+<form action="{{ cart_url }}" data-set-config='{"decimal": {"kgm": 1}}' method="post" data-product-id="{{ product.id }}">
+```
+
 ### Вложенные элементы
 
 #### data-product-variants
@@ -81,7 +89,7 @@ data-product-json="{{ product|json|escape }}"
 
 ```
   {% if product.show_variants? %}
-    <select name="variant_id" data-product-variants>
+    <select name="variant_id" data-product-variants='{"default": "option-radio"}'>
       {% for variant in product.variants %}
         <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
       {% endfor %}

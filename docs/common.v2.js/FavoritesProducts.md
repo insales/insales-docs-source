@@ -66,6 +66,7 @@
 #### data-ui-favorites-counter
 
 Атрибут `data-ui-favorites-counter` отвечает за смену цифр. 
+
 Атрибут `data-ui-favorites-counter-btn` меняет классы состояния избранного.
 
 ```

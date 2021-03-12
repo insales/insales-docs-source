@@ -2102,6 +2102,9 @@
 <p>Чтобы отредактировать содержимое страницы, добавьте в папку <code>templates</code> файл <code>favorite.liquid</code>.</p>
 <p>В файле <code>favorite.liquid</code> будет доступен массив товаров в переменной <code>products</code>.</p>
 <p>Избранное хранит только товары, конкретные варианты в избранном не сохраняются.</p>
+<p>Список товаров сохраняется в аккаунте пользователя.</p>
+<p>Если пользователь авторизуется с разных устройств, список будет одинаковый.</p>
+<p>Для оптимизации, список кешируется на 15 секунд, если быстро добавлять товары с разных устройств или разлогиниваться, счётчик может показывать старые значения.</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">products</span><span class="p">.</span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>product<span class="w"> </span>in<span class="w"> </span>products<span class="w"> </span><span class="p">%}</span>
     &lt;div&gt;

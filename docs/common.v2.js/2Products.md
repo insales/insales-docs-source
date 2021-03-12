@@ -103,6 +103,8 @@ data-product-json="{{ product|json|escape }}"
 - option-preview
 - option-default (option-select)
 
+Разметка для видов храниться в commonjs как lodash шаблоны.
+
 В следующем примере установлен вид по умолчанию `option-select`, для свойства "Цвет" `option-preview`, для свойства "Размер" `option-span`.
 
 ```
@@ -121,9 +123,11 @@ data-product-json="{{ product|json|escape }}"
   {% endif %}
 ```
 
-Можно написать свой вид для выбора свойств. 
+##### Шаблоны для вывода свойств
 
-В разметку нужно добавить тег script с дата атрибутом `data-template-id` в качестве значения указывается id вида.
+Можно написать свой шаблон для выбора свойств. 
+
+В разметку нужно добавить тег script с дата атрибутом `data-template-id` в качестве значения указывается id шаблона.
 
 ```
 <script type="text/template" data-template-id="custom-span">

@@ -2160,6 +2160,23 @@
 <p><img alt="" src="/img/product-sheme.jpg" /></p>
 <h2 id="_3">Пример разметки товара</h2>
 <div class="codehilite"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; method=&quot;post&quot; data-product-id=&quot;</span><span class="cp">{{</span> <span class="nv">product.id</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<span class="x">  &lt;div class=&quot;product__sku&quot;&gt;</span>
+<span class="x">    &lt;span data-product-card-sku=&#39;{</span>
+<span class="x">        &quot;skuLabel&quot;: &quot;Артикул.&quot;</span>
+<span class="x">      }&#39;</span>
+<span class="x">    &gt;&lt;/span&gt;</span>
+<span class="x">  &lt;/div&gt;</span>
+
+<span class="x">  &lt;span data-product-card-available=&#39;{</span>
+<span class="x">      &quot;availableText&quot;: &quot;Товар в наличии&quot;,</span>
+<span class="x">      &quot;notAvailableText&quot;: &quot;Нет в наличии&quot;</span>
+<span class="x">    }&#39;</span>
+<span class="x">  &gt;</span>
+<span class="x">  &lt;/span&gt;</span>
+
+<span class="x">  &lt;div data-product-card-old-price&gt;&lt;/div&gt;</span>
+<span class="x">  &lt;div data-product-card-price&gt;&lt;/div&gt;</span>
+
 <span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="o">?</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;select name=&quot;variant_id&quot; data-product-variants&gt;</span>
 <span class="x">      </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span><span class="x"></span>
@@ -2169,15 +2186,24 @@
 <span class="x">  </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;input type=&quot;hidden&quot; name=&quot;variant_id&quot; value=&quot;</span><span class="cp">{{</span><span class="nv">product.variants.first.id</span><span class="cp">}}</span><span class="x">&quot; &gt;</span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+
 <span class="x">  &lt;input type=&quot;text&quot; name=&quot;comment&quot; value=&quot;&quot;&gt;</span>
-<span class="x">  &lt;div data-quantity&gt;</span>
+
+<span class="x">  &lt;div data-quantity data-min=&quot;1&quot;&gt;</span>
 <span class="x">    &lt;input type=&quot;text&quot; name=&quot;quantity&quot; value=&quot;1&quot; /&gt;</span>
 <span class="x">    &lt;span data-quantity-change=&quot;-1&quot;&gt;-&lt;/span&gt;</span>
 <span class="x">    &lt;span data-quantity-change=&quot;1&quot;&gt;+&lt;/span&gt;</span>
 <span class="x">  &lt;/div&gt;</span>
+
 <span class="x">  &lt;button type=&quot;submit&quot; data-item-add&gt;</span>
 <span class="x">    Добавить в корзину</span>
 <span class="x">  &lt;/button&gt;</span>
+
+<span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">account.quick_checkout.enabled</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">    &lt;button data-quick-checkout=&quot;[data-product-id=&#39;</span><span class="cp">{{</span> <span class="nv">product.id</span> <span class="cp">}}</span><span class="x">&#39;]&quot;&gt;</span>
+<span class="x">      Купить в 1 клик</span>
+<span class="x">    &lt;/button&gt;</span>
+<span class="x">  </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
 

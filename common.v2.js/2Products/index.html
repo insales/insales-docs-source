@@ -2238,9 +2238,59 @@
 
 <h3 id="_5">Вложенные элементы</h3>
 <h4 id="data-product-variants">data-product-variants</h4>
-<p>Обязательный атрибут для вывода Option Selectors</p>
+<p>Выбрать вариант для добавления в корзину.</p>
+<p>Вариант состоит из свойств, например "Красный/42, Синий/38".</p>
+<p>Каждое свойство нужно отобразить отдельно.</p>
+<p>Для отображения свойств, нужно добавить атрибут <code>data-product-variants</code> в селект со списком вариантов.</p>
+<p>В качестве значения можно передать вид отображения свойств.</p>
+<p>Доступные виды:</p>
+<ul>
+<li>option-select</li>
+<li>option-span</li>
+<li>option-radio</li>
+<li>option-preview</li>
+<li>option-default (option-select)</li>
+</ul>
+<p>В следующем примере установлен вид по умолчанию <code>option-select</code>, для свойства "Цвет" <code>option-preview</code>, для свойства "Размер" <code>option-span</code>.</p>
 <div class="codehilite"><pre><span></span><code>  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="p">?</span> <span class="cp">%}</span>
-    <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants=</span><span class="s">&#39;{&quot;default&quot;: &quot;option-radio&quot;}&#39;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants=</span><span class="s">&#39;{</span>
+<span class="s">      &quot;default&quot;: &quot;option-select&quot;,</span>
+<span class="s">      &quot;Цвет&quot;: &quot;option-preview&quot;,</span>
+<span class="s">      &quot;Размер&quot;: &quot;option-span&quot;</span>
+<span class="s">    }&#39;</span><span class="nt">&gt;</span>
+      <span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span>
+        <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">variant.id</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">variant.title</span> <span class="o">|</span> <span class="nf">escape</span> <span class="cp">}}</span><span class="nt">&lt;/option&gt;</span>
+      <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span><span class="nv">product.variants.first.id</span><span class="cp">}}</span><span class="s">&quot;</span> <span class="nt">&gt;</span>
+  <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>Можно написать свой вид для выбора свойств. </p>
+<p>В разметку нужно добавить тег script с дата атрибутом <code>data-template-id</code> в качестве значения указывается id вида.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id=</span><span class="s">&quot;custom-span&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;</span><span class="cp">&lt;%=</span> <span class="n">classes</span><span class="o">.</span><span class="n">option</span> <span class="cp">%&gt;</span><span class="s"> is-span&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">&quot;</span><span class="cp">&lt;%=</span> <span class="n">classes</span><span class="o">.</span><span class="n">label</span> <span class="cp">%&gt;</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;%=</span> <span class="n">title</span> <span class="cp">%&gt;</span><span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;</span><span class="cp">&lt;%=</span> <span class="n">classes</span><span class="o">.</span><span class="n">values</span> <span class="cp">%&gt;</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+      <span class="cp">&lt;%</span> <span class="n">_</span><span class="o">.</span><span class="n">forEach</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">value</span><span class="p">){</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">&quot;</span><span class="cp">&lt;%=</span> <span class="n">value</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">all</span> <span class="cp">%&gt;</span><span class="s"> is-span&quot;</span>
+          <span class="cp">&lt;%=</span> <span class="n">value</span><span class="o">.</span><span class="n">controls</span> <span class="cp">%&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">value</span><span class="o">.</span><span class="n">state</span> <span class="cp">%&gt;</span>
+        <span class="nt">&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">value</span><span class="o">.</span><span class="n">title</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="cp">&lt;%</span> <span class="p">})</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+<p>После чего можно указать свой шаблон по умолчанию.</p>
+<div class="codehilite"><pre><span></span><code>  <span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="p">?</span> <span class="cp">%}</span>
+    <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants=</span><span class="s">&#39;{</span>
+<span class="s">      &quot;default&quot;: &quot;custom-span&quot;</span>
+<span class="s">    }&#39;</span><span class="nt">&gt;</span>
       <span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span>
         <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">variant.id</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">variant.title</span> <span class="o">|</span> <span class="nf">escape</span> <span class="cp">}}</span><span class="nt">&lt;/option&gt;</span>
       <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>

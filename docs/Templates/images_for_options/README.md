@@ -27,3 +27,14 @@
 Ссылки к изображениям доступны только в корневом объекте `product` в свойстве `images`.
 
 ![](/img/json_variant_images.jpg)
+
+### Получить изображения текущего варианта
+
+```js
+EventBus.subscribe('update_variant:insales:product', (data) => {
+  let productImages = data.action.productJSON.images;
+  let variantImages = productImages.filter((image) => {
+    return data.image_ids.includes(image.id);
+  })
+});
+```

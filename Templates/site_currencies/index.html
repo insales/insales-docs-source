@@ -1917,6 +1917,7 @@
                 
                 
                 <h1 id="_1">Мультивалютность</h1>
+<p>Валюта изменяется на всех страницах кроме личного кабинета и чекаута, по этой причине стоит использовать проверку на доступность смены валюты (<code>allow_change_site_currency</code>).</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">allow_change_site_currency</span><span class="w"> </span><span class="p">%}</span>
 &lt;form action=&quot;/site_currencies/update_current&quot; method=&quot;post&quot;&gt;
   &lt;select name=&quot;site_currency_code&quot; onchange=&quot;this.parentNode.submit()&quot;&gt;

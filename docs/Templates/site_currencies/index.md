@@ -1,5 +1,7 @@
 # Мультивалютность
 
+Валюта изменяется на всех страницах кроме личного кабинета и чекаута, по этой причине стоит использовать проверку на доступность смены валюты (`allow_change_site_currency`).
+
 ```liquid
 {% if allow_change_site_currency %}
 <form action="/site_currencies/update_current" method="post">

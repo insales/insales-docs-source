@@ -1893,8 +1893,10 @@
                 
                 <h1 id="_1">Изображения вариантов</h1>
 <h2 id="-">Бек-офис</h2>
+<p>К варианту можно добавить изображения из основного массива изображений товара.</p>
 <p><img alt="" src="/img/images_variants.jpg" /></p>
 <h2 id="liquid">Liquid</h2>
+<p>В переменной <code>variant</code> доступен массив <code>images</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;variant_gallery&quot;</span> <span class="na">data-variant-gallery=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">variant.id</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">image</span> <span class="k">in</span> <span class="nv">variant.images</span> <span class="cp">%}</span>
@@ -1905,6 +1907,8 @@
 </code></pre></div>
 
 <h2 id="json">JSON</h2>
+<p>У варианта есть массив <code>image_ids</code> который состоит из id изображений товара. </p>
+<p>Ссылки к изображениям доступны только в корневом объекте <code>product</code> в свойстве <code>images</code>.</p>
 <p><img alt="" src="/img/json_variant_images.jpg" /></p>
                 
               

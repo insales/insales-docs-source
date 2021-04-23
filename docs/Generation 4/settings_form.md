@@ -80,11 +80,10 @@
           "group_name":"Подгруппа 1",
           "items":[
             {
-              "name":"color_text",
-              "label":"Цвет текста",
-              "value":"#ffffff",
+              "name":"main_text",
+              "label":"Текст",
               "help":"",
-              "type":"color"
+              "type":"text"
             }
           ]
         }

@@ -18,9 +18,24 @@
 
 Значения:
 
-- SimpleWidgetType
-- block_list_widget_type
+- SimpleWidgetType (виджет без блоков)
+- block_list_widget_type (виджет с блоками)
 
+## handle
+
+путь к репе
+
+Значения:
+
+- system_widget_v4_alerts
+
+## sku
+
+Уникальный id
+
+Значения:
+
+- NN1
 
 ## page_kinds
 
@@ -32,17 +47,17 @@
 
 Может содержать элементы из следующего списка:
 
-- all
-- index
-- collection
-- product
-- cart
+- all - все страницы
+- index - главная страница
+- collection - страница коллекций 
+- product - страница продукта
+- cart - страницы корзины
 - page
-- search
-- blog
-- compare
-- article
-- favorite
+- search  - страницы поиска
+- blog - страницы блога
+- compare - страница сравнения
+- article - страница статьи
+- favorite - страница избранного
 
 ## widget_list_kinds
 

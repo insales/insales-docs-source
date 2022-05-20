@@ -200,6 +200,7 @@ widget_list_kinds":["content", "sidebar"],
 - system-text-link | Поля: Текст (Текст), Ссылка (Универсальная ссылка)
 - system-title-and-content | Поля: Содержание (HTML)
 - system-widget-feedback | Поля: Текст на кнопке (Текст)
+
 Пример:
 ```
 {

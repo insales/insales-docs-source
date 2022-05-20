@@ -73,7 +73,7 @@
 Нужен чтобы например в виджетлисте сайдбара не было виджетов шапки/футера.
 
 ```
-widget_list_kinds":["content", "sidebar"],
+"widget_list_kinds":["before_content", "content", "after_content"]
 ```
 Может содержать элементы из следующего списка:
 
@@ -121,6 +121,8 @@ widget_list_kinds":["content", "sidebar"],
 - Ранее просмотренные товары | recently-viewed
 - Избранное | favorites
 - Статьи | articles
+- Видео | video
+- Истории | stories
 
 
 ### block_template_handle
@@ -241,7 +243,10 @@ widget_list_kinds":["content", "sidebar"],
 - my-layout	| Github: https://github.com/insales/my-layout
 - vanilla-lazyload | Github: https://github.com/verlok/vanilla-lazyload
 - splide | Документация: https://splidejs.com/
+- splide3 | Документация: https://splidejs.com/
 - fslightbox | Документация: https://fslightbox.com/
 - micromodal | Документация: https://micromodal.vercel.app/
 - body-scroll-lock | Документация: https://www.npmjs.com/package/body-scroll-lock
-- body-scroll-lock | Документация: https://www.npmjs.com/package/body-scroll-lock
+- js-cookie | Документация: https://github.com/js-cookie/js-cookie/releases
+- cut-list | Документация: https://github.com/insales/jquery.cut-list
+- nouislider | Документация: https://refreshless.com/nouislider/

@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1161,70 +1161,70 @@
 <h1 id="_1">Презент, Монпансье, Плэнер</h1>
 <h2 id="jqueryserialize-objectjs">jquery.serialize-object.js</h2>
 <p>Заменить:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">validate</span><span class="o">:</span> <span class="sr">/^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i</span><span class="p">,</span>
-  <span class="nx">key</span><span class="o">:</span>      <span class="sr">/[a-z0-9_]+|(?=\[\])/gi</span><span class="p">,</span>
-  <span class="nx">push</span><span class="o">:</span>     <span class="sr">/^$/</span><span class="p">,</span>
-  <span class="nx">fixed</span><span class="o">:</span>    <span class="sr">/^\d+$/</span><span class="p">,</span>
-  <span class="nx">named</span><span class="o">:</span>    <span class="sr">/^[a-z0-9_]+$/i</span>
-<span class="p">};</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">patterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">validate</span><span class="o">:</span><span class="w"> </span><span class="sr">/^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">key</span><span class="o">:</span><span class="w">      </span><span class="sr">/[a-z0-9_]+|(?=\[\])/gi</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">push</span><span class="o">:</span><span class="w">     </span><span class="sr">/^$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fixed</span><span class="o">:</span><span class="w">    </span><span class="sr">/^\d+$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">named</span><span class="o">:</span><span class="w">    </span><span class="sr">/^[a-z0-9_]+$/i</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <p>Вставить:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">validate</span><span class="o">:</span> <span class="sr">/^[a-z_\-][a-z0-9_\-]*(?:\[(?:\d*|[a-z0-9_\-]+)\])*$/i</span><span class="p">,</span>
-  <span class="nx">key</span><span class="o">:</span>      <span class="sr">/[a-z0-9_\-]+|(?=\[\])/gi</span><span class="p">,</span>
-  <span class="nx">push</span><span class="o">:</span>     <span class="sr">/^$/</span><span class="p">,</span>
-  <span class="nx">fixed</span><span class="o">:</span>    <span class="sr">/^\d+$/</span><span class="p">,</span>
-  <span class="nx">named</span><span class="o">:</span>    <span class="sr">/^[a-z0-9_\-]+$/i</span>
-<span class="p">};</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">patterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">validate</span><span class="o">:</span><span class="w"> </span><span class="sr">/^[a-z_\-][a-z0-9_\-]*(?:\[(?:\d*|[a-z0-9_\-]+)\])*$/i</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">key</span><span class="o">:</span><span class="w">      </span><span class="sr">/[a-z0-9_\-]+|(?=\[\])/gi</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">push</span><span class="o">:</span><span class="w">     </span><span class="sr">/^$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fixed</span><span class="o">:</span><span class="w">    </span><span class="sr">/^\d+$/</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">named</span><span class="o">:</span><span class="w">    </span><span class="sr">/^[a-z0-9_\-]+$/i</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="pluginalertifyjs">plugin.alertify.js</h2>
 <p>Заменить:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"></span>
 </code></pre></div>
 
 <p>Вставить:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nx">errorText</span> <span class="o">=</span> <span class="p">(</span><span class="ow">typeof</span> <span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">error</span> <span class="o">:</span> <span class="nx">error</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
-<span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">errorText</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">errorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">error</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w"></span>
+<span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">errorText</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="mainjs">main.js</h2>
 <p>Добавить перед:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span> <span class="o">!=</span> <span class="s1">&#39;index&#39;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="s1">&#39;.js-widget-feedback&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="s1">&#39;.js-widget-feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 </code></pre></div>
 
 <p>Код инициализации капчи</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span><span class="w"></span>
 
-  <span class="kd">var</span> <span class="nx">recaptchaVerify</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">jquery</span><span class="p">(</span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-  <span class="p">};</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
-  <span class="kd">var</span> <span class="nx">recapchaNative</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#feedback_form .js-recaptcha-field, #feedback_form [name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">recapchaNative</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mf">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#feedback_form&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div/&gt;&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="kd">class</span><span class="o">:</span> <span class="s1">&#39;js-recaptcha-field&#39;</span>
-    <span class="p">}))</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">recapchaNative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#feedback_form .js-recaptcha-field, #feedback_form [name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">recapchaNative</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#feedback_form&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div/&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">class</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;js-recaptcha-field&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}))</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-recaptcha-field&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">360</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-size&#39;</span><span class="p">,</span> <span class="s1">&#39;compact&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;compact&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="nx">grecaptchaWidget</span> <span class="o">=</span> <span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span> <span class="p">{</span>
-      <span class="nx">sitekey</span><span class="o">:</span> <span class="nx">key</span><span class="p">,</span>
-      <span class="nx">callback</span><span class="o">:</span> <span class="nx">recaptchaVerify</span>
-    <span class="p">});</span>
-    <span class="nb">window</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">grecaptchaWidget</span><span class="o">:</span> <span class="nx">grecaptchaWidget</span> <span class="p">};</span>
-  <span class="p">});</span>
-<span class="p">})</span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.js-recaptcha-field&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">360</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-size&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;compact&#39;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;compact&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">grecaptchaWidget</span><span class="o">:</span><span class="w"> </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="mainjs_1">main.js</h2>
@@ -1248,9 +1248,9 @@
 
 <h2 id="widget_feedbackliquid">widget_feedback.liquid</h2>
 <p>Перед закрытием формы добавить</p>
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-xl-12&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">&quot;js-recaptcha-field&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
-<span class="o">&lt;</span><span class="err">/div&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-xl-12&quot;</span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;js-recaptcha-field&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
+<span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="modalsliquid">modals.liquid</h2>
@@ -1354,7 +1354,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
     
   </body>

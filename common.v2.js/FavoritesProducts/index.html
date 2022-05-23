@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1441,18 +1441,18 @@
 <h2 id="_5">События</h2>
 <h3 id="update_itemsinsalesfavorites_products">update_items:insales:favorites_products</h3>
 <p>Список избранного обновлен</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update_items:insales:favorites_products&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Товаров в избранном: </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<span class="p">})</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update_items:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Товаров в избранном: </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </code></pre></div>
 
 <h3 id="add_iteminsalesfavorites_products">add_item:insales:favorites_products</h3>
 <p>Товар добавлен в избранное </p>
 <h3 id="remove_iteminsalesfavorites_products">remove_item:insales:favorites_products</h3>
 <p>Товар удален из избранного</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.favorites [data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span>
-<span class="p">})</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.favorites [data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
 </code></pre></div>
 
 <h3 id="overloadinsalesfavorites_products">overload:insales:favorites_products</h3>
@@ -1525,7 +1525,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
     
   </body>

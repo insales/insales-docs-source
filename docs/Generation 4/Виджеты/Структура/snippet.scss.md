@@ -23,3 +23,70 @@
   }
 }
 ```
+
+Можно использовать уже готовый миксин, чтобы при изменении цвета фона, цвет текста менялся на читаемый:
+
+```scss
+@include background-color(--bg);
+```
+
+В стилях можно прописывать состояния для класса css при изменении настроек, пример:
+
+```scss
+&[style*="--article-hide-photo:true"] {
+  .article-photo {
+    display: none!important;
+  }
+}
+```
+
+###где:
+- & - автоматически генерируемый класс виджета
+- article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/Generation%204/Виджеты/Структура/settings_data/#setting_data_name">setting_data.json</a>
+
+
+###Переменные
+С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают по <a href="https://insales.github.io/my-layout/#" target="_blank">ссылке</a>
+
+Пример:
+```scss
+.reviews {
+  .date {
+    color: var(--color-text-half-shade);
+  }
+  .author {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
+
+```
+Мы используем методолгию БЭМ, grid-areas и поддерживаем последние версии браузеров.
+
+Пример:
+```scss
+.product {
+  display: grid;
+  grid-template-areas: "photo info"
+                       "photo title"
+    				           "photo price"
+                       "photo variants"
+                       "photo description"
+    				           "photo properties"
+                       "photo buy"
+                       "photo calculate-delivery"
+                       "photo link";
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: repeat(7,auto) 1fr;
+  grid-column-gap: 2rem;
+  &__area-photo {
+    grid-area: photo;
+    min-width: 0;
+    position: relative;
+  }
+  &__area-title {
+    grid-area: title;
+  }
+}
+
+```

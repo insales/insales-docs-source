@@ -410,9 +410,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          snippet.liquid
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         snippet.liquid
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    В примере ниже:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Пример:
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Другие примеры:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1160,6 +1211,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    В примере ниже:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Пример:
+  </a>
+  
+    <nav class="md-nav" aria-label="Пример:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Другие примеры:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1177,8 +1263,95 @@
 
 
 <h1 id="snippetliquid">snippet.liquid</h1>
-<div class="codehilite"><pre><span></span><code><span class="x">&lt;!-- Контент --&gt;</span>
+<p>Переменные в шаблонах InSales. С полной документацией можно ознакоиться по ссылке - <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a></p>
+<h4 id="_1">В примере ниже:</h4>
+<ul>
+<li>widget_settings.layout-wide-content - берем layout-wide-content из настроек виджета</li>
+<li>{% for video in data.blocks %} - Цикл перебирающий блоки </li>
+<li>video.link - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a></li>
+<li>video.image - Изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a> </li>
+</ul>
+<h3 id="_2">Пример:</h3>
+<div class="codehilite"><pre><span></span><code><span class="cp">{%</span> <span class="k">assign</span> <span class="nv">img_width</span> <span class="o">=</span> <span class="nv">widget_settings.layout</span><span class="o">-</span><span class="nv">content-max-width</span> <span class="o">|</span> <span class="nf">default</span><span class="o">:</span> <span class="nv">settings.layout</span><span class="o">-</span><span class="nv">content-max-width</span>  <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">if</span> <span class="nv">widget_settings.layout</span><span class="o">-</span><span class="nv">wide-content</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">assign</span> <span class="nv">img_width</span> <span class="o">=</span> <span class="m">1920</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner-list__item </span><span class="cp">{%</span> <span class="k">unless</span> <span class="nv">widget_settings.banner</span><span class="o">-</span><span class="nv">img-m</span> <span class="cp">%}</span><span class="s">show-mobile</span><span class="cp">{%</span> <span class="k">endunless</span> <span class="cp">%}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+  <span class="cp">{%</span> <span class="k">assign</span> <span class="nv">img_width</span> <span class="o">=</span> <span class="nv">widget_settings.layout</span><span class="o">-</span><span class="nv">content-max-width</span> <span class="o">|</span> <span class="nf">default</span><span class="o">:</span> <span class="nv">settings.layout</span><span class="o">-</span><span class="nv">content-max-width</span>  <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">widget_settings.layout</span><span class="o">-</span><span class="nv">wide-content</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">assign</span> <span class="nv">img_width</span> <span class="o">=</span> <span class="m">1920</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;h4 heading&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">widget_settings.title_text</span><span class="o">-</span><span class="nv">default</span> <span class="cp">}}</span><span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;gallery-contanier&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;splide gallery-splide&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;splide__slider&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;splide__track&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;splide__list&quot;</span><span class="nt">&gt;</span>
+              <span class="cp">{%</span> <span class="k">assign</span> <span class="nv">slide_index</span> <span class="o">=</span> <span class="m">0</span> <span class="cp">%}</span>
+              <span class="cp">{%</span> <span class="k">for</span> <span class="nv">video</span> <span class="k">in</span> <span class="nv">data.blocks</span> <span class="cp">%}</span>
+              <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;splide__slide&quot;</span> <span class="na">data-slide-index=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">slide_index</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+                <span class="cp">{%</span> <span class="k">if</span> <span class="nv">video.link</span> <span class="o">!=</span> <span class="nv">blank</span> <span class="cp">%}</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;iframe_wrapper&quot;</span><span class="nt">&gt;</span>
+                  <span class="cp">{{</span> <span class="nv">video.link</span> <span class="o">|</span> <span class="nf">video_iframe_by_url</span><span class="o">:</span> <span class="nv">id</span><span class="o">:</span> <span class="nv">video_id</span> <span class="cp">}}</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+                <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;banner-list__empty-video&quot;</span><span class="nt">&gt;</span>
+                  <span class="cp">{{</span><span class="nv">widget_settings.video</span><span class="o">-</span><span class="nv">empty</span><span class="cp">}}</span>
+                <span class="nt">&lt;/div&gt;</span>
+                <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+                <span class="cp">{%</span> <span class="k">if</span> <span class="nv">video.image</span> <span class="cp">%}</span>
+                  <span class="nt">&lt;picture</span> <span class="na">class=</span><span class="s">&quot;picture&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="nv">img_width</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">500</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">768</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">940</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;/picture&gt;</span>
+                <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+                  <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;picture&quot;</span> <span class="na">src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.link</span> <span class="o">|</span> <span class="nf">video_preview_by_url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">style=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="nt">/&gt;</span>
+                <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;&quot;</span> <span class="na">class=</span><span class="s">&quot;button banner-preview__play-btn&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;triangle right&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+              <span class="nt">&lt;/li&gt;</span>
+              <span class="cp">{%</span> <span class="k">assign</span> <span class="nv">slide_index</span> <span class="o">=</span> <span class="nv">slide_index</span> <span class="o">|</span> <span class="nf">plus</span><span class="o">:</span> <span class="m">1</span> <span class="cp">%}</span>
+              <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+            <span class="nt">&lt;/ul&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;thumbnails-contanier js-init&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;splide thumbnails-splide&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;splide__track&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;splide__list&quot;</span><span class="nt">&gt;</span>
+            <span class="cp">{%</span> <span class="k">for</span> <span class="nv">video</span> <span class="k">in</span> <span class="nv">data.blocks</span> <span class="cp">%}</span>
+              <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;splide__slide&quot;</span><span class="nt">&gt;</span>
+                <span class="cp">{%</span> <span class="k">if</span> <span class="nv">video.image</span> <span class="cp">%}</span>
+                  <span class="nt">&lt;picture&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="nv">img_width</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">500</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">768</span><span class="o">,</span> <span class="nv">format</span><span class="o">:</span> <span class="s1">&#39;webp&#39;</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">type=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.image</span> <span class="o">|</span> <span class="nf">image_url</span><span class="o">:</span> <span class="m">940</span><span class="o">,</span> <span class="nv">resizing_type</span><span class="o">:</span> <span class="s1">&#39;fit_width&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">class=</span><span class="s">&quot;lazyload&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;/picture&gt;</span>
+                  <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+                   <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;picture&quot;</span> <span class="na">src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">video.link</span> <span class="o">|</span> <span class="nf">video_preview_by_url</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">style=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="nt">/&gt;</span>
+                <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+              <span class="nt">&lt;/li&gt;</span>
+            <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre></div>
+
+<h4 id="_3">Другие примеры:</h4>
+<ul>
+<li>{{ messages.reviews_are_moderated }} - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a></li>
+<li>{% if editor_mode? %} - Условие - если включен редактор</li>
+</ul>
 
               
             </article>

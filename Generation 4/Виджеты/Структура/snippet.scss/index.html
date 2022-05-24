@@ -424,9 +424,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          snippet.scss
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         snippet.scss
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    где:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Переменные
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1160,6 +1198,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    где:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Переменные
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1195,6 +1255,64 @@
 <span class="w">    </span><span class="nt">--color-text-minor-shade</span><span class="nd">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-text-dark-minor-shade</span><span class="o">);</span><span class="w"></span>
 <span class="w">    </span><span class="nt">--color-text-major-shade</span><span class="nd">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-text-dark-major-shade</span><span class="o">);</span><span class="w"></span>
 <span class="w">    </span><span class="nt">--color-text-half-shade</span><span class="nd">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-text-dark-half-shade</span><span class="o">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Можно использовать уже готовый миксин, чтобы при изменении цвета фона, цвет текста менялся на читаемый:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">@include</span><span class="nd"> background-color</span><span class="p">(</span><span class="o">--</span><span class="n">bg</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+
+<p>В стилях можно прописывать состояния для класса css при изменении настроек, пример:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">&amp;</span><span class="o">[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--article-hide-photo:true&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nc">.article-photo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">none</span><span class="o">!</span><span class="nt">important</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="_1">где:</h3>
+<ul>
+<li>&amp; - автоматически генерируемый класс виджета</li>
+<li>article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/Generation%204/Виджеты/Структура/settings_data/#setting_data_name">setting_data.json</a></li>
+</ul>
+<h3 id="_2">Переменные</h3>
+<p>С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают по <a href="https://insales.github.io/my-layout/#" target="_blank">ссылке</a></p>
+<p>Пример:</p>
+<div class="codehilite"><pre><span></span><code><span class="nc">.reviews</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nc">.date</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">color</span><span class="nd">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--color-text-half-shade</span><span class="o">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nc">.author</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">font-size</span><span class="nd">:</span><span class="w"> </span><span class="nt">1</span><span class="nc">.1rem</span><span class="o">;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">font-weight</span><span class="nd">:</span><span class="w"> </span><span class="nt">bold</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Мы используем методолгию БЭМ, grid-areas и поддерживаем последние версии браузеров.</p>
+<p>Пример:</p>
+<div class="codehilite"><pre><span></span><code><span class="nc">.product</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">display</span><span class="nd">:</span><span class="w"> </span><span class="nt">grid</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grid-template-areas</span><span class="nd">:</span><span class="w"> </span><span class="s2">&quot;photo info&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo title&quot;</span><span class="w"></span>
+<span class="w">                               </span><span class="s2">&quot;photo price&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo variants&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo description&quot;</span><span class="w"></span>
+<span class="w">                               </span><span class="s2">&quot;photo properties&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo buy&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo calculate-delivery&quot;</span><span class="w"></span>
+<span class="w">                       </span><span class="s2">&quot;photo link&quot;</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grid-template-columns</span><span class="nd">:</span><span class="w"> </span><span class="nt">40</span><span class="err">%</span><span class="w"> </span><span class="nt">1fr</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grid-template-rows</span><span class="nd">:</span><span class="w"> </span><span class="nt">repeat</span><span class="o">(</span><span class="nt">7</span><span class="o">,</span><span class="nt">auto</span><span class="o">)</span><span class="w"> </span><span class="nt">1fr</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">grid-column-gap</span><span class="nd">:</span><span class="w"> </span><span class="nt">2rem</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__area-photo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">grid-area</span><span class="nd">:</span><span class="w"> </span><span class="nt">photo</span><span class="o">;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">min-width</span><span class="nd">:</span><span class="w"> </span><span class="nt">0</span><span class="o">;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">position</span><span class="nd">:</span><span class="w"> </span><span class="nt">relative</span><span class="o">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">&amp;</span><span class="nt">__area-title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">grid-area</span><span class="nd">:</span><span class="w"> </span><span class="nt">title</span><span class="o">;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>

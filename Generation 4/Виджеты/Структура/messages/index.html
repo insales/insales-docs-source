@@ -340,9 +340,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          messages.json
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         messages.json
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Пример:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Пример для названий внутри блоков:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1160,6 +1198,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Пример:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Пример для названий внутри блоков:
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1177,6 +1237,63 @@
 
 
 <h1 id="messagesjson">messages.json</h1>
+<p>Переводы настроек, подсказок.
+Ниже пример, где "youtube_link" используемый параметр в файлах типа <em>.liquid, </em>.settings_form.json, а далее идет перевод "Ссылка youtube, vimeo"</p>
+<h3 id="_1">Пример:</h3>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;ru&quot;: {
+    &quot;youtube_link&quot;: &quot;Ссылка youtube, vimeo&quot;,
+    &quot;youtube_link_help&quot;: &quot;Ссылка из вкладки встроить&quot;,
+    &quot;video_image&quot;: &quot;Заставка&quot;
+  },
+  &quot;ua&quot;: {
+    &quot;youtube_link&quot;: &quot;Посилання youtube, vimeo&quot;,
+    &quot;youtube_link_help&quot;: &quot;Посилання з вкладки вбудувати&quot;,
+    &quot;video_image&quot;: &quot;Заставка&quot;
+  },
+  &quot;en&quot;: {
+    &quot;youtube_link&quot;: &quot;Youtube, vimeo link&quot;,
+    &quot;youtube_link_help&quot;: &quot;Link from the embed tab&quot;,
+    &quot;video_image&quot;: &quot;Screensaver&quot;
+  },
+  &quot;es&quot;: {
+    &quot;youtube_link&quot;: &quot;Enlace de youtube, vimeo&quot;,
+    &quot;youtube_link_help&quot;: &quot;Enlace desde la pestaña de inserción&quot;,
+    &quot;video_image&quot;: &quot;Protector de pantalla&quot;
+  }
+}
+</code></pre></div>
+
+<h3 id="_2">Пример для названий внутри блоков:</h3>
+<p>Если вы используете шаблон типа BlockListWidgetType, то перевод доступен через данные ключ-значение, приведенные в примере ниже:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;ru&quot;: {
+    &quot;block_list&quot;: &quot;Список категорий&quot;,
+    &quot;block&quot;: &quot;Категорию&quot;,
+    &quot;blocks&quot;: &quot;Категории&quot;
+  },
+  &quot;ua&quot;: {
+    &quot;block_list&quot;: &quot;Список категорій&quot;,
+    &quot;block&quot;: &quot;Категорію&quot;,
+    &quot;blocks&quot;: &quot;Категорії&quot;
+  },
+  &quot;en&quot;: {
+    &quot;block_list&quot;: &quot;Category list&quot;,
+    &quot;block&quot;: &quot;Category&quot;,
+    &quot;blocks&quot;: &quot;Categories&quot;
+  },
+  &quot;es&quot;: {
+    &quot;block_list&quot;: &quot;Lista de categoría&quot;,
+    &quot;block&quot;: &quot;Categoría&quot;,
+    &quot;blocks&quot;: &quot;Categorías&quot;
+  }
+}
+</code></pre></div>
+
+<p>Где:
+- "blocks" - заголовок. Из примера выше - "Категории"
+- "block" - подставлятся в список блоков, в кнопку "добавить", например "Добавить категорию"
+- "block_list" - "Список категорий"</p>
 
               
             </article>

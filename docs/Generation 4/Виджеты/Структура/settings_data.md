@@ -56,7 +56,7 @@
   "banner-img": "20350744"
 }
 ```
-
+<a name="setting_data_name"></a>
 ### Пример:
 ```
 {

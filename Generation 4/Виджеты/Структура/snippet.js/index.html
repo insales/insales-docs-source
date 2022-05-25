@@ -1177,6 +1177,24 @@
 
 
 <h1 id="snippetjs">snippet.js</h1>
+<p>Мы используем jquery и Javascript.</p>
+<p>Для того чтобы избежать багов при использовании более одного виджета на странице их нужно перебирать через метод each:</p>
+<div class="codehilite"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="p">});</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+
+<p>Можно использовать встроенные события EventBus, подробнее можно почитать по <a href="https://liquidhub.ru/collection/start" target="_blank">ссылке</a></p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;change_variant:insales:product&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]).</span><span class="nx">parents</span><span class="p">(</span><span class="s2">&quot;.modal-product-preview.is-open&quot;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">product_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">      </span><span class="nx">product_node</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.product-preview__photo img&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">medium_url</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
 
               
             </article>

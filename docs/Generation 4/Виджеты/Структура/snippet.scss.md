@@ -45,6 +45,21 @@
 - article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/Generation%204/Виджеты/Структура/settings_data/#setting_data_name">setting_data.json</a>
 
 
+Учитываем две настройки одновременно:
+```scss
+&[style*="--btn-position-vertical-1:100%"][style*="--btn-position-horizontal-1:0"]{
+  .banner-list__item:nth-child(2n + 1) {
+    .banner-list__item-title {
+      margin: -2rem 0 0 2rem;
+      transform: translateX(calc(var(--btn-position-horizontal-1) * -1%)) translateY(calc(var(--btn-position-vertical-1) * -1));
+      @media screen and (max-width: 767px) {
+        margin: -1rem 0 0 1rem;
+      }
+    }
+  }
+}
+```
+
 ###Переменные
 С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают по <a href="https://insales.github.io/my-layout/#" target="_blank">ссылке</a>
 

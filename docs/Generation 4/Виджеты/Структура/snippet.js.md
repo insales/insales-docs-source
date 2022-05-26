@@ -23,3 +23,18 @@ $widget.each(function(index, el) {
     }
   });
 ```
+
+#### Доступные зависимости (плагины). Зависимости используются только те которые установлены на стороне платформы:
+- commonjs_v2 | Фреймворк insales, <a href="https://liquidhub.ru/collection/start" target="_blank">документация</a> 
+- jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
+- microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 
+- my-layout	| <a href="https://github.com/insales/my-layout" target="_blank">Github </a> 
+- vanilla-lazyload | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github </a>
+- splide | <a href="https://splidejs.com/" target="_blank">Документация </a>
+- splide3 | <a href="https://splidejs.com/" target="_blank">Документация </a> 
+- fslightbox | <a href="https://fslightbox.com/" target="_blank">Документация</a> 
+- micromodal | <a href="https://micromodal.vercel.app/" target="_blank">Документация</a>
+- body-scroll-lock | <a href="https://www.npmjs.com/package/body-scroll-lock" target="_blank">Документация</a>
+- js-cookie | <a href="https://github.com/js-cookie/js-cookie/releases" target="_blank">Документация</a>
+- cut-list | <a href=" https://github.com/insales/jquery.cut-list" target="_blank">Документация</a>
+- nouislider | <a href=" https://refreshless.com/nouislider/" target="_blank">Документация</a>

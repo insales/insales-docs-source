@@ -12,14 +12,21 @@
 
 ### type
 
-Типы виджетов:
+##### Типы виджетов:
 - Без привязки блоков
 - С блоками
 
+
+
 Значения:
 
-- SimpleWidgetType (виджет без блоков)
-- block_list_widget_type (виджет с блоками)
+=== "SimpleWidgetType (виджет без блоков)"
+    ![](/img/widget-w-blocks.jpg)
+
+=== "block_list_widget_type (виджет с блоками)"
+
+    ![](/img/widget-v-blocks.jpg)
+
 
 ### handle
 

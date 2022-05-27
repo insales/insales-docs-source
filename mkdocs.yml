@@ -13,6 +13,10 @@ extra:
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
   - codehilite
   - attr_list
   - md_in_html

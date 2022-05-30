@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -354,7 +354,7 @@
   
     <li class="md-nav__item">
       <a href="../../Generation%204/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0/settings_data/" class="md-nav__link">
-        Settings data
+        settings_data.json
       </a>
     </li>
   
@@ -1290,7 +1290,7 @@
 <p>Компонет «Template» отвечает за хранение и получение шаблонов написанных на шаблонизаторе библиотеки lodash.</p>
 <h2 id="_1">Разметка</h2>
 <p>Шаблоны записываются в тег script с обязательными атрибутами <code>type</code>, <code>data-template-id</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-select&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-select&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-select&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">   </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
 <span class="w">   </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">&quot;&lt;%= option.id %&gt;&quot;</span><span class="o">&gt;</span><span class="w"></span>
@@ -1306,23 +1306,21 @@
 <span class="w"> </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h2 id="_2">Методы</h2>
 <blockquote>
 <p>Методы класса <code>Template</code></p>
 </blockquote>
 <h3 id="load">load</h3>
 <p>Загрузка нового шаблона в список</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {string} template_body - верстка шаблона</span>
 <span class="cm">* @param {string} template_id - название шаблона</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="nx">Template</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;&lt;button class=&quot;button button--click_me&quot;&gt;&lt;%= title %&gt;&lt;/button&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test-button&#39;</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="render">render</h3>
 <p>Загрузка нового шаблона в список</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {Object} templateData - информация для шаблонизатора</span>
 <span class="cm">* @param {string} template_id - название шаблона</span>
 <span class="cm"> */</span><span class="w"></span>
@@ -1396,7 +1394,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
     
   </body>

@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -360,7 +360,7 @@
   
     <li class="md-nav__item">
       <a href="../settings_data/" class="md-nav__link">
-        Settings data
+        settings_data.json
       </a>
     </li>
   
@@ -436,21 +436,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    Стилизация таблицы
+  <a href="#number" class="md-nav__link">
+    Число (number)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     Чекбокс
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     Селект
   </a>
   
@@ -464,28 +464,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#button-group" class="md-nav__link">
+    Кнопки (button-group)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     Файл (Пример из настроек шаблона)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     Цвет
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     Отображение свойств
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     Блог
   </a>
   
@@ -497,7 +504,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     Использование настроек
   </a>
   
@@ -1331,21 +1338,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    Стилизация таблицы
+  <a href="#number" class="md-nav__link">
+    Число (number)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     Чекбокс
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     Селект
   </a>
   
@@ -1359,28 +1366,35 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#button-group" class="md-nav__link">
+    Кнопки (button-group)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     Файл (Пример из настроек шаблона)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     Цвет
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     Отображение свойств
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     Блог
   </a>
   
@@ -1392,7 +1406,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     Использование настроек
   </a>
   
@@ -1421,18 +1435,17 @@
 <h2 id="_1">Группы настроек</h2>
 <p>Имеется возможность группировки настроек, которые будут отображаться в виде дропов с заголовком.
 В случае если в настройках будет всего одна группа то заголовок группы отображаться не будет и дроп будет всегда раскрыт.</p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <h2 id="_2">Подгруппы настроек</h2>
 <p>Каждую группу можно разделить на подгруппы которые будут визуально разделять настройки для более удобного их использования.</p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1450,11 +1463,10 @@
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <p>Если вы не хотите разделять настройки на подгруппы то можно использовать такой формат.</p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:[</span><span class="w"></span>
@@ -1465,8 +1477,7 @@
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <h2 id="_3">Варианты полей настроек</h2>
 <p>В настройках можно использовать несколько видов полей настроек: <code>Текст</code> <code>Чекбокс</code> <code>Селект</code> <code>Ползунок</code> <code>Файл</code> <code>Цвет</code>.</p>
 <h3 id="_4">Текст</h3>
@@ -1481,20 +1492,8 @@
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>enable_server_reload</code> - Значение - true/false Перезагрузка шаблона при изменении значения настройки
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<h3 id="_5">Стилизация таблицы</h3>
-<p>Данный вид имеет следующие параметры:
-* <code>name</code> - Идентификатор настройки (должен быть уникальным). 
-* <code>label</code> - Заголовок настройки.
-* <code>value</code> - Значение по умолчанию.
-* <code>help</code> - Подсказка (будет отображаться рядом с полем).
-* <code>type</code> - Тип.
-* <code>general</code> - Значение - true/false Вывод настройки в основные в редакторе
-* <code>general_position</code> - Значение - 1, 2, 3 Порядок вывода настройки в основные в редакторе
-* <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
-* <code>enable_server_reload</code> - Значение - true/false Перезагрузка шаблона при изменении значения настройки
-* <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1511,9 +1510,36 @@
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h3 id="_6">Чекбокс</h3>
+</code></pre></div></p>
+<h3 id="number">Число (number)</h3>
+<p>Данный вид имеет следующие параметры:
+* <code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). 
+* <code>label</code> - Заголовок настройки.
+* <code>value</code> - Значение по умолчанию.
+* <code>help</code> - Подсказка (будет отображаться рядом с полем).
+* <code>type</code> - Тип.
+* <code>general</code> - Значение - true/false Вывод настройки в основные в редакторе 
+* <code>general_position</code> - Значение - 1, 2, 3 Порядок вывода настройки в основные в редакторе
+* <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
+* <code>enable_server_reload</code> - Значение - true/false Перезагрузка шаблона при изменении значения настройки
+* <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора 
+* <code>with_btns</code> - Изменение отображения Range slider на поле с кнопками '+' и '-'
+* <code>min</code> - Значение - число. Минимальное значение настройки
+* <code>max</code> - Значение - число. Максимальное значение настройки
+* <code>step</code> - Значение - число. Шаг(интервал) на которое увеличиться число. </p>
+<p>Пример<a id="translate_example"></a>:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;range&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;img-ratio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.image_ratio }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;with_btns&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="_5">Чекбокс</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
 * <code>label</code> - Заголовок настройки.
@@ -1525,8 +1551,8 @@
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>enable_server_reload</code> - Значение - true/false Перезагрузка шаблона при изменении значения настройки
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1544,9 +1570,8 @@
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h3 id="_7">Селект</h3>
+</code></pre></div></p>
+<h3 id="_6">Селект</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
 * <code>label</code> - Заголовок настройки.
@@ -1559,8 +1584,8 @@
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>enable_server_reload</code> - Значение - true/false Перезагрузка шаблона при изменении значения настройки
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1587,8 +1612,7 @@
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <h3 id="range-slider">Ползунок (Range slider)</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
@@ -1605,10 +1629,9 @@
 * <code>enable_server_reload</code> - Значение - true/false. Перезагрузка шаблона при изменении значения настройки
 * <code>unit</code> - Единица измерения (vw, px и т.п)
 * <code>with_btns</code> - Изменение отображения Range slider на поле с кнопками '+' и '-'
-hide_mobile
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора  </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1628,9 +1651,53 @@ hide_mobile
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h3 id="_8">Файл (Пример из настроек шаблона)</h3>
+</code></pre></div></p>
+<h3 id="button-group">Кнопки (button-group)</h3>
+<p>Данный вид имеет следующие параметры:
+* <code>name</code> - Идентификатор настройки (должен быть уникальным).
+* <code>label</code> - Заголовок настройки.
+* <code>value</code> - Значение по умолчанию.
+* <code>min</code> - Минимальное значение.
+* <code>max</code> - Максимальное значение.
+* <code>step</code> - Шаг значений.
+* <code>help</code> - Подсказка (будет отображаться рядом с полем).
+* <code>type</code> - Тип.
+* <code>general</code> - Значение - true/false Вывод настройки в основные в редакторе
+* <code>general_position</code> - Значение - 1, 2, 3 Порядок вывода настройки в основные в редакторе
+* <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основных настройках виджета в редакторе
+* <code>enable_server_reload</code> - Значение - true/false. Перезагрузка шаблона при изменении значения настройки
+* <code>unit</code> - Единица измерения (vw, px и т.п)
+* <code>with_btns</code> - Изменение отображения Range slider на поле с кнопками '+' и '-'
+hide_mobile
+* <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора<br />
+* <code>title</code> - Значение - {{ messages.align_left }}.  Добавляет заголовок с переводом из messages в основных настройках виджета в редакторе 
+* <code>icon</code> - Значение - mdi-text-align-left. ы</p>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;widget-align&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.align_left }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mdi-text-align-left&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;center&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.align_center }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mdi-text-align-center&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.align_right }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mdi-text-align-right&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.alignment }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;button-group&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="_7">Файл (Пример из настроек шаблона)</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Название поля дя {{ widget_settings.logotype }}.
 * <code>label</code> - Заголовок настройки.
@@ -1641,8 +1708,8 @@ hide_mobile
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора 
 * <code>with-generate-logo</code> - Значение - true/false. Добавить генератор логотипов в редакторе </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1659,9 +1726,8 @@ hide_mobile
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h3 id="_9">Цвет</h3>
+</code></pre></div></p>
+<h3 id="_8">Цвет</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
 * <code>label</code> - Заголовок настройки.
@@ -1674,7 +1740,7 @@ hide_mobile
 * <code>clearable</code> - Значение - true/false. Возможность очистить цвет фона в редакторе. 
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактораы
 * <code>fallback</code> - Значение - color-btn-bg/bg. Переменные можно посмотреть  <a href="https://insales.github.io/my-layout/#">здесь</a> Возвращает заданный цвет если он не указан пользователем.</p>
-<h3 id="_10">Отображение свойств</h3>
+<h3 id="_9">Отображение свойств</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
 * <code>options</code> - Варианты отображения свойств.
@@ -1687,8 +1753,8 @@ hide_mobile
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>edit_admin_link</code> - Значение - product_options. Ссылка на товар в панели администратора 
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1706,9 +1772,8 @@ hide_mobile
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h3 id="_11">Блог</h3>
+</code></pre></div></p>
+<h3 id="_10">Блог</h3>
 <p>Данный вид имеет следующие параметры:
 * <code>name</code> - Идентификатор настройки (должен быть уникальным).
 * <code>options</code> - Варианты отображения свойств.
@@ -1721,8 +1786,8 @@ hide_mobile
 * <code>general_label</code> - Значение - "{{ messages.title }}" Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
 * <code>edit_admin_link</code> - Значение - product_options. Ссылка на товар в панели администратора 
 * <code>hide_mobile</code> - Значение - true/false. Скрыть настройку в мобильной версии редактора </p>
-<p>Пример:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Подгруппа 1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1741,11 +1806,10 @@ hide_mobile
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
-<h2 id="_12">Использование настроек</h2>
-<p>Пример файла <code>settings.json</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
+</code></pre></div></p>
+<h2 id="_11">Использование настроек</h2>
+<p>Пример файла <code>settings.json</code>:
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;Цвета&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1819,17 +1883,15 @@ hide_mobile
 <span class="w">      </span><span class="nt">&quot;Группа 2&quot;</span><span class="p">:[],</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <p>Пример получения значений настроек:</p>
 <p>Вызов значения какого-либо параметра задается переменной  <code>{{ settings.необходимый_метод }}</code></p>
-<p>Пример liquid:</p>
-<div class="codehilite"><pre><span></span><code><span class="x">Шрифт: </span><span class="cp">{{</span> <span class="nv">settings</span><span class="o">:</span><span class="nv">font_family</span> <span class="cp">}}</span><span class="x"></span>
+<p>Пример liquid:
+<div class="highlight"><pre><span></span><code><span class="x">Шрифт: </span><span class="cp">{{</span> <span class="nv">settings</span><span class="o">:</span><span class="nv">font_family</span> <span class="cp">}}</span><span class="x"></span>
 <span class="x">Цвет текста: </span><span class="cp">{{</span> <span class="nv">settings</span><span class="o">:</span><span class="nv">color_text</span> <span class="cp">}}</span><span class="x"></span>
-</code></pre></div>
-
+</code></pre></div></p>
 <p>Пример JSON</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;{{ messages.content_settings }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -1885,7 +1947,7 @@ hide_mobile
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../settings_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Settings data" rel="prev">
+        <a href="../settings_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: settings_data.json" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1894,7 +1956,7 @@ hide_mobile
               <span class="md-footer__direction">
                 Previous
               </span>
-              Settings data
+              settings_data.json
             </div>
           </div>
         </a>
@@ -1940,7 +2002,7 @@ hide_mobile
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
     
   </body>

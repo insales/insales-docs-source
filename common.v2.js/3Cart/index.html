@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -354,7 +354,7 @@
   
     <li class="md-nav__item">
       <a href="../../Generation%204/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0/settings_data/" class="md-nav__link">
-        Settings data
+        settings_data.json
       </a>
     </li>
   
@@ -1513,7 +1513,7 @@
 </table>
 <h3 id="_4">Разметка товара</h3>
 <p><strong>Подробнее</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; method=&quot;post&quot; data-product-id=&quot;</span><span class="cp">{{</span> <span class="nv">product.id</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; method=&quot;post&quot; data-product-id=&quot;</span><span class="cp">{{</span> <span class="nv">product.id</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">product.show_variants</span><span class="o">?</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">    &lt;select name=&quot;variant_id&quot; data-product-variants&gt;</span>
 <span class="x">      </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">variant</span> <span class="k">in</span> <span class="nv">product.variants</span> <span class="cp">%}</span><span class="x"></span>
@@ -1534,10 +1534,9 @@
 <span class="x">  &lt;/button&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
-
 <h3 id="_5">Разметка корзины</h3>
 <p><strong>Подробнее</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; method=&quot;post&quot; data-cart-form&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;</span><span class="cp">{{</span> <span class="nv">cart_url</span> <span class="cp">}}</span><span class="x">&quot; method=&quot;post&quot; data-cart-form&gt;</span>
 <span class="x">  &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;put&quot;&gt;</span>
 <span class="x">  &lt;input type=&quot;hidden&quot; name=&quot;make_order&quot; value=&quot;&quot;&gt;</span>
 
@@ -1563,11 +1562,10 @@
 <span class="x">  &lt;button data-cart-update&gt;Обновить&lt;/button&gt;</span>
 <span class="x">&lt;/form&gt;</span>
 </code></pre></div>
-
 <h2 id="cart">Методы класса Cart</h2>
 <h3 id="add">add</h3>
 <p>Добавить в корзину заданное кол-во товаров</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {Object} items объект с параметрами variant_id: quantity</span>
 <span class="cm"> * @param {Object} comments комментарий к позиции заказа. Ключ id варианта, значение текст комментария</span>
 <span class="cm"> * @param {string} coupon купон</span>
@@ -1583,7 +1581,6 @@
 <span class="w">  </span><span class="nx">coupon</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Мой купон&#39;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1594,21 +1591,19 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="delete">delete</h3>
 <p>Удалить позиции из корзины</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {Array} items массив id вариантов к удалению</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="ow">delete</span><span class="p">({</span><span class="w"></span>
 <span class="w">   </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">160549240</span><span class="p">,</span><span class="w"> </span><span class="mf">160549242</span><span class="p">]</span><span class="w"></span>
 <span class="w"> </span><span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1619,16 +1614,14 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;delete_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;delete_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товары удалены&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="clear">clear</h3>
 <p>Полностью очистить корзину</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">Cart</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">Cart</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1639,19 +1632,17 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;clear_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;clear_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Корзина очищена&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="forceupdate">forceUpdate</h3>
 <p>Принудительно обновить данные корзины</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">Cart</span><span class="p">.</span><span class="nx">forceUpdate</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">Cart</span><span class="p">.</span><span class="nx">forceUpdate</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="remove">remove</h3>
 <p>Удалить из корзины заданное кол-во товаров</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">*  @param {Array} items объект с параметрами variant_id: quantity</span>
 <span class="cm">*/</span><span class="w"></span>
 <span class="nx">Cart</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="w"></span>
@@ -1661,7 +1652,6 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1672,14 +1662,13 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товары удалены&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="set">set</h3>
 <p>Устанавливает кол-во товаров в корзине для каждой позиции</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {Array} items объект с параметрами variant_id: quantity</span>
 <span class="cm">*/</span><span class="w"></span>
 <span class="nx">Cart</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span><span class="w"></span>
@@ -1689,7 +1678,6 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1700,22 +1688,20 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Корзина обновлена&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="setcoupon">setCoupon</h3>
 <p>Устанавливает купон</p>
 <p><strong>Параметры</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {string} coupon код купона</span>
 <span class="cm">*/</span><span class="w"></span>
 <span class="nx">Cart</span><span class="p">.</span><span class="nx">setCoupon</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="nx">coupon</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Мой купон&#39;</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <p><strong>События</strong></p>
 <blockquote>
 <p>События класса EventBus</p>
@@ -1726,20 +1712,18 @@
 <li>update_items:insales:cart</li>
 <li>always:insales:cart</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_coupon:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_coupon:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Добавлен купон&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="orderget">order.get</h3>
 <p>Получить состав корзины</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="nx">order</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="nx">order</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="ordergetitembyid">order.getItemByID</h3>
 <p>Получить информацию о позиции по id</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="nx">order</span><span class="p">.</span><span class="nx">getItemByID</span><span class="p">(</span><span class="mf">138231315</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="nx">order</span><span class="p">.</span><span class="nx">getItemByID</span><span class="p">(</span><span class="mf">138231315</span><span class="p">);</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 
@@ -1810,7 +1794,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
     
   </body>

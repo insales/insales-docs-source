@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.16">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1c3799f8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -354,7 +354,7 @@
   
     <li class="md-nav__item">
       <a href="../../Generation%204/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0/settings_data/" class="md-nav__link">
-        Settings data
+        settings_data.json
       </a>
     </li>
   
@@ -1538,7 +1538,7 @@
 <p>Список товаров сохраняется в аккаунте пользователя.</p>
 <p>Если пользователь авторизуется с разных устройств, список будет одинаковый.</p>
 <p>Для оптимизации, список кешируется на 15 секунд, если быстро добавлять товары с разных устройств или разлогиниваться, счётчик может показывать старые значения.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">products</span><span class="p">.</span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">products</span><span class="p">.</span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>product<span class="w"> </span>in<span class="w"> </span>products<span class="w"> </span><span class="p">%}</span>
     &lt;div&gt;
       &lt;div&gt;
@@ -1553,7 +1553,6 @@
   Избранное пусто
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div>
-
 <h2 id="_2">Элементы</h2>
 <h3 id="_3">Добавить/удалить</h3>
 <p>Добавление и удаление можно реализовать 2 способами.</p>
@@ -1561,7 +1560,7 @@
 <h4 id="data-ui-favorites-trigger">data-ui-favorites-trigger</h4>
 <p>В качестве значения передаётся id товара</p>
 <p>Если нужно менять текст при добавлении или удалении, то внутрь нужно добавить элемент с атрибутами <code>data-ui-favorites-trigger-added-text</code>, <code>data-ui-favorites-trigger-not-added-text</code></p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-icon icon-heart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn-text&quot;</span> 
     <span class="na">data-ui-favorites-trigger-added-text</span><span class="o">=</span><span class="s">&quot;В избранном&quot;</span>
@@ -1569,7 +1568,6 @@
   <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
-
 <h4 id="data-ui-favorites-add">data-ui-favorites-add</h4>
 <p>Добавить в избранное</p>
 <h4 id="data-ui-favorites-delete">data-ui-favorites-delete</h4>
@@ -1580,55 +1578,48 @@
 <h4 id="data-ui-favorites-counter">data-ui-favorites-counter</h4>
 <p>Атрибут <code>data-ui-favorites-counter</code> отвечает за смену цифр. </p>
 <p>Атрибут <code>data-ui-favorites-counter-btn</code> меняет классы состояния избранного.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/favorites&quot;</span> <span class="na">class=</span><span class="s">&quot;header__control-btn header__compare&quot;</span> <span class="err">data-ui-favorites-counter-btn</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon icon-heart&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;header__control-bage&quot;</span> <span class="err">data-ui-favorites-counter</span><span class="nt">&gt;</span>0<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;a href=&quot;/favorites&quot; class=&quot;header__control-btn header__compare&quot; data-ui-favorites-counter-btn&gt;
+  &lt;span class=&quot;icon icon-heart&quot;&gt;
+    &lt;span class=&quot;header__control-bage&quot; data-ui-favorites-counter&gt;0&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/a&gt;
 </code></pre></div>
-
 <h2 id="_4">Методы</h2>
 <h3 id="add">add</h3>
 <p>Добавить товар в избранное. В качестве параметра передаётся id товара.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">FavoritesProducts</span><span class="p">.</span><span class="nc">add</span><span class="o">(</span><span class="p">{</span><span class="w"> </span>
-<span class="w">  </span><span class="n">item</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w"> </span>
-<span class="p">}</span><span class="o">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>FavoritesProducts.add({ 
+  item: 123456 
+});
 </code></pre></div>
-
 <h3 id="add_1">add</h3>
 <p>Удалить товар из избранного. В качестве параметра передаётся id товара.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">FavoritesProducts</span><span class="p">.</span><span class="nc">remove</span><span class="o">(</span><span class="p">{</span><span class="w"> </span>
-<span class="w">  </span><span class="n">item</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w"> </span>
-<span class="p">}</span><span class="o">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>FavoritesProducts.remove({ 
+  item: 123456 
+});
 </code></pre></div>
-
 <h3 id="clear">clear</h3>
 <p>Очистить избранное.</p>
-<div class="codehilite"><pre><span></span><code>FavoritesProducts.remove();
+<div class="highlight"><pre><span></span><code>FavoritesProducts.remove();
 </code></pre></div>
-
 <h3 id="update">update</h3>
 <p>Обновить состояние.</p>
-<div class="codehilite"><pre><span></span><code>FavoritesProducts.update();
+<div class="highlight"><pre><span></span><code>FavoritesProducts.update();
 </code></pre></div>
-
 <h2 id="_5">События</h2>
 <h3 id="update_itemsinsalesfavorites_products">update_items:insales:favorites_products</h3>
 <p>Список избранного обновлен</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update_items:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update_items:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Товаров в избранном: </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">products</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="add_iteminsalesfavorites_products">add_item:insales:favorites_products</h3>
 <p>Товар добавлен в избранное </p>
 <h3 id="remove_iteminsalesfavorites_products">remove_item:insales:favorites_products</h3>
 <p>Товар удален из избранного</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_item:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.favorites [data-product-id=&quot;&#39;</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">item</span><span class="o">+</span><span class="s1">&#39;&quot;]&#39;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">()</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-
 <h3 id="overloadinsalesfavorites_products">overload:insales:favorites_products</h3>
 <p>Достигнуто максимальное кол-во товаров избранного</p>
 
@@ -1699,7 +1690,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3a4b43e5.min.js"></script>
       
     
   </body>

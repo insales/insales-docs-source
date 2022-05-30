@@ -87,5 +87,6 @@
 
 
 ####Другие примеры:
-- {{ messages.reviews_are_moderated }} - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>
+- {{ widget_messages.product_bundle_gift_text }} - Перевод берется из файла <a href="/Generation%204/Виджеты/Структура/messages/" id="translate_example">messages.json</a>
+- {{ messages.reviews_are_moderated }} - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.
 - {% if editor_mode? %} - Условие - если включен редактор

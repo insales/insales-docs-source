@@ -1,4 +1,4 @@
-## settings_data.json
+# settings_data.json
 
 Настройки виджета по умолчанию
 

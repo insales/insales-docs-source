@@ -29,8 +29,8 @@
 ```scss
 @include background-color(--bg);
 ```
-
-В стилях можно прописывать состояния для класса css при изменении настроек, пример:
+У корневого дива при изменении настроек меняется значение css переменных.
+В стилях можно прописывать состояния для класса css при изменении настроек, примеры:
 
 ```scss
 &[style*="--article-hide-photo:true"] {
@@ -39,6 +39,20 @@
   }
 }
 ```
+```scss
+&[style*="--btn-position-vertical-1:100%"][style*="--btn-position-horizontal-1:0"]{
+  .banner-list__item:nth-child(2n + 1) {
+    .banner-list__item-title {
+      margin: -2rem 0 0 2rem;
+      transform: translateX(calc(var(--btn-position-horizontal-1) * -1%)) translateY(calc(var(--btn-position-vertical-1) * -1));
+      @media screen and (max-width: 767px) {
+        margin: -1rem 0 0 1rem;
+      }
+    }
+  }
+}
+```
+
 
 ###где:
 - & - автоматически генерируемый класс виджета

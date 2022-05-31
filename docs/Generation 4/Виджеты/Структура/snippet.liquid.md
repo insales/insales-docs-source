@@ -3,13 +3,13 @@
 Переменные в шаблонах InSales. С полной документацией можно ознакоиться по ссылке - <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a>
 
 ####В примере ниже:
-- widget_settings.layout-wide-content - берем layout-wide-content из настроек виджета
-- {% for video in data.blocks %} - Цикл перебирающий блоки 
-- video.link - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a>
-- video.image - Изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a> 
+- `widget_settings.layout-wide-content` - берем layout-wide-content из настроек виджета
+- `{% for video in data.blocks %}` - Цикл перебирающий блоки 
+- `video.link` - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a>
+- `video.image` - Изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a> 
 
-### Пример:
-```
+#### Пример:
+```HTML
 {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}
 {% if widget_settings.layout-wide-content %}
 {% assign img_width = 1920 %}
@@ -87,6 +87,6 @@
 
 
 ####Другие примеры:
-- {{ widget_messages.product_bundle_gift_text }} - Перевод берется из файла <a href="/Generation%204/Виджеты/Структура/messages/" id="translate_example">messages.json</a>
-- {{ messages.reviews_are_moderated }} - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.
-- {% if editor_mode? %} - Условие - если включен редактор
+- `{{ widget_messages.product_bundle_gift_text }}` - Перевод берется из файла <a href="/Generation%204/Виджеты/Структура/messages/" id="translate_example">messages.json</a>
+- `{{ messages.reviews_are_moderated }}` - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.
+- `{% if editor_mode? %}` - Условие - если включен редактор

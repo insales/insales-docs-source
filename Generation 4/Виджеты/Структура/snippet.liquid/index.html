@@ -460,18 +460,12 @@
     Пример:
   </a>
   
-    <nav class="md-nav" aria-label="Пример:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     Другие примеры:
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1243,18 +1237,12 @@
     Пример:
   </a>
   
-    <nav class="md-nav" aria-label="Пример:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     Другие примеры:
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1280,91 +1268,91 @@
 <p>Переменные в шаблонах InSales. С полной документацией можно ознакоиться по ссылке - <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a></p>
 <h4 id="_1">В примере ниже:</h4>
 <ul>
-<li>widget_settings.layout-wide-content - берем layout-wide-content из настроек виджета</li>
-<li>{% for video in data.blocks %} - Цикл перебирающий блоки </li>
-<li>video.link - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a></li>
-<li>video.image - Изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a> </li>
+<li><code>widget_settings.layout-wide-content</code> - берем layout-wide-content из настроек виджета</li>
+<li><code>{% for video in data.blocks %}</code> - Цикл перебирающий блоки </li>
+<li><code>video.link</code> - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a></li>
+<li><code>video.image</code> - Изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a> </li>
 </ul>
-<h3 id="_2">Пример:</h3>
+<h4 id="_2">Пример:</h4>
 <div class="highlight"><pre><span></span><code>{% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}
 {% if widget_settings.layout-wide-content %}
 {% assign img_width = 1920 %}
 {% endif %}
 
-&lt;div class=&quot;banner-list__item {% unless widget_settings.banner-img-m %}show-mobile{% endunless %}&quot;&gt;
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item {% unless widget_settings.banner-img-m %}show-mobile{% endunless %}&quot;</span><span class="p">&gt;</span>
   {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}
     {% if widget_settings.layout-wide-content %}
     {% assign img_width = 1920 %}
     {% endif %}
-    &lt;div class=&quot;h4 heading&quot;&gt;{{ widget_settings.title_text-default }}&lt;/div&gt;
-    &lt;div class=&quot;gallery-contanier&quot;&gt;
-      &lt;div class=&quot;splide gallery-splide&quot;&gt;
-        &lt;div class=&quot;splide__slider&quot;&gt;
-          &lt;div class=&quot;splide__track&quot;&gt;
-            &lt;ul class=&quot;splide__list&quot;&gt;
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4 heading&quot;</span><span class="p">&gt;</span>{{ widget_settings.title_text-default }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;gallery-contanier&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide gallery-splide&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slider&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__track&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__list&quot;</span><span class="p">&gt;</span>
               {% assign slide_index = 0 %}
               {% for video in data.blocks %}
-              &lt;li class=&quot;splide__slide&quot; data-slide-index=&quot;{{ slide_index }}&quot;&gt;
+              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slide&quot;</span> <span class="na">data-slide-index</span><span class="o">=</span><span class="s">&quot;{{ slide_index }}&quot;</span><span class="p">&gt;</span>
                 {% if video.link != blank %}
-                &lt;div class=&quot;iframe_wrapper&quot;&gt;
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;iframe_wrapper&quot;</span><span class="p">&gt;</span>
                   {{ video.link | video_iframe_by_url: id: video_id }}
-                &lt;/div&gt;
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 {% else %}
-                &lt;div class=&quot;banner-list__empty-video&quot;&gt;
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__empty-video&quot;</span><span class="p">&gt;</span>
                   {{widget_settings.video-empty}}
-                &lt;/div&gt;
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 {% endif %}
 
                 {% if video.image %}
-                  &lt;picture class=&quot;picture&quot;&gt;
-                    &lt;source media=&quot;(min-width:769px)&quot; data-srcset=&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;source media=&quot;(max-width:480px)&quot; data-srcset=&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;source media=&quot;(max-width:768px)&quot; data-srcset=&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;img data-src=&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot; class=&quot;lazyload&quot;&gt;
-                  &lt;/picture&gt;
+                  <span class="p">&lt;</span><span class="nt">picture</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
                 {% else %}
-                  &lt;img class=&quot;picture&quot; src=&quot;{{ video.link | video_preview_by_url }}&quot; style=&quot;max-width: 100%&quot; /&gt;
+                  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ video.link | video_preview_by_url }}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="p">/&gt;</span>
                 {% endif %}
-                &lt;a href=&quot;&quot; class=&quot;button banner-preview__play-btn&quot;&gt;
-                  &lt;div class=&quot;triangle right&quot;&gt;&lt;/div&gt;
-                &lt;/a&gt;
-              &lt;/li&gt;
+                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button banner-preview__play-btn&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;triangle right&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
               {% assign slide_index = slide_index | plus: 1 %}
               {% endfor %}
-            &lt;/ul&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;thumbnails-contanier js-init&quot;&gt;
-      &lt;div class=&quot;splide thumbnails-splide&quot;&gt;
-        &lt;div class=&quot;splide__track&quot;&gt;
-          &lt;ul class=&quot;splide__list&quot;&gt;
+            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;thumbnails-contanier js-init&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide thumbnails-splide&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__track&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__list&quot;</span><span class="p">&gt;</span>
             {% for video in data.blocks %}
-              &lt;li class=&quot;splide__slide&quot;&gt;
+              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slide&quot;</span><span class="p">&gt;</span>
                 {% if video.image %}
-                  &lt;picture&gt;
-                    &lt;source media=&quot;(min-width:769px)&quot; data-srcset=&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;source media=&quot;(max-width:480px)&quot; data-srcset=&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;source media=&quot;(max-width:768px)&quot; data-srcset=&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot; type=&quot;image/webp&quot; class=&quot;lazyload&quot;&gt;
-                    &lt;img data-src=&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot; class=&quot;lazyload&quot;&gt;
-                  &lt;/picture&gt;
+                  <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
                   {% else %}
-                   &lt;img class=&quot;picture&quot; src=&quot;{{ video.link | video_preview_by_url }}&quot; style=&quot;max-width: 100%&quot; /&gt;
+                   <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ video.link | video_preview_by_url }}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="p">/&gt;</span>
                 {% endif %}
-              &lt;/li&gt;
+              <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
             {% endfor %}
-          &lt;/ul&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+          <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="_3">Другие примеры:</h4>
 <ul>
-<li>{{ widget_messages.product_bundle_gift_text }} - Перевод берется из файла <a href="/Generation%204/Виджеты/Структура/messages/" id="translate_example">messages.json</a></li>
-<li>{{ messages.reviews_are_moderated }} - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.</li>
-<li>{% if editor_mode? %} - Условие - если включен редактор</li>
+<li><code>{{ widget_messages.product_bundle_gift_text }}</code> - Перевод берется из файла <a href="/Generation%204/Виджеты/Структура/messages/" id="translate_example">messages.json</a></li>
+<li><code>{{ messages.reviews_are_moderated }}</code> - Можно использовать ключи с переводом из файла <a href="/Generation%204/Виджеты/Структура/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.</li>
+<li><code>{% if editor_mode? %}</code> - Условие - если включен редактор</li>
 </ul>
 
               

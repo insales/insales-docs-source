@@ -1238,8 +1238,8 @@
 
 <h1 id="snippetjs">snippet.js</h1>
 <p>Мы используем jquery и Javascript.
-$widget - будет использоваться автоматически генерируемый класс родительского блока виджета. 
-Для того чтобы избежать багов при использовании более одного виджета на странице их нужно перебирать через метод each:</p>
+<code>$widget</code> - будет использоваться автоматически генерируемый класс родительского блока виджета. 
+Для того чтобы избежать багов при использовании более одного виджета на странице их нужно перебирать через метод <code>each</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="p">});</span><span class="w"></span>

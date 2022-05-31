@@ -393,28 +393,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Доступные значения полей
+  <a href="#json" class="md-nav__link">
+    Пример json формата:
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Текстовые поля
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Поле файл
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Пример:
   </a>
   
@@ -1233,28 +1233,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Доступные значения полей
+  <a href="#json" class="md-nav__link">
+    Пример json формата:
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     Текстовые поля
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Поле файл
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Пример:
   </a>
   
@@ -1279,12 +1279,12 @@
 
 
 <h1 id="settings_datajson">settings_data.json</h1>
-<p>Настройки виджета по умолчанию</p>
-<h3 id="_1">Доступные значения полей</h3>
+<p>Настройки виджета по умолчанию, варианты которых прописываются в файле <a href="/Generation%204/Виджеты/Структура/settings_form/">settings_form.json</a> </p>
+<h4 id="json">Пример json формата:</h4>
 <ul>
-<li>true / false - булевые значения</li>
-<li>2 - Число</li>
-<li>"left" - строка</li>
+<li><code>true</code> или <code>false</code> - Boolean | булевый тип</li>
+<li><code>2</code> - тип number | Число</li>
+<li><code>"left"</code> - тип string | строка</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;layout-wide-bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
@@ -1304,7 +1304,7 @@
 <span class="w">  </span><span class="nt">&quot;banner-text-color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ffffff&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="_2">Текстовые поля</h3>
+<h4 id="_1">Текстовые поля</h4>
 <p>Мультиязычность реализуется через объект</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="s2">&quot;Преимущества&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1313,21 +1313,21 @@
 <span class="w">  </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="s2">&quot;Beneficios&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="_3">Поле файл</h3>
+<h4 id="_2">Поле файл</h4>
 <p>Чтобы подгрузить файл (изображение) по умолчанию, нужно <br></p>
 <ul>
 <li>Перейти от имени администратора из <a target="_blank" href="https://admins.insales.ru/">https://admins.insales.ru/</a> в магазин <a target="_blank" href="http://file-store.myinsales.ru/">http://file-store.myinsales.ru/</a></li>
 <li>Перейти в раздел Дизайн -&gt; Файлы</li>
 <li>Добавить файл</li>
 <li>Получить ссылку файла <a target="_blank" href="https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg">https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg</a>, скопировать id - <code>20350744</code></li>
-<li>Добавить в файл settings_data.json</li>
+<li>Добавить в файл <a href="/Generation%204/Виджеты/Структура/settings_data/">settings_data.json</a></li>
 </ul>
 <p><div class="highlight"><pre><span></span><code>{
   &quot;banner-img&quot;: &quot;20350744&quot;
 }
 </code></pre></div>
 <a name="setting_data_name"></a></p>
-<h3 id="_4">Пример:</h3>
+<h4 id="_3">Пример:</h4>
 <div class="highlight"><pre><span></span><code>{
   &quot;layout-wide-bg&quot;: true,
   &quot;layout-wide-content&quot;: false,

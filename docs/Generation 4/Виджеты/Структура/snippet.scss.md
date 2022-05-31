@@ -1,6 +1,6 @@
 # snippet.scss
-
-Доступные миксины:
+Мы используем scss и методолгию <a href="https://ru.bem.info/" target="_blank">БЭМ</a>.
+#### Доступные миксины:
 
 ```scss
 @mixin background-color($color) {
@@ -54,7 +54,8 @@
 ```
 
 
-###где:
+где:
+
 - & - автоматически генерируемый класс виджета
 - article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/Generation%204/Виджеты/Структура/settings_data/#setting_data_name">setting_data.json</a>
 

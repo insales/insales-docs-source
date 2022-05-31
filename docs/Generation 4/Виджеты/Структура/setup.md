@@ -1,20 +1,19 @@
 # setup.json
 
-Дефолтный контент блоков виджета
+Дефолтный контент блоков виджета. Указывается в файле info.json
 
-## Шаблон блока
-
-Указывается в файле info.json
-
-`"block_template_handle": "system-benefit-2",`
+```JSON
+"block_template_handle": "system-benefit-2"
+```
+В качестве файла указывается id файла из <a target="_blank" href="http://file-store.myinsales.ru/">аккаунта</a>
 
 ## Привязка файла
 
-В качестве файла указывается id файла из аккаунта `http://file-store.myinsales.ru/`
+
 
 
 Пример:
-```
+```JSON
 {
   "blocks": [
     {

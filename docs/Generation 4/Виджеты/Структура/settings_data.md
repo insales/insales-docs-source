@@ -1,12 +1,12 @@
 # settings_data.json
 
-Настройки виджета по умолчанию
+Настройки виджета по умолчанию, варианты которых прописываются в файле <a href="/Generation%204/Виджеты/Структура/settings_form/">settings_form.json</a> 
 
-### Доступные значения полей
+#### Пример json формата:
 
-- true / false - булевые значения
-- 2 - Число
-- "left" - строка
+- `true` или `false` - Boolean | булевый тип
+- `2` - тип number | Число
+- `"left"` - тип string | строка
 
 ```json
 {
@@ -28,7 +28,7 @@
 }
 ```
 
-### Текстовые поля
+#### Текстовые поля
 
 Мультиязычность реализуется через объект
 
@@ -41,7 +41,7 @@
 }
 ```
 
-### Поле файл
+#### Поле файл
 Чтобы подгрузить файл (изображение) по умолчанию, нужно <br>
 
 
@@ -49,7 +49,7 @@
 - Перейти в раздел Дизайн -> Файлы
 - Добавить файл
 - Получить ссылку файла <a target="_blank" href="https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg">https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg</a>, скопировать id - `20350744`
-- Добавить в файл settings_data.json
+- Добавить в файл <a href="/Generation%204/Виджеты/Структура/settings_data/">settings_data.json</a>
 
 ```
 {
@@ -57,7 +57,7 @@
 }
 ```
 <a name="setting_data_name"></a>
-### Пример:
+#### Пример:
 ```
 {
   "layout-wide-bg": true,

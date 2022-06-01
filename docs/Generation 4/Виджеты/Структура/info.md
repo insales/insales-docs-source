@@ -217,7 +217,7 @@
 - `system-widget-feedback` | Поля: Текст на кнопке (Текст)
 
 Пример:
-```
+```json
 {
   "type": "BlockListWidgetType",
   "handle": "system_widget_v4_stories_3",
@@ -267,8 +267,9 @@
   "swiper"
 ]
 ```
-#### Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:
-- commonjs_v2 | Фреймворк InSales, <a href="https://liquidhub.ru/collection/start" target="_blank">документация</a> 
+Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:
+
+- commonjs_v2 - Фреймворк InSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
 - jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
 - microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 
 - my-layout	| <a href="https://github.com/insales/my-layout" target="_blank">Github </a> 

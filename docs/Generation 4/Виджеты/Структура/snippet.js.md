@@ -25,7 +25,7 @@ $widget.each(function(index, el) {
 ```
 
 #### Доступные зависимости (плагины). Зависимости используются только те которые установлены на стороне платформы:
-- commonjs_v2 | Фреймворк insales, <a href="https://liquidhub.ru/collection/start" target="_blank">документация</a> 
+- commonjs_v2 - фреймворк insales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
 - jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
 - microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 
 - my-layout	| <a href="https://github.com/insales/my-layout" target="_blank">Github </a> 

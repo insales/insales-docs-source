@@ -42,7 +42,7 @@
 ```
 
 #### Поле файл
-Чтобы подгрузить файл (изображение) по умолчанию, нужно <br>
+Чтобы подгрузить файл (изображение) по умолчанию, нужно:
 
 
 - Перейти от имени администратора из <a target="_blank" href="https://admins.insales.ru/">https://admins.insales.ru/</a> в магазин <a target="_blank" href="http://file-store.myinsales.ru/">http://file-store.myinsales.ru/</a>
@@ -51,14 +51,14 @@
 - Получить ссылку файла <a target="_blank" href="https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg">https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg</a>, скопировать id - `20350744`
 - Добавить в файл <a href="/Generation%204/Виджеты/Структура/settings_data/">settings_data.json</a>
 
-```
+```json
 {
   "banner-img": "20350744"
 }
 ```
 <a name="setting_data_name"></a>
 #### Пример:
-```
+```json
 {
   "layout-wide-bg": true,
   "layout-wide-content": false,

@@ -1417,7 +1417,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="_2">Подгруппы настроек</h4>
-<p>Каждую группу можно разделить на подгруппы которые будут визуально разделять настройки для более удобного их использования.</p>
+<p>Каждую группу можно разделить на подгруппы, которые будут визуально разделять настройки для более удобного их использования.</p>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
@@ -1438,7 +1438,7 @@
 <span class="w">      </span><span class="nt">&quot;Группа 3&quot;</span><span class="p">:[]</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<p>Если вы не хотите разделять настройки на подгруппы то можно использовать такой формат.</p>
+<p>Если вы не хотите разделять настройки на подгруппы, то можно использовать такой формат.</p>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>
@@ -1456,11 +1456,14 @@
 <p>В настройках можно использовать несколько видов полей настроек: </p>
 <ul>
 <li><code>Текст</code></li>
+<li><code>Число</code></li>
 <li><code>Чекбокс</code> </li>
 <li><code>Селект</code> </li>
 <li><code>Ползунок</code> </li>
+<li><code>Кнопки</code> </li>
 <li><code>Файл</code> </li>
 <li><code>Цвет</code></li>
+<li><code>Блог</code></li>
 </ul>
 <h4 id="text">Текст (text)</h4>
 <p>Данный вид имеет следующие параметры:</p>
@@ -1509,9 +1512,9 @@
 <li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
 <li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
 <li><code>with_btns</code> - Изменение отображения Range slider на поле с кнопками '+' и '-'</li>
-<li><code>min</code> - Значение <code>2</code> - тип number | Число.. Минимальное значение настройки</li>
-<li><code>max</code> - Значение <code>2</code> - тип number | Число.. Максимальное значение настройки</li>
-<li><code>step</code> - Значение <code>2</code> - тип number | Число.. Шаг(интервал) на которое увеличиться число </li>
+<li><code>min</code> - Значение <code>2</code> - тип number | Число. Минимальное значение настройки</li>
+<li><code>max</code> - Значение <code>2</code> - тип number | Число. Максимальное значение настройки</li>
+<li><code>step</code> - Значение <code>2</code> - тип number | Число. Шаг(интервал) на которое увеличиться число </li>
 </ul>
 <p>Пример<a id="translate_example"></a>:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -1734,19 +1737,21 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="_5">Цвет</h4>
-<p>Данный вид имеет следующие параметры:
-* <code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). 
-* <code>label</code> - Заголовок настройки
-* <code>value</code> - Значение по умолчанию
-* <code>help</code> - Подсказка (будет отображаться рядом с полем)
-* <code>type</code> - Тип <code>color</code>
-* <code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе 
-* <code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе
-* <code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе
-* <code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки
-* <code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора 
-* <code>clearable</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Возможность очистить цвет фона в редакторе. 
-* <code>fallback</code> - Значение - <code>color-btn-bg</code> или <code>bg</code>. Переменные можно посмотреть  <a href="https://insales.github.io/my-layout/#">здесь</a> Возвращает заданный цвет если он не указан пользователем.</p>
+<p>Данный вид имеет следующие параметры:</p>
+<ul>
+<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). </li>
+<li><code>label</code> - Заголовок настройки</li>
+<li><code>value</code> - Значение по умолчанию</li>
+<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
+<li><code>type</code> - Тип <code>color</code></li>
+<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
+<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
+<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основвных настройках виджета в редакторе</li>
+<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
+<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
+<li><code>clearable</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Возможность очистить цвет фона в редакторе. </li>
+<li><code>fallback</code> - Значение - <code>color-btn-bg</code> или <code>bg</code>. Переменные можно посмотреть  <a href="https://insales.github.io/my-layout/#">здесь</a> Возвращает заданный цвет если он не указан пользователем.</li>
+</ul>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;Группа 1&quot;</span><span class="p">:[</span><span class="w"></span>

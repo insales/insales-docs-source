@@ -75,7 +75,7 @@
 }
 ```
 
-###Переменные
+#### Переменные
 С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают по <a href="https://insales.github.io/my-layout/#" target="_blank">ссылке</a>
 
 Пример:

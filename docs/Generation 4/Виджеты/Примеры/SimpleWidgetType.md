@@ -1,6 +1,6 @@
 # Простой виджет
 
-В данном уроке мы создадим простой виджет, который будет ссодержать текст, изображение и несколько настроек.
+В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.
 
 #### Шаг 1 (snippet.liquid)
 
@@ -46,112 +46,175 @@
 
 #### Шаг 3 (settings_data.json)
 
-
-
-#### Шаг 4
+В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки пример:
 
 ```json
-"handle":"system_widget_v4_alerts"
+{
+  "banner_name": {
+    "ru": "Как подобрать подарок?",
+    "en": "How to choose a gift?",
+    "ua": "Як підібрати подарунок?ы",
+    "es": "¿Cómo recoger un regalo?ы"
+  },
+  "banner_content": {
+    "ru": "Мы сталкиваемся с этим вопросом каждый раз перед праздниками.",
+    "en": "We face this question every time before the holidays.",
+    "ua": "Ми стикаємося з цим питанням щоразу перед святами.",
+    "es": "Nos enfrentamos a esta pregunta cada vez antes de las vacaciones."
+  }
+}
+
 ```
 
-#### Шаг 5
+#### Шаг 4 (info.json)
 
+- `"generation": 4` - поколение виджета
+- `"type":"SimpleWidgetType"` - Тип виджета без привязки блоков.
+- `"handle":"system_widget_v4_page_banner_1"` - Путь к репе
+- `"sku":"BB1"` - уникальный ID виджета
+- `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#page_kinds">ссылке</a>.
+- `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона
+- `"widget_list_kinds":["before_content", "content", "after_content"]` - виджет будет доступен на всех страницах шаблона
+- `"widget_category_handle":"banner"` - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#widget_category_handle">ссылке</a>
+- `"name"` - имя виджета.
+- `"description"` - описание виджета.
+- `"libraries"` - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Доступные библиотеки можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#libraries">ссылке</a>
 ```json
-"sku":"NN1"
+{
+  "generation": 4,
+  "type":"SimpleWidgetType",
+  "handle":"system_widget_v4_page_banner_1",
+  "sku":"BB1",
+  "page_kinds":["all"],
+  "widget_list_kinds":["before_content", "content", "after_content"],
+  "widget_category_handle":"banner",
+  "name": {
+    "ru": "Баннер с текстом и кнопкой",
+    "es": "Banner - 1"
+  },
+  "description": {
+    "ru": "Баннер с текстом и кнопкой",
+    "es": "Banner con texto y botón"
+  },      
+  "libraries": [
+    "jquery",
+    "my-layout",
+    "vanilla-lazyload"
+  ]
+}
+
 ```
 
-#### Шаг 6
+#### Шаг 5 (preview.jpg)
 
-```json
-"page_kinds":["product,collection"]
-```
-Если указать например "collection" то виджет будет доступен только в шаблоне категории.
-Может содержать элементы из следующего списка:
+Для загрузки превью виджета необходимо добавить в папку два файла с именами:
+ 
+- `preview.jpg` | для десктопной версии устройства
+- `mobile_preview.jpg` | для мобильной версии устройства
 
-- all - все страницы
-- index - главная страница
-- collection - страница коллекций 
-- product - страница продукта
-- cart - страницы корзины
-- page
-- search  - страницы поиска
-- blog - страницы блога
-- compare - страница сравнения
-- article - страница статьи
-- favorite - страница избранного
+#### Шаг 6 (snippet.js)
 
-#### Шаг 7
+В данном примере реализуем ленивую загруку изображений
 
-Привязка к типу виджетлиста. Доступные разделы страницы:
-
-- Верхняя панель
-- Шапка
-- Контент
-- Подвал
-- Подвал
-- Нижняя панельы
-- Вне контента
-
-Нужен чтобы, например, в виджетлисте сайдбара не было виджетов шапки/футера.
-
-```json
-"widget_list_kinds":["before_content", "content", "after_content"]
-```
-Может содержать элементы из следующего списка:
-
-- before_content
-- content
-- after_content
-- header
-- footer
-- sidebar
-- outside
-
-#### Шаг 8
-
-Категории виджетов, нужна для сортировки виджетов по вкладкам. Категория баннеры:
-
-```json
-"widget_category_handle":"banner"
+```js
+$widget.each(function(index, el) {
+  new LazyLoad({container: $(el).get(0),
+    elements_selector: '.lazyload'});
+});
 ```
 
-- Аналогичные товары | product-similar
-- Баннеры	| banner
-- Блог | blog
-- Всплывающие окна	| modals
-- Другие	| drugie
-- Заголовки страниц	| page-title
-- Информация о товаре	| product-info
-- Карточки товара	| products-cards
-- Комментарии	| comments
-- Корзина	| cart
-- Навигация	| navigation
-- Описание категории	| collection-description
-- Отзывы	| reviews
-- Подвалы	| footers
-- Подкатегории	| collection-subcollections
-- Преимущества	| benefits
-- Разделители	| delimeters
-- Результаты поиска	| search-results
-- Слайдеры	| sliders
-- Сопутствующие товары	| product-related
-- Сравнение	| compare
-- Тексты и картинки	| text
-- Товары в категории	| collection-products
-- Товары в сайдбаре	| product-sidebar
-- Товары на главной	| product-homepage
-- Уведомления	| notices
-- Фильтры	| filters
-- Формы	| forms
-- Шапки	| headers
-- Ранее просмотренные товары | recently-viewed
-- Избранное | favorites
-- Статьи | articles
-- Видео | video
-- Истории | stories
+#### Шаг 7 (snippet.scss)
 
+Пропишем стили виджета и не забудем прописать стили для разных значений настроек
+
+```css
+@include background-color(--bg);
+.banner-list__item {
+  display: grid;
+  grid-template-columns: auto var(--img-size, 50%);
+  gap: 1.5em;
+  position: relative;
+  align-items: var(--align-content, start);
+  font-size: var(--font-size, 16px);
+  --controls-font-size-m: var(--font-size);
+  @media (max-width: 767px) {
+    font-size: var(--font-size-mobile, 16px);
+    --controls-font-size-m: var(--font-size-mobile, 16px);
+  }
+  .banner-list__item-text {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-template-rows: min-content min-content min-content;
+    gap: 1.5em;
+  }
+  .banner-list__item-title {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .banner-list__item-image {
+    position: relative;
+    height: 100%;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: var(--img-fit, cover);
+    }
+  }
+  .banner-list__item-content {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+}
+
+&[style*="--img-position:left;"] .banner-list__item-image {
+  order: -1;
+}
+&[style*="--img-position:left;"] .banner-list__item {
+  grid-template-columns: var(--img-size, 50%) auto;
+}
+&[style*="--hide-button:true;"] .banner-list__item-button {
+  display: none;
+}
+&[style*="--hide-button:true;"] .banner-list__item-text {
+  grid-template-rows: min-content min-content;
+}
+
+
+@media (max-width: 767px) {
+  &[style*="--img-position:left;"] .banner-list__item,
+  .banner-list__item {
+    grid-template-columns: 100%;
+  }
+  .banner-list__item-image {
+    order: -1;
+  }
+}
+
+a.no-text {
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%!important;
+
+  &:hover {
+    background: transparent;
+    border: none;
+  }
+}
+
+```
+#### Шаг 8 (Способы добавления виджета)
+
+* Архивом
+* Online
 
 #### Шаг 9 (Что должно получиться)
+
 === "SimpleWidgetType (виджет без блоков)"
 
     ![](/img/widget-w-blocks.jpg)
@@ -160,148 +223,3 @@
 
     ![](/img/widget-v-blocks.jpg)
 
-```json
-"block_template_handle": "system-banner-2"
-```
-
-Доступные шаблоны блоков:
-
-- `system-banner` | Поля: Название (Текст), Изображение (Файл), Пропорции (Выпадающий список), Ссылка (Текст)
-- `system-banner-2` | Поля: Название (Текст), Изображение (Файл), Пропорции (Выпадающий список), Ссылка (Текст)
-- `system-banner-3` | Поля: Изображение (Файл), Ссылка (Текст)
-- `system-banner-4` | Поля: Изображение (Файл)
-- `system-banner-5` | Поля: Изображение (Файл), Изображение на мобильном (Файл), Заголовок (Текст), Текст (Текст), Текст на кнопке (Текст), Ссылка (Текст)
-- `system-banner-6` | Поля: Изображение (Файл), Заголовок (Текст), Подзаголовок (Текст), Описание (HTML), Текст ссылки (Текст), Ссылка (Текст), Выравнивание текста (Выпадающий список)
-- `system-banner-7` | Поля: Картинка (Файл), Ссылка (Универсальная ссылка)
-- `system-banner-8` | Поля: Название (Текст), Изображение (Файл), Ссылка (Универсальная ссылка)
-- `Баннер` | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Текст), Текст ссылки (Текст)
-- `system-banner-block-2` | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Универсальная ссылка), Текст ссылки (Текст)
-- `system-banner-block-3` | Поля: Название (Текст), Описание (HTML), Карта (Текст)
-- `system-banner-image-text` | Поля: Изображение (Файл), Положение изображения (Выпадающий список), Ссылка на изображение (Текст), Текст (HTML)
-- `system-banner-mansonry` | Поля: Название (Текст), Контент (HTML), Ссылка (Текст), Изображение (Файл), Соотношение сторон (Высота / Ширина) (Выпадающий список)
-- `system-banner-video` <a name="blocks_example"></a> | Поля: Ссылка (Текст), Заставка (Файл)
-- `system-banner-video-2` | Поля: Ссылка (Универсальная ссылка), Заставка (Файл)
-- `system-benefit` | Поля: Описание (Текст), Изображение (Файл)
-- `system-benefit-2` | Поля: Заголовок (Текст), Описание (HTML), Изображение (Файл)
-- `system-collection` | Поля: Категория (Категория)
-- `system-collection-2` | Поля: Название вкладки (Текст), Категория (Категория)
-- `system-collection-3` | Поля: Категория (Категория), Заголовок (Текст),Изображение (Файл)
-- `system-collection-4` | Поля: Категория (Категория), Изображение категории (Файл)
-- `system-collection-5` | Поля: Товар (Товар), Расположение по горизонтали (Число из диапазона с полем ввода), Расположение по вертикали (Число из диапазона с полем ввода), Скрывать цену (Чекбокс), Скрывать название (Чекбокс), Скрывать изображение (Чекбокс)
-- `system-collection-with-description` | Поля: Коллекция (Категория), Описание (HTML)
-
-- `system-custom-block` | Поля: Контент (HTML), Фон (Выпадающий список), Ширина блока (Выпадающий список), Ширина блока на планшете (Выпадающий список), Ширина блока на телефоне (Выпадающий список), Вертикальное выравнивание внутри блока (Выпадающий список), Вертикальный отступ блока (Выпадающий список), Горизонтальный отступ блока (Выпадающий список), Скругление углов (Выпадающий список)
-
-- `system-element-header` | Поля: Элемент (Выпадающий список), Ширина блока [десктоп] (Выпадающий список), Выравнивание [десктоп] (Выпадающий список), Скрыть [десктоп] (Чекбокс), Ширина блока [планшет] (Выпадающий список), Выравнивание [планшет] (Выпадающий список), Скрыть [планшет] (Чекбокс), Ширина блока [телефон] (Выпадающий список), Выравнивание [телефон] (Выпадающий список), Скрыть [телефон] (Чекбокс), Контент для элемента "Текст" (HTML)
-
-- `system-faq` | Поля: Вопрос (Текст), Ответ (HTML)
-
-- `system-faq-2` | Поля: 	Вопрос (Текст), Ответ (HTML)
-- `system-form-constructor` | Поля: Название поля (Текст), Тип поля (Выпадающий список), Значения (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле (Чекбокс)
-
-- `system-form-constructor-2` | Поля: Тип поля (Выпадающий список), Ширина поля (Выпадающий список), Название поля (Текст), Подсказка (только для текст и текстовая область) (Текст), Значения (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле (Чекбокс)
-
-- `system-form-constructor-3` | Поля: Тип поля (Выпадающий список), Название поля (Текст), Обязательное поле (Чекбокс)
-
-- `system-image` | Поля: Название (Текст), Изображение (Файл)
-
-- `system-image-and-content` | Поля: Вертикальная позиция изображения (Выпадающий список), Скрыть изображение? (Чекбокс), Текст (HTML), Горизонтальная позиция изображения (Выпадающий список), Изображение (Файл)
-
-- `system-image-link-text` | Поля: Изображение (Файл), Кнопка (Текст), Текст кнопки (Текст)
-- `system-image_text` | Поля: Текст (HTML), Изображение (Файл)
-- `system-image-text-button-icon` | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Текст), Текст кнопки (Текст), Иконка (Файл)
-- `system-messenger` | Поля: Заголовок (Текст), Иконка (Выпадающий список), Ссылка (Текст), Цвет (Текст)
-- `system-messengers` | Поля: Заголовок (Текст), Иконка (Выпадающий список), Ссылка (Текст), Цвет (Цвет)
-- `system-payments` | Поля: Ссылка (Текст)
-- `system-payments-prime` | Поля: Иконка (Файл), Название (title) (Текст)
-- `system-payments-social` | Поля: Название (Текст), Иконка (Файл), Тип (Выпадающий список), Ссылка (Текст)
-- `system-personal` | Поля: Изображение (Файл), Описание (HTML), Подзаголовок (Текст), Заголовок (Текст)
-- `system-promo-slide` | Поля: Описание (Текст), Изображение (Файл), Ссылка (Текст)
-- `system-promo-slide-2` | Поля: Описание (Текст), Изображение (Файл), Ссылка (Универсальная ссылка)
-- `system-promo-slider-2` | Поля: Заголовок (Текст), Описание (Текст), Ссылка (Текст), Изображение (Файл), Надпись на кнопке (Текст)
-- `system-promo-slider-3` | Поля: Надпись на кнопке (Текст), Изображение для мобильных устройств (Файл), Изображение (Файл), Ссылка (Текст), Описание (Текст), Заголовок (Текст)
-- `system-promo-slider-4` | Поля: Описание (Текст), Заголовок (Текст), Ссылка (Текст), Изображение (Файл)
-- `system-promo-slider-5` | Поля: Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка), Изображение (Файл), Надпись на кнопке (Текст)
-- `system-promo-slider-6` | Поля: Изображение (Файл), Изображение для мобильных устройств (Файл),Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка), Надпись на кнопке (Текст)
-- `system-promo-slider-7` | Поля: Описание (Текст), Заголовок (Текст), Ссылка (Универсальная ссылка), Изображение (Файл)
-- `system-promo-slider-8` | Поля: Изображение (Файл), Изображение для мобильных устройств (Файл),Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка)
-- `system-review` | Поля: Скрыть изображение? (Чекбокс), Текст (HTML), Имя (Текст), Позиция изображения (Выпадающий список), Изображение (Файл)
-- `system-review-2` | Поля: Скрыть изображение? (Чекбокс), Имя (Текст), Текст (HTML), Изображение (Файл)
-- `system-review-4` | Поля: Заголовок (Текст), Подзаголовок (Текст), Текст (HTML), Изображение (Файл), Скрыть изображение? (Чекбокс)
-- `system-review-shop` | Поля: Имя (Текст), Текст (HTML), Рейтинг (Число из диапазона со слайдером), Дата (Текст), Изображение (Файл), Скрыть изображение? (Чекбокс)
-- `system-review-social` | Поля: Ссылка (Текст)
-- `system-social-2` | Поля: Иконка (Выпадающий список), Ссылка (Текст)
-- `system-special_products` | Поля: Заголовок (Текст), Категория (Категория)
-- `system-text-column` | Поля: Контент (HTML)
-- `system-text-hex` | Поля: Название (Текст), Цвет (hex формат) (Текст)
-- `system-text-hex-2` | Поля: Название (Текст), Цвет (Цвет)
-- `system-text-link` | Поля: Текст (Текст), Ссылка (Универсальная ссылка)
-- `system-title-and-content` | Поля: Содержание (HTML)
-- `system-widget-feedback` | Поля: Текст на кнопке (Текст)
-
-Пример:
-```json
-{
-  "type": "BlockListWidgetType",
-  "handle": "system_widget_v4_stories_3",
-  "sku": "ES2",
-  "page_kinds": [
-    "all"
-  ],
-  "widget_list_kinds": [
-    "before_content",
-    "content",
-    "after_content",
-    "footer"
-  ],
-  "generation": 4,
-  "name": {
-    "ru": "Истории",
-    "en": "Stories",
-    "es": "Cuentos"
-  },
-  "description": {
-    "ru": "Истории в виде изображений",
-    "en": "Stories as images",
-    "es": "Historias como imágenes"
-  },
-  "widget_category_handle": "stories",
-  "libraries": [
-    "fslightbox",
-    "jquery",
-    "splide3",
-    "my-layout",
-    "vanilla-lazyload"
-  ],
-  "block_template_handle": "system-image-link-text"
-}
-
-```
-
-### Зависимости
-
-Библиотеки виджета
-
-```json
-"libraries": [
-  "commonjs_v2",
-  "jquery",
-  "my-layout",
-  "swiper"
-]
-```
-Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:
-
-- commonjs_v2 - Фреймворк InSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
-- jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
-- microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 
-- my-layout	| <a href="https://github.com/insales/my-layout" target="_blank">Github </a> 
-- vanilla-lazyload | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github </a>
-- splide | <a href="https://splidejs.com/" target="_blank">Документация </a>
-- splide3 | <a href="https://splidejs.com/" target="_blank">Документация </a> 
-- fslightbox | <a href="https://fslightbox.com/" target="_blank">Документация</a> 
-- micromodal | <a href="https://micromodal.vercel.app/" target="_blank">Документация</a>
-- body-scroll-lock | <a href="https://www.npmjs.com/package/body-scroll-lock" target="_blank">Документация</a>
-- js-cookie | <a href="https://github.com/js-cookie/js-cookie/releases" target="_blank">Документация</a>
-- cut-list | <a href=" https://github.com/insales/jquery.cut-list" target="_blank">Документация</a>
-- nouislider | <a href=" https://refreshless.com/nouislider/" target="_blank">Документация</a>

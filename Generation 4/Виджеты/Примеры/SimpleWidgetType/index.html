@@ -373,36 +373,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    Шаг 4
+  <a href="#4-infojson" class="md-nav__link">
+    Шаг 4 (info.json)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    Шаг 5
+  <a href="#5-previewjpg" class="md-nav__link">
+    Шаг 5 (preview.jpg)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    Шаг 6
+  <a href="#6-snippetjs" class="md-nav__link">
+    Шаг 6 (snippet.js)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    Шаг 7
+  <a href="#7-snippetscss" class="md-nav__link">
+    Шаг 7 (snippet.scss)
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8" class="md-nav__link">
-    Шаг 8
+    Шаг 8 (Способы добавления виджета)
   </a>
   
 </li>
@@ -410,13 +410,6 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     Шаг 9 (Что должно получиться)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Зависимости
   </a>
   
 </li>
@@ -437,7 +430,7 @@
   
     <li class="md-nav__item">
       <a href="../block_list_widget_type/" class="md-nav__link">
-        Биджет с блоками
+        Простой виджет
       </a>
     </li>
   
@@ -1358,36 +1351,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    Шаг 4
+  <a href="#4-infojson" class="md-nav__link">
+    Шаг 4 (info.json)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    Шаг 5
+  <a href="#5-previewjpg" class="md-nav__link">
+    Шаг 5 (preview.jpg)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    Шаг 6
+  <a href="#6-snippetjs" class="md-nav__link">
+    Шаг 6 (snippet.js)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    Шаг 7
+  <a href="#7-snippetscss" class="md-nav__link">
+    Шаг 7 (snippet.scss)
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8" class="md-nav__link">
-    Шаг 8
+    Шаг 8 (Способы добавления виджета)
   </a>
   
 </li>
@@ -1395,13 +1388,6 @@
         <li class="md-nav__item">
   <a href="#9" class="md-nav__link">
     Шаг 9 (Что должно получиться)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Зависимости
   </a>
   
 </li>
@@ -1425,7 +1411,7 @@
 
 
 <h1 id="_1">Простой виджет</h1>
-<p>В данном уроке мы создадим простой виджет, который будет ссодержать текст, изображение и несколько настроек.</p>
+<p>В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
 <p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. Пример кода:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
@@ -1462,93 +1448,157 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="3-settings_datajson">Шаг 3 (settings_data.json)</h4>
-<h4 id="4">Шаг 4</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;system_widget_v4_alerts&quot;</span><span class="w"></span>
+<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки пример:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;banner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Как подобрать подарок?&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;How to choose a gift?&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Як підібрати подарунок?ы&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;¿Cómo recoger un regalo?ы&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;banner_content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Мы сталкиваемся с этим вопросом каждый раз перед праздниками.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;We face this question every time before the holidays.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ми стикаємося з цим питанням щоразу перед святами.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nos enfrentamos a esta pregunta cada vez antes de las vacaciones.&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h4 id="5">Шаг 5</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;NN1&quot;</span><span class="w"></span>
-</code></pre></div>
-<h4 id="6">Шаг 6</h4>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;product,collection&quot;</span><span class="p">]</span><span class="w"></span>
-</code></pre></div>
-Если указать например "collection" то виджет будет доступен только в шаблоне категории.
-Может содержать элементы из следующего списка:</p>
+<h4 id="4-infojson">Шаг 4 (info.json)</h4>
 <ul>
-<li>all - все страницы</li>
-<li>index - главная страница</li>
-<li>collection - страница коллекций </li>
-<li>product - страница продукта</li>
-<li>cart - страницы корзины</li>
-<li>page</li>
-<li>search  - страницы поиска</li>
-<li>blog - страницы блога</li>
-<li>compare - страница сравнения</li>
-<li>article - страница статьи</li>
-<li>favorite - страница избранного</li>
+<li><code>"generation": 4</code> - поколение виджета</li>
+<li><code>"type":"SimpleWidgetType"</code> - Тип виджета без привязки блоков.</li>
+<li><code>"handle":"system_widget_v4_page_banner_1"</code> - Путь к репе</li>
+<li><code>"sku":"BB1"</code> - уникальный ID виджета</li>
+<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#page_kinds">ссылке</a>.</li>
+<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона</li>
+<li><code>"widget_list_kinds":["before_content", "content", "after_content"]</code> - виджет будет доступен на всех страницах шаблона</li>
+<li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#widget_category_handle">ссылке</a></li>
+<li><code>"name"</code> - имя виджета.</li>
+<li><code>"description"</code> - описание виджета.</li>
+<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Доступные библиотеки можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#libraries">ссылке</a>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;SimpleWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;system_widget_v4_page_banner_1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;BB1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Баннер с текстом и кнопкой&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Banner - 1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Баннер с текстом и кнопкой&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Banner con texto y botón&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w">      </span>
+<span class="w">  </span><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></li>
 </ul>
-<h4 id="7">Шаг 7</h4>
-<p>Привязка к типу виджетлиста. Доступные разделы страницы:</p>
+<h4 id="5-previewjpg">Шаг 5 (preview.jpg)</h4>
+<p>Для загрузки превью виджета необходимо добавить в папку два файла с именами:</p>
 <ul>
-<li>Верхняя панель</li>
-<li>Шапка</li>
-<li>Контент</li>
-<li>Подвал</li>
-<li>Подвал</li>
-<li>Нижняя панельы</li>
-<li>Вне контента</li>
+<li><code>preview.jpg</code> | для десктопной версии устройства</li>
+<li><code>mobile_preview.jpg</code> | для мобильной версии устройства</li>
 </ul>
-<p>Нужен чтобы, например, в виджетлисте сайдбара не было виджетов шапки/футера.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">]</span><span class="w"></span>
+<h4 id="6-snippetjs">Шаг 6 (snippet.js)</h4>
+<p>В данном примере реализуем ленивую загруку изображений</p>
+<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="p">});</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
-Может содержать элементы из следующего списка:</p>
-<ul>
-<li>before_content</li>
-<li>content</li>
-<li>after_content</li>
-<li>header</li>
-<li>footer</li>
-<li>sidebar</li>
-<li>outside</li>
-</ul>
-<h4 id="8">Шаг 8</h4>
-<p>Категории виджетов, нужна для сортировки виджетов по вкладкам. Категория баннеры:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span><span class="w"></span>
+<h4 id="7-snippetscss">Шаг 7 (snippet.scss)</h4>
+<p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек</p>
+<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">include</span><span class="w"> </span><span class="nt">background-color</span><span class="o">(</span><span class="nt">--bg</span><span class="o">)</span><span class="p">;</span><span class="w"></span>
+<span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-size</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--align-content</span><span class="p">,</span><span class="w"> </span><span class="kc">start</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nv">--controls-font-size-m</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="err">@media</span><span class="w"> </span><span class="err">(</span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">767</span><span class="kt">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">font-size</span><span class="o">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size-mobile</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nv">--controls-font-size-m</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size-mobile</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">grid-auto-columns</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">img</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-fit</span><span class="p">,</span><span class="w"> </span><span class="kc">cover</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="err">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-size</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">)</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-button:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-button</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-button:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">767px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="o">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="nt">a</span><span class="p">.</span><span class="nc">no-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">&amp;:hover</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
 </code></pre></div>
+<h4 id="8">Шаг 8 (Способы добавления виджета)</h4>
 <ul>
-<li>Аналогичные товары | product-similar</li>
-<li>Баннеры   | banner</li>
-<li>Блог | blog</li>
-<li>Всплывающие окна  | modals</li>
-<li>Другие    | drugie</li>
-<li>Заголовки страниц | page-title</li>
-<li>Информация о товаре   | product-info</li>
-<li>Карточки товара   | products-cards</li>
-<li>Комментарии   | comments</li>
-<li>Корзина   | cart</li>
-<li>Навигация | navigation</li>
-<li>Описание категории    | collection-description</li>
-<li>Отзывы    | reviews</li>
-<li>Подвалы   | footers</li>
-<li>Подкатегории  | collection-subcollections</li>
-<li>Преимущества  | benefits</li>
-<li>Разделители   | delimeters</li>
-<li>Результаты поиска | search-results</li>
-<li>Слайдеры  | sliders</li>
-<li>Сопутствующие товары  | product-related</li>
-<li>Сравнение | compare</li>
-<li>Тексты и картинки | text</li>
-<li>Товары в категории    | collection-products</li>
-<li>Товары в сайдбаре | product-sidebar</li>
-<li>Товары на главной | product-homepage</li>
-<li>Уведомления   | notices</li>
-<li>Фильтры   | filters</li>
-<li>Формы | forms</li>
-<li>Шапки | headers</li>
-<li>Ранее просмотренные товары | recently-viewed</li>
-<li>Избранное | favorites</li>
-<li>Статьи | articles</li>
-<li>Видео | video</li>
-<li>Истории | stories</li>
+<li>Архивом</li>
+<li>Online</li>
 </ul>
 <h4 id="9">Шаг 9 (Что должно получиться)</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">block_list_widget_type (виджет с блоками)</label></div>
@@ -1561,157 +1611,6 @@
 </div>
 </div>
 </div>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span><span class="w"></span>
-</code></pre></div>
-<p>Доступные шаблоны блоков:</p>
-<ul>
-<li><code>system-banner</code> | Поля: Название (Текст), Изображение (Файл), Пропорции (Выпадающий список), Ссылка (Текст)</li>
-<li><code>system-banner-2</code> | Поля: Название (Текст), Изображение (Файл), Пропорции (Выпадающий список), Ссылка (Текст)</li>
-<li><code>system-banner-3</code> | Поля: Изображение (Файл), Ссылка (Текст)</li>
-<li><code>system-banner-4</code> | Поля: Изображение (Файл)</li>
-<li><code>system-banner-5</code> | Поля: Изображение (Файл), Изображение на мобильном (Файл), Заголовок (Текст), Текст (Текст), Текст на кнопке (Текст), Ссылка (Текст)</li>
-<li><code>system-banner-6</code> | Поля: Изображение (Файл), Заголовок (Текст), Подзаголовок (Текст), Описание (HTML), Текст ссылки (Текст), Ссылка (Текст), Выравнивание текста (Выпадающий список)</li>
-<li><code>system-banner-7</code> | Поля: Картинка (Файл), Ссылка (Универсальная ссылка)</li>
-<li><code>system-banner-8</code> | Поля: Название (Текст), Изображение (Файл), Ссылка (Универсальная ссылка)</li>
-<li><code>Баннер</code> | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Текст), Текст ссылки (Текст)</li>
-<li><code>system-banner-block-2</code> | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Универсальная ссылка), Текст ссылки (Текст)</li>
-<li><code>system-banner-block-3</code> | Поля: Название (Текст), Описание (HTML), Карта (Текст)</li>
-<li><code>system-banner-image-text</code> | Поля: Изображение (Файл), Положение изображения (Выпадающий список), Ссылка на изображение (Текст), Текст (HTML)</li>
-<li><code>system-banner-mansonry</code> | Поля: Название (Текст), Контент (HTML), Ссылка (Текст), Изображение (Файл), Соотношение сторон (Высота / Ширина) (Выпадающий список)</li>
-<li><code>system-banner-video</code> <a name="blocks_example"></a> | Поля: Ссылка (Текст), Заставка (Файл)</li>
-<li><code>system-banner-video-2</code> | Поля: Ссылка (Универсальная ссылка), Заставка (Файл)</li>
-<li><code>system-benefit</code> | Поля: Описание (Текст), Изображение (Файл)</li>
-<li><code>system-benefit-2</code> | Поля: Заголовок (Текст), Описание (HTML), Изображение (Файл)</li>
-<li><code>system-collection</code> | Поля: Категория (Категория)</li>
-<li><code>system-collection-2</code> | Поля: Название вкладки (Текст), Категория (Категория)</li>
-<li><code>system-collection-3</code> | Поля: Категория (Категория), Заголовок (Текст),Изображение (Файл)</li>
-<li><code>system-collection-4</code> | Поля: Категория (Категория), Изображение категории (Файл)</li>
-<li><code>system-collection-5</code> | Поля: Товар (Товар), Расположение по горизонтали (Число из диапазона с полем ввода), Расположение по вертикали (Число из диапазона с полем ввода), Скрывать цену (Чекбокс), Скрывать название (Чекбокс), Скрывать изображение (Чекбокс)</li>
-<li>
-<p><code>system-collection-with-description</code> | Поля: Коллекция (Категория), Описание (HTML)</p>
-</li>
-<li>
-<p><code>system-custom-block</code> | Поля: Контент (HTML), Фон (Выпадающий список), Ширина блока (Выпадающий список), Ширина блока на планшете (Выпадающий список), Ширина блока на телефоне (Выпадающий список), Вертикальное выравнивание внутри блока (Выпадающий список), Вертикальный отступ блока (Выпадающий список), Горизонтальный отступ блока (Выпадающий список), Скругление углов (Выпадающий список)</p>
-</li>
-<li>
-<p><code>system-element-header</code> | Поля: Элемент (Выпадающий список), Ширина блока [десктоп] (Выпадающий список), Выравнивание [десктоп] (Выпадающий список), Скрыть [десктоп] (Чекбокс), Ширина блока [планшет] (Выпадающий список), Выравнивание [планшет] (Выпадающий список), Скрыть [планшет] (Чекбокс), Ширина блока [телефон] (Выпадающий список), Выравнивание [телефон] (Выпадающий список), Скрыть [телефон] (Чекбокс), Контент для элемента "Текст" (HTML)</p>
-</li>
-<li>
-<p><code>system-faq</code> | Поля: Вопрос (Текст), Ответ (HTML)</p>
-</li>
-<li>
-<p><code>system-faq-2</code> | Поля:    Вопрос (Текст), Ответ (HTML)</p>
-</li>
-<li>
-<p><code>system-form-constructor</code> | Поля: Название поля (Текст), Тип поля (Выпадающий список), Значения (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-form-constructor-2</code> | Поля: Тип поля (Выпадающий список), Ширина поля (Выпадающий список), Название поля (Текст), Подсказка (только для текст и текстовая область) (Текст), Значения (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-form-constructor-3</code> | Поля: Тип поля (Выпадающий список), Название поля (Текст), Обязательное поле (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-image</code> | Поля: Название (Текст), Изображение (Файл)</p>
-</li>
-<li>
-<p><code>system-image-and-content</code> | Поля: Вертикальная позиция изображения (Выпадающий список), Скрыть изображение? (Чекбокс), Текст (HTML), Горизонтальная позиция изображения (Выпадающий список), Изображение (Файл)</p>
-</li>
-<li>
-<p><code>system-image-link-text</code> | Поля: Изображение (Файл), Кнопка (Текст), Текст кнопки (Текст)</p>
-</li>
-<li><code>system-image_text</code> | Поля: Текст (HTML), Изображение (Файл)</li>
-<li><code>system-image-text-button-icon</code> | Поля: Название (Текст), Описание (HTML), Изображение (Файл), Ссылка (Текст), Текст кнопки (Текст), Иконка (Файл)</li>
-<li><code>system-messenger</code> | Поля: Заголовок (Текст), Иконка (Выпадающий список), Ссылка (Текст), Цвет (Текст)</li>
-<li><code>system-messengers</code> | Поля: Заголовок (Текст), Иконка (Выпадающий список), Ссылка (Текст), Цвет (Цвет)</li>
-<li><code>system-payments</code> | Поля: Ссылка (Текст)</li>
-<li><code>system-payments-prime</code> | Поля: Иконка (Файл), Название (title) (Текст)</li>
-<li><code>system-payments-social</code> | Поля: Название (Текст), Иконка (Файл), Тип (Выпадающий список), Ссылка (Текст)</li>
-<li><code>system-personal</code> | Поля: Изображение (Файл), Описание (HTML), Подзаголовок (Текст), Заголовок (Текст)</li>
-<li><code>system-promo-slide</code> | Поля: Описание (Текст), Изображение (Файл), Ссылка (Текст)</li>
-<li><code>system-promo-slide-2</code> | Поля: Описание (Текст), Изображение (Файл), Ссылка (Универсальная ссылка)</li>
-<li><code>system-promo-slider-2</code> | Поля: Заголовок (Текст), Описание (Текст), Ссылка (Текст), Изображение (Файл), Надпись на кнопке (Текст)</li>
-<li><code>system-promo-slider-3</code> | Поля: Надпись на кнопке (Текст), Изображение для мобильных устройств (Файл), Изображение (Файл), Ссылка (Текст), Описание (Текст), Заголовок (Текст)</li>
-<li><code>system-promo-slider-4</code> | Поля: Описание (Текст), Заголовок (Текст), Ссылка (Текст), Изображение (Файл)</li>
-<li><code>system-promo-slider-5</code> | Поля: Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка), Изображение (Файл), Надпись на кнопке (Текст)</li>
-<li><code>system-promo-slider-6</code> | Поля: Изображение (Файл), Изображение для мобильных устройств (Файл),Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка), Надпись на кнопке (Текст)</li>
-<li><code>system-promo-slider-7</code> | Поля: Описание (Текст), Заголовок (Текст), Ссылка (Универсальная ссылка), Изображение (Файл)</li>
-<li><code>system-promo-slider-8</code> | Поля: Изображение (Файл), Изображение для мобильных устройств (Файл),Заголовок (Текст), Описание (Текст), Ссылка (Универсальная ссылка)</li>
-<li><code>system-review</code> | Поля: Скрыть изображение? (Чекбокс), Текст (HTML), Имя (Текст), Позиция изображения (Выпадающий список), Изображение (Файл)</li>
-<li><code>system-review-2</code> | Поля: Скрыть изображение? (Чекбокс), Имя (Текст), Текст (HTML), Изображение (Файл)</li>
-<li><code>system-review-4</code> | Поля: Заголовок (Текст), Подзаголовок (Текст), Текст (HTML), Изображение (Файл), Скрыть изображение? (Чекбокс)</li>
-<li><code>system-review-shop</code> | Поля: Имя (Текст), Текст (HTML), Рейтинг (Число из диапазона со слайдером), Дата (Текст), Изображение (Файл), Скрыть изображение? (Чекбокс)</li>
-<li><code>system-review-social</code> | Поля: Ссылка (Текст)</li>
-<li><code>system-social-2</code> | Поля: Иконка (Выпадающий список), Ссылка (Текст)</li>
-<li><code>system-special_products</code> | Поля: Заголовок (Текст), Категория (Категория)</li>
-<li><code>system-text-column</code> | Поля: Контент (HTML)</li>
-<li><code>system-text-hex</code> | Поля: Название (Текст), Цвет (hex формат) (Текст)</li>
-<li><code>system-text-hex-2</code> | Поля: Название (Текст), Цвет (Цвет)</li>
-<li><code>system-text-link</code> | Поля: Текст (Текст), Ссылка (Универсальная ссылка)</li>
-<li><code>system-title-and-content</code> | Поля: Содержание (HTML)</li>
-<li><code>system-widget-feedback</code> | Поля: Текст на кнопке (Текст)</li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BlockListWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system_widget_v4_stories_3&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;page_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;all&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;after_content&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;footer&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cuentos&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории в виде изображений&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories as images&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Historias como imágenes&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stories&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;fslightbox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;splide3&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-image-link-text&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
-<h3 id="_2">Зависимости</h3>
-<p>Библиотеки виджета</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;commonjs_v2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;swiper&quot;</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
-</code></pre></div>
-Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:</p>
-<ul>
-<li>commonjs_v2 - Фреймворк InSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> </li>
-<li>jquery | <a href="https://jquery.com/" target="_blank">Документация</a> </li>
-<li>microalert    |<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> </li>
-<li>my-layout | <a href="https://github.com/insales/my-layout" target="_blank">Github </a> </li>
-<li>vanilla-lazyload | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github </a></li>
-<li>splide | <a href="https://splidejs.com/" target="_blank">Документация </a></li>
-<li>splide3 | <a href="https://splidejs.com/" target="_blank">Документация </a> </li>
-<li>fslightbox | <a href="https://fslightbox.com/" target="_blank">Документация</a> </li>
-<li>micromodal | <a href="https://micromodal.vercel.app/" target="_blank">Документация</a></li>
-<li>body-scroll-lock | <a href="https://www.npmjs.com/package/body-scroll-lock" target="_blank">Документация</a></li>
-<li>js-cookie | <a href="https://github.com/js-cookie/js-cookie/releases" target="_blank">Документация</a></li>
-<li>cut-list | <a href=" https://github.com/insales/jquery.cut-list" target="_blank">Документация</a></li>
-<li>nouislider | <a href=" https://refreshless.com/nouislider/" target="_blank">Документация</a></li>
-</ul>
 
               
             </article>
@@ -1743,13 +1642,13 @@
       
       
         
-        <a href="../block_list_widget_type/" class="md-footer__link md-footer__link--next" aria-label="Next: Биджет с блоками" rel="next">
+        <a href="../block_list_widget_type/" class="md-footer__link md-footer__link--next" aria-label="Next: Простой виджет" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Биджет с блоками
+              Простой виджет
             </div>
           </div>
           <div class="md-footer__button md-icon">

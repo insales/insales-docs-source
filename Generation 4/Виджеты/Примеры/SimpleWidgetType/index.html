@@ -407,13 +407,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    Шаг 9 (Что должно получиться)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -430,7 +423,7 @@
   
     <li class="md-nav__item">
       <a href="../block_list_widget_type/" class="md-nav__link">
-        Простой виджет
+        Виджет с блоками
       </a>
     </li>
   
@@ -1385,13 +1378,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    Шаг 9 (Что должно получиться)
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1413,16 +1399,35 @@
 <h1 id="_1">Простой виджет</h1>
 <p>В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
-<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. Пример кода:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
-  {{ widget_settings.banner_name }}
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-content&quot;</span><span class="p">&gt;</span>
-  {{ widget_settings.banner_content }}
+<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. <code>widget_settings.banner-img</code> - картинку можно будет заменить через редактор. <code>{% if widget_settings.banner-img %}</code> - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне <code>img_width = widget_settings.layout-content-max-width</code>  Пример кода:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
+    {{ widget_settings.banner_name }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-image&quot;</span><span class="p">&gt;</span>
+    {% if widget_settings.banner-img %}
+      {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width | divided_by: 2 %}
+      {% if widget_settings.layout-wide-content %}
+        {% assign img_width = 1000 %}
+      {% endif %}
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio__inner&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: img_width, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    {% endif %}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="2-settings_formjson">Шаг 2 (settings_form.json)</h4>
-<p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>.
+<p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
+<code>{{ messages.content }}</code> - Является заголовком группы - "Контент". Настройка <code>"banner-img"</code> типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка <code>"banner-img"</code> является основной <code>"general": true</code>, <code>"general_position": 1</code> - будет первой списке основных настроек. Настройка с именем <code>"name": "font-size"</code>, предлагает пользователю выбрать размер текста в редакторе. А настройка <code>"name": "hide-title"</code> - предлагает скрыть заголовок в редакторе. Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;{{ messages.content }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
@@ -1436,10 +1441,32 @@
 <span class="w">            </span><span class="nt">&quot;general&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 <span class="w">          </span><span class="p">},</span><span class="w"></span>
 <span class="w">          </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner_content&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.main_text }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;banner-img&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.picture }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;file&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;general&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;help&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.recommended_size }}: 915x458 px&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="nt">&quot;general_position&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;range&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;font-size&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.font_size }}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;max&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;with_btns&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;px&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;hide_mobile&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hide-title&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.hide_title }}&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rich-text&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;general&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 <span class="w">          </span><span class="p">}</span><span class="w"></span>
 <span class="w">        </span><span class="p">]</span><span class="w"></span>
@@ -1448,7 +1475,7 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="3-settings_datajson">Шаг 3 (settings_data.json)</h4>
-<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки пример:</p>
+<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки. А размер языка выбираем в 20 пикслей. Заголовок по умолчанию скрывать не будем. Картинка по умолчанию, по id из нашего магазина. Пример:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;banner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Как подобрать подарок?&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1461,7 +1488,10 @@
 <span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;We face this question every time before the holidays.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ми стикаємося з цим питанням щоразу перед святами.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nos enfrentamos a esta pregunta cada vez antes de las vacaciones.&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;font-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;hide-title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;banner-img&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14935940&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h4 id="4-infojson">Шаг 4 (info.json)</h4>
@@ -1476,7 +1506,7 @@
 <li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#widget_category_handle">ссылке</a></li>
 <li><code>"name"</code> - имя виджета.</li>
 <li><code>"description"</code> - описание виджета.</li>
-<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Доступные библиотеки можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#libraries">ссылке</a>
+<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступные библиотек можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#libraries">ссылке</a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;SimpleWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1508,16 +1538,17 @@
 <li><code>mobile_preview.jpg</code> | для мобильной версии устройства</li>
 </ul>
 <h4 id="6-snippetjs">Шаг 6 (snippet.js)</h4>
-<p>В данном примере реализуем ленивую загруку изображений</p>
+<p>В данном примере реализуем ленивую загруку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></p>
 <div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h4 id="7-snippetscss">Шаг 7 (snippet.scss)</h4>
 <p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек</p>
-<div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">include</span><span class="w"> </span><span class="nt">background-color</span><span class="o">(</span><span class="nt">--bg</span><span class="o">)</span><span class="p">;</span><span class="w"></span>
-<span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-size</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
@@ -1525,89 +1556,34 @@
 <span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--align-content</span><span class="p">,</span><span class="w"> </span><span class="kc">start</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="nv">--controls-font-size-m</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="err">@media</span><span class="w"> </span><span class="err">(</span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">767</span><span class="kt">px</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="o">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size-mobile</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nv">--controls-font-size-m</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--font-size-mobile</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">grid-auto-columns</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="err">img</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-fit</span><span class="p">,</span><span class="w"> </span><span class="kc">cover</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="err">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">line-height</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
-
-<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-size</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">)</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-button:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-button</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-title:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-button:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="n">min-content</span><span class="w"> </span><span class="n">min-content</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-
-<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">767px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-position:left;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="o">,</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">.</span><span class="nc">banner-list__item-image</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">order</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="nt">a</span><span class="p">.</span><span class="nc">no-text</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">  </span><span class="err">&amp;:hover</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">transparent</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
 </code></pre></div>
 <h4 id="8">Шаг 8 (Способы добавления виджета)</h4>
 <ul>
-<li>Архивом</li>
-<li>Online</li>
+<li>
+<p>Через админку. Для этого создаем файлы: info.json, preview.jpg, settings_data.json, settings_form.json, snippet.js, snippet.liquid, snippet.scss. И вставляем код из примеров выше. Переходим в панель администратора -&gt; настройки -&gt; Настройки сайта -&gt; Виджеты, нажимаем кнопку "Создать". Вводим название - banner_test, описание banner_descr. Выбираем категорию - баннеры, тип - простой виджет. Артикул BANNER.1, Идентификатор - BB101, Типы страниц - все. Типы списков виджетов - основной контент. Далее находим в списке по id - BANNER.1 добавляем содежимое нашего snippet.scss и snippet.js. Выбираем Область применения - Зависимости - jquery, vamilla-lazyload, сохраняем изменения. Переходим в наш шаблон, слева в редаторе нажимем кнопк "добавить виджет". В группе "Баннеры", мы увидим наш виджет banner_text. </p>
+</li>
+<li>
+<p>Online. Для этого добавляем виджет в редакторе, нажимаем "Расширенный режим настроек", затем "Редактировать код", вставляем необходимый код по нужным нам файлам. </p>
+</li>
+<li>
+<p>HTML - это snippet.liquid</p>
+</li>
+<li>SCSS - это snippet.scss</li>
+<li>JS - это snippet.js</li>
+<li>Форма настроек (JSON) - это settings_form.js</li>
+<li>Настройки по умолчанию (JSON) - это settings_data.js</li>
 </ul>
-<h4 id="9">Шаг 9 (Что должно получиться)</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">block_list_widget_type (виджет с блоками)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Online</label><label for="__tabbed_1_2">Через админку</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img alt="" src="/img/widget-w-blocks.jpg" /></p>
+<p><img alt="" src="/img/online.jpg" /></p>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="/img/widget-v-blocks.jpg" /></p>
+<p><img alt="" src="/img/widget-admin.jpg" /></p>
 </div>
 </div>
 </div>
@@ -1642,13 +1618,13 @@
       
       
         
-        <a href="../block_list_widget_type/" class="md-footer__link md-footer__link--next" aria-label="Next: Простой виджет" rel="next">
+        <a href="../block_list_widget_type/" class="md-footer__link md-footer__link--next" aria-label="Next: Виджет с блоками" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Простой виджет
+              Виджет с блоками
             </div>
           </div>
           <div class="md-footer__button md-icon">

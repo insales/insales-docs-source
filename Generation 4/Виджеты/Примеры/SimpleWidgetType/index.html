@@ -1399,7 +1399,9 @@
 <h1 id="_1">Простой виджет</h1>
 <p>В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
-<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. <code>widget_settings.banner-img</code> - картинку можно будет заменить через редактор. <code>{% if widget_settings.banner-img %}</code> - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне <code>img_width = widget_settings.layout-content-max-width</code>  Пример кода:</p>
+<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. <code>widget_settings.banner-img</code> - картинку можно будет заменить через редактор. <code>{% if widget_settings.banner-img %}</code> - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне <code>img_width = widget_settings.layout-content-max-width</code><br />
+<br>
+<a name="snippet_liquid"></a>Пример кода:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
     {{ widget_settings.banner_name }}
@@ -1428,6 +1430,7 @@
 <h4 id="2-settings_formjson">Шаг 2 (settings_form.json)</h4>
 <p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
 <code>{{ messages.content }}</code> - Является заголовком группы - "Контент". Настройка <code>"banner-img"</code> типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка <code>"banner-img"</code> является основной <code>"general": true</code>, <code>"general_position": 1</code> - будет первой списке основных настроек. Настройка с именем <code>"name": "font-size"</code>, предлагает пользователю выбрать размер текста в редакторе. А настройка <code>"name": "hide-title"</code> - предлагает скрыть заголовок в редакторе. Пример:
+<a name="settings_form"></a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;{{ messages.content }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
@@ -1475,7 +1478,8 @@
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="3-settings_datajson">Шаг 3 (settings_data.json)</h4>
-<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки. А размер языка выбираем в 20 пикслей. Заголовок по умолчанию скрывать не будем. Картинка по умолчанию, по id из нашего магазина. Пример:</p>
+<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки. А размер языка выбираем в 20 пикслей. Заголовок по умолчанию скрывать не будем. Картинка по умолчанию, по id из нашего магазина. Пример:
+<a name="settings_data"></a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;banner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Как подобрать подарок?&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1493,7 +1497,7 @@
 <span class="w">  </span><span class="nt">&quot;hide-title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;banner-img&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14935940&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
+</code></pre></div></p>
 <h4 id="4-infojson">Шаг 4 (info.json)</h4>
 <ul>
 <li><code>"generation": 4</code> - поколение виджета</li>
@@ -1538,16 +1542,18 @@
 <li><code>mobile_preview.jpg</code> | для мобильной версии устройства</li>
 </ul>
 <h4 id="6-snippetjs">Шаг 6 (snippet.js)</h4>
-<p>В данном примере реализуем ленивую загруку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></p>
+<p>В данном примере реализуем ленивую загруку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a>
+<a name="snippet_js"></a>
 <div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="w"></span>
 <span class="w">    </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
-</code></pre></div>
+</code></pre></div></p>
 <h4 id="7-snippetscss">Шаг 7 (snippet.scss)</h4>
-<p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек</p>
+<p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек
+<a name="snippet_scss"></a>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">banner-list__item</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--img-size</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">);</span><span class="w"></span>
@@ -1560,22 +1566,32 @@
 <span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--hide-title:true;&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">.</span><span class="nc">banner-list__item-title</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div>
+</code></pre></div></p>
 <h4 id="8">Шаг 8 (Способы добавления виджета)</h4>
 <ul>
 <li>
-<p>Через админку. Для этого создаем файлы: info.json, preview.jpg, settings_data.json, settings_form.json, snippet.js, snippet.liquid, snippet.scss. И вставляем код из примеров выше. Переходим в панель администратора -&gt; настройки -&gt; Настройки сайта -&gt; Виджеты, нажимаем кнопку "Создать". Вводим название - banner_test, описание banner_descr. Выбираем категорию - баннеры, тип - простой виджет. Артикул BANNER.1, Идентификатор - BB101, Типы страниц - все. Типы списков виджетов - основной контент. Далее находим в списке по id - BANNER.1 добавляем содежимое нашего snippet.scss и snippet.js. Выбираем Область применения - Зависимости - jquery, vamilla-lazyload, сохраняем изменения. Переходим в наш шаблон, слева в редаторе нажимем кнопк "добавить виджет". В группе "Баннеры", мы увидим наш виджет banner_text. </p>
+<p>Через панель администратора: </p>
+<ul>
+<li>Переходим в панель администратора Вашего сайта -&gt; Настройки -&gt; Настройки сайта -&gt; Виджеты, нажимаем кнопку "Создать".</li>
+<li>В адресной строке должно быть - Имя_Вашего_Магазина.myinsales.ru/admin2/widget_types/new
+Вводим название - banner_test, описание - banner_descr. </li>
+<li>Выбираем категорию - баннеры, тип - простой виджет. Артикул BANNER.1, Идентификатор - BB101, Типы страниц - все. </li>
+<li>Типы списков виджетов - основной контент. Во вкладку "СНИППЕТ" добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_liquid">Шаг 1 (snippet.liquid)</a></li>
+<li>Далее находим в списке по id - BANNER.1 добавляем содежимое нашего  добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_scss">Шаг 7 (snippet.scss)</a> и <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_js">Шаг 6 (snippet.js)</a>. </li>
+<li>Выбираем Область применения - Зависимости: jquery, vamilla-lazyload, и сохраняем изменения. </li>
+<li>Переходим в наш шаблон, слева в редаторе нажимем кнопк "добавить виджет". В группе "Баннеры", мы увидим наш виджет с именем banner_text. </li>
+</ul>
 </li>
 <li>
-<p>Online. Для этого добавляем виджет в редакторе, нажимаем "Расширенный режим настроек", затем "Редактировать код", вставляем необходимый код по нужным нам файлам. </p>
+<p>Online, через редактор шаблона. Для этого добавляем виджет в редакторе, включаем "Расширенный  режим настроек", затем "Редактировать код", вставляем необходимый код по нужным нам файлам:</p>
+<ul>
+<li>HTML - добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_liquid">Шаг 1 (snippet.liquid)</a></li>
+<li>SCSS - добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_scss">Шаг 7 (snippet.scss)</a></li>
+<li>JS - добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#snippet_js">Шаг 6 (snippet.js)</a></li>
+<li>Форма настроек (JSON) - добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#settings_form">Шаг 2 (settings_form.js)</a></li>
+<li>Настройки по умолчанию (JSON) -  добавляем содержимое пример кода из <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#settings_data">Шаг 3 (settings_data.js)</a></li>
+</ul>
 </li>
-<li>
-<p>HTML - это snippet.liquid</p>
-</li>
-<li>SCSS - это snippet.scss</li>
-<li>JS - это snippet.js</li>
-<li>Форма настроек (JSON) - это settings_form.js</li>
-<li>Настройки по умолчанию (JSON) - это settings_data.js</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Online</label><label for="__tabbed_1_2">Через админку</label></div>
 <div class="tabbed-content">

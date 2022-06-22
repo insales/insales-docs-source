@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
     
     
       
@@ -1397,33 +1397,38 @@
 
 
 <h1 id="_1">Виджет с блоками</h1>
-<p>В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.</p>
+<p>В данном уроке мы создадим виджет с блоками (<a href="/Generation%204/Виджеты/Структура/info/#BlockListWidgetType">block_list_widget_type</a>), который будет содержать нескольно блоков внутри которых будут картинка и ссылка и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
-<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. <code>widget_settings.banner-img</code> - картинку можно будет заменить через редактор. <code>{% if widget_settings.banner-img %}</code> - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне <code>img_width = widget_settings.layout-content-max-width</code>  Пример кода:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
-    {{ widget_settings.banner_name }}
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-image&quot;</span><span class="p">&gt;</span>
-    {% if widget_settings.banner-img %}
-      {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width | divided_by: 2 %}
-      {% if widget_settings.layout-wide-content %}
-        {% assign img_width = 1000 %}
+<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - <code>{{ code }}</code>. В примере ниже мы прописываем класс <code>grid-list</code>, внутри <code>div</code> мы используем цикл <code>{% for slide in data.blocks %}</code>, перебирая блоки <code>slide</code>. Затем проверем не передается ли пустое строковое значение в ссылке блока <code>slide</code> - <code>{% if slide.link != "" %}</code>. Далее, внутри атрибута <code>href</code> мы указываем поле <code>link</code> блока <code>slide</code> - <code>{{ slide.link }}</code></p>
+<p>Пример кода:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list grid-list&quot;</span><span class="p">&gt;</span>
+  {% for slide in data.blocks %}
+  {% if slide.link != &quot;&quot; %}
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ slide.link }}&quot;</span>  <span class="na">data-block-id</span><span class="o">=</span><span class="s">&quot;{{ slide.id }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item editable-block&quot;</span> <span class="p">&gt;</span>
+    {% else %}
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-block-id</span><span class="o">=</span><span class="s">&quot;{{ slide.id }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item editable-block&quot;</span> <span class="p">&gt;</span>
       {% endif %}
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio img-fit banner-list__item-photo&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio__inner&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+          {% assign image_title = slide.name | escape %}
+          {% if slide.image %}
+              {% assign img_width = 686 %}
+              {% assign img_height = 686 %}
+              {% assign img_height = img_height | divided_by: widget_settings.img-ratio | to_integer %}
+              <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ slide.image | image_url: 500, height: img_height, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
 
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ widget_settings.banner-img | image_url: img_width, resizing_type: &#39;fit_width&#39;, quality: 100 }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ slide.image | image_url: img_width, height: img_height, resizing_type: &#39;fill-down&#39;, quality:100 }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;{{ image_title }}&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
+            {% endif %}
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    {% endif %}
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      {% if slide.link != &quot;&quot; %}
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  {% else %}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>{% endif %}
+  {% endfor %}
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% assign image_title = null %}
 </code></pre></div>
 <h4 id="2-settings_formjson">Шаг 2 (settings_form.json)</h4>
 <p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
@@ -1654,10 +1659,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f758a944.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.0238f547.min.js"></script>
       
     
   </body>

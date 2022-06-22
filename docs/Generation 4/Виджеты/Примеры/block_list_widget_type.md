@@ -1,36 +1,42 @@
 # Виджет с блоками 
 
-В данном уроке мы создадим простой виджет (<a href="/Generation%204/Виджеты/Структура/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет ссодержать текст, изображение и несколько настроек.
+В данном уроке мы создадим виджет с блоками (<a href="/Generation%204/Виджеты/Структура/info/#BlockListWidgetType">block_list_widget_type</a>), который будет содержать нескольно блоков внутри которых будут картинка и ссылка и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)
 
 #### Шаг 1 (snippet.liquid)
 
-Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - `{{ code }}`. В примере ниже мы указываем настройку виджета `widget_settings.banner_name`, слева в редакторе пользователь сможет поменять текст данной настройки. `widget_settings.banner-img` - картинку можно будет заменить через редактор. `{% if widget_settings.banner-img %}` - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне `img_width = widget_settings.layout-content-max-width`  Пример кода:
+Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - `{{ code }}`. В примере ниже мы прописываем класс `grid-list`, внутри `div` мы используем цикл `{% for slide in data.blocks %}`, перебирая блоки `slide`. Затем проверем не передается ли пустое строковое значение в ссылке блока `slide` - `{% if slide.link != "" %}`. Далее, внутри атрибута `href` мы указываем поле `link` блока `slide` - `{{ slide.link }}`
+
+Пример кода:
 
 ```html
-<div class="banner-list__item">
-  <div class="banner-list__item-title h2">
-    {{ widget_settings.banner_name }}
-  </div>
-  <div class="banner-list__item-image">
-    {% if widget_settings.banner-img %}
-      {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width | divided_by: 2 %}
-      {% if widget_settings.layout-wide-content %}
-        {% assign img_width = 1000 %}
+<div class="banner-list grid-list">
+  {% for slide in data.blocks %}
+  {% if slide.link != "" %}
+  <a href="{{ slide.link }}"  data-block-id="{{ slide.id }}" class="banner-list__item editable-block" >
+    {% else %}
+    <div data-block-id="{{ slide.id }}" class="banner-list__item editable-block" >
       {% endif %}
-      <div class="img-ratio">
+      <div class="img-ratio img-fit banner-list__item-photo">
         <div class="img-ratio__inner">
-          <picture>
-            <source media="(min-width:769px)" data-srcset="{{ widget_settings.banner-img | image_url: img_width, format: 'webp', resizing_type: 'fit_width', quality: 100 }}" type="image/webp" class="lazyload">
-            <source media="(max-width:480px)" data-srcset="{{ widget_settings.banner-img | image_url: 500, format: 'webp', resizing_type: 'fit_width', quality: 100 }}" type="image/webp" class="lazyload">
-            <source media="(max-width:768px)" data-srcset="{{ widget_settings.banner-img | image_url: 768, format: 'webp', resizing_type: 'fit_width', quality: 100 }}" type="image/webp" class="lazyload">
+          {% assign image_title = slide.name | escape %}
+          {% if slide.image %}
+              {% assign img_width = 686 %}
+              {% assign img_height = 686 %}
+              {% assign img_height = img_height | divided_by: widget_settings.img-ratio | to_integer %}
+              <picture>
+                <source media="(max-width:480px)" data-srcset="{{ slide.image | image_url: 500, height: img_height, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
 
-            <img data-src="{{ widget_settings.banner-img | image_url: img_width, resizing_type: 'fit_width', quality: 100 }}" class="lazyload">
-          </picture>
+                <img data-src="{{ slide.image | image_url: img_width, height: img_height, resizing_type: 'fill-down', quality:100 }}" class="lazyload" alt="{{ image_title }}">
+              </picture>
+            {% endif %}
         </div>
       </div>
-    {% endif %}
-  </div>
+      {% if slide.link != "" %}
+  </a>
+  {% else %}</div>{% endif %}
+  {% endfor %}
 </div>
+{% assign image_title = null %}
 ```
 
 #### Шаг 2 (settings_form.json)

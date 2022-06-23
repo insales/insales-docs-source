@@ -1,10 +1,11 @@
 # Виджет с блоками 
 
-В данном уроке мы создадим виджет с блоками (<a href="/Generation%204/Виджеты/Структура/info/#BlockListWidgetType">block_list_widget_type</a>), который будет содержать нескольно блоков внутри которых будут картинка и ссылка и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)
+В данном уроке мы создадим виджет с блоками (<a href="/Generation%204/Виджеты/Структура/info/#BlockListWidgetType">block_list_widget_type</a>), который будет содержать нескольно блоков, внутри которых будут картинка и ссылка, и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)
 
 #### Шаг 1 (snippet.liquid)
 
-Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - `{{ code }}`. В примере ниже мы прописываем класс `grid-list`, внутри `div` мы используем цикл `{% for slide in data.blocks %}`, перебирая блоки `slide`. Затем проверем не передается ли пустое строковое значение в ссылке блока `slide` - `{% if slide.link != "" %}`. Далее, внутри атрибута `href` мы указываем поле `link` блока `slide` - `{{ slide.link }}`
+Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код, который отделется двумя фигурными скобками - `{{ code }}`. В примере ниже мы прописываем класс `grid-list`, внутри `div` мы используем цикл `{% for slide in data.blocks %}`, перебирая блоки `slide`. Затем проверем не передается ли пустое строковое значение в ссылке блока `slide` - `{% if slide.link != "" %}`. Далее, внутри атрибута `href` мы указываем поле <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">`link`</a> блока `slide` - `{{ slide.link }}`. Когда мы указываем поле ссылка, в редакторе пользователь сможет перейти в параметры блока и указать ссылку самостоятельно. 
+Далее проверем не передается ли пустое значение в картинке блока `slide` - `{% if slide.image %}`. Затем, внутри атрибута `data-src` мы указываем поле <a href="/Generation%204/Виджеты/Структура/info/#systembanner7">`image`</a> блока `slide` - `{{ slide.image }}`. Когда мы указываем поле изображение, в редакторе пользователь сможет перейти в параметры блока и добавить картинку самостоятельно. 
 
 Пример кода:
 
@@ -12,21 +13,17 @@
 <div class="banner-list grid-list">
   {% for slide in data.blocks %}
   {% if slide.link != "" %}
-  <a href="{{ slide.link }}"  data-block-id="{{ slide.id }}" class="banner-list__item editable-block" >
+  <a href="{{ slide.link }}" class="banner-list__item">
     {% else %}
-    <div data-block-id="{{ slide.id }}" class="banner-list__item editable-block" >
+    <div class="banner-list__item">
       {% endif %}
       <div class="img-ratio img-fit banner-list__item-photo">
         <div class="img-ratio__inner">
           {% assign image_title = slide.name | escape %}
           {% if slide.image %}
               {% assign img_width = 686 %}
-              {% assign img_height = 686 %}
-              {% assign img_height = img_height | divided_by: widget_settings.img-ratio | to_integer %}
               <picture>
-                <source media="(max-width:480px)" data-srcset="{{ slide.image | image_url: 500, height: img_height, format: 'webp', resizing_type: 'fit_width' }}" type="image/webp" class="lazyload">
-
-                <img data-src="{{ slide.image | image_url: img_width, height: img_height, resizing_type: 'fill-down', quality:100 }}" class="lazyload" alt="{{ image_title }}">
+                <img data-src="{{ slide.image | image_url: img_width, resizing_type: 'fill-down', quality:100 }}" class="lazyload" alt="{{ image_title }}">
               </picture>
             {% endif %}
         </div>
@@ -39,89 +36,142 @@
 {% assign image_title = null %}
 ```
 
-#### Шаг 2 (settings_form.json)
+#### Шаг 2 (setup.json)
+В файле setup мы прописываем количество блоков с параметрами 'image' и 'link', в примере ниже 6 блоков с пустыми ссылками и одинаковым id изображения. В качестве файла указывается id файла из <a target="_blank" href="http://file-store.myinsales.ru/">аккаунта</a>
+
+Пример:
+```json
+{
+  "blocks": [{
+      "image": "16779404",
+      "link": "#"
+    },
+    {
+      "image": "16779404",
+      "link": "#"
+    },
+    {
+      "image": "16779404",
+      "link": "#"
+    },
+    {
+      "image": "16779404",
+      "link": "#"
+    },
+    {
+      "image": "16779404",
+      "link": "#"
+    },
+    {
+      "image": "16779404",
+      "link": "#"
+    }
+  ]
+}
+```
+
+
+#### Шаг 3 (settings_form.json)
 
 Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_text">типа</a> `text` и поле с настройкой  <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_rich_texts">типа</a> `rich-text`. 
 `{{ messages.content }}` - Является заголовком группы - "Контент". Настройка `"banner-img"` типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка `"banner-img"` является основной `"general": true`, `"general_position": 1` - будет первой списке основных настроек. Настройка с именем `"name": "font-size"`, предлагает пользователю выбрать размер текста в редакторе. А настройка `"name": "hide-title"` - предлагает скрыть заголовок в редакторе. Пример:
 ```json
 {
-    "{{ messages.content }}": [
+  "{{ messages.banner }}": [{
+    "items": [{
+        "class": "range",
+        "name": "grid-list-row-gap",
+        "min": 0,
+        "max": 3,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "{{ messages.vertical_padding_between_blocks }}",
+        "type":"number",
+          "with_btns": true
+      },
       {
-        "items": [
-          {
-            "class": "text",
-            "name": "banner_name",
-            "label": "{{ messages.title }}",
-            "value": null,
-            "type": "text",
-            "general": true
-          },
-          {
-           "name":"banner-img",
-           "label":"{{ messages.picture }}",
-           "value":null,
-           "type":"file",
-           "general": true,
-           "help": "{{ messages.recommended_size }}: 915x458 px",
-           "general_position": 1
-          },
-          {
-            "class": "range",
-            "name": "font-size",
-            "label": "{{ messages.font_size }}",
-            "min": 14,
-            "max" : 24,
-            "step": 2,
-            "type":"number",
-            "with_btns": true,
-            "unit": "px",
-            "hide_mobile": true
-          },
-          {
-            "class": "checkbox",
-            "name": "hide-title",
-            "label": "{{ messages.hide_title }}",
-            "value": null,
-            "type": "checkbox",
-            "general": true
-          }
-        ]
-      }
-    ]
-  }
+        "class": "range",
+        "name": "grid-list-column-gap",
+        "min": 0,
+        "max": 3,
+        "step": 0.5,
+        "unit": "rem",
+        "label": "{{ messages.horizontal_padding_between_blocks }}",
+        "type":"number",
+        "with_btns": true
+      },
+  
+  "{{ messages.label_widget }}": [{
+      "group_name": "{{ messages.background }}",
+      "items": [{
+          "name": "bg",
+          "label": "{{ messages.widget_background_color }}",
+          "value": "",
+          "type": "color",
+          "clearable": true
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.adaptive }}",
+      "items": [{
+          "class": "checkbox",
+          "name": "hide-desktop",
+          "label": "{{ messages.hide_desktop }}",
+          "value": null,
+          "type": "checkbox"
+        }
+      ]
+    }
+  ]
+}
 ```
+#### Шаг 3 (messages.json)
+В файле messages мы прописываем перевод ключа `hide_desktop` из settings_form.json на 4 языках. Более подробно можно почитать <a href="/Generation%204/Виджеты/Структура/messages/">здесь</a>.
 
+Пример:
+```json
+{
+  "ru": {
+    "hide_desktop": "Скрыть на десктопе"
+  },
+  "ua": {
+    "hide_desktop": "Сховати на робочому столі"
+  },
+  "en": {
+    "hide_desktop": "Hide on Desktop"
+  },
+  "es": {
+    "hide_desktop": "Para Mostrar u ocultar favoritos, vaya a la configuración de la plantilla y Active favoritos"
+  }
+}
+
+```
 #### Шаг 3 (settings_data.json)
 
-В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки. А размер языка выбираем в 20 пикслей. Заголовок по умолчанию скрывать не будем. Картинка по умолчанию, по id из нашего магазина. Пример:
+В данном файле мы прописываем значение настроек (settings_form.json), по умолчанию.
+`hide-desktop` - скрыть на детскопе, по умолчанию `false`, что означает что мы не скрываем на детскопе наш виджет по умолчанию. `grid-list-row-gap` - отступ по вертикали, в `2` rem.
+`grid-list-column-gap` - отступ по горизонтали, в `2` rem. `bg` - цвет фона по умолчанию `"#ffda33"`
+
+Пример:
 
 ```json
 {
-  "banner_name": {
-    "ru": "Как подобрать подарок?",
-    "en": "How to choose a gift?",
-    "ua": "Як підібрати подарунок?ы",
-    "es": "¿Cómo recoger un regalo?ы"
-  },
-  "banner_content": {
-    "ru": "Мы сталкиваемся с этим вопросом каждый раз перед праздниками.",
-    "en": "We face this question every time before the holidays.",
-    "ua": "Ми стикаємося з цим питанням щоразу перед святами.",
-    "es": "Nos enfrentamos a esta pregunta cada vez antes de las vacaciones."
-  },
-  "font-size": 20,
-  "hide-title": false,
-  "banner-img": "14935940"
+  "hide-desktop": false,
+  "grid-list-row-gap": 2,
+  "grid-list-column-gap": 2,
+  "bg": "#ffda33"
 }
+
 
 ```
 
 #### Шаг 4 (info.json)
 
 - `"generation": 4` - поколение виджета
-- `"type":"SimpleWidgetType"` - Тип виджета без привязки блоков.
-- `"handle":"system_widget_v4_page_banner_1"` - Путь к репе
-- `"sku":"BB1"` - уникальный ID виджета
+- `"type":"block_list_widget_type"` - Тип виджета с привязкой блоков.
+- `"handle":"system_widget_v4_banner_list_23"` - Путь к репе
+- `"sku":"BG10"` - уникальный ID виджета
 - `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#page_kinds">ссылке</a>.
 - `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона
 - `"widget_list_kinds":["before_content", "content", "after_content"]` - виджет будет доступен на всех страницах шаблона
@@ -130,28 +180,35 @@
 - `"description"` - описание виджета.
 - `"libraries"` - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступные библиотек можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#libraries">ссылке</a>
 ```json
+
 {
-  "generation": 4,
-  "type":"SimpleWidgetType",
-  "handle":"system_widget_v4_page_banner_1",
-  "sku":"BB1",
-  "page_kinds":["all"],
-  "widget_list_kinds":["before_content", "content", "after_content"],
-  "widget_category_handle":"banner",
+  "type": "block_list_widget_type",
+  "handle": "system_widget_v4_banner_list_23",
+  "sku": "BG10",
   "name": {
-    "ru": "Баннер с текстом и кнопкой",
-    "es": "Banner - 1"
+    "ru": "Группа баннеров в 2 ряда",
+    "en": "Group of banners in two rows",
+    "ua": "Група банерів в два ряди",
+    "es": "Grupo de pancartas en dos filas"
   },
   "description": {
-    "ru": "Баннер с текстом и кнопкой",
-    "es": "Banner con texto y botón"
-  },      
+    "ru": "Плитка из баннеров",
+    "en": "Banner tile",
+    "ua": "Плитка з банерів",
+    "es": "Azulejo de banner"
+  },
+  "page_kinds": ["all"],
+  "widget_list_kinds": ["before_content", "content", "after_content"],
+  "generation": 4,
+  "block_template_handle": "system-banner-7",
+  "widget_category_handle": "banner",
   "libraries": [
     "jquery",
     "my-layout",
     "vanilla-lazyload"
   ]
 }
+
 
 ```
 
@@ -178,20 +235,42 @@ $widget.each(function(index, el) {
 
 #### Шаг 7 (snippet.scss)
 
-Пропишем стили виджета и не забудем прописать стили для разных значений настроек
+Пропишем стили виджета и не забудем прописать стили для разных значений настроек. Интегрируем миксин `@include background-color(--bg)` и посмотрим как он работает на практике: 
 
 ```css
-.banner-list__item {
-  display: grid;
-  grid-template-columns: auto var(--img-size, 50%);
-  gap: 1.5em;
-  position: relative;
-  align-items: var(--align-content, start);
-  font-size: var(--font-size, 16px);
-  --controls-font-size-m: var(--font-size);
+@include background-color(--bg);
+
+&[style*="--img-fit:contain"] {
+  .banner-list__item .img-ratio img {
+    object-fit: contain;
+  }
 }
-&[style*="--hide-title:true;"] .banner-list__item-title {
-  display: none;
+
+.banner-list {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.banner-list__item {
+  grid-column: auto /span 1;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  .banner-list__item {
+    grid-column: auto /span 2;
+    text-decoration: none;
+  }
+}
+
+.banner-list__item {
+  .img-ratio img {
+    transition: all .5s;
+  }
+}
+
+.banner-list__item-photo {
+  position: relative;
+  z-index: 1;
 }
 
 ```

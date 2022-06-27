@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -435,48 +435,48 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    Путь к репе
+    Папка с виджетом
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
-    Уникальный id
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#liquid" class="md-nav__link">
-    Привязка к liquid шаблонам 
+    Уникальный id виджета
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    Разделы страницы
+    Привязка к типу страницы 
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    Категории виджетов 
+    Разделы страницы
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    Шаблон привязанных блоков
+    Категории виджетов 
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    Шаблон привязанных блоков
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     Зависимости 
   </a>
   
@@ -1359,48 +1359,48 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    Путь к репе
+    Папка с виджетом
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#id" class="md-nav__link">
-    Уникальный id
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#liquid" class="md-nav__link">
-    Привязка к liquid шаблонам 
+    Уникальный id виджета
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    Разделы страницы
+    Привязка к типу страницы 
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    Категории виджетов 
+    Разделы страницы
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    Шаблон привязанных блоков
+    Категории виджетов 
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
+    Шаблон привязанных блоков
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     Зависимости 
   </a>
   
@@ -1448,22 +1448,24 @@
 </div>
 </div>
 </div>
-<h4 id="_4">Путь к репе</h4>
+<h4 id="_4">Папка с виджетом</h4>
+<p>В данном примере <code>system_widget</code> означает что виджет будет системным и использоваться везде. <code>v4</code> означает 4ое поколение, а <code>alerts</code> означает функционал виджета - оповещение. Главное чтобы имя папки было уникальным, наименование может быть любым.
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;system_widget_v4_alerts&quot;</span><span class="w"></span>
-</code></pre></div>
-<h4 id="id">Уникальный id</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;NN1&quot;</span><span class="w"></span>
-</code></pre></div>
-<h4 id="liquid">Привязка к liquid шаблонам <a name="page_kinds"></a></h4>
+</code></pre></div></p>
+<h4 id="id">Уникальный id виджета</h4>
+<p>Мы придумываем id на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить что id виджета уникален, вы можете посмотреть ID виджета в редакторе шаблона, при добавлении. При изменении виджета путем редактирование кода - <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#online">online</a>, в его id добавляется точка <code>.</code>, пример <code>FM1.1</code>. При добавлении виджета с одинаковым ID, в его id добавляется тире <code>-</code>, пример <code>FM1-1</code> и <code>FM1-2</code>.
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;FM1&quot;</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;product,collection&quot;</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
-Если указать например "collection" то виджет будет доступен только в шаблоне категории.
-Может содержать элементы из следующего списка:</p>
+Если указать например "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть в левом верхнем углу редактора. Там есть выпадающий список со всеми страницами шаблона.
+Доступный список(то как мы прописываем page_kinds в файле info.json - страницы в редакторе):</p>
 <ul>
 <li>all - все страницы</li>
 <li>index - главная страница</li>
-<li>collection - страница коллекций </li>
-<li>product - страница продукта</li>
+<li>collection - каталог </li>
+<li>product - карточка товара</li>
 <li>cart - страницы корзины</li>
 <li>page</li>
 <li>search  - страницы поиска</li>
@@ -1472,7 +1474,7 @@
 <li>article - страница статьи</li>
 <li>favorite - страница избранного</li>
 </ul>
-<h4 id="_5">Разделы страницы</h4>
+<h4 id="_6">Разделы страницы</h4>
 <p>Привязка к типу виджетлиста. Доступные разделы страницы:</p>
 <ul>
 <li>Верхняя панель - top_panel</li>
@@ -1487,7 +1489,7 @@
 <p><div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
 Может содержать элементы из следующего списка:</p>
-<h4 id="_6">Категории виджетов <a name="widget_category_handle"></a></h4>
+<h4 id="_7">Категории виджетов <a name="widget_category_handle"></a></h4>
 <p>Категории виджетов, нужна для сортировки виджетов по вкладкам. Категория баннеры:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span><span class="w"></span>
 </code></pre></div>
@@ -1527,7 +1529,7 @@
 <li>Видео | video</li>
 <li>Истории | stories</li>
 </ul>
-<h4 id="_7">Шаблон привязанных блоков</h4>
+<h4 id="_8">Шаблон привязанных блоков</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span><span class="w"></span>
 </code></pre></div>
 <p>Доступные шаблоны блоков:</p>
@@ -1655,7 +1657,7 @@
 <span class="w">  </span><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-image-link-text&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<h3 id="_8">Зависимости <a name="libraries"></a></h3>
+<h3 id="_9">Зависимости <a name="libraries"></a></h3>
 <p>Библиотеки виджета</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">  </span><span class="s2">&quot;commonjs_v2&quot;</span><span class="p">,</span><span class="w"></span>

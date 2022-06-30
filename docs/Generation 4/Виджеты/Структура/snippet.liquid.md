@@ -2,7 +2,7 @@
 
 Переменные в шаблонах InSales. С полной документацией можно ознакоиться по ссылке - <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a>
 
-####В примере ниже:
+#### В примере ниже:
 - `widget_settings.layout-wide-content` - берем layout-wide-content из настроек виджета
 - `{% for video in data.blocks %}` - Цикл перебирающий блоки 
 - `video.link` - Ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/Generation%204/Виджеты/Структура/info/#blocks_example">здесь</a>

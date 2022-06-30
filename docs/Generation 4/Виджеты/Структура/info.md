@@ -76,6 +76,8 @@
 - Вне контента - outside
 - Сайдбар - sidebar
 
+<span style="text-align:center; display: block;" align="center">Виджет-листы</span>    
+![](/img/info.svg)
 Нужен чтобы, например, в виджетлисте сайдбара не было виджетов шапки/футера.
 
 ```json

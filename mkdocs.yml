@@ -7,6 +7,11 @@ theme:
 extra_css:
   - css/extra.css
 
+extra_javascript:
+  - js/jquery.min.js
+  - js/extra.js
+
+
 extra:
   search:
     language: 'en, ru'

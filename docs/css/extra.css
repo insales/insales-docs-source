@@ -61,6 +61,11 @@ Main components
   box-sizing: border-box;
   width: 20%;
 }
+@media screen and (max-width: 768px) {
+  #icons-wrapper ul li {
+    width: 50%;
+  }
+}
 
 .icons-wrapper ul li:hover {
   background: hsla(0, 0%, 0%, 0.05);

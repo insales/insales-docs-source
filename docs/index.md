@@ -1,6 +1,6 @@
 # Главная
 
-[Темы 4 поколения](/Generation%204/_readme/)
+[Темы 4 поколения](/Generation%204/Виджеты/_readme/)
 
 [Common v2](/common.v2.js/1readme/)
 

@@ -1,4 +1,4 @@
-# Insales Icons Web Font 
+# Иконки редактора
 
 <div id="icons-wrapper" class="icons-wrapper">
 		<section>

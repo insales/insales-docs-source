@@ -288,8 +288,9 @@
 `layout__content` - это дочерний класс `layout`.
 </br></br>
 `grid-list` готовый класс для универсальной сетки написанной на гридах, где:
-`--grid-list-min-width` - это минимальная ширина блока, указанная в настройках.
-`--ggrid-list-row-gap` - это вертикальный отступ между блоками, указанный в настройках.
+
+`--grid-list-min-width` - это минимальная ширина блока, указанная в настройках.</br>
+`--ggrid-list-row-gap` - это вертикальный отступ между блоками, указанный в настройках.</br>
 `--grid-list-column-gap` - это горизонтальный отступ между блоками, указанный в настройках.
 
 
@@ -377,20 +378,15 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 Вы можете их переопределить для вашего виджета в `snippet.scss`, пример:
 ```css
 & {
-  background: transparent!important;
-  padding-left: 0!important;
-  padding-right: 0!important;
-  --submenu-indent: 15px;
-  --submenu-item-vertical-indent: 3px;
-  --submenu-min-width: 200px;
-  --submenu-max-width: 300px;
   --controls-height-s: 32px;
+  --controls-btn-padding-x: 2em;
+  --controls-btn-padding-y: 1em;
 }
 ```
 
 #### Text 
 
-Здесь прописаны шрифты, жирность и высота строки:
+Здесь прописаны шрифты, жирность и высота строки. Вы можете переопределить их. На данный момент настройки будут подтягиваться из настроек редактора. `Настройки шаблона -> Шрифты`
 
 ```css
   --font-family-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -404,7 +400,7 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 
 #### Z-index 
 
-Здесь прописаны порядок наложения для всплывающих подсказок (tooltip), фиксированных элементов (zindex-fixed) 
+Здесь прописаны порядок наложения слоев для всплывающих подсказок (tooltip), фиксированных элементов (zindex-fixed) 
 
 ```css
   --zindex-dropdown: 1000;
@@ -417,6 +413,7 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 
 #### Transitions
 
+Здесь прописаны значения для свойства `transition` у кнопок и input.
 
 ```css
   --btn-transition: color .15s ease-in-out, background .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -424,26 +421,8 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 ```
 
 
-#### Fixed panels 
-
-```css
-  --fixed-panels-top-offset: 0;
-  --fixed-panels-bottom-offset: 0;
-```
-
-
-#### Component grid-list
-
-```css
-/***** COMPONENT GRID-LIST *****/
-  --grid-list-min-width: 300px;
-  --grid-list-row-gap: 3rem;
-  --grid-list-column-gap: 3rem;
-```
-
-
 #### Ключевые стили для фона и текста блока
-
+При изменении цвета фона виджета `Виджет -> Цвет фона виджета`, автоматически в настройках определяется `--bg-is-dark:true` или `--bg-is-light:true`(в атрибуте style у тега html), в зависимости от этого подставляются другие значения в переменных и подбирается цветовая палитра, чтобы видимость элементов на данном фоне сохранялась. 
 ```css
 [style*="--bg:"] {
   background: var(--bg);
@@ -467,7 +446,7 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 ```
 
 #### Цвета кнопок
-
+При изменении цвета фона кнопок `Настройки шаблона -> Дизайн -> Цвет кнопок`, автоматически в настройках определяется `--color-btn-bg-is-dark:true` или `--color-btn-bg-is-dark:true`(в атрибуте style у тега html), в зависимости от этого подставляются другие значения в переменных и подбирается цветовая палитра, чтобы видимость элементов на данном фоне сохранялась. 
 ```css
 [style*="--color-btn-bg-is-dark:true"], [style*="--color-btn-bg-is-light:false"], [style*="--color-btn-bg-is-dark: true"], [style*="--color-btn-bg-is-light: false"] {
   --color-btn-color: var(--color-text-light);
@@ -486,6 +465,14 @@ Controls - Кнопки, элементы формы - input, textarea, select.
 
 
 #### Кнопки
+Вы можете использовать готовые стили для кнопок с помощью данных классов:
+
+- `.button` - класс для кнопок где текст располагается по центру.
+- `.button` и `.button_size-s` - маленький размер кнопки
+- `.button` и `.button_size-l`- средний размер кнопки
+- `.button` и `.button_size-xl`- большой размер кнопки
+- `.button` и `.button_second`- инвертированный цвет кнопки
+- `.button` и `.button_wide` - кнопка расстянется на всю ширину контейнера
 
 ```css
 .button {
@@ -706,7 +693,15 @@ fieldset:disabled a.button {
 
 
 #### Input text, textarea, select
+Вы можете использовать готовые стили для элементов форма с помощью данных классов:
 
+- `.form-control`- элемент формы (Input text, textarea, select)
+- `.form-control` и `.form-control_size-s` - маленький размер элемента
+- `.form-control` и `.form-control_size-l`- средний размер элемента
+- `.form-control` и `.form-control_size-xl`- большой размер элемента
+- `.form-control` и `.form-control_wide` - элемент расстянется на всю ширину контейнера
+
+-
 ```css
 .form-control {
   display: inline-block;
@@ -836,6 +831,13 @@ textarea.form-control {
 
 
 #### масштаб изображений
+Ниже прописаны стили для изображений, чтобы при изменении настройки `Пропорции изображения` (`--img-ratio`) изменялся его масштаб. 
+Вы можете использовать готовые стили для разного отображения изображений с помощью данных классов:
+
+- `.img-ratio`- родительский элемент, внутри `img-ratio__inner`, внутри тэг `picture`, внутри которого мы подключаем изображений для разных экранов.
+- `.img-ratio` и `.img-ratio_cover` - изображение сохраняет пропорции и растягивается на весь блок.
+- `.img-ratio` и `.img-ratio_contain` - изображение подстраивается под область внутри блока пропорционально собственным параметрам.
+
 
 ```css
 

@@ -117,7 +117,7 @@
 
 - `"generation": 4` - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются
 - `"type":"SimpleWidgetType"` - Тип виджета без привязки блоков
-- `"handle":"system_widget_v4_page_banner_1"` - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым
+- `"handle":"banner_with_button_1"` - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на `system_widget_`
 - `"sku":"BB1"` - уникальный ID виджета
 - `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/Generation%204/Виджеты/Структура/info/#page_kinds">ссылке</a>
 - `"widget_list_kinds":["before_content", "content", "after_content"]` - виджет будет доступен на всех страницах шаблона
@@ -129,7 +129,7 @@
 {
   "generation": 4,
   "type":"SimpleWidgetType",
-  "handle":"system_widget_v4_page_banner_1",
+  "handle":"banner_with_button_1",
   "sku":"BB1",
   "page_kinds":["all"],
   "widget_list_kinds":["before_content", "content", "after_content"],

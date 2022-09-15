@@ -3,6 +3,10 @@ repo_url: https://github.com/insales/insales-docs-source/
 
 theme:
   name: 'material'
+  features:
+    - navigation.sections
+    - navigation.indexes
+
 
 extra_css:
   - css/extra.css
@@ -17,13 +21,16 @@ extra:
     language: 'en, ru'
 
 markdown_extensions:
+  - attr_list 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - admonition
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
-  - codehilite
-  - attr_list
+  - codehilite   
   - md_in_html
   - pymdownx.critic
   - pymdownx.caret

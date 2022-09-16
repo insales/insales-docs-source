@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
+    
+    
+      
+        <title>info.json - LiquidHub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#infojson" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="LiquidHub" class="md-header__button md-logo" aria-label="LiquidHub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LiquidHub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              info.json
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/insales/insales-docs-source/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="LiquidHub" class="md-nav__button md-logo" aria-label="LiquidHub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LiquidHub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/insales/insales-docs-source/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Главная
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          4 поколение
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="4 поколение" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          4 поколение
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core.css/" class="md-nav__link">
+        Core.css
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Виджеты</a>
+          
+            <label for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Виджеты" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Виджеты
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          info.json
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        info.json
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Поколение виджета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Типы виджетов: 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Типы виджетов, примеры:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Папка с виджетом
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    Уникальный id виджета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Привязка к типу страницы 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Разделы страницы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Категории виджетов 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Шаблон привязанных блоков
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Зависимости 
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messages/" class="md-nav__link">
+        messages.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preview/" class="md-nav__link">
+        preview.jpg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings_data/" class="md-nav__link">
+        settings_data.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings_form/" class="md-nav__link">
+        settings_form.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        setup.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snippet.js/" class="md-nav__link">
+        snippet.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snippet.liquid/" class="md-nav__link">
+        snippet.liquid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snippet.scss/" class="md-nav__link">
+        snippet.scss
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_11" type="checkbox" id="__nav_2_2_11" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_11">
+          Иконки
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Иконки" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          Иконки
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8/icons_editor/" class="md-nav__link">
+        Иконки редактора
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8/icons_theme/" class="md-nav__link">
+        Иконки шаблонов
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_12" type="checkbox" id="__nav_2_2_12" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_12">
+          Примеры
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Примеры" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          Примеры
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/SimpleWidgetType/" class="md-nav__link">
+        Простой виджет
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/block_list_widget_type/" class="md-nav__link">
+        Виджет с блоками
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../%D0%A2%D0%B5%D0%BC%D1%8B/">Темы</a>
+          
+            <label for="__nav_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Темы" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Темы
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%A2%D0%B5%D0%BC%D1%8B/settings.json/" class="md-nav__link">
+        settings.json
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%A2%D0%B5%D0%BC%D1%8B/setup.json/" class="md-nav__link">
+        setup.json
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          InSales API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="InSales API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          InSales API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/01%20readme/" class="md-nav__link">
+        Как интегрироваться с InSales
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/" class="md-nav__link">
+        Подключение внешнего способа оплаты (для разработчиков интеграций)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/" class="md-nav__link">
+        Получение только изменившихся данных
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/" class="md-nav__link">
+        API для работы с частичными скидками
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/05%20InSales%20API%20-%20Widgets/" class="md-nav__link">
+        InSales API - Widgets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../InSales%20API/06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/" class="md-nav__link">
+        InSales API - Счета приложения
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Templates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Templates" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Templates
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Templates/images_for_options/">Images for options</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Images for options" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Images for options
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Templates/reCAPTCHA/">reCAPTCHA</a>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="reCAPTCHA" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          reCAPTCHA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/aroma2/" class="md-nav__link">
+        Аромат2, Фантазия2, Чистота
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/commonjs.v2/" class="md-nav__link">
+        Для любых шаблонов с commonjs.v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/dotstore/" class="md-nav__link">
+        DotStore
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/fleur/" class="md-nav__link">
+        Флёр, Инсташоп, Cross
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/prezent/" class="md-nav__link">
+        Презент, Монпансье, Плэнер
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/template_without_commonjs/" class="md-nav__link">
+        Для шаблонов без commonjs.v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/v3/" class="md-nav__link">
+        Для шаблонов 3 поколения
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Templates/reCAPTCHA/z.InSales/" class="md-nav__link">
+        Шаблоны с файлами z.InSales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Templates/site_currencies/">Site currencies</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Site currencies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Site currencies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Common.v2.js
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common.v2.js" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Common.v2.js
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/1readme/" class="md-nav__link">
+        Вводная
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/2Products/" class="md-nav__link">
+        Товар
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/3Cart/" class="md-nav__link">
+        Корзина
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/AjaxSearch/" class="md-nav__link">
+        Живой поиск по сайту
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/Compare/" class="md-nav__link">
+        Сравнение
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/EventBus/" class="md-nav__link">
+        EventBus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/FavoritesProducts/" class="md-nav__link">
+        Избранное
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/InSalesUI/" class="md-nav__link">
+        Методы для работы с UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/Shop/" class="md-nav__link">
+        Вспомогательные методы
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/Template/" class="md-nav__link">
+        Lodash шаблоны
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ajaxAPI/" class="md-nav__link">
+        Модуль для работы с API магазина
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Поколение виджета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Типы виджетов: 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Типы виджетов, примеры:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Папка с виджетом
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    Уникальный id виджета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Привязка к типу страницы 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Разделы страницы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Категории виджетов 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Шаблон привязанных блоков
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Зависимости 
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/insales/insales-docs-source/edit/master/docs/4 поколение/Виджеты/info.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="infojson">info.json</h1>
+<p>Метаданные виджета в которых прописывается: поколение виджета, тип виджета, id (идентификатор), доступность в шаблонах страницы магазина, виджетлист (раздел виджетов), категории виджетов, используемый шаблон блоков, доступные зависимости (плагины).</p>
+<h4 id="_1">Поколение виджета</h4>
+<p>На данный момент используется только виджеты 4 поколения, пример:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_2">Типы виджетов: <a name="BlockListWidgetType"></a><a name="SimpleWidgetType"></a></h4>
+<p>Без привязки блоков
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SimpleWidgetType&quot;</span><span class="w"></span>
+</code></pre></div>
+С блоками (необходимо добавить файл setup.json с указанием параметром блоков)
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block_list_widget_type&quot;</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="_3">Типы виджетов, примеры:</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">block_list_widget_type (виджет с блоками)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="" src="/img/widget-w-blocks.jpg" /></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="" src="/img/widget-v-blocks.jpg" /></p>
+</div>
+</div>
+</div>
+<h4 id="_4">Папка с виджетом</h4>
+<p>В данном примере <code>system_widget</code> означает что виджет будет системным и использоваться везде. <code>v4</code> означает 4ое поколение, а <code>alerts</code> означает функционал виджета - оповещение. Главное чтобы имя папки было уникальным, наименование может быть любым.
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;system_widget_v4_alerts&quot;</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="id">Уникальный id виджета</h4>
+<p>Мы придумываем id на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить что id виджета уникален, вы можете посмотреть ID виджета в редакторе шаблона, при добавлении. При изменении виджета путем редактирование кода - <a href="/Generation%204/Виджеты/Примеры/SimpleWidgetType/#online">online</a>, в его id добавляется точка <code>.</code>, пример <code>FM1.1</code>. При добавлении виджета с одинаковым ID, в его id добавляется тире <code>-</code>, пример <code>FM1-1</code> и <code>FM1-2</code>.
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;FM1&quot;</span><span class="w"></span>
+</code></pre></div></p>
+<h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;product,collection&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+Если указать например "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть в левом верхнем углу редактора. Там есть выпадающий список со всеми страницами шаблона.
+Доступный список(то как мы прописываем page_kinds в файле info.json - страницы в редакторе):</p>
+<ul>
+<li>all - все страницы</li>
+<li>index - главная страница</li>
+<li>collection - каталог </li>
+<li>product - карточка товара</li>
+<li>cart - страницы корзины</li>
+<li>page</li>
+<li>search  - страницы поиска</li>
+<li>blog - страницы блога</li>
+<li>compare - страница сравнения</li>
+<li>article - страница статьи</li>
+<li>favorite - страница избранного</li>
+</ul>
+<h4 id="_6">Разделы страницы</h4>
+<p>Привязка к типу виджетлиста. Доступные разделы страницы:</p>
+<ul>
+<li>Верхняя панель - top_panel</li>
+<li>Шапка - header</li>
+<li>Контент - content</li>
+<li>Подвал - footer</li>
+<li>Нижняя панель - bottom_panel</li>
+<li>Вне контента - outside</li>
+<li>Сайдбар - sidebar</li>
+</ul>
+<p><span style="text-align:center; display: block;" align="center">Виджет-листы</span>  <br />
+<img alt="" src="/img/info.svg" />
+Нужен чтобы, например, в виджетлисте сайдбара не было виджетов шапки/футера.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+Может содержать элементы из следующего списка:</p>
+<h4 id="_7">Категории виджетов <a name="widget_category_handle"></a></h4>
+<p>Категории виджетов, нужна для сортировки виджетов по вкладкам. Категория баннеры:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>Аналогичные товары | product-similar</li>
+<li>Баннеры   | banner</li>
+<li>Блог | blog</li>
+<li>Всплывающие окна  | modals</li>
+<li>Другие    | drugie</li>
+<li>Заголовки страниц | page-title</li>
+<li>Информация о товаре   | product-info</li>
+<li>Карточки товара   | products-cards</li>
+<li>Комментарии   | comments</li>
+<li>Корзина   | cart</li>
+<li>Навигация | navigation</li>
+<li>Описание категории    | collection-description</li>
+<li>Отзывы    | reviews</li>
+<li>Подвалы   | footers</li>
+<li>Подкатегории  | collection-subcollections</li>
+<li>Преимущества  | benefits</li>
+<li>Разделители   | delimeters</li>
+<li>Результаты поиска | search-results</li>
+<li>Слайдеры  | sliders</li>
+<li>Сопутствующие товары  | product-related</li>
+<li>Сравнение | compare</li>
+<li>Тексты и картинки | text</li>
+<li>Товары в категории    | collection-products</li>
+<li>Товары в сайдбаре | product-sidebar</li>
+<li>Товары на главной | product-homepage</li>
+<li>Уведомления   | notices</li>
+<li>Фильтры   | filters</li>
+<li>Формы | forms</li>
+<li>Шапки | headers</li>
+<li>Ранее просмотренные товары | recently-viewed</li>
+<li>Избранное | favorites</li>
+<li>Статьи | articles</li>
+<li>Видео | video</li>
+<li>Истории | stories</li>
+</ul>
+<h4 id="_8">Шаблон привязанных блоков</h4>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span><span class="w"></span>
+</code></pre></div>
+<p>Доступные шаблоны блоков:</p>
+<ul>
+<li><code>system-banner</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Пропорции - <code>ratio</code> (тип поля в редакторе - Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-banner-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-banner-3</code> | Поля:  Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-banner-4</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-banner-5</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение на мобильном - <code>image-mobile</code> (тип поля в редакторе - Файл), Заголовок - <code>caption</code> (тип поля в редакторе - (Текст), Название - <code>name</code> (тип поля в редакторе - Текст), Текст на кнопке - <code>link-text</code> (тип поля в редакторе - Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-banner-6</code> | Поля:  Изображение - <code>image</code> (тип поля в редакторе - Файл), Заголовок - <code>caption</code> (тип поля в редакторе - (Текст), Подзаголовок - <code>subtitle</code> (тип поля в редакторе - (Текст), Описание - <code>description</code> (тип поля в редакторе - HTML), Текст ссылки - <code>link-text</code> (тип поля в редакторе - Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Выравнивание - <code>text-align</code> (тип поля в редакторе - Выпадающий список)
+<a name="systembanner7"></a></li>
+<li><code>system-banner-7</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл),  Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li>
+<p><code>system-banner-8</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</p>
+</li>
+<li>
+<p><code>system-banner-block-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Универсальная ссылка), Текст ссылки - <code>button_text</code> (Текст)</p>
+</li>
+<li><code>system-banner-block-3</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Карта - <code>map</code> (Текст)</li>
+<li><code>system-banner-image-text</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Положение изображения - <code>image_position</code> (Выпадающий список), Ссылка на изображение - <code>link_image</code> (Текст), Текст - <code>content</code> (HTML)</li>
+<li><code>system-banner-mansonry</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Контент - <code>content</code> (HTML), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл), Соотношение сторон - <code>ratio</code> (Высота / Ширина) (Выпадающий список)</li>
+<li><code>system-banner-video</code> <a name="blocks_example"></a> | Поля: Ссылка - <code>link</code> (тип поля в редакторе - Текст), Заставка - <code>image</code> (Файл)</li>
+<li><code>system-banner-video-2</code> | Поля: Ссылка - <code>link</code> (Универсальная ссылка), Заставка - <code>image</code> (Файл)</li>
+<li><code>system-benefit</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-benefit-2</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-collection</code> | Поля: Категория - <code>name</code> (Категория)</li>
+<li><code>system-collection-2</code> | Поля: Название вкладки - <code>name</code> (Текст), Категория - <code>collection</code> (Категория)</li>
+<li><code>system-collection-3</code> | Поля: Категория - <code>collection</code> (Категория), Заголовок - <code>name</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-collection-4</code> | Поля: Категория - <code>collection</code> (Категория), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-collection-5</code> | Поля: Товар - <code>product</code> (Товар), Расположение по горизонтали - <code>raspolozhenie-po-gorizontali</code> (Число из диапазона с полем ввода), Расположение по вертикали - <code>raspolozhenie-po-vertikali</code> (Число из диапазона с полем ввода), Скрывать цену - <code>skryvat-tsenu</code> (Чекбокс), Скрывать название - <code>skryvat-nazvanie</code> (Чекбокс), Скрывать изображение - <code>skryvat-kartinku</code> (Чекбокс)</li>
+<li>
+<p><code>system-collection-with-description</code> | Поля: Коллекция - <code>collection</code> (Категория), Описание - <code>description</code> (HTML)</p>
+</li>
+<li>
+<p><code>system-custom-block</code> | Поля: Контент - <code>content</code> (HTML), Фон - <code>theme</code> (Выпадающий список), Ширина блока - <code>cells</code> (Выпадающий список), Ширина блока на планшете - <code>cells_sm</code> (Выпадающий список), Ширина блока на телефоне - <code>cells_xs</code> (Выпадающий список), Вертикальное выравнивание внутри блока - <code>align_self</code> (Выпадающий список), Вертикальный отступ блока - <code>padding_y</code> (Выпадающий список), Горизонтальный отступ блока - <code>padding_x</code> (Выпадающий список), Скругление углов - <code>border_radius</code> (Выпадающий список)</p>
+</li>
+<li>
+<p><code>system-element-header</code> | Поля: Элемент - <code>element</code> (Выпадающий список), Ширина блока [десктоп] - <code>cell_desktop</code> (Выпадающий список), Выравнивание - <code>align_desktop</code> [десктоп] (Выпадающий список), Скрыть - <code>hide_desktop</code> [десктоп] (Чекбокс), Ширина блока - <code>cell_tablet</code> [планшет] (Выпадающий список), Выравнивание - <code>align_tablet</code> [планшет] (Выпадающий список), Скрыть - <code>hide_tablet</code> [планшет] (Чекбокс), Ширина блока - <code>cell_phone</code> [телефон] (Выпадающий список), Выравнивание - <code>align_phone</code> [телефон] (Выпадающий список), Скрыть - <code>hide_phone</code> [телефон] (Чекбокс), Контент для элемента "Текст" - <code>content</code> (HTML)</p>
+</li>
+<li>
+<p><code>system-faq</code> | Поля: Вопрос - <code>question</code> (Текст), Ответ - <code>answer</code> (HTML)</p>
+</li>
+<li>
+<p><code>system-faq-2</code> | Поля:    Вопрос - <code>question</code> (Текст), Ответ - <code>answer</code> (HTML)</p>
+</li>
+<li>
+<p><code>system-form-constructor</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Тип поля - <code>type</code> (Выпадающий список), Значения - <code>type</code> (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
+</li>
+<li>
+<p><code>system-form-constructor-2</code> | Поля: Тип поля- <code>type</code> (Выпадающий список), Ширина поля- <code>cells</code>(Выпадающий список), Название - <code>label</code> (тип поля в редакторе - Текст), Подсказка - <code>placeholder</code> (только для текст и текстовая область) (Текст), Значения - <code>values</code> (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
+</li>
+<li>
+<p><code>system-form-constructor-3</code> | Поля: Тип поля - <code>type</code> (Выпадающий список), Название - <code>label</code> (тип поля в редакторе - Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
+</li>
+<li>
+<p><code>system-image</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл)</p>
+</li>
+<li>
+<p><code>system-image-and-content</code> | Поля: Вертикальная позиция изображения - <code>vertical_position</code> (Выпадающий список), Скрыть изображение? - <code>hide_image</code> (Чекбокс), Текст - <code>content</code> (HTML), Горизонтальная позиция изображения - <code>horizontal_position</code> (Выпадающий список), Изображение - <code>image</code> (тип поля в редакторе - Файл)</p>
+</li>
+<li>
+<p><code>system-image-link-text</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Кнопка - <code>link</code> (Текст), Текст кнопки - <code>link_text</code> (Текст)</p>
+</li>
+<li><code>system-image_text</code> | Поля: Текст - <code>text</code> (HTML), Изображение - <code>image</code> (Файл)</li>
+<li><code>system-image-text-button-icon</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Текст кнопки - <code>button_text</code> (Текст), Иконка - <code>icon</code> (Файл)</li>
+<li><code>system-messenger</code> | Поля: Заголовок - <code>caption</code> (Текст), Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Цвет - <code>color</code> (Текст)</li>
+<li><code>system-messengers</code> | Поля: Заголовок - <code>caption</code> (Текст), Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Цвет- <code>color</code> (Цвет)</li>
+<li><code>system-payments</code> | Поля: Ссылка - <code>link</code> (Текст)</li>
+<li><code>system-payments-prime</code> | Поля: Иконка - <code>image</code> (Файл), Название - <code>name</code> (title) (Текст)</li>
+<li><code>system-payments-social</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Иконка - <code>image</code> (Файл), Тип - <code>type</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-personal</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Описание - <code>description</code> (HTML), Подзаголовок - <code>subtitle</code> (Текст), Заголовок - <code>name</code> (Текст)</li>
+<li><code>system-promo-slide</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Текст)</li>
+<li><code>system-promo-slide-2</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Универсальная ссылка)</li>
+<li><code>system-promo-slider-2</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл), Надпись на кнопке - <code>button_title</code> (Текст)</li>
+<li><code>system-promo-slider-3</code> | Поля: Надпись на кнопке - <code>button_title</code> (Текст), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст)</li>
+<li><code>system-promo-slider-4</code> | Поля: Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл)</li>
+<li><code>system-promo-slider-5</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Изображение - <code>image</code> (Файл), Надпись на кнопке - <code>button_title</code> (Текст)</li>
+<li><code>system-promo-slider-6</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Надпись на кнопке - <code>button_title</code> (Текст)</li>
+<li><code>system-promo-slider-7</code> | Поля: Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Изображение - <code>image</code> (Файл)</li>
+<li><code>system-promo-slider-8</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка)</li>
+<li><code>system-review</code> | Поля: Скрыть изображение? - <code>hide_image</code> (Чекбокс), Текст - <code>content</code> (HTML), Имя - <code>name</code> (Текст), Позиция изображения - <code>image_position</code> (Выпадающий список), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
+<li><code>system-review-2</code> | Поля: Скрыть изображение? - <code>hide_image</code> (Чекбокс), Имя - <code>name</code> (Текст), Текст - <code>content</code> (HTML), Изображение - <code>image</code> (Файл)</li>
+<li><code>system-review-4</code> | Поля: Заголовок - <code>name</code> (Текст), Подзаголовок - <code>company</code> (Текст), Текст - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Скрыть изображение? - <code>hide_image</code> (Чекбокс)</li>
+<li><code>system-review-shop</code> | Поля: Имя  - <code>name</code>(Текст), Текст - <code>content</code> (HTML), Рейтинг - <code>rating</code> (Число из диапазона со слайдером), Дата - <code>date</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Скрыть изображение? - <code>hide_image</code> (Чекбокс)</li>
+<li><code>system-review-social</code> | Поля: Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-social-2</code> | Поля: Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
+<li><code>system-special_products</code> | Поля: Заголовок - <code>name</code> (Текст), Категория - <code>collection</code> (Категория)</li>
+<li><code>system-text-column</code> | Поля: Контент - <code>content</code> (HTML)</li>
+<li><code>system-text-hex</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Цвет - <code>hex</code> (hex формат) (Текст)</li>
+<li><code>system-text-hex-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Цвет - <code>hex</code> (Цвет)</li>
+<li><code>system-text-link</code> | Поля: Текст - <code>text</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка)</li>
+<li><code>system-title-and-content</code> | Поля: Содержание - <code>content</code> (HTML)</li>
+<li><code>system-widget-feedback</code> | Поля: Текст на кнопке - <code>submit-text</code> (Текст)</li>
+</ul>
+<p>Пример:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BlockListWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system_widget_v4_stories_3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;all&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;after_content&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;footer&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cuentos&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории в виде изображений&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories as images&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Historias como imágenes&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stories&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fslightbox&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;splide3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-image-link-text&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+<h3 id="_9">Зависимости <a name="libraries"></a></h3>
+<p>Библиотеки виджета</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;commonjs_v2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;swiper&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:</p>
+<ul>
+<li>commonjs_v2 - Фреймворк InSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> </li>
+<li>jquery | <a href="https://jquery.com/" target="_blank">Документация</a> </li>
+<li>microalert    |<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> </li>
+<li>my-layout | <a href="https://github.com/insales/my-layout" target="_blank">Github </a> </li>
+<li>vanilla-lazyload | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github </a></li>
+<li>splide | <a href="https://splidejs.com/" target="_blank">Документация </a></li>
+<li>splide3 | <a href="https://splidejs.com/" target="_blank">Документация </a> </li>
+<li>fslightbox | <a href="https://fslightbox.com/" target="_blank">Документация</a> </li>
+<li>micromodal | <a href="https://micromodal.vercel.app/" target="_blank">Документация</a></li>
+<li>body-scroll-lock | <a href="https://www.npmjs.com/package/body-scroll-lock" target="_blank">Документация</a></li>
+<li>js-cookie | <a href="https://github.com/js-cookie/js-cookie/releases" target="_blank">Документация</a></li>
+<li>cut-list | <a href=" https://github.com/insales/jquery.cut-list" target="_blank">Документация</a></li>
+<li>nouislider | <a href=" https://refreshless.com/nouislider/" target="_blank">Документация</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Вводная" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Вводная
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../messages/" class="md-footer__link md-footer__link--next" aria-label="Next: messages.json" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              messages.json
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d691e9de.min.js"></script>
+      
+        <script src="../../../js/jquery.min.js"></script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

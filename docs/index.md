@@ -11,7 +11,7 @@ hide:
         <div>
             <dl>
                 <dt><a href="/4%20поколение/Виджеты/" class=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h8v4.34l5.66-5.65 5.65 5.65L16.66 13H21v8h-8v-8h3.66L11 7.34V11H3V3m0 10h8v8H3v-8Z"></path></svg></span>Виджеты</a></dt>
-                    <dd>Из виджетов собираются <a class="black" href="4%20поколение/Темы/">темы</a>. Виджеты состоят из следующих файлов:</dd>
+                    <dd>Из виджетов собираются <a class="black" href="4%20поколение/Темы/">шаблоны</a>. Виджеты состоят из следующих файлов:</dd>
                     <ul>
                         <li><a href="4%20поколение/Виджеты/snippet.liquid/">Сниппет <span class="bg-gray">snippet.liquid</span></a></li>
                         <li><a href="4%20поколение/Виджеты/snippet.scss">SCSS <span class="bg-gray">snippet.scss</span></a></li>
@@ -22,8 +22,8 @@ hide:
                         <li><a href="4%20поколение/Виджеты/preview/">Превью <span class="bg-gray">preview.jpg</span></a> и <a href="4%20поколение/Виджеты/preview/"><span class="bg-gray">mobile_preview.jpg</span></a></li>
                         <li><a href="4%20поколение/Виджеты/info/">Метаданные <span class="bg-gray">info.json</span></a></li>
                     </ul>
-                <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"></path></svg></span>Темы</dt>
-                    <dd><a class="black" href="4%20поколение/Темы/">Темы</a> состоят из <a href="/4%20поколение/Виджеты/" class="black">виджетов</a> и файлов с настройками </dd>
+                <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"></path></svg></span>Шаблоны</dt>
+                    <dd><a class="black" href="4%20поколение/Темы/">Шаблоны</a> состоят из <a href="/4%20поколение/Виджеты/" class="black">виджетов</a> и файлов с настройками </dd>
                     <ul>
                         <li><a href="4%20поколение/Темы/setup.json/">Setup</a><span class="bg-gray">setup.json</span></a></li>
                         <li><a href="4%20поколение/Темы/settings.json/">Settings <span class="bg-gray">settings.json</span></a></li>
@@ -71,6 +71,6 @@ hide:
 </section>
 
 <h3> Используемые понятия</h3>
-<b>Редактор сайта</b> - Сайдбар слева сайта клиента с настройками темы и виджетов <br>
-<b>Панель администратора</b> - В панели администратора можно загрузить темы и виджеты и редактировать код
+<b>Редактор сайта</b> - Сайдбар слева сайта клиента с настройками шаблона и виджетов <br>
+<b>Панель администратора</b> - В панели администратора можно загрузить шаблоны и виджеты и редактировать код
 

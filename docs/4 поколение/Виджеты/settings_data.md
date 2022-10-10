@@ -1,6 +1,6 @@
 # settings_data.json
 
-Настройки виджета по умолчанию, варианты которых прописываются в файле <a href="/Generation%204/Виджеты/Структура/settings_form/">settings_form.json</a> 
+Настройки виджета по умолчанию, варианты которых прописываются в файле <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> 
 
 #### Пример json формата:
 
@@ -49,7 +49,7 @@
 - Перейти в раздел Дизайн -> Файлы
 - Добавить файл
 - Получить ссылку файла <a target="_blank" href="https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg">https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg</a>, скопировать id - `20350744`
-- Добавить в файл <a href="/Generation%204/Виджеты/Структура/settings_data/">settings_data.json</a>
+- Добавить в файл <a href="/4%20поколение/Виджеты/settings_data/">settings_data.json</a>
 
 ```json
 {

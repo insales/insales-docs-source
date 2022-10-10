@@ -57,7 +57,7 @@
 где:
 
 - & - автоматически генерируемый класс виджета
-- article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/Generation%204/Виджеты/Структура/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/Generation%204/Виджеты/Структура/settings_data/#setting_data_name">setting_data.json</a>
+- article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/4%20поколение/Виджеты/settings_data/#setting_data_name">setting_data.json</a>
 
 
 Учитываем две настройки одновременно:

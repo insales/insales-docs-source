@@ -7,8 +7,8 @@
 
 #### Структура шаблона
 
-- <a href="/Generation%204/Темы/Структура/setup.json/">Setup</a>  `setup.json`
-- <a href="/Generation%204/Темы/Структура/settings.json/">Settings</a>  `settings.json`
+- <a href="/4%20поколение/Шаблон/setup.json/">Setup</a>  `setup.json`
+- <a href="/4%20поколение/Шаблон/settings.json/">Settings</a>  `settings.json`
 
 
 #### Создание

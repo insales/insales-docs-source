@@ -7,15 +7,15 @@
 
 #### Структура виджета
 
-- <a href="/Generation%204/Виджеты/Структура/snippet.liquid/">Сниппет</a>  `snippet.liquid`
-- <a href="/Generation%204/Виджеты/Структура/snippet.scss/">SCSS</a>  `snippet.scss`
-- <a href="/Generation%204/Виджеты/Структура/snippet.js/">JS</a>  `snippet.js`
-- <a href="/Generation%204/Виджеты/Структура/messages/">Переводы</a> `messages.json`
-- <a href="/Generation%204/Виджеты/Структура/settings_form/">Форма настроек</a>  `settings_form.json`
-- <a href="/Generation%204/Виджеты/Структура/settings_data/">Настройки по умолчанию</a>  `settings_data.json`
-- <a href="/Generation%204/Виджеты/Структура/setup/">Блоки по умолчанию</a>  `setup.json`
-- <a href="/Generation%204/Виджеты/Структура/preview/">Превью</a>  `preview.jpg` и `mobile_preview.jpg`
-- <a href="/Generation%204/Виджеты/Структура/info/">Метаданные</a>  `info.json`
+- <a href="/4%20поколение/Виджеты/snippet.liquid/">Сниппет</a>  `snippet.liquid`
+- <a href="/4%20поколение/Виджеты/snippet.scss/">SCSS</a>  `snippet.scss`
+- <a href="/4%20поколение/Виджеты/snippet.js/">JS</a>  `snippet.js`
+- <a href="/4%20поколение/Виджеты/messages/">Переводы</a> `messages.json`
+- <a href="/4%20поколение/Виджеты/settings_form/">Форма настроек</a>  `settings_form.json`
+- <a href="/4%20поколение/Виджеты/settings_data/">Настройки по умолчанию</a>  `settings_data.json`
+- <a href="/4%20поколение/Виджеты/setup/">Блоки по умолчанию</a>  `setup.json`
+- <a href="/4%20поколение/Виджеты/preview/">Превью</a>  `preview.jpg` и `mobile_preview.jpg`
+- <a href="/4%20поколение/Виджеты/info/">Метаданные</a>  `info.json`
 
 #### Создание
 
@@ -44,7 +44,7 @@
 
 Добавить виджет можно 2 способами:
 
-1. Через <a href="/Generation%204/Темы/Структура/setup.json/">setup.json</a>
+1. Через <a href="/4%20поколение/Шаблон/setup.json/">setup.json</a>
 2. Через интерфейс визуального редактора сайта
 
 #### setup.json

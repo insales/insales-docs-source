@@ -1216,15 +1216,49 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Подключение
+    Модули
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Модули
+    Подключение
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ВАЖНО ЗНАТЬ
+  </a>
+  
+    <nav class="md-nav" aria-label="ВАЖНО ЗНАТЬ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonjs" class="md-nav__link">
+    Библиотеки используемые в Common.js:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonjs_1" class="md-nav__link">
+    Имена переменных которые Common.js присваивает в глобальную область видимости:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonjs_2" class="md-nav__link">
+    Готовые решения Common.js для компонентов магазина работают по следующей логике:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1411,15 +1445,49 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Подключение
+    Модули
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Модули
+    Подключение
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ВАЖНО ЗНАТЬ
+  </a>
+  
+    <nav class="md-nav" aria-label="ВАЖНО ЗНАТЬ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commonjs" class="md-nav__link">
+    Библиотеки используемые в Common.js:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonjs_1" class="md-nav__link">
+    Имена переменных которые Common.js присваивает в глобальную область видимости:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonjs_2" class="md-nav__link">
+    Готовые решения Common.js для компонентов магазина работают по следующей логике:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1444,14 +1512,44 @@
 
 
 <h1 id="_1">Вводная</h1>
-<p>Данный раздел посвящен библиотеке <code>common.v2.js</code></p>
-<p>Данная библиотека является набором готовых скриптов для упрощения и ускорения разработки шаблонов на платформе InSales.</p>
-<h2 id="_2">Подключение</h2>
+<p>Раздел посвящен библиотеке <code>common.v2.js</code>, которая является набором готовых скриптов для упрощения и ускорения разработки шаблонов на платформе InSales.</p>
+<h2 id="_2">Модули</h2>
+<p><strong><a href="/common.v2.js/2Products/">Товар:</a></strong></p>
+<ul>
+<li>Назначение атрибутов</li>
+<li>События</li>
+<li>Селектор модификаций</li>
+<li>Методы класса Products</li>
+</ul>
+<p><strong><a href="/common.v2.js/3Cart/">Корзина:</a></strong></p>
+<ul>
+<li>Получение актуальной информации о составе корзины</li>
+<li>Добавление/удаление позиций</li>
+</ul>
+<p><strong><a href="/common.v2.js/AjaxSearch/">Поиск:</a></strong></p>
+<ul>
+<li>Живой поиск по сайту</li>
+</ul>
+<p><strong><a href="/common.v2.js/Compare/">Сравнение:</a></strong></p>
+<ul>
+<li>Получение актуального списка сравнения</li>
+<li>Добавление/удаление товаров из сравнения</li>
+</ul>
+<p><strong><a href="/common.v2.js/Template/">Шаблонизация:</a></strong></p>
+<ul>
+<li>Работа с динамическими данными через шаблонизатор библиотеки lodash.js</li>
+</ul>
+<p><strong><a href="/common.v2.js/EventBus/">Шина событий:</a></strong></p>
+<ul>
+<li>Удобный инструмент для получения актульных данных состояния магазина, например содержание корзины, выбранная модификация продукта и т.д...</li>
+</ul>
+<p><strong><a href="https://github.com/liquid-hub/insales-common-js-v2-api" target="_blank">Примеры кода</a></strong></p>
+<h2 id="_3">Подключение</h2>
 <p>В шаблоны <code>layots.{layout,checkout2,client_account}.liquid</code> добавить тег <code>include_insales_scripts</code> с параметром <code>common-js@v2</code></p>
 <div class="highlight"><pre><span></span><code>{% include_insales_scripts &quot;common-js@v2&quot; %}
 </code></pre></div>
 <p>Так же можно подключить через settings_data.json, прописав там поле - "common_js_version": "v2".</p>
-<p>Файл settings_data.json не доступен через бэк-офис, поэтому новое свойство нужно добавлять вручную через скачивание шаблона и последующей установке с новыми параметрами. Так же файл можно поправить если для разработки вы используете — <a href="https://insales.github.io/insales-uploader/">InSales-uploader</a>.</p>
+<p>Файл settings_data.json не доступен через бэк-офис, поэтому новое свойство нужно добавлять вручную через скачивание шаблона и последующей установке с новыми параметрами. Так же файл можно поправить если для разработки вы используете — <a href="https://insales.github.io/insales-uploader/" target="_blank">InSales-uploader</a>.</p>
 <p>Пример <code>settings_data.json</code>:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;common_js_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1464,21 +1562,39 @@
 <span class="w">  </span><span class="nt">&quot;theme_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Базовый шаблон&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<blockquote>
-<p>В шаблонах 4 поколения, common-js указывается в качестве зависимости</p>
-</blockquote>
-<h2 id="_3">Модули</h2>
-<p>Commonjs добавляет на сайт следущие модули:</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>В шаблонах 4 поколения, common-js указывается в качестве зависимости для виджетов</p>
+</div>
+<h2 id="_4">ВАЖНО ЗНАТЬ</h2>
+<h4 id="commonjs">Библиотеки используемые в Common.js:</h4>
 <ul>
-<li>Шина событий (EventBus)</li>
-<li>Товар</li>
-<li>Корзина</li>
-<li>Сравнение</li>
-<li>Ajax поиск</li>
-<li>Шаблонизация</li>
-<li>Отправка форм обратной связи</li>
-<li>Шаблонизация (Шаблонизатор библиотеки lodash)</li>
+<li><a href="https://lodash.com/docs/" target="_blank">Lodash</a></li>
+<li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
 </ul>
+<p>Lodash доступен глобально, можно и нужно пользоваться возможностями этой библиотеки при разработке.</p>
+<h4 id="commonjs_1">Имена переменных которые Common.js присваивает в глобальную область видимости:</h4>
+<ul>
+<li>Cart</li>
+<li>Shop</li>
+<li>Products</li>
+<li>Compare</li>
+<li>Site</li>
+<li>AjaxSearch</li>
+<li>ajaxAPI</li>
+<li>Template</li>
+<li>EventBus</li>
+</ul>
+<p>В проектах где используется Common.js нельзя переопределять данные переменные, так же при подключении Common.js к работающему сайту нужно проверять переменные на переопределение и особенно обратить внимание на переменные <code>Cart</code> и <code>Site</code>.</p>
+<h4 id="commonjs_2">Готовые решения Common.js для компонентов магазина работают по следующей логике:</h4>
+<ol>
+<li>В разметку компонента проставляются обязательные data-атрибуты. В эти атрибуты из liquid передаются данные из магазина, а так же есть data-атрибуты, которые реализуют действия (кнопки добавить или удалить товар из корзины, переключение модификаций, изменение количества и т.д.).</li>
+<li>Common.js при загрузке страницы пробегает по проставленным data-атрибутам и на основе данных инициализирует скрипты для работы компонентов. </li>
+<li>Практически на каждое взаимодействие с компонентами реализованными с помощью фреймворка (обновление корзины, переключение модификации и т.д.) можно повесить обработчик, в callback которого приходит информация о событии, например при обновлении корзины в callback попадает информация о актуальном состоянии корзины, исходя из чего можно сделать динамический виджет корзины или обновление информации на странице корзины без перезагрузки страницы.</li>
+</ol>
+<p>Так же стоит ознакомиться с <a href="/common.v2.js/ajaxAPI/">подробным описанием API фреймворка Common.js</a>.</p>
+<p>API фреймворка предоставляет удобные и протестированые методы, для разработки своих компонентов.</p>
+<p>Все обращения к API нужно производить после собития <code>DOMContentLoaded</code> оно же <code>$(document).ready(function() {}), $(function() {})</code>.</p>
 
 
 

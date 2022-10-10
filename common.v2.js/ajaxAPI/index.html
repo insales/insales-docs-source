@@ -1923,6 +1923,14 @@
 <span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 <span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Все полученные товары кэшируются в local storage. Это означает, что при отправке новых запросов, товары которые уже были получены с сервера в предыдущих запросах будут доставаться из кэша. Это работает только в рамках одной сессии. То есть, если перезагрузить страницу, то товары снова будут получены запросом. Если по каким-то причинам вам нужно, чтобы этого не происходило, то необходимо вторым аргументом передать объект со свойством <code>no_cache</code> и значением <code>true</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>В одном запросе можно получить не более 700 товаров. Если превысить этот лимит, то перед отправкой запроса на сервер массив будет обрезан.</p>
+</div>
 <h3 id="get_2">get</h3>
 <p>Получение информации о товаре</p>
 <div class="highlight"><pre><span></span><code><span class="nx">ajaxAPI</span><span class="p">.</span><span class="nx">product</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">123456</span><span class="p">)</span><span class="w"></span>

@@ -1,66 +1,137 @@
 # Корзина
+## Назначение атрибутов
 
-## Интерфейс
+В этом разделе вы найдёте описания и примеры использования data-атрибутов формы корзины и карточки товара внутри корзины.
+### Корневой элемент
 
-> Для быстрого создания интерфейсов в commonjs предусмотрены готовые обработчики форм.
+#### data-cart-form 
 
-> Обработчики ссылаются на data-атрибуты. В data-атрибуты пробрасывается информация из liquid.
+Обязательный атрибут тега тега form
 
-### Назначение атрибутов
-
-| Атрибут              | Назначение                                                                      | Расположение                                              |
-|----------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------|
-| data-cart-form       | Обязательный атрибут для тега form                                              | Тег form для корзины                                      |
-| data-item-id         | Обязательный атрибут для позиций в корзине. Атрибут принимает id позиции.       | Обертка для позиции в корзине                             |
-| data-product-id      | Обязательный атрибут для инициализации товара. В атрибут передаётся id товара.  | Обертка для позиции в корзине                             |
-| data-item-delete     | Удаление из корзины                                                             | Обертка для позиции в корзине                             |
-| data-cart-update     | Обновление корзины                                                              | Внутри обёртки с атрибутом data-cart-form                 |
-| data-cart-discounts-ajax     | Информацию о скидках (В форму корзины нужно добавить  `data-reload-on-coupon="false"`)                                                              | Внутри обёртки с атрибутом data-cart-form                 |
-| data-reload-on-coupon     | Перезагрузка страницы после применения купона. Чтобы отключить перезагрузку, нужно указать `false` в качестве значения                                                              | Форма с атрибутом data-cart-form                 |
-| data-cart-clear      | Очищение корзины                                                                | Внутри обёртки с атрибутом data-cart-form                 |
-| data-coupon-submit   | Отправка купона                                                                 | Внутри обёртки с атрибутом data-cart-form                 |
-| data-quantity        | Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity | Внутри обертки с атрибутом data-product-id и data-item-id |
-| data-quantity-change | Атрибут для кнопок +/-, принимает число                                         | Внутри обёртки с атрибутом data-quantity                  |
-
-
-
-### Разметка товара
-
-
-**Подробнее**
-
-```twig
-<form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
-  {% if product.show_variants? %}
-    <select name="variant_id" data-product-variants>
-      {% for variant in product.variants %}
-        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
-      {% endfor %}
-    </select>
-  {% else %}
-    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
-  {% endif %}
-  <input type="text" name="comment" value="">
-  <div data-quantity>
-    <input type="text" name="quantity" value="1" />
-    <span data-quantity-change="-1">-</span>
-    <span data-quantity-change="1">+</span>
-  </div>
-  <button type="submit" data-item-add>
-    Добавить в корзину
-  </button>
+```html
+<form data-cart-form action="{{ cart_items }}" method="post">
+  <!-- Код формы -->
 </form>
 ```
 
+#### data-reload-on-coupon
+
+Перезагрузка страницы после применения купона. Чтобы отключить перезагрузку, нужно указать `false` в качестве значения
+
+```html
+<form data-reload-on-coupon="false" data-cart-form action="{{ cart_items }}" method="post">
+  <!-- Код формы -->
+</form>
+```
+
+### Вложенные элементы
 
 
+#### data-item-id
 
-### Разметка корзины
+Обязательный атрибут для позиций в корзине. Атрибут принимает id позиции.
+
+#### data-product-id 
+
+Обязательный атрибут для инициализации товара. В атрибут передаётся id товара.
+
+```html
+{% for item in cart.items %}
+<div data-product-id="{{ item.product.id }}" data-item-id="{{ item.id }}" class="cart-item {{ cart_class }}">
+ <!-- Код товара -->
+</div>
+{% endfor %}
+```
+
+#### data-quantity
+
+Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity
+
+```html
+<div data-quantity>
+  <button type="button" data-quantity-change="-1">-</button>
+  <input type="text" value="{{ item.quantity }}" name="cart[quantity][{{item.id}}]"/>
+  <button type="button" data-quantity-change="1">+</button>
+</div>
+```
+
+#### data-quantity-change
+
+Атрибут для кнопок изменения количества +/-, принимает число
+
+#### data-cart-item-price
+
+Цена товара
+
+#### data-cart-item-total-price
+
+Итоговая цена товара в зависимости от его количества
+
+#### data-cart-total-price
+
+Итоговая цена всех товаров в корзине без скидок
+
+#### data-cart-full-total-price
+
+Итоговая цена товаров в корзине с учётом скидок
+
+#### data-cart-positions-count
+
+Количество позиций в корзине
+
+#### data-cart-item-count
+
+Количество товаров в корзине
+
+#### data-item-delete
+
+Кнопка удаления товара из корзины. При нажатии происходит отправка запроса на удаление товара из корзины, при этом удалить товар из разметки вы должны самостоятельно, повесив обработчик на кнопку.
+
+```html
+<button data-item-delete="{{ item.id }}" type="submit">{{ messages.delete }}</button>
+```
+
+#### data-cart-discounts-ajax
+
+Получение и вывод информации о скидках (В форму корзины нужно добавить  `data-reload-on-coupon="false"`)
+
+```html
+<div data-cart-discounts-ajax></div>
+```
+
+#### data-cart-discounts-error
+
+Ошибки при вводе купона/применении скидки
+
+```html
+<div data-cart-discounts-error></div>
+```
+
+#### data-cart-clear
+
+Кнопка очистки корзины
+
+```html
+<button data-cart-clear>Очистить</button>
+```
+
+#### data-coupon-submit
+
+Кнопка отправки купона
+
+```html
+<div class="coupon-content">
+  <input type="text" placeholder="{{ messages.coupon_placeholder }}" name="cart[coupon]" value="{{ cart.coupon }}"/>
+  <button type="submit" class="coupon-button" data-coupon-submit>{{ messages.activate }}</button>
+</div>
+```
+
+### Пример разметки корзины
 
 
 **Подробнее**
 
-```twig
+```html
 <form action="{{ cart_url }}" method="post" data-cart-form>
   <input type="hidden" name="_method" value="put">
   <input type="hidden" name="make_order" value="">
@@ -324,3 +395,11 @@ console.log(order);
 var item = Cart.order.getItemByID(138231315);
 console.log(item);
 ```
+
+### События изменения позиции товара
+> События класса EventBus
+
+* before:insales:item
+* change_quantity:insales:item
+* update_variant:insales:item
+* always:insales:item

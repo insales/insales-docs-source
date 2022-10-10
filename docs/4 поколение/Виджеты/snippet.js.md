@@ -2,7 +2,7 @@
 
 Мы используем jquery и Javascript.
 `$widget` - будет использоваться автоматически генерируемый класс родительского блока виджета. 
-Для того чтобы избежать багов при использовании более одного виджета на странице их нужно перебирать через метод `each`:
+Для того чтобы избежать багов при использовании более одного виджета на странице, их нужно перебирать через метод `each`:
 
 ```js
 $widget.each(function(index, el) {
@@ -25,7 +25,7 @@ $widget.each(function(index, el) {
 ```
 
 #### Доступные зависимости (плагины). Зависимости используются только те которые установлены на стороне платформы:
-- commonjs_v2 - фреймворк insales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
+- commonjs_v2 - фреймворк inSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
 - jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
 - microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 
 - my-layout	| <a href="https://github.com/insales/my-layout" target="_blank">Github </a> 

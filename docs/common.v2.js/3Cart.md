@@ -6,7 +6,7 @@
 
 #### data-cart-form 
 
-Обязательный атрибут тега тега form
+Обязательный атрибут тега form
 
 ```html
 <form data-cart-form action="{{ cart_items }}" method="post">
@@ -29,11 +29,11 @@
 
 #### data-item-id
 
-Обязательный атрибут для позиций в корзине. Атрибут принимает id позиции.
+Обязательный атрибут для позиций в корзине. В качестве значения необходимо передать ID позиции.
 
 #### data-product-id 
 
-Обязательный атрибут для инициализации товара. В атрибут передаётся id товара.
+Обязательный атрибут для инициализации товара. В качестве значения необходимо передать ID товара.
 
 ```html
 {% for item in cart.items %}
@@ -61,19 +61,19 @@
 
 #### data-cart-item-price
 
-Цена товара
+Цена позиции товара
 
 #### data-cart-item-total-price
 
-Итоговая цена товара в зависимости от его количества
+Итоговая цена позиции товара в зависимости от его количества
 
 #### data-cart-total-price
 
-Итоговая цена всех товаров в корзине без скидок
+Итоговая цена всех позиций в корзине без учёта скидок
 
 #### data-cart-full-total-price
 
-Итоговая цена товаров в корзине с учётом скидок
+Итоговая цена всех позиций в корзине с учётом скидок
 
 #### data-cart-positions-count
 
@@ -85,7 +85,7 @@
 
 #### data-item-delete
 
-Кнопка удаления товара из корзины. При нажатии происходит отправка запроса на удаление товара из корзины, при этом удалить товар из разметки вы должны самостоятельно, повесив обработчик на кнопку.
+Кнопка удаления позиции из корзины
 
 ```html
 <button data-item-delete="{{ item.id }}" type="submit">{{ messages.delete }}</button>
@@ -93,7 +93,7 @@
 
 #### data-cart-discounts-ajax
 
-Получение и вывод информации о скидках (В форму корзины нужно добавить  `data-reload-on-coupon="false"`)
+Получение и вывод информации о скидках (в форму корзины нужно добавить  `data-reload-on-coupon="false"`)
 
 ```html
 <div data-cart-discounts-ajax></div>
@@ -101,7 +101,7 @@
 
 #### data-cart-discounts-error
 
-Ошибки при вводе купона/применении скидки
+Элемент в котором будут выводиться ошибки при вводе купона, или применении других скидок
 
 ```html
 <div data-cart-discounts-error></div>
@@ -127,7 +127,6 @@
 ```
 
 ### Пример разметки корзины
-
 
 **Подробнее**
 
@@ -159,18 +158,16 @@
 </form>
 ```
 
-
-
 ## Методы класса Cart
 
 ### add
 
-Добавить в корзину заданное кол-во товаров
+Добавить в корзину заданное количество товаров
 
 ```js
 /**
  * @param {Object} items объект с параметрами variant_id: quantity
- * @param {Object} comments комментарий к позиции заказа. Ключ id варианта, значение текст комментария
+ * @param {Object} comments комментарий к позиции заказа. Ключ ID варианта, значение текст комментария
  * @param {string} coupon купон
  */
 {
@@ -194,14 +191,11 @@
 * update_items:insales:cart
 * always:insales:cart
 
-
 ```js
 EventBus.subscribe('add_items:insales:cart', function (data) {
   console.log('Товар добавлен');
 });
 ```
-
-
 
 ### delete
 
@@ -209,13 +203,12 @@ EventBus.subscribe('add_items:insales:cart', function (data) {
 
 ```js
 /**
- * @param {Array} items массив id вариантов к удалению
+ * @param {Array} items массив ID вариантов к удалению
  */
  Cart.delete({
    items: [160549240, 160549242]
  })
 ```
-
 
 **События**
 
@@ -233,8 +226,6 @@ EventBus.subscribe('delete_items:insales:cart', function (data) {
 });
 ```
 
-
-
 ### clear
 
 Полностью очистить корзину
@@ -242,7 +233,6 @@ EventBus.subscribe('delete_items:insales:cart', function (data) {
 ```js
 Cart.clear();
 ```
-
 
 **События**
 
@@ -253,14 +243,11 @@ Cart.clear();
 * update_items:insales:cart
 * always:insales:cart
 
-
 ```js
 EventBus.subscribe('clear_items:insales:cart', function (data) {
   console.log('Корзина очищена');
 });
 ```
-
-
 
 ### forceUpdate
 
@@ -269,8 +256,6 @@ EventBus.subscribe('clear_items:insales:cart', function (data) {
 ```js
 Cart.forceUpdate()
 ```
-
-
 
 ### remove
 
@@ -304,11 +289,9 @@ EventBus.subscribe('remove_items:insales:cart', function (data) {
 });
 ```
 
-
-
 ### set
 
-Устанавливает кол-во товаров в корзине для каждой позиции
+Устанавливает количество для каждой позиции товара в корзине
 
 ```js
 /**
@@ -321,7 +304,6 @@ Cart.set({
   }
 })
 ```
-
 
 **События**
 
@@ -338,9 +320,6 @@ EventBus.subscribe('set_items:insales:cart', function (data) {
   console.log('Корзина обновлена');
 });
 ```
-
-
-
 ### setCoupon
 
 Устанавливает купон
@@ -355,8 +334,6 @@ Cart.setCoupon({
   coupon: 'Мой купон'
 })
 ```
-
-
 
 **События**
 
@@ -374,8 +351,6 @@ EventBus.subscribe('set_coupon:insales:cart', function (data) {
 });
 ```
 
-
-
 ### order.get
 
 Получить состав корзины
@@ -385,11 +360,9 @@ var order = Cart.order.get();
 console.log(order);
 ```
 
-
-
 ### order.getItemByID
 
-Получить информацию о позиции по id
+Получить информацию о позиции по ID
 
 ```js
 var item = Cart.order.getItemByID(138231315);
@@ -397,7 +370,6 @@ console.log(item);
 ```
 
 ### События изменения позиции товара
-> События класса EventBus
 
 * before:insales:item
 * change_quantity:insales:item

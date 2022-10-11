@@ -1293,6 +1293,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#data-compare-trigger" class="md-nav__link">
+    data-compare-trigger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#data-compare-clear" class="md-nav__link">
     data-compare-clear
   </a>
@@ -1341,13 +1348,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#remove" class="md-nav__link">
     remove
   </a>
@@ -1361,8 +1361,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -1514,6 +1528,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#data-compare-trigger" class="md-nav__link">
+    data-compare-trigger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#data-compare-clear" class="md-nav__link">
     data-compare-clear
   </a>
@@ -1562,13 +1583,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#remove" class="md-nav__link">
     remove
   </a>
@@ -1582,8 +1596,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -1608,17 +1636,34 @@
 
 
 <h1 id="_1">Сравнение</h1>
+<p>Страница сравнения доступна во всех магазинах по адресу <code>/compares</code>.</p>
+<p>Чтобы отредактировать содержимое страницы, добавьте в папку <code>templates</code> файл <code>compare.liquid</code>. Массив товаров будет доступен в Liquid-переменной <code>products</code>.</p>
+<p>В сравнение можно добавлять только товары, выбранные варианты не сохраняются.</p>
 <h2 id="_2">Назначение атрибутов</h2>
 <h3 id="data-compare-add">data-compare-add</h3>
-<p>Кнопка для добавления товара в сравнение. После добавления товара по умолчанию получает класс <code>compare-added</code>.</p>
+<p>Кнопка для добавления товара в сравнение. После добавления товара по умолчанию получает класс <code>compare-added</code>. В качестве значения необходимо передать ID товара.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-compare-add</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
   Добавить товар в сравнение
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-compare-delete">data-compare-delete</h3>
-<p>Кнопка для удаления товара из сравнения. После удаления товара по умолчанию получает класс <code>compare-not-added</code>.</p>
+<p>Кнопка для удаления товара из сравнения. После удаления товара по умолчанию получает класс <code>compare-not-added</code>. В качестве значения необходимо передать ID товара.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-compare-delete</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
   Удалить из сравнения
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="data-compare-trigger">data-compare-trigger</h3>
+<p>Кнопка-переключатель при нажатии на которую товар добавляется/удаляется из сравнения. В зависимости от состояния, кнопка получает классы <code>compare-added</code> или <code>compare-not-added</code>. В качестве значения необходимо передать ID товара.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-compare-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- Здесь может быть иконка или текст кнопки --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Если при добавлении/удалении необходимо менять текст кнопки, то внутри должен быть дочерний элемент с атрибутами <code>data-compare-trigger-added-text</code> и <code>data-compare-trigger-not-added-text</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-compare-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> 
+    <span class="na">data-compare-trigger-added-text</span><span class="o">=</span><span class="s">&quot;В сравнении&quot;</span>
+    <span class="na">data-compare-trigger-not-added-text</span><span class="o">=</span><span class="s">&quot;Добавить в сравнение&quot;</span>
+  <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-compare-clear">data-compare-clear</h3>
@@ -1646,56 +1691,68 @@
 <h3 id="add">add</h3>
 <p>Добавить товар в сравнение</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {number} item id товара</span>
+<span class="cm"> * @param {number} item ID товара</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="nx">Compare</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="mf">123456</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<p><strong>События</strong></p>
-<blockquote>
-<p>События класса EventBus</p>
-</blockquote>
-<ul>
-<li>before:insales:compares</li>
-<li>add_items:insales:compares</li>
-<li>update_items:insales:compares</li>
-<li>always:insales:compares</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_item:insales:compares&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен в сравнение&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<h3 id="update">update</h3>
-<p>Обновить состояние сравнения</p>
-<div class="highlight"><pre><span></span><code><span class="nx">Compare</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
 <h3 id="remove">remove</h3>
-<p>Удалить товар из сравнение</p>
+<p>Удалить товар из сравнения</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {number} item id товара</span>
+<span class="cm"> * @param {number} item ID товара</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="nx">Compare</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="mf">123456</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<p><strong>События</strong></p>
-<blockquote>
-<p>События класса EventBus</p>
-</blockquote>
-<ul>
-<li>before:insales:compares</li>
-<li>remove_item:insales:compares</li>
-<li>update_items:insales:compares</li>
-<li>always:insales:compares</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_item:insales:compares&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен в сравнение&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
 <h3 id="clear">clear</h3>
 <p>Удалить все товары из сравнения</p>
 <div class="highlight"><pre><span></span><code><span class="nx">Compare</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h3 id="update">update</h3>
+<p>Обновить состояние сравнения</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Compare</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_3">События</h2>
+<table>
+<thead>
+<tr>
+<th>Событие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before:insales:compares</td>
+<td>Событие срабатывает перед любым взаимодействием с компонетом сравнения</td>
+</tr>
+<tr>
+<td>always:insales:compares</td>
+<td>Событие срабатывает после любого взаимодействия с компонетом сравнения</td>
+</tr>
+<tr>
+<td>update_items:insales:compares</td>
+<td>Обновление товаров в сравнении</td>
+</tr>
+<tr>
+<td>add_item:insales:compares</td>
+<td>Добавление товара в сравнение</td>
+</tr>
+<tr>
+<td>remove_item:insales:compares</td>
+<td>Удаление товара из сравнения</td>
+</tr>
+<tr>
+<td>overload:insales:compares</td>
+<td>Достигнуто максимальное кол-во товаров в сравнении</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Пример подписки на событие</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_item:insales:compares&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен в сравнение&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"> </span>
 </code></pre></div>
 
 

@@ -1561,14 +1561,12 @@
 <span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h2 id="_5">События</h2>
-<blockquote>
-<p>События класса EventBus</p>
-</blockquote>
 <ul>
 <li>before:insales:search -   Событие срабатывает перед любым взаимодействием с компонетом поиск</li>
 <li>update:insales:search -   Событие срабатывает после обновления результатов поиска</li>
 <li>always:insales:search -   Событие срабатывает после любого взаимодействия с компонетом поиск</li>
 </ul>
+<p><strong>Пример подписки на событие</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;update:insales:search&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>

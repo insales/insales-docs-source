@@ -1916,7 +1916,7 @@
 <p>В этом разделе вы найдёте описания и примеры использования data-атрибутов формы корзины и карточки товара внутри корзины.</p>
 <h3 id="_3">Корневой элемент</h3>
 <h4 id="data-cart-form">data-cart-form</h4>
-<p>Обязательный атрибут тега тега form</p>
+<p>Обязательный атрибут тега form</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-cart-form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_items }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -1929,9 +1929,9 @@
 </code></pre></div>
 <h3 id="_4">Вложенные элементы</h3>
 <h4 id="data-item-id">data-item-id</h4>
-<p>Обязательный атрибут для позиций в корзине. Атрибут принимает id позиции.</p>
+<p>Обязательный атрибут для позиций в корзине. В качестве значения необходимо передать ID позиции.</p>
 <h4 id="data-product-id">data-product-id</h4>
-<p>Обязательный атрибут для инициализации товара. В атрибут передаётся id товара.</p>
+<p>Обязательный атрибут для инициализации товара. В качестве значения необходимо передать ID товара.</p>
 <div class="highlight"><pre><span></span><code>{% for item in cart.items %}
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ item.product.id }}&quot;</span> <span class="na">data-item-id</span><span class="o">=</span><span class="s">&quot;{{ item.id }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;cart-item {{ cart_class }}&quot;</span><span class="p">&gt;</span>
  <span class="cm">&lt;!-- Код товара --&gt;</span>
@@ -1949,27 +1949,27 @@
 <h4 id="data-quantity-change">data-quantity-change</h4>
 <p>Атрибут для кнопок изменения количества +/-, принимает число</p>
 <h4 id="data-cart-item-price">data-cart-item-price</h4>
-<p>Цена товара</p>
+<p>Цена позиции товара</p>
 <h4 id="data-cart-item-total-price">data-cart-item-total-price</h4>
-<p>Итоговая цена товара в зависимости от его количества</p>
+<p>Итоговая цена позиции товара в зависимости от его количества</p>
 <h4 id="data-cart-total-price">data-cart-total-price</h4>
-<p>Итоговая цена всех товаров в корзине без скидок</p>
+<p>Итоговая цена всех позиций в корзине без учёта скидок</p>
 <h4 id="data-cart-full-total-price">data-cart-full-total-price</h4>
-<p>Итоговая цена товаров в корзине с учётом скидок</p>
+<p>Итоговая цена всех позиций в корзине с учётом скидок</p>
 <h4 id="data-cart-positions-count">data-cart-positions-count</h4>
 <p>Количество позиций в корзине</p>
 <h4 id="data-cart-item-count">data-cart-item-count</h4>
 <p>Количество товаров в корзине</p>
 <h4 id="data-item-delete">data-item-delete</h4>
-<p>Кнопка удаления товара из корзины. При нажатии происходит отправка запроса на удаление товара из корзины, при этом удалить товар из разметки вы должны самостоятельно, повесив обработчик на кнопку.</p>
+<p>Кнопка удаления позиции из корзины</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-item-delete</span><span class="o">=</span><span class="s">&quot;{{ item.id }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>{{ messages.delete }}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-cart-discounts-ajax">data-cart-discounts-ajax</h4>
-<p>Получение и вывод информации о скидках (В форму корзины нужно добавить  <code>data-reload-on-coupon="false"</code>)</p>
+<p>Получение и вывод информации о скидках (в форму корзины нужно добавить  <code>data-reload-on-coupon="false"</code>)</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-cart-discounts-ajax</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-cart-discounts-error">data-cart-discounts-error</h4>
-<p>Ошибки при вводе купона/применении скидки</p>
+<p>Элемент в котором будут выводиться ошибки при вводе купона, или применении других скидок</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-cart-discounts-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-cart-clear">data-cart-clear</h4>
@@ -2013,10 +2013,10 @@
 </code></pre></div>
 <h2 id="cart">Методы класса Cart</h2>
 <h3 id="add">add</h3>
-<p>Добавить в корзину заданное кол-во товаров</p>
+<p>Добавить в корзину заданное количество товаров</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {Object} items объект с параметрами variant_id: quantity</span>
-<span class="cm"> * @param {Object} comments комментарий к позиции заказа. Ключ id варианта, значение текст комментария</span>
+<span class="cm"> * @param {Object} comments комментарий к позиции заказа. Ключ ID варианта, значение текст комментария</span>
 <span class="cm"> * @param {string} coupon купон</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
@@ -2047,7 +2047,7 @@
 <h3 id="delete">delete</h3>
 <p>Удалить позиции из корзины</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {Array} items массив id вариантов к удалению</span>
+<span class="cm"> * @param {Array} items массив ID вариантов к удалению</span>
 <span class="cm"> */</span><span class="w"></span>
 <span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="ow">delete</span><span class="p">({</span><span class="w"></span>
 <span class="w">   </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">160549240</span><span class="p">,</span><span class="w"> </span><span class="mf">160549242</span><span class="p">]</span><span class="w"></span>
@@ -2116,7 +2116,7 @@
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h3 id="set">set</h3>
-<p>Устанавливает кол-во товаров в корзине для каждой позиции</p>
+<p>Устанавливает количество для каждой позиции товара в корзине</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {Array} items объект с параметрами variant_id: quantity</span>
 <span class="cm">*/</span><span class="w"></span>
@@ -2171,14 +2171,11 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="ordergetitembyid">order.getItemByID</h3>
-<p>Получить информацию о позиции по id</p>
+<p>Получить информацию о позиции по ID</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cart</span><span class="p">.</span><span class="nx">order</span><span class="p">.</span><span class="nx">getItemByID</span><span class="p">(</span><span class="mf">138231315</span><span class="p">);</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="_6">События изменения позиции товара</h3>
-<blockquote>
-<p>События класса EventBus</p>
-</blockquote>
 <ul>
 <li>before:insales:item</li>
 <li>change_quantity:insales:item</li>

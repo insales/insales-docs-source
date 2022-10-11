@@ -1976,25 +1976,25 @@
 </code></pre></div>
 <h3 id="_4">Атрибуты корневого элемента</h3>
 <h4 id="data-product-id">data-product-id</h4>
-<p>Обязательный атрибут для инициализации товара, принимает id товара</p>
+<p>Обязательный атрибут для инициализации товара, принимает ID товара</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-without-cache">data-product-without-cache</h4>
-<p>Отключить кеширование информации о данном товаре</p>
+<p>Отключить кэширование информации о товаре</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-without-cache</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-json">data-product-json</h4>
-<p>Передать данные о товаре через ликвид. Это может ускорить отображение селектора модификаций</p>
+<p>Позволяет передать данные о товаре через Liquid. Это может ускорить отображение селектора вариантов.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">data-product-json</span><span class="o">=</span><span class="s">&quot;{{ product|json|escape }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-set-config">data-set-config</h4>
-<p>Передать настройки товара через дата атрибут</p>
+<p>Передать настройки товара через data-атрибут</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-set-config</span><span class="o">=</span><span class="s">&#39;{&quot;decimal&quot;: {&quot;kgm&quot;: 1}}&#39;</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -2030,7 +2030,7 @@
   {% endif %}
 </code></pre></div>
 <p><strong>Можно ли написать свой шаблон для отображения свойств?</strong></p>
-<p>Можно. Для этого в разметку нужно добавить тег script с дата атрибутом <code>data-template-id</code> в качестве значения которого указывается id шаблона.</p>
+<p>Можно. Для этого в разметку нужно добавить тег script с дата атрибутом <code>data-template-id</code> в качестве значения которого указывается ID шаблона.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;custom-span&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-span&quot;</span><span class="o">&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span><span class="w"></span>
@@ -2062,19 +2062,19 @@
 </code></pre></div></p>
 <h4 id="data-quantity">data-quantity</h4>
 <p>Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity</p>
-<p>Для установки минимального значения в инпуте кол-ва товара укажите атрибут data-min
+<p>Для установки минимального значения в input количества товара передайте атрибут data-min с нужным значением</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-quantity</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;-1&quot;</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;quantity&quot;</span><span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div></p>
+</code></pre></div>
 <h4 id="data-quantity-change">data-quantity-change</h4>
 <p>Атрибут для кнопок изменения количества +/-, принимает число</p>
 <h4 id="data-item-add">data-item-add</h4>
 <p>Добавление товара в корзину</p>
 <h4 id="data-add-cart-counter">data-add-cart-counter</h4>
-<p>По сути, это компонент, который совмещает в себе функционал добавления товара в корзину, изменения его количества, отображения счётчика, и возможность удаления из корзины. Он используется в виджетах карточек товаров в шаблонах 4 поколения.</p>
+<p>Компонент, который совмещает в себе функционал добавления товара в корзину, изменения количества, отображения счётчика, и возможность удаления из корзины. Он используется в виджетах карточек товаров в шаблонах 4 поколения.</p>
 <p>В значении атрибута нужно указать шаг изменения количества товара: <code>data-add-cart-counter='{"step": "1"}'</code></p>
 <p><strong>Вложенные элементы:</strong></p>
 <ul>
@@ -2105,14 +2105,25 @@
 </code></pre></div>
 <h4 id="data-quick-checkout">data-quick-checkout</h4>
 <p>Форма заказа в один клик</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>В качестве значения можно передать ID конкретного товара, однако, если в корзину уже добавлены другие товары, то они тоже попадут в заказ.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&quot;[data-product-id=&#39;{{ product.id }}&#39;]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
 <h4 id="data-product-card-price">data-product-card-price</h4>
-<p>Получение цены продажи варианта</p>
+<p>Цена продажи варианта товара</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-price</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></div>
 <h4 id="data-product-card-price-from-cart">data-product-card-price-from-cart</h4>
-<p>Получение цены продажи варианта с учётом типов цен</p>
+<p>Цена продажи варианта товара с учётом типов цен</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-price-from-cart</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></div>
 <h4 id="data-product-card-old-price">data-product-card-old-price</h4>
-<p>Получение старой цены варианта</p>
+<p>Старая цена варианта товара</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-old-price</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</code></pre></div>
 <h4 id="data-product-card-sku">data-product-card-sku</h4>
-<p>Получение артикула варианта. В качестве значения можно передать label.</p>
+<p>Получение артикула варианта товара. В качестве значения можно передать label.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-sku</span><span class="o">=</span><span class="s">&#39;{&quot;skuLabel&quot;: &quot;{{messages.sku_label}}&quot;}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-card-available">data-product-card-available</h4>
@@ -2121,13 +2132,13 @@
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-available</span><span class="o">=</span><span class="s">&#39;{&quot;availableText&quot;: &quot;Available&quot;, &quot;notAvailableText&quot;: &quot;Not available&quot;}&#39;</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="namecomment">name="comment"</h4>
-<p>Комментарий к позиции заказа. Для работы поля с данным атрибутом комментарии к заказам должны быть включены в бэк-офисе</p>
+<p>Комментарий к позиции заказа. Для того, чтобы поле работало необходимо, чтобы комментарии к заказам были включены в админ-панели, в разделе "Настройки" &gt; "Оформление заказа"</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="_6">Селектор модификаций</h2>
 <h3 id="_7">Привязка шаблона модификации к опции</h3>
 <blockquote>
-<p>В методе <code>setConfig</code> нужно передать объект options в виде <code>имя опции: id шаблона</code></p>
+<p>В методе <code>setConfig</code> нужно передать объект options в виде <code>имя опции: ID шаблона</code></p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="nx">Products</span><span class="p">.</span><span class="nx">setConfig</span><span class="p">({</span><span class="w"></span>
 <span class="w">  </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2381,7 +2392,7 @@
 
 <h2 id="products">Методы класса Products</h2>
 <h3 id="get">get</h3>
-<p>Получить объект с информацией о товаре</p>
+<p>Получить объект с информацией о конкретном товаре</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {number} id id товара</span>
 <span class="cm"> * @return {Deferred}</span>
@@ -2424,7 +2435,7 @@
 <tr>
 <td>options</td>
 <td><code>{ 'default': 'option-default' }</code></td>
-<td>Через данный объект задаются шаблоны для вывода опций</td>
+<td>Через данный объект задаются шаблоны для вывода свойств варианта</td>
 </tr>
 <tr>
 <td>fileUrl</td>
@@ -2459,17 +2470,17 @@
 <tr>
 <td>showVariants</td>
 <td>true</td>
-<td>При значении false, рендер опций не производится</td>
+<td>При значении false, рендер вариантов не производится</td>
 </tr>
 <tr>
 <td>initOption</td>
 <td>true</td>
-<td>Отмечать активные опции при инициализации?</td>
+<td>Отмечать активные свойства при инициализации?</td>
 </tr>
 <tr>
 <td>useMax</td>
 <td>false</td>
-<td>Использовать максимальное колличество? Если значение true, в quantity невозможно указать колличество больше чем доступно на складе.</td>
+<td>Использовать максимальное колличество? Если значение true, в quantity невозможно указать колличество больше чем доступно на складе</td>
 </tr>
 </tbody>
 </table>
@@ -2492,7 +2503,7 @@
 <span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h3 id="initinstance">initInstance</h3>
-<p>Инициализировать форму товара</p>
+<p>Инициализация формы товара</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {jQuery DOM element} $node jQuery DOM element например $(&#39;.product-cart-control&#39;)</span>
 <span class="cm"> */</span><span class="w"></span>
@@ -2539,6 +2550,11 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Пример подписки на событие</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;change_quantity:insales:product&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Изменено количество товара в счётчике&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"> </span>
+</code></pre></div>
 
 
 

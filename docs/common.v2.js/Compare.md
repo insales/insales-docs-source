@@ -1,27 +1,65 @@
 # Сравнение
 
-## Интерфейс
+## Назначение атрибутов
 
-> Для быстрого создания интерфейсов в commonjs предусмотрены готовые обработчики форм.
+### data-compare-add
 
-> Обработчики ссылаются на data-атрибуты. В data-атрибуты пробрасывается информация из liquid.
-
-### Кнопки добавить/удалить из сравнения
+Кнопка для добавления товара в сравнение. После добавления товара по умолчанию получает класс `compare-added`.
 
 ```html
 <button data-compare-add="{{ product.id }}">
   Добавить товар в сравнение
 </button>
+```
+
+### data-compare-delete
+
+Кнопка для удаления товара из сравнения. После удаления товара по умолчанию получает класс `compare-not-added`.
+
+```html
 <button data-compare-delete="{{ product.id }}">
   Удалить из сравнения
 </button>
 ```
 
+### data-compare-clear
 
-## Методы
+Кнопка удаления всех товаров из сравнения
 
-> Методы класса `Compare`
+```html
+<button data-compare-clear>
+  Очистить сравнение
+</button>
+```
 
+### data-compare-counter-btn
+
+Ссылка для перехода на страницу сравнения. Если ни одного товара не добавлено, то получает класс `compare-empty`. Может быть удобно для того, чтобы красить ссылку после добавления товаров.
+
+```html
+<a href="/compares" data-compare-counter-btn="">
+ Сравнение
+</a>
+```
+
+### data-compare-counter
+
+Счётчик товаров добавленных в сравнение
+
+```html
+<span data-compare-counter></span>
+```
+
+## Методы класса Compare
+
+### getCompare
+
+Получить текущее состояние сравнения
+
+```js
+var compareState = Compare.getCompare();
+console.log(compareState);
+```
 ### add
 
 Добавить товар в сравнение
@@ -52,7 +90,13 @@ EventBus.subscribe('add_item:insales:compares', function (data) {
 });
 ```
 
+### update
 
+Обновить состояние сравнения
+
+```js
+Compare.update();
+```
 
 ### remove
 
@@ -84,21 +128,10 @@ EventBus.subscribe('add_item:insales:compares', function (data) {
 });
 ```
 
+### clear
 
-
-### getCompare
-
-Получить текущее состояние сравнения
+Удалить все товары из сравнения
 
 ```js
-var compareState = Compare.getCompare();
-console.log(compareState);
-```
-
-### update
-
-Обновить состояние сравнения
-
-```js
-Compare.update();
+Compare.clear();
 ```

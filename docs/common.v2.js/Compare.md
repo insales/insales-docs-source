@@ -1,10 +1,16 @@
 # Сравнение
 
+Страница сравнения доступна во всех магазинах по адресу `/compares`.
+
+Чтобы отредактировать содержимое страницы, добавьте в папку `templates` файл `compare.liquid`. Массив товаров будет доступен в Liquid-переменной `products`.
+
+В сравнение можно добавлять только товары, выбранные варианты не сохраняются.
+
 ## Назначение атрибутов
 
 ### data-compare-add
 
-Кнопка для добавления товара в сравнение. После добавления товара по умолчанию получает класс `compare-added`.
+Кнопка для добавления товара в сравнение. После добавления товара по умолчанию получает класс `compare-added`. В качестве значения необходимо передать ID товара.
 
 ```html
 <button data-compare-add="{{ product.id }}">
@@ -14,11 +20,31 @@
 
 ### data-compare-delete
 
-Кнопка для удаления товара из сравнения. После удаления товара по умолчанию получает класс `compare-not-added`.
+Кнопка для удаления товара из сравнения. После удаления товара по умолчанию получает класс `compare-not-added`. В качестве значения необходимо передать ID товара.
 
 ```html
 <button data-compare-delete="{{ product.id }}">
   Удалить из сравнения
+</button>
+```
+### data-compare-trigger
+
+Кнопка-переключатель при нажатии на которую товар добавляется/удаляется из сравнения. В зависимости от состояния, кнопка получает классы `compare-added` или `compare-not-added`. В качестве значения необходимо передать ID товара.
+
+```html
+<button data-compare-trigger="{{ product.id }}">
+  <!-- Здесь может быть иконка или текст кнопки -->
+</button>
+```
+
+Если при добавлении/удалении необходимо менять текст кнопки, то внутри должен быть дочерний элемент с атрибутами `data-compare-trigger-added-text` и `data-compare-trigger-not-added-text`:
+
+```html
+<button data-compare-trigger="{{ product.id }}">
+  <span 
+    data-compare-trigger-added-text="В сравнении"
+    data-compare-trigger-not-added-text="Добавить в сравнение"
+  ></span>
 </button>
 ```
 
@@ -66,28 +92,32 @@ console.log(compareState);
 
 ```js
 /**
- * @param {number} item id товара
+ * @param {number} item ID товара
  */
 Compare.add({
   item: 123456
 });
 ```
 
+### remove
 
-**События**
-
-> События класса EventBus
-
-* before:insales:compares
-* add_items:insales:compares
-* update_items:insales:compares
-* always:insales:compares
-
+Удалить товар из сравнения
 
 ```js
-EventBus.subscribe('add_item:insales:compares', function (data) {
-  console.log('Товар добавлен в сравнение');
+/**
+ * @param {number} item ID товара
+ */
+Compare.remove({
+  item: 123456
 });
+```
+
+### clear
+
+Удалить все товары из сравнения
+
+```js
+Compare.clear();
 ```
 
 ### update
@@ -98,40 +128,21 @@ EventBus.subscribe('add_item:insales:compares', function (data) {
 Compare.update();
 ```
 
-### remove
+## События
 
-Удалить товар из сравнение
+| Событие                            | Описание                                                                |
+|------------------------------------|-------------------------------------------------------------------------|
+| before:insales:compares            | Событие срабатывает перед любым взаимодействием с компонетом сравнения  |
+| always:insales:compares            | Событие срабатывает после любого взаимодействия с компонетом сравнения  |
+| update_items:insales:compares      | Обновление товаров в сравнении                                          |
+| add_item:insales:compares          | Добавление товара в сравнение                                           |
+| remove_item:insales:compares       | Удаление товара из сравнения                                            |
+| overload:insales:compares          | Достигнуто максимальное кол-во товаров в сравнении                      |
 
-```js
-/**
- * @param {number} item id товара
- */
-Compare.remove({
-  item: 123456
-});
-```
-
-
-**События**
-
-> События класса EventBus
-
-* before:insales:compares
-* remove_item:insales:compares
-* update_items:insales:compares
-* always:insales:compares
-
+**Пример подписки на событие**
 
 ```js
 EventBus.subscribe('add_item:insales:compares', function (data) {
-  console.log('Товар добавлен в сравнение');
-});
-```
-
-### clear
-
-Удалить все товары из сравнения
-
-```js
-Compare.clear();
+  console.log('Товар добавлен в сравнение', data);
+}); 
 ```

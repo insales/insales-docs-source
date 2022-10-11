@@ -41,12 +41,11 @@
 
 ## События
 
-> События класса EventBus
-
 * before:insales:search -	Событие срабатывает перед любым взаимодействием с компонетом поиск
 * update:insales:search -	Событие срабатывает после обновления результатов поиска
 * always:insales:search -	Событие срабатывает после любого взаимодействия с компонетом поиск
 
+**Пример подписки на событие**
 
 ```js
 EventBus.subscribe('update:insales:search', function (data) {

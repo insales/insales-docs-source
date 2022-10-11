@@ -1517,31 +1517,47 @@
 <p><strong><a href="/common.v2.js/2Products/">Товар:</a></strong></p>
 <ul>
 <li>Назначение атрибутов</li>
-<li>События</li>
 <li>Селектор модификаций</li>
 <li>Методы класса Products</li>
+<li>События</li>
 </ul>
 <p><strong><a href="/common.v2.js/3Cart/">Корзина:</a></strong></p>
 <ul>
-<li>Получение актуальной информации о составе корзины</li>
-<li>Добавление/удаление позиций</li>
+<li>Назначение атрибутов</li>
+<li>Методы и события</li>
 </ul>
-<p><strong><a href="/common.v2.js/AjaxSearch/">Поиск:</a></strong></p>
+<p><strong><a href="/common.v2.js/AjaxSearch/">Живой поиск по сайту:</a></strong></p>
 <ul>
-<li>Живой поиск по сайту</li>
+<li>Назначение атрибутов</li>
+<li>Методы класса AjaxSearch</li>
+<li>События</li>
 </ul>
 <p><strong><a href="/common.v2.js/Compare/">Сравнение:</a></strong></p>
 <ul>
-<li>Получение актуального списка сравнения</li>
-<li>Добавление/удаление товаров из сравнения</li>
+<li>Назначение атрибутов</li>
+<li>Методы и события</li>
 </ul>
-<p><strong><a href="/common.v2.js/Template/">Шаблонизация:</a></strong></p>
+<p><strong><a href="/common.v2.js/FavoritesProducts/">Избранное:</a></strong></p>
 <ul>
-<li>Работа с динамическими данными через шаблонизатор библиотеки lodash.js</li>
+<li>Назначение атрибутов</li>
+<li>Методы класса FavoritesProducts</li>
+<li>События</li>
 </ul>
-<p><strong><a href="/common.v2.js/EventBus/">Шина событий:</a></strong></p>
+<p><strong><a href="/common.v2.js/EventBus/">Шина событий EventBus:</a></strong></p>
 <ul>
-<li>Удобный инструмент для получения актульных данных состояния магазина, например содержание корзины, выбранная модификация продукта и т.д...</li>
+<li>Подписка на события</li>
+<li>Создание событий</li>
+<li>Отладка событий</li>
+</ul>
+<p><strong><a href="/common.v2.js/Template/">Lodash шаблоны:</a></strong></p>
+<ul>
+<li>Работа с динамическими данными через шаблонизатор библиотеки Lodash</li>
+</ul>
+<p><strong><a href="/common.v2.js/ajaxAPI/">Модуль для работы с API магазина:</a></strong></p>
+<ul>
+<li>Инструмент для получения и обновления данных о товарах, содержимого корзины, клиентах, категориях</li>
+<li>Отправка сообщений в формах обратной связи, отзывов, комментариев к статьям</li>
+<li>Отправка формы заказа</li>
 </ul>
 <p><strong><a href="https://github.com/liquid-hub/insales-common-js-v2-api" target="_blank">Примеры кода</a></strong></p>
 <h2 id="_3">Подключение</h2>
@@ -1594,7 +1610,7 @@
 </ol>
 <p>Так же стоит ознакомиться с <a href="/common.v2.js/ajaxAPI/">подробным описанием API фреймворка Common.js</a>.</p>
 <p>API фреймворка предоставляет удобные и протестированые методы, для разработки своих компонентов.</p>
-<p>Все обращения к API нужно производить после собития <code>DOMContentLoaded</code> оно же <code>$(document).ready(function() {}), $(function() {})</code>.</p>
+<p>Все обращения к API нужно производить после события <code>DOMContentLoaded</code> оно же <code>$(document).ready(function() {}), $(function() {})</code>.</p>
 
 
 

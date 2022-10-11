@@ -1261,12 +1261,18 @@
     Назначение атрибутов
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Назначение атрибутов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Разметка для поиска
+    Пример разметки
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1287,6 +1293,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -1434,12 +1447,18 @@
     Назначение атрибутов
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Назначение атрибутов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Разметка для поиска
+    Пример разметки
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1460,6 +1479,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -1484,7 +1510,7 @@
 
 
 <h1 id="_1">Живой поиск по сайту</h1>
-<h3 id="_2">Назначение атрибутов</h3>
+<h2 id="_2">Назначение атрибутов</h2>
 <table>
 <thead>
 <tr>
@@ -1511,37 +1537,30 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;/search&quot; method=&quot;get&quot;&gt;</span>
-<span class="x">  &lt;input type=&quot;hidden&quot; name=&quot;lang&quot; value=&quot;</span><span class="cp">{{</span> <span class="nv">language.locale</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
-<span class="x">  &lt;input type=&quot;text&quot; name=&quot;q&quot; value=&quot;&quot; placeholder=&quot;Поиск&quot; data-search-field /&gt;</span>
-<span class="x">  &lt;button type=&quot;submit&quot;&gt;Поиск&lt;/button&gt;</span>
-<span class="x">  &lt;div data-search-result&gt;&lt;/div&gt;</span>
-<span class="x">&lt;/form&gt;</span>
+<h3 id="_3">Пример разметки</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/search&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lang&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ language.locale }}&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;q&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Поиск&quot;</span> <span class="na">data-search-field</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Поиск<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-search-result</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
-<hr />
-<h3 id="_3">Разметка для поиска</h3>
-<div class="highlight"><pre><span></span><code><span class="x">&lt;form action=&quot;/search&quot; method=&quot;get&quot;&gt;</span>
-<span class="x">  &lt;input type=&quot;hidden&quot; name=&quot;lang&quot; value=&quot;</span><span class="cp">{{</span> <span class="nv">language.locale</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
-<span class="x">  &lt;input type=&quot;text&quot; name=&quot;q&quot; value=&quot;&quot; placeholder=&quot;Поиск&quot; data-search-field /&gt;</span>
-<span class="x">  &lt;button type=&quot;submit&quot;&gt;Поиск&lt;/button&gt;</span>
-<span class="x">  &lt;div data-search-result&gt;&lt;/div&gt;</span>
-<span class="x">&lt;/form&gt;</span>
-</code></pre></div>
-<hr />
 <h2 id="_4">Методы</h2>
 <h3 id="setconfig">setConfig</h3>
 <p>Обновление настроек</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {number} letters с какого символа начинать поиск</span>
 <span class="cm"> * @param {number} delay задержка между запросами</span>
+<span class="cm"> * @param {boolean} hide_items_out_of_stock нужно ли скрывать товары, которых нет в наличии</span>
 <span class="cm"> */</span><span class="w"></span>
 
 <span class="w"> </span><span class="nx">AjaxSearch</span><span class="p">.</span><span class="nx">setConfig</span><span class="p">({</span><span class="w"></span>
 <span class="w">   </span><span class="nx">letters</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">   </span><span class="nx">delay</span><span class="o">:</span><span class="w"> </span><span class="mf">300</span><span class="w"></span>
+<span class="w">   </span><span class="nx">delay</span><span class="o">:</span><span class="w"> </span><span class="mf">300</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="nx">hide_items_out_of_stock</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 <span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<p><strong>События</strong></p>
+<h2 id="_5">События</h2>
 <blockquote>
 <p>События класса EventBus</p>
 </blockquote>

@@ -1395,13 +1395,6 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    События
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     Селектор модификаций
   </a>
   
@@ -1409,21 +1402,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     Привязка шаблона модификации к опции
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     Передать изображения для шаблона селектора модификаций
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     Шаблоны для селектора модификаций
   </a>
   
@@ -1479,6 +1472,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -1816,13 +1816,6 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    События
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
     Селектор модификаций
   </a>
   
@@ -1830,21 +1823,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     Привязка шаблона модификации к опции
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     Передать изображения для шаблона селектора модификаций
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     Шаблоны для селектора модификаций
   </a>
   
@@ -1900,6 +1893,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    События
+  </a>
   
 </li>
       
@@ -2124,47 +2124,8 @@
 <p>Комментарий к позиции заказа. Для работы поля с данным атрибутом комментарии к заказам должны быть включены в бэк-офисе</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
-<h2 id="_6">События</h2>
-<table>
-<thead>
-<tr>
-<th>Событие</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>before:insales:product</td>
-<td>Событие срабатывает перед любым взаимодействием с компонетом продукта</td>
-</tr>
-<tr>
-<td>always:insales:product</td>
-<td>Событие срабатывает после любого взаимодействия с компонетом продукта</td>
-</tr>
-<tr>
-<td>change_quantity:insales:product</td>
-<td>Обновление кол-ва в продукте</td>
-</tr>
-<tr>
-<td>unchange_quantity:insales:product</td>
-<td>Если введено кол-во больше доступного</td>
-</tr>
-<tr>
-<td>overload:quantity:insales:product</td>
-<td>Событие срабатывает когда с помощью +/- накликали до максимального значения  quantity (Работает если вы используете параметр useMax)</td>
-</tr>
-<tr>
-<td>max:quantity:insales:product</td>
-<td>Cрабатывает всегда когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает если вы используете параметр useMax)</td>
-</tr>
-<tr>
-<td>update_variant:insales:product</td>
-<td>Обновление варианта в продукте</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_7">Селектор модификаций</h2>
-<h3 id="_8">Привязка шаблона модификации к опции</h3>
+<h2 id="_6">Селектор модификаций</h2>
+<h3 id="_7">Привязка шаблона модификации к опции</h3>
 <blockquote>
 <p>В методе <code>setConfig</code> нужно передать объект options в виде <code>имя опции: id шаблона</code></p>
 </blockquote>
@@ -2194,7 +2155,7 @@
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<h3 id="_9">Передать изображения для шаблона селектора модификаций</h3>
+<h3 id="_8">Передать изображения для шаблона селектора модификаций</h3>
 <blockquote>
 <p>Ссылки формируются в виде <code>значение свойства + .png | file_url</code></p>
 </blockquote>
@@ -2250,7 +2211,7 @@
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<h3 id="_10">Шаблоны для селектора модификаций</h3>
+<h3 id="_9">Шаблоны для селектора модификаций</h3>
 <details>
 <summary>select</summary>
 
@@ -2539,6 +2500,45 @@
 <span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 <span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </code></pre></div>
+<h2 id="_10">События</h2>
+<table>
+<thead>
+<tr>
+<th>Событие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before:insales:product</td>
+<td>Событие срабатывает перед любым взаимодействием с компонетом продукта</td>
+</tr>
+<tr>
+<td>always:insales:product</td>
+<td>Событие срабатывает после любого взаимодействия с компонетом продукта</td>
+</tr>
+<tr>
+<td>change_quantity:insales:product</td>
+<td>Обновление кол-ва в продукте</td>
+</tr>
+<tr>
+<td>unchange_quantity:insales:product</td>
+<td>Если введено кол-во больше доступного</td>
+</tr>
+<tr>
+<td>overload:quantity:insales:product</td>
+<td>Событие срабатывает когда с помощью +/- накликали до максимального значения  quantity (Работает если вы используете параметр useMax)</td>
+</tr>
+<tr>
+<td>max:quantity:insales:product</td>
+<td>Cрабатывает всегда когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает если вы используете параметр useMax)</td>
+</tr>
+<tr>
+<td>update_variant:insales:product</td>
+<td>Обновление варианта в продукте</td>
+</tr>
+</tbody>
+</table>
 
 
 

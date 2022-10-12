@@ -1462,15 +1462,23 @@
 <p>Работает по принципу Pub/Sub (Издатель/Подписчик) и построена на Deferred, что позволяет:</p>
 <ul>
 <li>привязать к одному событию (Издателю) несколько обработчиков (Подписчиков)</li>
-<li>обработчики событий сработают, даже если событие произошло раньше того, как мы к нему привязали обработчик.</li>
-<li>не важен порядок объявления Издателя и Подпсичиков</li>
+<li>обработчики событий сработают, даже если событие произошло раньше того, как мы к нему привязали обработчик</li>
+<li>не важен порядок объявления Издателя и Подписчиков</li>
 </ul>
 <p>Работа с шиной производится через объект EventBus.</p>
 <h3 id="subscribe">subscribe</h3>
-<p>Подписаться на событие</p>
+<p>В работе с API необходимо привязываться к подписчикам, так как издатели объявлены внутри API.
+Например, при добавлении товара в корзину внутри API публикуется событие <code>add_items:insales:cart</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>Данные которые переданы через EventBus.publish, доступны в подписчике.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
 <p><strong>Параметры</strong></p>
-<p>В данных подписчика всегда доступен объект <strong>action</strong>, он содержит свойство method, а также дополнительные сведения, взависимости от события. <br />
-В дополнительных свойствах объекта <strong>action</strong> могут быть:</p>
+<p>В данных подписчика всегда доступен объект <strong>action</strong>, он содержит свойство <code>method</code>, а также дополнительные сведения, в зависимости от события.</p>
+<p>В дополнительных свойствах объекта <strong>action</strong> могут быть:</p>
 <ul>
 <li>Ссылка на jQuery объект DOM узла с которым произошло взаимодействие</li>
 <li>Обновленные данные компонента (Cart, Products и т.д.)</li>
@@ -1514,6 +1522,8 @@
 <li>product</li>
 <li>search</li>
 <li>compares</li>
+<li>favorites_products</li>
+<li>quick_checkout</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {String} componentTitle название компонента</span>

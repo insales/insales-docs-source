@@ -1,10 +1,12 @@
 # Общие сведения
 
-В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления reCAPTCHA.
+В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления модуля reCaptcha.
 
-Чтобы проверка заработала нужно добавить в настройки шаблона чекбокс с name=feedback_captcha_enabled.
+Чтобы проверка заработала нужно добавить в настройки шаблона чекбокс с `name=feedback_captcha_enabled`.
 
 ## Для settings.json
+
+Добавить настройку в редактор сайта:
 
 ```json
   "Форма обратной связи":[
@@ -14,7 +16,7 @@
         {
                   "name":"feedback_captcha_enabled",
                   "type":"checkbox",
-                  "label":"Включить проверку 'я не робот'",
+                  "label":"Включить проверку 'Я не робот'",
                   "value":null,
                   "help":""
                 }
@@ -24,7 +26,10 @@
 ```
 
 ## Для settings.html
-```
+
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>Форма обратной связи</legend>
   <table>
@@ -34,7 +39,7 @@
       </td>
     </tr>
     <tr>
-      <td> <label for="feedback_captcha_enabled">Включить проверку 'я не робот'</label> </td>
+      <td> <label for="feedback_captcha_enabled">Включить проверку 'Я не робот'</label> </td>
       <td> <input name="feedback_captcha_enabled" id="feedback_captcha_enabled" type="checkbox" /> </td>
     </tr>
   </table>

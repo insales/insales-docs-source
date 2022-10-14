@@ -1,5 +1,9 @@
 # Для любых шаблонов с commonjs.v2
 
+## JS
+
+Добавить скрипт:
+
 ```js
 EventBus.subscribe('recaptcha:insales:loaded', function () {
   var key = Shop.config.get('recaptcha_key').recaptcha_key;
@@ -29,13 +33,19 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 })
 ```
 
-## Добавить в форму
+## Форма
+
+Добавить в код формы:
+
 ```html
 <div data-feedback-form-recaptcha></div>
 ```
 
 ## settings.html
-```
+
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>Форма обратной связи</legend>
   <table>
@@ -50,4 +60,16 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
     </tr>
   </table>
 </fieldset>
+```
+
+## messages.json
+
+Добавить название и описание настройки:
+
+```json
+"s_feedback_captcha_title": "Форма обратной связи",
+"s_feedback_captcha_label": "Включить проверку 'я не робот'",
+
+"s_feedback_captcha_title": "Feedback form",
+"s_feedback_captcha_label": "Enable check",
 ```

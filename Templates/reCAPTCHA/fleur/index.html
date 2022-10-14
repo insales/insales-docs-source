@@ -933,6 +933,8 @@
         
           
         
+          
+        
       
       
         
@@ -1102,6 +1104,20 @@
     <li class="md-nav__item">
       <a href="../prezent/" class="md-nav__link">
         Презент, Монпансье, Плэнер
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recaptcha-common/" class="md-nav__link">
+        reCaptchaCommon API
       </a>
     </li>
   
@@ -1570,60 +1586,64 @@
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
 <h2 id="mainscss">main.scss</h2>
-<p>Увеличить размер модального окна</p>
-<div class="highlight"><pre><span></span><code>#feedback-modal {
-    max-width: 344px;
-}
+<p>Увеличить размер модального окна:</p>
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">feedback-modal</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">344</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="feedbackjs">feedback.js</h2>
 <p>Обновить до 0.16.0 или выше</p>
 <p>https://cdn.jsdelivr.net/gh/VladimirIvanin/InSalesFeedback@0.16.0/dist/feedback.js</p>
 <h2 id="feedbackliquid">feedback.liquid</h2>
+<p>Добавить в код формы:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-&lt;div class=&quot;feedback-row is-required m-b-15&quot; data-feedback-field&gt;
-  &lt;label class=&quot;form-label m-b-5&quot;&gt;{{ messages.field_captcha }}&lt;/label&gt;
-  &lt;div class=&quot;feedback-field-wrap js-recaptcha-field&quot;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback-row is-required m-b-15&quot;</span> <span class="na">data-feedback-field</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label m-b-5&quot;</span><span class="p">&gt;</span>{{ messages.field_captcha }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback-field-wrap js-recaptcha-field&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
 <h2 id="js-form-feedbackliquid">js-form-feedback.liquid</h2>
+<p>Добавить в код формы:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-&lt;div class=&quot;feedback-row is-required m-b-15&quot; data-feedback-field&gt;
-  &lt;label class=&quot;form-label m-b-5&quot;&gt;{{ messages.field_captcha }}&lt;/label&gt;
-  &lt;div class=&quot;feedback-field-wrap js-recaptcha-field&quot;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback-row is-required m-b-15&quot;</span> <span class="na">data-feedback-field</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label m-b-5&quot;</span><span class="p">&gt;</span>{{ messages.field_captcha }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback-field-wrap js-recaptcha-field&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
 <h2 id="settingshtml">settings.html</h2>
-<div class="highlight"><pre><span></span><code>&lt;fieldset&gt;
-  &lt;legend&gt;{{ messages.s_feedback_captcha_title }}&lt;/legend&gt;
-  &lt;table&gt;
-    &lt;tr&gt;
-      &lt;td&gt;
+<p>Добавить настройку в редактор сайта:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_title }}<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
         ReCAPTCHA
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;label for=&quot;feedback_captcha_enabled&quot;&gt;{{ messages.s_feedback_captcha_label }}&lt;/label&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;input name=&quot;feedback_captcha_enabled&quot; id=&quot;feedback_captcha_enabled&quot; type=&quot;checkbox&quot; /&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/fieldset&gt;
+      <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_label }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="p">/&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="messagesjson">messages.json</h2>
-<div class="highlight"><pre><span></span><code>&quot;s_feedback_captcha_title&quot;: &quot;Форма обратной связи&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Включить проверку &#39;я не робот&#39;&quot;,
+<p>Добавить название и описание настройки:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма обратной связи&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить проверку &#39;я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
 
-&quot;s_feedback_captcha_title&quot;: &quot;Feedback form&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Enable check&quot;,
+<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Feedback form&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable check&quot;</span><span class="p">,</span><span class="w"></span>
 
-&quot;s_feedback_captcha_title&quot;: &quot;Форма зворотного зв&#39;язку&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Увімкнути перевірку &#39;я не робот&#39;&quot;,
+<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма зворотного зв&#39;язку&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Увімкнути перевірку &#39;я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
 
-&quot;s_feedback_captcha_title&quot;: &quot;Formulario de comentarios&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Active la casilla de verificación &#39;No soy un robot&#39;&quot;,
+<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Formulario de comentarios&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active la casilla de verificación &#39;No soy un robot&#39;&quot;</span><span class="p">,</span><span class="w"></span>
 </code></pre></div>
 
 

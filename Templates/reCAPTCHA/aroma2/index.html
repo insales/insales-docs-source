@@ -933,6 +933,8 @@
         
           
         
+          
+        
       
       
         
@@ -1130,6 +1132,20 @@
     <li class="md-nav__item">
       <a href="../prezent/" class="md-nav__link">
         Презент, Монпансье, Плэнер
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recaptcha-common/" class="md-nav__link">
+        reCaptchaCommon API
       </a>
     </li>
   
@@ -1605,9 +1621,8 @@
 
 <h1 id="2-2">Аромат2, Фантазия2, Чистота</h1>
 <h2 id="insalesuiformsjs">insales.ui.forms.js</h2>
-<p>Заменить весь файл из свежей установки.</p>
-<p>или</p>
-<p>Заменить:
+<p>Можно взять весь файл из свежей установки шаблона или действовать по инструкции ниже.</p>
+<p>Вместо этого кода:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">self</span><span class="p">.</span><span class="nx">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">solution</span><span class="o">:</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1629,7 +1644,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span><span class="w"></span>
 <span class="p">},</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
 <p>Вставить:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">self</span><span class="p">.</span><span class="nx">captcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">solution</span><span class="o">:</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
@@ -1683,17 +1698,17 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="pageliquid">page.liquid</h2>
-<p>В <code>_options</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):
-<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="nv">settings.feedback_captcha_enabled</span> <span class="cp">%}</span><span class="x"></span>
-<span class="x">{</span>
-<span class="x">  title: &#39;</span><span class="cp">{{</span> <span class="nv">messages.field_captcha</span> <span class="cp">}}</span><span class="x">&#39;,</span>
-<span class="x">  type: &#39;captcha&#39;,</span>
-<span class="x">  required: true,</span>
-<span class="x">}</span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</code></pre></div></p>
+<p>В <code>_options</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">settings</span><span class="p">.</span><span class="nx">feedback_captcha_enabled</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;captcha&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <h2 id="headerliquid">header.liquid</h2>
-<p>В <code>_backcallForm</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):
+<p>В <code>_backcallForm</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
 {
   title: &#39;{{ messages.field_captcha }}&#39;,
@@ -1701,126 +1716,127 @@
   required: true,
 }
 {% endif %}
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="_1">Виджет обратной связи на главной</h2>
-<p>Стили</p>
-<div class="highlight"><pre><span></span><code>.feedback-form .form-row.recaptcha-wide {
-  flex-basis: 100%;
-  justify-content: center;
-  max-width: 100%;
-}
+<p>Стили:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">feedback-form</span><span class="w"> </span><span class="p">.</span><span class="nc">form-row</span><span class="p">.</span><span class="nc">recaptcha-wide</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">flex-basis</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="indexjs">index.js</h2>
-<p>между
-<div class="highlight"><pre><span></span><code>if (Site.template != &#39;index&#39;) {
-  return;
-}
+<p>Между этим кодом:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-и
-<div class="highlight"><pre><span></span><code>  $(document).on(&#39;submit&#39;, &#39;.js-widget-feedback&#39;, function (event) {
+<p>и этим:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.js-widget-feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 </code></pre></div>
-Вставить:
-<div class="highlight"><pre><span></span><code>var recaptchaVerify = function (response) {
-  jquery(&#39;[name=&quot;g-recaptcha-response&quot;]&#39;).html(response);
-};
+<p>Вставить:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-EventBus.subscribe(&#39;recaptcha:insales:loaded&#39;, function () {
-  var key = Shop.config.get(&#39;recaptcha_key&#39;).recaptcha_key;
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span><span class="w"></span>
 
-  $(&#39;.form-row .js-g-recaptcha&#39;).each(function(index, el) {
-    var randomId = &#39;gRecaptcha&#39; + _.random(1, 99999999)
-    $(this).attr(&#39;id&#39;, randomId);
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.form-row .js-g-recaptcha&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;gRecaptcha&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span><span class="w"></span>
 
-    grecaptchaWidget = grecaptcha.render($(el).get(0), {
-      sitekey: key,
-      callback: recaptchaVerify
-    });
-    window = { grecaptchaWidget: grecaptchaWidget };
-  });
-})
-</code></pre></div></p>
+<span class="w">    </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">grecaptchaWidget</span><span class="o">:</span><span class="w"> </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
 <h2 id="indexjs_1">index.js</h2>
-<p>Исправить вывод ошибки</p>
-<p>В коде отправки
-<div class="highlight"><pre><span></span><code>Shop.sendMessage(msg)
-  .done(function (response) {
-    alertify.success(response.notice);
-    $widgetFeedback.trigger(&#39;reset&#39;);
-    val_send++;
-    sessionStorage.setItem(&#39;send_success&#39;, val_send);
-  })
-  .fail(function (response) {
-    $.each(response.errors, function (i, val) {
-      alertify.error(val[0]);
-    });
-  });
-</code></pre></div></p>
-<p>Заменить <code>fail</code>
-<div class="highlight"><pre><span></span><code>.fail(function (response) {
-  $.each(response.errors, function (i, val) {
-    var errorText = (typeof val == &#39;string&#39;) ? val : val[0];
-    alertify.error(errorText);
-  });
-});
-</code></pre></div></p>
+<p>В этой части кода:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Shop</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">alertify</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">notice</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$widgetFeedback</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reset&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">val_send</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;send_success&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">val_send</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>Заменить <code>fail</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">errorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">errorText</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
 <h2 id="widget_feedbackliquid">widget_feedback.liquid</h2>
-<p>Вставить в конец формы</p>
+<p>Добавить в код формы:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-&lt;div class=&quot;form-row recaptcha-wide&quot;&gt;
-  &lt;div class=&quot;js-g-recaptcha&quot;&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row recaptcha-wide&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-g-recaptcha&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
 <h2 id="scriptsliquid">scripts.liquid</h2>
-<p>Вставить в Site.messages строку</p>
-<div class="highlight"><pre><span></span><code>field_captcha: &#39;{{ messages.field_captcha }}&#39;,
+<p>Вставить в Site.messages строку:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span><span class="w"></span>
 </code></pre></div>
-<p>Полный кусок
-<div class="highlight"><pre><span></span><code>    messages: {
-      field_name: &#39;{{ messages.field_name }}&#39;,
-      field_email: &#39;{{ messages.field_email }}&#39;,
-      field_message: &#39;{{ messages.field_message }}&#39;,
-      label_product: &#39;{{ messages.label_product }}&#39;,
-      label_variant: &#39;{{ messages.label_variant }}&#39;,
-      field_captcha: &#39;{{ messages.field_captcha }}&#39;,
+<p>Как должно получиться:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">field_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_name }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">field_email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_email }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">field_message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_message }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">label_product</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.label_product }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">label_variant</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.label_variant }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span><span class="w"></span>
 
-      preorder: &#39;{{ messages.preorder }}&#39;,
-      button_submit: &#39;{{ messages.button_submit }}&#39;
-    }
-</code></pre></div></p>
+<span class="w">      </span><span class="nx">preorder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.preorder }}&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nx">button_submit</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.button_submit }}&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <h2 id="productjs">product.js</h2>
 <p>Вставить перед <code>alertify.modal({ formDefination: preorderForm }).set('title', Site.messages.preorder);</code></p>
-<div class="highlight"><pre><span></span><code>    if(Shop.config.config.feedback_captcha_enabled) {
-      preorderForm.fields.push({
-        title: Site.messages.field_captcha,
-        type: &#39;captcha&#39;,
-        required: true,
-      })
-    }
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">feedback_captcha_enabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">preorderForm</span><span class="p">.</span><span class="nx">fields</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">field_captcha</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;captcha&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="settingshtml">settings.html</h2>
-<div class="highlight"><pre><span></span><code>&lt;fieldset&gt;
-  &lt;legend&gt;{{ messages.s_feedback_captcha_title }}&lt;/legend&gt;
-  &lt;table&gt;
-    &lt;tr&gt;
-      &lt;td&gt;
+<p>Добавить настройку в редактор сайта:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_title }}<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
         ReCAPTCHA
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;label for=&quot;feedback_captcha_enabled&quot;&gt;{{ messages.s_feedback_captcha_label }}&lt;/label&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;input name=&quot;feedback_captcha_enabled&quot; id=&quot;feedback_captcha_enabled&quot; type=&quot;checkbox&quot; /&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/fieldset&gt;
+      <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_label }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="p">/&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="messagesjson">messages.json</h2>
-<div class="highlight"><pre><span></span><code>&quot;s_feedback_captcha_title&quot;: &quot;Форма обратной связи&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Включить проверку &#39;я не робот&#39;&quot;,
+<p>Добавить название и описание настройки:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма обратной связи&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить проверку &#39;я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
 
-&quot;s_feedback_captcha_title&quot;: &quot;Feedback form&quot;,
-&quot;s_feedback_captcha_label&quot;: &quot;Enable check&quot;,
+<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Feedback form&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable check&quot;</span><span class="p">,</span><span class="w"></span>
 </code></pre></div>
 
 

@@ -933,6 +933,8 @@
         
           
         
+          
+        
       
       
         
@@ -1024,21 +1026,28 @@
       
         <li class="md-nav__item">
   <a href="#js" class="md-nav__link">
-    В js
+    JS
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    В форму
+    Форма
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    В настройки
+  <a href="#settingshtml" class="md-nav__link">
+    settings.html
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagesjson" class="md-nav__link">
+    messages.json
   </a>
   
 </li>
@@ -1074,6 +1083,20 @@
     <li class="md-nav__item">
       <a href="../prezent/" class="md-nav__link">
         Презент, Монпансье, Плэнер
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recaptcha-common/" class="md-nav__link">
+        reCaptchaCommon API
       </a>
     </li>
   
@@ -1452,21 +1475,28 @@
       
         <li class="md-nav__item">
   <a href="#js" class="md-nav__link">
-    В js
+    JS
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    В форму
+    Форма
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    В настройки
+  <a href="#settingshtml" class="md-nav__link">
+    settings.html
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messagesjson" class="md-nav__link">
+    messages.json
   </a>
   
 </li>
@@ -1492,7 +1522,8 @@
 
 
 <h1 id="dotstore">DotStore</h1>
-<h2 id="js">В js</h2>
+<h2 id="js">JS</h2>
+<p>Добавить скрипт:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">customFormSelector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;.js-feedback&#39;</span><span class="p">;</span><span class="w"></span>
@@ -1513,12 +1544,14 @@
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">})</span><span class="w"></span>
 </code></pre></div>
-<h2 id="_1">В форму</h2>
+<h2 id="_1">Форма</h2>
+<p>Добавить в код формы:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-item&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-recaptcha-form-field&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
-<h2 id="_2">В настройки</h2>
+<h2 id="settingshtml">settings.html</h2>
+<p>Добавить настройку в редактор сайта:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Форма обратной связи<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
@@ -1533,6 +1566,14 @@
     <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="messagesjson">messages.json</h2>
+<p>Добавить название и описание настройки:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма обратной связи&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить проверку &#39;я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Feedback form&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable check&quot;</span><span class="p">,</span><span class="w"></span>
 </code></pre></div>
 
 

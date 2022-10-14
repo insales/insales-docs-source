@@ -933,6 +933,8 @@
         
           
         
+          
+        
       
       
         
@@ -1019,6 +1021,20 @@
     <li class="md-nav__item">
       <a href="prezent/" class="md-nav__link">
         Презент, Монпансье, Плэнер
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recaptcha-common/" class="md-nav__link">
+        reCaptchaCommon API
       </a>
     </li>
   
@@ -1430,9 +1446,10 @@
 
 
 <h1 id="_1">Общие сведения</h1>
-<p>В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления reCAPTCHA.</p>
-<p>Чтобы проверка заработала нужно добавить в настройки шаблона чекбокс с name=feedback_captcha_enabled.</p>
+<p>В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления модуля reCaptcha.</p>
+<p>Чтобы проверка заработала нужно добавить в настройки шаблона чекбокс с <code>name=feedback_captcha_enabled</code>.</p>
 <h2 id="settingsjson">Для settings.json</h2>
+<p>Добавить настройку в редактор сайта:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;Форма обратной связи&quot;</span><span class="p">:[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;reCAPTCHA&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1440,7 +1457,7 @@
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;feedback_captcha_enabled&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Включить проверку &#39;я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;Включить проверку &#39;Я не робот&#39;&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">&quot;help&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="w"></span>
 <span class="w">                </span><span class="p">}</span><span class="w"></span>
@@ -1449,20 +1466,21 @@
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
 <h2 id="settingshtml">Для settings.html</h2>
-<div class="highlight"><pre><span></span><code>&lt;fieldset&gt;
-  &lt;legend&gt;Форма обратной связи&lt;/legend&gt;
-  &lt;table&gt;
-    &lt;tr&gt;
-      &lt;td&gt;
+<p>Добавить настройку в редактор сайта:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Форма обратной связи<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
         ReCAPTCHA
-      &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;label for=&quot;feedback_captcha_enabled&quot;&gt;Включить проверку &#39;я не робот&#39;&lt;/label&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;input name=&quot;feedback_captcha_enabled&quot; id=&quot;feedback_captcha_enabled&quot; type=&quot;checkbox&quot; /&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/fieldset&gt;
+      <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span><span class="p">&gt;</span>Включить проверку &#39;Я не робот&#39;<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="p">/&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Когда данная настройка включена, сервер проверяет значение поля <code>feedback[g-recaptcha-response]</code> в запросе <code>/client_account/feedback.json</code></p>
 

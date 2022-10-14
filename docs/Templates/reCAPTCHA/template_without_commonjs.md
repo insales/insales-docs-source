@@ -1,6 +1,8 @@
 # Для шаблонов без commonjs.v2
 
-## Js
+## JS
+
+Добавить скрипт:
 
 ```js
 // колбек добавления рекапчи в форму автоматически
@@ -58,14 +60,19 @@ window.addEventListener('load', function() {
 });
 ```
 
-## Верстка
+## Форма
 
-В верстку вставить div с классом `js-recaptcha-field`
+Добавить в код формы:
 
+```html
+<div class="js-recaptcha-field"></div>
+```
 
 ## settings.html
 
-```
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>Форма обратной связи</legend>
   <table>
@@ -80,4 +87,16 @@ window.addEventListener('load', function() {
     </tr>
   </table>
 </fieldset>
+```
+
+## messages.json
+
+Добавить название и описание настройки:
+
+```json
+"s_feedback_captcha_title": "Форма обратной связи",
+"s_feedback_captcha_label": "Включить проверку 'я не робот'",
+
+"s_feedback_captcha_title": "Feedback form",
+"s_feedback_captcha_label": "Enable check",
 ```

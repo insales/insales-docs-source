@@ -2,7 +2,7 @@
 
 ## jquery.serialize-object.js
 
-Заменить:
+Заменить эту часть кода:
 
 ```js
 var patterns = {
@@ -14,7 +14,7 @@ var patterns = {
 };
 ```
 
-Вставить:
+На эту:
 
 ```js
 var patterns = {
@@ -28,13 +28,13 @@ var patterns = {
 
 ## plugin.alertify.js
 
-Заменить:
+Заменить эту часть кода:
 
 ```js
 alertify.error(val[0]);
 ```
 
-Вставить:
+На эту:
 
 ```js
 var errorText = (typeof error == 'string') ? error : error[0];
@@ -43,7 +43,7 @@ alertify.error(errorText);
 
 ## main.js
 
-Добавить перед:
+Перед этим кодом:
 
 ```js
 if (Site.template != 'index') {
@@ -53,7 +53,7 @@ if (Site.template != 'index') {
 $(document).on('submit','.js-widget-feedback', function(event) {
 ```
 
-Код инициализации капчи
+Добавить код инициализации капчи:
 
 ```js
 EventBus.subscribe('recaptcha:insales:loaded', function () {
@@ -85,11 +85,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## main.js
 
-Вывод ошибки
+Заменить эту часть кода:
 
-Заменить:
-
-```
+```js
   .fail(function (response) {
     $.each(response.errors, function (i, val) {
       alertify.error(val[0]);
@@ -97,8 +95,8 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
   });
 ```
 
-Вставить:
-```
+На эту:
+```js
   .fail(function (response) {
     $.each(response.errors, function (i, val) {
       var errorText = (typeof val == 'string') ? val : val[0];
@@ -109,7 +107,7 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## widget_feedback.liquid
 
-Перед закрытием формы добавить
+Добавить в код формы:
 
 ```js
 <div class="cell-xl-12">
@@ -119,9 +117,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## modals.liquid
 
-В форму `.js-preorder-form` добавить блок:
+В код формы `.js-preorder-form` добавить:
 
-```
+```html
 <div class="form-row row">
   <div class="cell-xl-12">
     <div class="js-recaptcha-field"></div>
@@ -131,7 +129,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## settings.html
 
-```
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>{{ messages.s_feedback_captcha_title }}</legend>
   <table>
@@ -150,7 +150,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## messages.json
 
-```
+Добавить название и описание настройки:
+
+```json
 "s_feedback_captcha_title": "Форма обратной связи",
 "s_feedback_captcha_label": "Включить проверку 'я не робот'",
 

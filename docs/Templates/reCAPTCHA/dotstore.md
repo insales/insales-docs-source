@@ -1,6 +1,9 @@
 # DotStore
 
-## В js
+## JS
+
+Добавить скрипт:
+
 ```js
 EventBus.subscribe('recaptcha:insales:loaded', function () {
   var key = Shop.config.get('recaptcha_key').recaptcha_key;
@@ -22,15 +25,20 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
   });
 })
 ```
+## Форма
 
-## В форму
+Добавить в код формы:
+
 ```html
 <div class="form-item">
   <div class="js-recaptcha-form-field"></div>
 </div>
 ```
 
-## В настройки
+## settings.html
+
+Добавить настройку в редактор сайта:
+
 ```html
 <fieldset>
   <legend>Форма обратной связи</legend>
@@ -46,4 +54,16 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
     </tr>
   </table>
 </fieldset>
+```
+
+## messages.json
+
+Добавить название и описание настройки:
+
+```json
+"s_feedback_captcha_title": "Форма обратной связи",
+"s_feedback_captcha_label": "Включить проверку 'я не робот'",
+
+"s_feedback_captcha_title": "Feedback form",
+"s_feedback_captcha_label": "Enable check",
 ```

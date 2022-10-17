@@ -46,6 +46,12 @@
 
 * init-filter:ui-ajax-filter - срабатывает после инициализации фильтров
 
+```js
+EventBus.subscribe('init-filter:ui-ajax-filter', data => {
+  console.log(data);
+})
+```
+
 ## Пример разметки
 
 ```html

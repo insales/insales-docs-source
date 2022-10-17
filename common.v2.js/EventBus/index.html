@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1519,16 +1519,16 @@
 Например, при добавлении товара в корзину внутри API публикуется событие <code>add_items:insales:cart</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<p>Данные которые переданы через EventBus.publish, доступны в подписчике.</p>
+<p>Данные, которые переданы через EventBus.publish, доступны в подписчике.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <p><strong>Параметры</strong></p>
-<p>В данных подписчика всегда доступен объект <strong>action</strong>, он содержит свойство <code>method</code>, а также дополнительные сведения, в зависимости от события.</p>
+<p>В данных подписчика всегда доступен объект <strong>action</strong>. Он содержит свойство <code>method</code>, а также дополнительные сведения в зависимости от события.</p>
 <p>В дополнительных свойствах объекта <strong>action</strong> могут быть:</p>
 <ul>
-<li>Ссылка на jQuery объект DOM узла с которым произошло взаимодействие</li>
+<li>Ссылка на jQuery объект DOM узла, с которым произошло взаимодействие</li>
 <li>Обновленные данные компонента (Cart, Products и т.д.)</li>
 <li>Остальное смотреть через console.log или EventBus.logger</li>
 </ul>

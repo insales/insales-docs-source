@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1602,7 +1602,7 @@
 
 
 <h1 id="_1">Форма обратной связи</h1>
-<p>Компонент с помощью которого вы можете реализовать форму обратной связи с отправкой через AJAX-запрос и проверкой полей. Письма после отправки формы будут приходить на E-mail для уведомлений указанный в админ-панели, в разделе "Настройки" &gt; "Карточка магазина"</p>
+<p>Компонент, с помощью которого вы можете реализовать форму обратной связи с отправкой через AJAX-запрос и проверкой полей. Письма после отправки формы будут приходить на E-mail для уведомлений указанный в админ-панели, в разделе "Настройки" &gt; "Карточка магазина"</p>
 <h2 id="_2">Назначение атрибутов</h2>
 <h3 id="data-feedback-form-wrapper">data-feedback-form-wrapper</h3>
 <p>Обязательный атрибут для обёртки формы обратной связи</p>
@@ -1611,7 +1611,7 @@
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-feedback-form-success">data-feedback-form-success</h3>
-<p>Атрибут для элемента, который содержит сообщение об успешной отправке формы. В качестве значения нужно указать сколько секунд должен отображаться элемент в случае успешной отправки (получает класс <code>is-show</code>, который удаляется через указанный промежуток времени).</p>
+<p>Атрибут для элемента, который содержит сообщение об успешной отправке формы. В качестве значения нужно указать, сколько секунд должен отображаться элемент в случае успешной отправки (получает класс <code>is-show</code>, который удаляется через указанный промежуток времени).</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>По умолчанию элемент не скрыт</p>
@@ -1626,7 +1626,7 @@
       <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> 
       <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">        &quot;isRequired&quot;: true, </span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Не верно заполнено поле Имя&quot;</span>
+<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
 <span class="s">      }&#39;</span> 
       <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> 
       <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>  
@@ -1644,12 +1644,12 @@
 <li>subject (тема письма)</li>
 <li>agree (чекбокс согласия на обработку персональных данных)</li>
 </ul>
-<p>Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом <code>data-feedback-form-field-error</code>, а также указать обязательность заполнения поля. По умолчанию, обязательными являются только поле from (можно отключить), и чекбокс согласия на обработку персональных данных (нельзя отключить).</p>
+<p>Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом <code>data-feedback-form-field-error</code>, а также указать обязательность заполнения поля. По умолчанию обязательными являются только поле from (можно отключить) и чекбокс согласия на обработку персональных данных (нельзя отключить).</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> 
   <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> 
   <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">    &quot;isRequired&quot;: true, </span>
-<span class="s">    &quot;errorMessage&quot;: &quot;Не верно заполнено поле Имя&quot;</span>
+<span class="s">    &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
 <span class="s">  }&#39;</span> 
   <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> 
   <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>  
@@ -1659,7 +1659,7 @@
   <span class="na">name</span><span class="o">=</span><span class="s">&quot;phone&quot;</span>
   <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">    &quot;isRequired&quot;: true, </span>
-<span class="s">    &quot;errorMessage&quot;: &quot;Не верно заполнено поле Телефон&quot;, </span>
+<span class="s">    &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Телефон&quot;, </span>
 <span class="s">    &quot;phoneNumberLength&quot;: 11, </span>
 <span class="s">    &quot;secondPhoneNumberLength&quot;: 12</span>
 <span class="s">  }&#39;</span> 
@@ -1670,7 +1670,7 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Если вам нужно сделать несколько отдельных полей для текста, то значения таких полей необходимо будет объединять с помощью JavaScript. Пример реализации вы можете увидеть в виджете FF2 в любом шаблоне 4 поколения.</p>
-<p>Поля from и content можно сделать необязательными, при этом, во время отправки формы в них будет прокидываться системный текст. В случае с полем from в него попадёт e-mail владельца магазина, а в поле content будет текст "Сообщение не заполнено".</p>
+<p>Поля from и content можно сделать необязательными, при этом во время отправки формы в них будет прокидываться системный текст. В случае с полем from в него попадёт e-mail владельца магазина, а в поле content будет текст "Сообщение не заполнено".</p>
 </div>
 <h3 id="data-feedback-form-recaptcha">data-feedback-form-recaptcha</h3>
 <p>Элемент для вывода кнопки "Я не робот"</p>
@@ -1690,7 +1690,7 @@
 </code></pre></div>
 <h3 id="data-show-feedback-modal">data-show-feedback-modal</h3>
 <p>Атрибут для кнопки вызова модального окна. При нажатии происходит публикация события EventBus <code>show-modal-feedback:insales:ui_feedback</code>.</p>
-<p>В качестве значения можно передать ID модального окна. Это может быть удобно если у вас несколько форм в модальных окнах.</p>
+<p>В качестве значения можно передать ID модального окна. Это может быть удобно, если у вас несколько форм в модальных окнах.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-show-feedback-modal</span><span class="o">=</span><span class="s">&#39;{&quot;modal_id&quot;: &quot;123456&quot;}&#39;</span><span class="p">&gt;</span>Обратная связь<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;show-modal-feedback:insales:ui_feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1738,7 +1738,7 @@
       <span class="na">name</span><span class="o">=</span><span class="s">&quot;phone&quot;</span>
       <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">        &quot;isRequired&quot;: true, </span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Не верно заполнено поле Телефон&quot;, </span>
+<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Телефон&quot;, </span>
 <span class="s">        &quot;phoneNumberLength&quot;: 11</span>
 <span class="s">      }&#39;</span>
       <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> 
@@ -1753,7 +1753,7 @@
       <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> 
       <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">        &quot;isRequired&quot;: true, </span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Не верно заполнено поле Имя&quot;</span>
+<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
 <span class="s">      }&#39;</span> 
       <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> 
       <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>  
@@ -1764,7 +1764,7 @@
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Текст<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">textarea</span> 
       <span class="na">name</span><span class="o">=</span><span class="s">&quot;content&quot;</span> 
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Не верно заполнено поле Текст&quot;}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span> 
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Неправильно заполнено поле Текст&quot;}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span> 
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
@@ -1772,7 +1772,7 @@
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>email<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span> 
       <span class="na">name</span><span class="o">=</span><span class="s">&quot;from&quot;</span> 
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Не верно заполнено поле email&quot;}&#39;</span> 
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Неправильно заполнено поле email&quot;}&#39;</span> 
       <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> 
       <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span> 
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>

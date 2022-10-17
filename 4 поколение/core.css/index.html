@@ -1664,17 +1664,17 @@
 <h1 id="corecss">Core.css</h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>На каждой странице магазина подключен набор стилей - Core.css. Мы используюем css переменные, гриды и прописанные стили для определенных классов. Посмотреть как это работает можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>.
+<p>На каждой странице магазина подключен набор стилей Core.css. Мы используем css переменные, гриды и прописанные стили для определенных классов. Посмотреть, как это работает, можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>.
 Более полную информацию можно посмотреть на <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">github</a>. </p>
 </div>
 <h4 id="page_layout">page_layout</h4>
 <p><code>page_layout</code> - это класс общего контейнера для шапки (header), основной части сайта (main), бокового сайдбара (aside) и футера (footer).
 Шаблон делится на секции (<a href="/Generation%204/Виджеты/_readme/#ListWidgetInfo">Виджет-листы</a>). Секциями можно управлять в настройках шаблона или в <a href="/Generation%204/Темы/Структура/setup.json/"> setup.json</a> </br></br>
-<code>page_layout_normal_left</code> или <code>page_layout_normal_right</code> - добавляются к <code>page_layout</code> в зависимости от выстановленных настроек в редакторе.
+<code>page_layout_normal_left</code> или <code>page_layout_normal_right</code> - добавляются к <code>page_layout</code> в зависимости от настроек в редакторе.
 <code>Настройки шаблона -&gt; Сайдбар -&gt; Показать сайдбар?</code><br />
 <code>Настройки шаблона -&gt; Сайдбар -&gt; Слева</code> или <code>Настройки шаблона -&gt; Сайдбар -&gt; Справа</code>
 <code>page_layout_section_top</code> - добавляется к <code>page_layout</code> когда мы добавили секцию section_top
-<code>page_layout_sticky_left</code> или <code>page_layout_sticky_right</code> - добавляются к <code>page_layout</code> в зависимости от выстановленных настроек в редакторе.
+<code>page_layout_sticky_left</code> или <code>page_layout_sticky_right</code> - добавляются к <code>page_layout</code> в зависимости от настроек в редакторе.
 <code>Настройки шаблона -&gt; Сайдбар -&gt; Тип сайдбара -&gt; Прилипающий</code></p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">page_layout</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="nb">calc</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="nv">--vh</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--fixed-panels-top-offset</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--fixed-panels-bottom-offset</span><span class="p">));</span><span class="w"></span>
@@ -1830,7 +1830,7 @@
 <h4 id="layout">layout</h4>
 <p><code>layout</code> - это родительский класс виджета, где прописаны все настройки в виде css переменных.
 </br></br>
-<code>[data-fixed-panels]</code> атрибут который прописан у родитльского div секции где содержится виджет лист <code>Нижняя панель</code> в редакторе.</p>
+<code>[data-fixed-panels]</code> атрибут, который прописан у родительского div секции, где содержится виджет лист <code>Нижняя панель</code> в редакторе.</p>
 <p><code>.layout[style*="--bg:"][style*="--layout-wide-bg:true"]</code> - При выборе настроек <code>Виджет -&gt; растянуть фон</code> и <code>Виджет -&gt; Цвет фона виджета</code>. Это стандартные настройки для большей части виджетов. </p>
 <p><code>.layout[style*="--layout-edge:true"]</code> - При выборе настроек <code>Виджет -&gt; Убрать отступы по краям</code>. Это стандартные настройки для большей части виджетов. </p>
 <p><code>.layout[style*="--hide-mobile:true"]</code> - При выборе настроек <code>Виджет -&gt; Скрыть на телефоне</code>. Это стандартные настройки для большей части виджетов. </p>
@@ -1937,9 +1937,9 @@
 <p><code>layout__content</code> - это дочерний класс <code>layout</code>.
 </br></br>
 <code>grid-list</code> готовый класс для универсальной сетки написанной на гридах, где:</p>
-<p><code>--grid-list-min-width</code> - это минимальная ширина блока, указанная в настройках.</br>
-<code>--ggrid-list-row-gap</code> - это вертикальный отступ между блоками, указанный в настройках.</br>
-<code>--grid-list-column-gap</code> - это горизонтальный отступ между блоками, указанный в настройках.</p>
+<p><code>--grid-list-min-width</code> это минимальная ширина блока, указанная в настройках.</br>
+<code>--ggrid-list-row-gap</code> это вертикальный отступ между блоками, указанный в настройках.</br>
+<code>--grid-list-column-gap</code> это горизонтальный отступ между блоками, указанный в настройках.</p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">layout__content</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--layout-content-max-width</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"></span>
@@ -2079,12 +2079,12 @@
 <h4 id="_3">Кнопки</h4>
 <p>Вы можете использовать готовые стили для кнопок с помощью данных классов:</p>
 <ul>
-<li><code>.button</code> - класс для кнопок где текст располагается по центру.</li>
+<li><code>.button</code> - класс для кнопок, где текст располагается по центру</li>
 <li><code>.button</code> и <code>.button_size-s</code> - маленький размер кнопки</li>
 <li><code>.button</code> и <code>.button_size-l</code>- средний размер кнопки</li>
 <li><code>.button</code> и <code>.button_size-xl</code>- большой размер кнопки</li>
 <li><code>.button</code> и <code>.button_second</code>- инвертированный цвет кнопки</li>
-<li><code>.button</code> и <code>.button_wide</code> - кнопка расстянется на всю ширину контейнера</li>
+<li><code>.button</code> и <code>.button_wide</code> - кнопка растянется на всю ширину контейнера</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">button</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-flex</span><span class="p">;</span><span class="w"></span>
@@ -2307,7 +2307,7 @@
 <li><code>.form-control</code> и <code>.form-control_size-s</code> - маленький размер элемента</li>
 <li><code>.form-control</code> и <code>.form-control_size-l</code>- средний размер элемента</li>
 <li><code>.form-control</code> и <code>.form-control_size-xl</code>- большой размер элемента</li>
-<li><code>.form-control</code> и <code>.form-control_wide</code> - элемент расстянется на всю ширину контейнера</li>
+<li><code>.form-control</code> и <code>.form-control_wide</code> - элемент растянется на всю ширину контейнера</li>
 </ul>
 <p>-
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">form-control</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2436,9 +2436,9 @@
 <p>Ниже прописаны стили для изображений, чтобы при изменении настройки <code>Пропорции изображения</code> (<code>--img-ratio</code>) изменялся его масштаб. 
 Вы можете использовать готовые стили для разного отображения изображений с помощью данных классов:</p>
 <ul>
-<li><code>.img-ratio</code>- родительский элемент, внутри <code>img-ratio__inner</code>, внутри тэг <code>picture</code>, внутри которого мы подключаем изображений для разных экранов.</li>
-<li><code>.img-ratio</code> и <code>.img-ratio_cover</code> - изображение сохраняет пропорции и растягивается на весь блок.</li>
-<li><code>.img-ratio</code> и <code>.img-ratio_contain</code> - изображение подстраивается под область внутри блока пропорционально собственным параметрам.</li>
+<li><code>.img-ratio</code>- родительский элемент, внутри <code>img-ratio__inner</code>, внутри тэг <code>picture</code>, внутри которого мы подключаем изображений для разных экранов</li>
+<li><code>.img-ratio</code> и <code>.img-ratio_cover</code> - изображение сохраняет пропорции и растягивается на весь блок</li>
+<li><code>.img-ratio</code> и <code>.img-ratio_contain</code> - изображение подстраивается под область внутри блока пропорционально собственным параметрам</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="nc">img-ratio</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>

@@ -273,7 +273,7 @@ field_captcha: '{{ messages.field_captcha }}',
 
 ```json
 "s_feedback_captcha_title": "Форма обратной связи",
-"s_feedback_captcha_label": "Включить проверку 'я не робот'",
+"s_feedback_captcha_label": "Включить проверку 'Я не робот'",
 
 "s_feedback_captcha_title": "Feedback form",
 "s_feedback_captcha_label": "Enable check",

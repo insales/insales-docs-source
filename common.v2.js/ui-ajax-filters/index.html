@@ -1181,6 +1181,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -1410,6 +1412,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    События
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     Пример разметки
   </a>
   
@@ -1432,6 +1441,20 @@
     <li class="md-nav__item">
       <a href="../ui-feedback/" class="md-nav__link">
         Форма обратной связи
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-trigger-events/" class="md-nav__link">
+        Trigger Events
       </a>
     </li>
   
@@ -1492,6 +1515,13 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    События
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     Пример разметки
   </a>
   
@@ -1567,7 +1597,15 @@
 </li>
 </ul>
 <p>Чтобы показать зависимость шаблонов значений от шаблона элемента фильтра, в списке они показаны как вложенные, однако ни один из шаблонов не вложен в другой. Каждый из них — это отдельная часть кода внутри формы. Для того чтобы всё работало корректно, в коде формы рекомендуется использовать все перечисленные шаблоны.</p>
-<h2 id="_3">Пример разметки</h2>
+<h2 id="_3">События</h2>
+<ul>
+<li>init-filter:ui-ajax-filter - срабатывает после инициализации фильтров</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;init-filter:ui-ajax-filter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_4">Пример разметки</h2>
 <div class="highlight"><pre><span></span><code>{% assign coll_min = collections[collection.handle].products_price_min | round: 0 %}
 {% assign coll_max = collections[collection.handle].products_price_max | round: 0 %}
 

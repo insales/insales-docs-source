@@ -1181,6 +1181,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -1659,6 +1661,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-trigger-events/" class="md-nav__link">
+        Trigger Events
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2085,7 +2101,9 @@
 <ul>
 <li>before:insales:cart</li>
 <li>add_items:insales:cart</li>
+<li>add_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2109,6 +2127,7 @@
 <li>before:insales:cart</li>
 <li>delete_items:insales:cart</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;delete_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2127,6 +2146,7 @@
 <li>before:insales:cart</li>
 <li>clear_items:insales:cart</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;clear_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2157,6 +2177,7 @@
 <li>before:insales:cart</li>
 <li>remove_items:insales:cart</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;remove_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2183,6 +2204,7 @@
 <li>before:insales:cart</li>
 <li>set_items:insales:cart</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2207,6 +2229,7 @@
 <li>before:insales:cart</li>
 <li>set_coupon:insales:cart</li>
 <li>update_items:insales:cart</li>
+<li>update_items:insales:cart:light (в order_lines не будет объекта product)</li>
 <li>always:insales:cart</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;set_coupon:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

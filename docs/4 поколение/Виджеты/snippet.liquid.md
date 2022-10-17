@@ -88,5 +88,5 @@
 
 ####Другие примеры:
 - `{{ widget_messages.product_bundle_gift_text }}` - Перевод берется из файла <a href="/4%20поколение/Виджеты/messages/" id="translate_example">messages.json</a>
-- `{{ messages.reviews_are_moderated }}` - Можно использовать ключи с переводом из файла <a href="/4%20поколение/Виджеты/messages/">messages.json</a>, если перевод не будет найдет, то мы идем в глобальные переводы messages.
-- `{% if editor_mode? %}` - Условие - если включен редактор
+- `{{ messages.reviews_are_moderated }}` - Можно использовать ключи с переводом из файла <a href="/4%20поколение/Виджеты/messages/">messages.json</a>, если перевод не будет найден, то мы идем в глобальные переводы messages.
+- `{% if editor_mode? %}` - Условие: если включен редактор

@@ -42,7 +42,7 @@
 ```
 
 #### Поле файл
-Чтобы подгрузить файл (изображение) по умолчанию, нужно:
+Чтобы подгрузить файл (изображение) по умолчанию нужно:
 
 
 - Перейти от имени администратора из <a target="_blank" href="https://admins.insales.ru/">https://admins.insales.ru/</a> в магазин <a target="_blank" href="http://file-store.myinsales.ru/">http://file-store.myinsales.ru/</a>

@@ -677,7 +677,7 @@ Products.initInstance($('.product-cart-control'))
 | unchange_quantity:insales:product | Если введено кол-во больше доступного                                                              |
 | overload:quantity:insales:product | Событие срабатывает, когда с помощью +/- накликали до максимального значения  quantity (Работает, если вы используете параметр useMax) |
 | max:quantity:insales:product      | Срабатывает всегда, когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает, если вы используете параметр useMax) |
-| change_variant:insales:product    |
+| change_variant:insales:product    | Срабатывает при выборе варианта товара                                                             |
 | update_variant:insales:product    | Обновление варианта товара                                                                         |
 
 

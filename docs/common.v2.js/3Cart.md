@@ -188,7 +188,9 @@
 
 * before:insales:cart
 * add_items:insales:cart
+* add_items:insales:cart:light (в order_lines не будет объекта product)
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 ```js
@@ -217,6 +219,7 @@ EventBus.subscribe('add_items:insales:cart', function (data) {
 * before:insales:cart
 * delete_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -241,6 +244,7 @@ Cart.clear();
 * before:insales:cart
 * clear_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 ```js
@@ -280,6 +284,7 @@ Cart.remove({
 * before:insales:cart
 * remove_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -312,6 +317,7 @@ Cart.set({
 * before:insales:cart
 * set_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -342,6 +348,7 @@ Cart.setCoupon({
 * before:insales:cart
 * set_coupon:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 

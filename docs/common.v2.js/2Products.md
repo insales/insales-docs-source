@@ -206,6 +206,16 @@
 - **data-add-cart-counter-count** — счётчик количества товара в корзине
 - **data-add-cart-counter-plus** — кнопка увеличения количества
 
+**События**
+
+unchange_quantity:insales:ui_add-cart-counter - срабатывает если достигнуто максимальное количество товара в корзине
+
+```js
+EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
+  console.log(data);
+})
+```
+
 Всё что вам необходимо сделать для использования — это задать стили для элементов и скрывать/показывать нужные кнопки, если у корневого элемента есть класс `is-add-cart`.
 
 ```html

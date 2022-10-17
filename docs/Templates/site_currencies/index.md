@@ -25,9 +25,9 @@
 
 `account.site_currencies` - массив валют на сайте
 
-`currency.code` - код валюты. Например **USD**
+`currency.code` - код валюты. Например, **USD**
 
-`currency.unit` - символ валюты. Например **$**
+`currency.unit` - символ валюты. Например, **$**
 
 ## Пример ajax смены валюты
 

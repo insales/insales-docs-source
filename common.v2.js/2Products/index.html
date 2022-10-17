@@ -2147,6 +2147,12 @@
 <li><strong>data-add-cart-counter-count</strong> — счётчик количества товара в корзине</li>
 <li><strong>data-add-cart-counter-plus</strong> — кнопка увеличения количества</li>
 </ul>
+<p><strong>События</strong></p>
+<p>unchange_quantity:insales:ui_add-cart-counter - срабатывает если достигнуто максимальное количество товара в корзине</p>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;unchange_quantity:insales:ui_add-cart-counter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+</code></pre></div>
 <p>Всё что вам необходимо сделать для использования — это задать стили для элементов и скрывать/показывать нужные кнопки, если у корневого элемента есть класс <code>is-add-cart</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter&quot;</span> <span class="na">data-add-cart-counter</span><span class="o">=</span><span class="s">&#39;{&quot;step&quot;: &quot;1&quot;}&#39;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__btn&quot;</span> <span class="na">data-add-cart-counter-btn</span><span class="p">&gt;</span>

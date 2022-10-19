@@ -2,11 +2,10 @@
 
 ## insales.ui.forms.js
 
-Заменить весь файл из свежей установки.
+Можно взять весь файл из свежей установки шаблона или действовать по инструкции ниже.
 
-или
+Вместо этого кода:
 
-Заменить:
 ```js
 var recaptchaVerify = function (response) {
   self.captcha = { solution: response };
@@ -89,7 +88,8 @@ if (Shop.config.config.feedback_captcha_enabled) {
 ## page.liquid
 
 В `_options` добавить (не забыть про зяпятые при добавлении нового элемента массива):
-```twig
+
+```js
 {% if settings.feedback_captcha_enabled %}
 {
   title: '{{ messages.field_captcha }}',
@@ -102,6 +102,7 @@ if (Shop.config.config.feedback_captcha_enabled) {
 ## header.liquid
 
 В `_backcallForm` добавить (не забыть про зяпятые при добавлении нового элемента массива):
+
 ```
 {% if settings.feedback_captcha_enabled %}
 {
@@ -114,9 +115,9 @@ if (Shop.config.config.feedback_captcha_enabled) {
 
 ## Виджет обратной связи на главной
 
-Стили
+Стили:
 
-```
+```css
 .feedback-form .form-row.recaptcha-wide {
   flex-basis: 100%;
   justify-content: center;
@@ -126,18 +127,23 @@ if (Shop.config.config.feedback_captcha_enabled) {
 
 ## index.js
 
-между
-```
+Между этим кодом:
+
+```js
 if (Site.template != 'index') {
   return;
 }
 ```
-и
-```
+
+и этим:
+
+```js
   $(document).on('submit', '.js-widget-feedback', function (event) {
 ```
+
 Вставить:
-```
+
+```js
 var recaptchaVerify = function (response) {
   jquery('[name="g-recaptcha-response"]').html(response);
 };
@@ -160,10 +166,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## index.js
 
-Исправить вывод ошибки
+В этой части кода:
 
-В коде отправки
-```
+```js
 Shop.sendMessage(msg)
   .done(function (response) {
     alertify.success(response.notice);
@@ -178,21 +183,22 @@ Shop.sendMessage(msg)
   });
 ```
 
-Заменить `fail`
-```
-.fail(function (response) {
-  $.each(response.errors, function (i, val) {
-    var errorText = (typeof val == 'string') ? val : val[0];
-    alertify.error(errorText);
+Заменить `fail`:
+
+```js
+  .fail(function (response) {
+    $.each(response.errors, function (i, val) {
+      var errorText = (typeof val == 'string') ? val : val[0];
+      alertify.error(errorText);
+    });
   });
-});
 ```
 
 ## widget_feedback.liquid
 
-Вставить в конец формы
+Добавить в код формы:
 
-```
+```html
 {% if settings.feedback_captcha_enabled %}
 <div class="form-row recaptcha-wide">
   <div class="js-g-recaptcha">
@@ -203,14 +209,15 @@ Shop.sendMessage(msg)
 
 ## scripts.liquid
 
-Вставить в Site.messages строку
+Вставить в Site.messages строку:
 
-```
+```js
 field_captcha: '{{ messages.field_captcha }}',
 ```
 
-Полный кусок
-```
+Как должно получиться:
+
+```js
     messages: {
       field_name: '{{ messages.field_name }}',
       field_email: '{{ messages.field_email }}',
@@ -228,7 +235,7 @@ field_captcha: '{{ messages.field_captcha }}',
 
 Вставить перед `alertify.modal({ formDefination: preorderForm }).set('title', Site.messages.preorder);`
 
-```
+```js
     if(Shop.config.config.feedback_captcha_enabled) {
       preorderForm.fields.push({
         title: Site.messages.field_captcha,
@@ -241,7 +248,9 @@ field_captcha: '{{ messages.field_captcha }}',
 
 ## settings.html
 
-```
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>{{ messages.s_feedback_captcha_title }}</legend>
   <table>
@@ -260,9 +269,11 @@ field_captcha: '{{ messages.field_captcha }}',
 
 ## messages.json
 
-```
+Добавить название и описание настройки:
+
+```json
 "s_feedback_captcha_title": "Форма обратной связи",
-"s_feedback_captcha_label": "Включить проверку 'я не робот'",
+"s_feedback_captcha_label": "Включить проверку 'Я не робот'",
 
 "s_feedback_captcha_title": "Feedback form",
 "s_feedback_captcha_label": "Enable check",

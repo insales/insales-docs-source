@@ -1,9 +1,10 @@
 # Шаблоны с файлами z.InSales
 
-## Для ui.js
+## ui.js
 
-Заменить:
-```
+Заменить эту часть кода:
+
+```js
   // улучшайзинг стандартной обратной связи
   if( Site.template == 'page' ){
     var
@@ -18,8 +19,9 @@
         email     = table.find( 'input[name="feedback[from]"]' );
 ```
 
-Вставить: 
-```
+На эту:
+
+```js
   // улучшайзинг стандартной обратной связи
   if( Site.template == 'page' ){
     var
@@ -37,14 +39,16 @@
 ```
 
 
-Заменить:
-```
+Заменить эту часть кода:
+
+```js
           $message[ 'feedback[content]' ] = textarea.val();
           $message[ 'feedback[from]' ] = email.val();
 ```
 
-Вставить: 
-```
+На эту:
+
+```js
           $message[ 'feedback[content]' ] = textarea.val();
           $message[ 'feedback[from]' ] = email.val();
           if (phone.length) {

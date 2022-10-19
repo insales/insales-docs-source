@@ -2,151 +2,154 @@
 
 Страница избранного доступна во всех магазинах по адресу `/favorites`.
 
-Чтобы отредактировать содержимое страницы, добавьте в папку `templates` файл `favorite.liquid`.
+Чтобы отредактировать содержимое страницы, добавьте в папку `templates` файл `favorite.liquid`. Массив товаров будет доступен в Liquid-переменной `products`.
 
-В файле `favorite.liquid` будет доступен массив товаров в переменной `products`.
-
-Избранное хранит только товары, конкретные варианты в избранном не сохраняются.
+В избранные можно добавлять только товары, выбранные варианты не сохраняются.
 
 Список товаров сохраняется в аккаунте пользователя.
 
 Если пользователь авторизуется с разных устройств, список будет одинаковый.
 
-Для оптимизации, список кешируется на 15 секунд, если быстро добавлять товары с разных устройств или разлогиниваться, счётчик может показывать старые значения.
+Для оптимизации список кэшируется на 15 секунд, поэтому, если быстро добавлять товары с разных устройств или разлогиниваться, счётчик может показывать старые значения.
 
-```liquid
-{% if products.size > 0 %}
-  {% for product in products %}
-    <div>
-      <div>
-        {{ product.title }}
-      </div>
-      <button data-ui-favorites-delete="{{ product.id }}">
-        Удалить из избранного
-      </button>
-    </div>
-  {% endfor %}
-{% else %}
-  Избранное пусто
-{% endif %}
-```
+## Назначение атрибутов
 
-## Элементы
+### data-ui-favorites-add
 
-### Добавить/удалить
-
-Добавление и удаление можно реализовать 2 способами.
-
-Через кнопку переключатель (`data-ui-favorites-trigger`) или через отдельные кнопки добавления и удаления (`data-ui-favorites-add`/`data-ui-favorites-delete`)
-
-#### data-ui-favorites-trigger
-
-В качестве значения передаётся id товара
-
-Если нужно менять текст при добавлении или удалении, то внутрь нужно добавить элемент с атрибутами `data-ui-favorites-trigger-added-text`, `data-ui-favorites-trigger-not-added-text`
+Кнопка для добавления товара. После добавления товара по умолчанию получает класс `favorites-added`. В качестве значения необходимо передать ID товара.
 
 ```html
-<span data-ui-favorites-trigger="{{ product.id }}">
-  <span class="btn-icon icon-heart"></span>
-  <span class="btn-text" 
+<button data-ui-favorites-add="{{ product.id }}">
+  Добавить товар в избранное
+</button>
+```
+### data-ui-favorites-delete
+
+Кнопка для удаления товара. После удаления товара по умолчанию получает класс `favorites-not-added`. В качестве значения необходимо передать ID товара.
+
+```html
+<button data-ui-favorites-delete="{{ product.id }}">
+  Удалить из избранных
+</button>
+```
+### data-ui-favorites-trigger
+
+Кнопка-переключатель при нажатии на которую, товар добавляется/удаляется из избранного. В зависимости от состояния кнопка получает классы `favorites-added` или `favorites-not-added`. В качестве значения необходимо передать ID товара.
+
+```html
+<button data-ui-favorites-trigger="{{ product.id }}">
+  <!-- Здесь может быть иконка или текст кнопки -->
+</button>
+```
+
+Если при добавлении/удалении необходимо менять текст кнопки, то внутри должен быть дочерний элемент с атрибутами `data-ui-favorites-trigger-added-text` и `data-ui-favorites-trigger-not-added-text`:
+
+```html
+<button data-ui-favorites-trigger="{{ product.id }}">
+  <span 
     data-ui-favorites-trigger-added-text="В избранном"
     data-ui-favorites-trigger-not-added-text="Добавить в избранное"
   ></span>
-</span>
+</button>
 ```
 
-#### data-ui-favorites-add
+### data-ui-favorites-clear
 
-Добавить в избранное
+Кнопка для удаления всех избранных товаров
 
-#### data-ui-favorites-delete
-
-Удалить из избранного
-
-#### data-ui-favorites-clear
-
-Очистить избранное
-
-### Cчётчик
-
-#### data-ui-favorites-counter
-
-Атрибут `data-ui-favorites-counter` отвечает за смену цифр. 
-
-Атрибут `data-ui-favorites-counter-btn` меняет классы состояния избранного.
-
+```html
+<button data-ui-favorites-clear>
+  Очистить
+</button>
 ```
-<a href="/favorites" class="header__control-btn header__compare" data-ui-favorites-counter-btn>
-  <span class="icon icon-heart">
-    <span class="header__control-bage" data-ui-favorites-counter>0</span>
-  </span>
+
+### data-ui-favorites-counter-btn
+
+Ссылка для перехода на страницу избранного. Если ни одного товара не добавлено, то получает класс `favorites-empty`. Это может быть удобно для того, чтобы красить ссылку после добавления товаров.
+
+```html
+<a href="/favorites" data-ui-favorites-counter-btn>
+ Избранное
 </a>
 ```
 
-## Методы
+### data-ui-favorites-counter
+
+Счётчик товаров добавленных в избранное
+
+```html
+<span data-ui-favorites-counter></span>
+```
+
+## Методы класса FavoritesProducts
+
+### getFavoritesProducts
+
+Получить текущее состояние избранного
+
+```js
+var favoritesState = FavoritesProducts.getFavoritesProducts();
+console.log(favoritesState);
+```
 
 ### add
 
-Добавить товар в избранное. В качестве параметра передаётся id товара.
+Добавить товар в избранное
 
-```
-FavoritesProducts.add({ 
-  item: 123456 
+```js
+/**
+ * @param {number} item ID товара
+ */
+FavoritesProducts.add({
+  item: 123456
 });
 ```
 
-### add
+### remove
 
-Удалить товар из избранного. В качестве параметра передаётся id товара.
+Удалить товар из избранного
 
-```
-FavoritesProducts.remove({ 
-  item: 123456 
+```js
+/**
+ * @param {number} item ID товара
+ */
+FavoritesProducts.remove({
+  item: 123456
 });
 ```
 
 ### clear
 
-Очистить избранное.
+Очистить избранное
 
-```
+```js
 FavoritesProducts.remove();
 ```
 
 ### update
 
-Обновить состояние.
+Обновить состояние
 
-```
+```js
 FavoritesProducts.update();
 ```
 
 ## События
 
-### update_items:insales:favorites_products
+| Событие                                 | Описание                                                         |
+|-----------------------------------------|------------------------------------------------------------------|
+| before:insales:favorites_products       | Срабатывает перед любым взаимодействием с компонентом избранного |
+| always:insales:favorites_products       | Срабатывает после любого взаимодействия с компонентом избранного |
+| update_items:insales:favorites_products | Список избранного обновлен                                       |
+| add_item:insales:favorites_products     | Товар добавлен в избранное                                       |
+| remove_item:insales:favorites_products  | Товар удален из избранного                                       |
+| overload:insales:favorites_products     | Достигнуто максимальное количество избранных товаров             |
 
-Список избранного обновлен
 
-```js
-EventBus.subscribe('update_items:insales:favorites_products', (data) => {
-  console.log(`Товаров в избранном: ${data.products.length}`)
-})
-```
-
-### add_item:insales:favorites_products
-
-Товар добавлен в избранное 
-
-### remove_item:insales:favorites_products
-
-Товар удален из избранного
+**Пример подписки на событие**
 
 ```js
-EventBus.subscribe('remove_item:insales:favorites_products', (data) => {
-  $('.favorites [data-product-id="'+data.action.item+'"]').fadeOut()
-})
+EventBus.subscribe('add_item:insales:favorites_products', function (data) {
+  console.log('Товар добавлен в избранное', data);
+}); 
 ```
-
-### overload:insales:favorites_products
-
-Достигнуто максимальное кол-во товаров избранного

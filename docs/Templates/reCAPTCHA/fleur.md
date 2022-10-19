@@ -27,9 +27,9 @@ EventBus.subscribe('recaptcha:insales:loaded', function () {
 
 ## main.scss
 
-Увеличить размер модального окна
+Увеличить размер модального окна:
 
-```
+```css
 #feedback-modal {
 	max-width: 344px;
 }
@@ -44,7 +44,9 @@ https://cdn.jsdelivr.net/gh/VladimirIvanin/InSalesFeedback@0.16.0/dist/feedback.
 
 ## feedback.liquid
 
-```
+Добавить в код формы:
+
+```html
 {% if settings.feedback_captcha_enabled %}
 <div class="feedback-row is-required m-b-15" data-feedback-field>
   <label class="form-label m-b-5">{{ messages.field_captcha }}</label>
@@ -56,7 +58,9 @@ https://cdn.jsdelivr.net/gh/VladimirIvanin/InSalesFeedback@0.16.0/dist/feedback.
 
 ## js-form-feedback.liquid
 
-```
+Добавить в код формы:
+
+```html
 {% if settings.feedback_captcha_enabled %}
 <div class="feedback-row is-required m-b-15" data-feedback-field>
   <label class="form-label m-b-5">{{ messages.field_captcha }}</label>
@@ -68,7 +72,9 @@ https://cdn.jsdelivr.net/gh/VladimirIvanin/InSalesFeedback@0.16.0/dist/feedback.
 
 ## settings.html
 
-```
+Добавить настройку в редактор сайта:
+
+```html
 <fieldset>
   <legend>{{ messages.s_feedback_captcha_title }}</legend>
   <table>
@@ -87,7 +93,9 @@ https://cdn.jsdelivr.net/gh/VladimirIvanin/InSalesFeedback@0.16.0/dist/feedback.
 
 ## messages.json
 
-```
+Добавить название и описание настройки:
+
+```json
 "s_feedback_captcha_title": "Форма обратной связи",
 "s_feedback_captcha_label": "Включить проверку 'я не робот'",
 

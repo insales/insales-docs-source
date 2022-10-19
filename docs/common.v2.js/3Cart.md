@@ -1,66 +1,136 @@
 # Корзина
+## Назначение атрибутов
 
-## Интерфейс
+В этом разделе вы найдёте описания и примеры использования data-атрибутов формы корзины и карточки товара внутри корзины.
+### Корневой элемент
 
-> Для быстрого создания интерфейсов в commonjs предусмотрены готовые обработчики форм.
+#### data-cart-form 
 
-> Обработчики ссылаются на data-атрибуты. В data-атрибуты пробрасывается информация из liquid.
+Обязательный атрибут тега form
 
-### Назначение атрибутов
-
-| Атрибут              | Назначение                                                                      | Расположение                                              |
-|----------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------|
-| data-cart-form       | Обязательный атрибут для тега form                                              | Тег form для корзины                                      |
-| data-item-id         | Обязательный атрибут для позиций в корзине. Атрибут принимает id позиции.       | Обертка для позиции в корзине                             |
-| data-product-id      | Обязательный атрибут для инициализации товара. В атрибут передаётся id товара.  | Обертка для позиции в корзине                             |
-| data-item-delete     | Удаление из корзины                                                             | Обертка для позиции в корзине                             |
-| data-cart-update     | Обновление корзины                                                              | Внутри обёртки с атрибутом data-cart-form                 |
-| data-cart-discounts-ajax     | Информацию о скидках (В форму корзины нужно добавить  `data-reload-on-coupon="false"`)                                                              | Внутри обёртки с атрибутом data-cart-form                 |
-| data-reload-on-coupon     | Перезагрузка страницы после применения купона. Чтобы отключить перезагрузку, нужно указать `false` в качестве значения                                                              | Форма с атрибутом data-cart-form                 |
-| data-cart-clear      | Очищение корзины                                                                | Внутри обёртки с атрибутом data-cart-form                 |
-| data-coupon-submit   | Отправка купона                                                                 | Внутри обёртки с атрибутом data-cart-form                 |
-| data-quantity        | Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity | Внутри обертки с атрибутом data-product-id и data-item-id |
-| data-quantity-change | Атрибут для кнопок +/-, принимает число                                         | Внутри обёртки с атрибутом data-quantity                  |
-
-
-
-### Разметка товара
-
-
-**Подробнее**
-
-```twig
-<form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
-  {% if product.show_variants? %}
-    <select name="variant_id" data-product-variants>
-      {% for variant in product.variants %}
-        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
-      {% endfor %}
-    </select>
-  {% else %}
-    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
-  {% endif %}
-  <input type="text" name="comment" value="">
-  <div data-quantity>
-    <input type="text" name="quantity" value="1" />
-    <span data-quantity-change="-1">-</span>
-    <span data-quantity-change="1">+</span>
-  </div>
-  <button type="submit" data-item-add>
-    Добавить в корзину
-  </button>
+```html
+<form data-cart-form action="{{ cart_items }}" method="post">
+  <!-- Код формы -->
 </form>
 ```
 
+#### data-reload-on-coupon
+
+Перезагрузка страницы после применения купона. Чтобы отключить перезагрузку, нужно указать `false` в качестве значения
+
+```html
+<form data-reload-on-coupon="false" data-cart-form action="{{ cart_items }}" method="post">
+  <!-- Код формы -->
+</form>
+```
+
+### Вложенные элементы
 
 
+#### data-item-id
 
-### Разметка корзины
+Обязательный атрибут для позиций в корзине. В качестве значения необходимо передать ID позиции.
 
+#### data-product-id 
+
+Обязательный атрибут для инициализации товара. В качестве значения необходимо передать ID товара.
+
+```html
+{% for item in cart.items %}
+<div data-product-id="{{ item.product.id }}" data-item-id="{{ item.id }}" class="cart-item {{ cart_class }}">
+ <!-- Код товара -->
+</div>
+{% endfor %}
+```
+
+#### data-quantity
+
+Обязательный атрибут для обёртки кнопок изменения количества и инпута quantity
+
+```html
+<div data-quantity>
+  <button type="button" data-quantity-change="-1">-</button>
+  <input type="text" value="{{ item.quantity }}" name="cart[quantity][{{item.id}}]"/>
+  <button type="button" data-quantity-change="1">+</button>
+</div>
+```
+
+#### data-quantity-change
+
+Атрибут для кнопок изменения количества +/-, принимает число
+
+#### data-cart-item-price
+
+Цена позиции товара
+
+#### data-cart-item-total-price
+
+Итоговая цена позиции товара в зависимости от его количества
+
+#### data-cart-total-price
+
+Итоговая цена всех позиций в корзине без учёта скидок
+
+#### data-cart-full-total-price
+
+Итоговая цена всех позиций в корзине с учётом скидок
+
+#### data-cart-positions-count
+
+Количество позиций в корзине
+
+#### data-cart-item-count
+
+Количество товаров в корзине
+
+#### data-item-delete
+
+Кнопка удаления позиции из корзины
+
+```html
+<button data-item-delete="{{ item.id }}" type="submit">{{ messages.delete }}</button>
+```
+
+#### data-cart-discounts-ajax
+
+Получение и вывод информации о скидках (в форму корзины нужно добавить  `data-reload-on-coupon="false"`)
+
+```html
+<div data-cart-discounts-ajax></div>
+```
+
+#### data-cart-discounts-error
+
+Элемент, в котором будут выводиться ошибки при вводе купона или применении других скидок
+
+```html
+<div data-cart-discounts-error></div>
+```
+
+#### data-cart-clear
+
+Кнопка очистки корзины
+
+```html
+<button data-cart-clear>Очистить</button>
+```
+
+#### data-coupon-submit
+
+Кнопка отправки купона
+
+```html
+<div class="coupon-content">
+  <input type="text" placeholder="{{ messages.coupon_placeholder }}" name="cart[coupon]" value="{{ cart.coupon }}"/>
+  <button type="submit" class="coupon-button" data-coupon-submit>{{ messages.activate }}</button>
+</div>
+```
+
+### Пример разметки корзины
 
 **Подробнее**
 
-```twig
+```html
 <form action="{{ cart_url }}" method="post" data-cart-form>
   <input type="hidden" name="_method" value="put">
   <input type="hidden" name="make_order" value="">
@@ -88,18 +158,16 @@
 </form>
 ```
 
-
-
 ## Методы класса Cart
 
 ### add
 
-Добавить в корзину заданное кол-во товаров
+Добавить в корзину заданное количество товаров
 
 ```js
 /**
  * @param {Object} items объект с параметрами variant_id: quantity
- * @param {Object} comments комментарий к позиции заказа. Ключ id варианта, значение текст комментария
+ * @param {Object} comments комментарий к позиции заказа. Ключ ID варианта, значение текст комментария
  * @param {string} coupon купон
  */
 {
@@ -120,9 +188,10 @@
 
 * before:insales:cart
 * add_items:insales:cart
+* add_items:insales:cart:light (в order_lines не будет объекта product)
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
-
 
 ```js
 EventBus.subscribe('add_items:insales:cart', function (data) {
@@ -130,21 +199,18 @@ EventBus.subscribe('add_items:insales:cart', function (data) {
 });
 ```
 
-
-
 ### delete
 
 Удалить позиции из корзины
 
 ```js
 /**
- * @param {Array} items массив id вариантов к удалению
+ * @param {Array} items массив ID вариантов к удалению
  */
  Cart.delete({
    items: [160549240, 160549242]
  })
 ```
-
 
 **События**
 
@@ -153,6 +219,7 @@ EventBus.subscribe('add_items:insales:cart', function (data) {
 * before:insales:cart
 * delete_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -162,8 +229,6 @@ EventBus.subscribe('delete_items:insales:cart', function (data) {
 });
 ```
 
-
-
 ### clear
 
 Полностью очистить корзину
@@ -172,7 +237,6 @@ EventBus.subscribe('delete_items:insales:cart', function (data) {
 Cart.clear();
 ```
 
-
 **События**
 
 > События класса EventBus
@@ -180,16 +244,14 @@ Cart.clear();
 * before:insales:cart
 * clear_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
-
 
 ```js
 EventBus.subscribe('clear_items:insales:cart', function (data) {
   console.log('Корзина очищена');
 });
 ```
-
-
 
 ### forceUpdate
 
@@ -199,11 +261,9 @@ EventBus.subscribe('clear_items:insales:cart', function (data) {
 Cart.forceUpdate()
 ```
 
-
-
 ### remove
 
-Удалить из корзины заданное кол-во товаров
+Удалить из корзины заданное количество товаров
 
 ```js
 /**
@@ -224,6 +284,7 @@ Cart.remove({
 * before:insales:cart
 * remove_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -233,11 +294,9 @@ EventBus.subscribe('remove_items:insales:cart', function (data) {
 });
 ```
 
-
-
 ### set
 
-Устанавливает кол-во товаров в корзине для каждой позиции
+Устанавливает количество для каждой позиции товара в корзине
 
 ```js
 /**
@@ -251,7 +310,6 @@ Cart.set({
 })
 ```
 
-
 **События**
 
 > События класса EventBus
@@ -259,6 +317,7 @@ Cart.set({
 * before:insales:cart
 * set_items:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -267,9 +326,6 @@ EventBus.subscribe('set_items:insales:cart', function (data) {
   console.log('Корзина обновлена');
 });
 ```
-
-
-
 ### setCoupon
 
 Устанавливает купон
@@ -285,8 +341,6 @@ Cart.setCoupon({
 })
 ```
 
-
-
 **События**
 
 > События класса EventBus
@@ -294,6 +348,7 @@ Cart.setCoupon({
 * before:insales:cart
 * set_coupon:insales:cart
 * update_items:insales:cart
+* update_items:insales:cart:light (в order_lines не будет объекта product)
 * always:insales:cart
 
 
@@ -302,8 +357,6 @@ EventBus.subscribe('set_coupon:insales:cart', function (data) {
   console.log('Добавлен купон');
 });
 ```
-
-
 
 ### order.get
 
@@ -314,13 +367,18 @@ var order = Cart.order.get();
 console.log(order);
 ```
 
-
-
 ### order.getItemByID
 
-Получить информацию о позиции по id
+Получить информацию о позиции по ID
 
 ```js
 var item = Cart.order.getItemByID(138231315);
 console.log(item);
 ```
+
+### События изменения позиции товара
+
+* before:insales:item
+* change_quantity:insales:item
+* update_variant:insales:item
+* always:insales:item

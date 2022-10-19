@@ -3,10 +3,9 @@
 ## Назначение атрибутов
 
 ![](/img/product-sheme.jpg)
+### Пример разметки товара
 
-## Пример разметки товара
-
-```twig
+```html
 <form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
   <div class="product__sku">
     <span data-product-card-sku='{
@@ -59,55 +58,66 @@
 
 #### data-product-id
 
-Обязательный атрибут для инициализации товара, принимает id товара
+Обязательный атрибут для инициализации товара, принимает ID товара
+
+```html
+<form data-product-id="{{ product.id }}" action="{{ cart_url }}" method="post">
+  <!-- Код формы -->
+</form>
+```
 
 #### data-product-without-cache
 
-Отключить кеширование информации о данном товаре
+Отключить кэширование информации о товаре
 
+```html
+<form data-product-without-cache data-product-id="{{ product.id }}" action="{{ cart_url }}" method="post" >
+  <!-- Код формы -->
+</form>
+```
 #### data-product-json
 
-Передать данные о товаре через ликвид. Это может ускорить отображение селектора модификаций
+Позволяет передать данные о товаре через Liquid. Это может ускорить отображение селектора вариантов.
 
-```
-data-product-json="{{ product|json|escape }}"
+```html
+<form data-product-id="{{ product.id }}" data-product-json="{{ product|json|escape }}" action="{{ cart_url }}" method="post">
+  <!-- Код формы -->
+</form>
 ```
 
 #### data-set-config
 
-Передать настройки товара через дата атрибут
+Передать настройки товара через data-атрибут
 
-```
-<form action="{{ cart_url }}" data-set-config='{"decimal": {"kgm": 1}}' method="post" data-product-id="{{ product.id }}">
+```html
+<form data-set-config='{"decimal": {"kgm": 1}}' data-product-id="{{ product.id }}" action="{{ cart_url }}" method="post">
+  <!-- Код формы -->
+</form>
 ```
 
-### Вложенные элементы
+### Атрибуты вложенных элементов
 
 #### data-product-variants
 
-Выбрать вариант для добавления в корзину.
+Каждый вариант товара состоит из свойств и их значений, например: "Цвет: Красный, Размер: 42", "Цвет: Синий, Размер: 38".
 
-Вариант состоит из свойств, например "Красный/42, Синий/38".
-
-Каждое свойство нужно отобразить отдельно.
-
-Для отображения свойств, нужно добавить атрибут `data-product-variants` в селект со списком вариантов.
-
-В качестве значения можно передать вид отображения свойств.
+Данный атрибут позволяет указать вид отображения значений свойств варианта товара в зависимости от названия свойства.
 
 Доступные виды:
 
 - option-select
+- option-select-image
 - option-span
 - option-radio
 - option-preview
+- option-preview-text
 - option-default (option-select)
 
-Разметка для видов храниться в commonjs как lodash шаблоны.
+Разметка каждого вида хранится внутри библиотеки в виде lodash-шаблонов. Посмотреть код шаблонов можно [здесь](/common.v2.js/2Products/#_9)
 
-В следующем примере установлен вид по умолчанию `option-select`, для свойства "Цвет" `option-preview`, для свойства "Размер" `option-span`.
+В следующем примере в качестве вида по умолчанию установлен `option-select`: для свойства "Цвет" - `option-preview`, для свойства "Размер" - `option-span`.
 
-```
+```html
   {% if product.show_variants? %}
     <select name="variant_id" data-product-variants='{
       "default": "option-select",
@@ -123,13 +133,11 @@ data-product-json="{{ product|json|escape }}"
   {% endif %}
 ```
 
-##### Шаблоны для вывода свойств
+**Можно ли написать свой шаблон для отображения свойств?**
 
-Можно написать свой шаблон для выбора свойств. 
+Можно. Для этого в разметку нужно добавить тег script с data-атрибутом `data-template-id`, в качестве значения которого должен быть указан ID шаблона.
 
-В разметку нужно добавить тег script с дата атрибутом `data-template-id` в качестве значения указывается id шаблона.
-
-```
+```html
 <script type="text/template" data-template-id="custom-span">
   <div class="<%= classes.option %> is-span">
     <label class="<%= classes.label %>"><%= title %></label>
@@ -148,7 +156,7 @@ data-product-json="{{ product|json|escape }}"
 ```
 
 После чего можно указать свой шаблон по умолчанию.
-```
+```html
   {% if product.show_variants? %}
     <select name="variant_id" data-product-variants='{
       "default": "custom-span"
@@ -164,54 +172,150 @@ data-product-json="{{ product|json|escape }}"
 
 #### data-quantity
 
-Обязательный атрибут для обёртки кнопок изменения колличества и инпута quantity
+Обязательный атрибут для обёртки кнопок изменения количества и инпута quantity
 
-Для установки минимального значения в инпуте кол-ва товара укажите атрибут data-min
-```twig
-  <div data-quantity data-min="10">
-    <input type="text" name="quantity" value="10" />
-    <span data-quantity-change="-10">-</span>
-    <span data-quantity-change="10">+</span>
-  </div>
+Для установки минимального значения в input количества товара передайте атрибут data-min с нужным значением
+
+```html
+<div data-quantity>
+  <button type="button" data-quantity-change="-1">-</button>
+  <input type="text" value="1" name="quantity"/>
+  <button type="button" data-quantity-change="1">+</button>
+</div>
 ```
+
 
 #### data-quantity-change
 
-Атрибут для кнопок +/-, принимает число
-
+Атрибут для кнопок изменения количества +/-, принимает число
 
 #### data-item-add
 
 Добавление товара в корзину
 
+#### data-add-cart-counter
+
+Компонент, который совмещает в себе функционал добавления товара в корзину, изменения количества, отображения счётчика и возможность удаления из корзины. Он используется в виджетах карточек товаров в шаблонах 4 поколения.
+
+В значении атрибута нужно указать шаг изменения количества товара: `data-add-cart-counter='{"step": "1"}'`
+
+**Вложенные элементы:**
+
+- **data-add-cart-counter-btn** — кнопка добавления товара в корзину
+- **data-add-cart-counter-minus** — кнопка уменьшения количества или удаления из корзины
+- **data-add-cart-counter-count** — счётчик количества товара в корзине
+- **data-add-cart-counter-plus** — кнопка увеличения количества
+
+**События:**
+
+unchange_quantity:insales:ui_add-cart-counter - срабатывает если достигнуто максимальное количество товара в корзине
+
+```js
+EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
+  console.log(data);
+})
+```
+
+**Пример кода:**
+
+Всё что вам необходимо сделать для использования — это задать стили для элементов и скрывать/показывать нужные кнопки, если у корневого элемента есть класс `is-add-cart`.
+
+```html
+<div class="add-cart-counter" data-add-cart-counter='{"step": "1"}'>
+  <button type="button" class="add-cart-counter__btn" data-add-cart-counter-btn>
+    Add to cart
+  </button>
+  <div class="add-cart-counter__controls">
+    <button data-add-cart-counter-minus class="add-cart-counter__controls-btn" type="button">-</button>
+    <a href="{{cart_url}}" class="add-cart-counter__detail">
+      <span class="add-cart-counter__detail-text">{{messages.btn_buy_active_text}} <span data-add-cart-counter-count></span> {{ product.unit }}</span>
+    </a>
+    <button data-add-cart-counter-plus class="add-cart-counter__controls-btn" type="button">+</button>
+  </div>
+</div>
+```
+
+#### data-product-card-preorder
+
+Атрибут предназначен для кнопки вызова формы предзаказа. При загрузке страницы кнопка получает атрибуты `data-preorder-product-name` и `data-preorder-variant`, которые содержат название товара и название выбранного варианта. 
+
+Значение атрибута `data-preorder-variant` обновляется при выборе варианта товара. 
+
+Если подписаться на EventBus-событие `show-preorder:insales:ui_product`, то при нажатии на кнопку вы сможете получать название товара и выбранного варианта, чтобы использовать их в форме предзаказа.
+
+```html
+<button data-product-card-preorder type="button">{{messages.pre_order}}</button>
+```
+
+#### data-quick-checkout
+
+Форма заказа в один клик
+
+```html
+<button data-quick-checkout></button>
+```
+
+В качестве значения можно передать ID конкретного товара. Однако, если в корзину уже добавлены другие товары, то они тоже попадут в заказ.
+
+```html
+<button data-quick-checkout="[data-product-id='{{ product.id }}']"></button>
+```
+
+#### data-product-card-price
+
+Цена продажи варианта товара
+
+```html
+<span data-product-card-price></span>
+```
+
+#### data-product-card-price-from-cart
+
+Цена продажи варианта товара с учётом типов цен
+
+```html
+<span data-product-card-price-from-cart></span>
+```
+
+#### data-product-card-old-price
+
+Старая цена варианта товара
+
+```html
+<span data-product-card-old-price></span>
+```
+
+#### data-product-card-sku
+
+Получение артикула варианта товара. В качестве значения можно передать label.
+
+```html
+<span data-product-card-sku='{"skuLabel": "{{messages.sku_label}}"}'></span>
+```
+
+#### data-product-card-available
+
+Наличие варианта товара. 
+
+В качестве значения можно передать объект со статусами.
+
+```html
+<span data-product-card-available='{"availableText": "Available", "notAvailableText": "Not available"}'>
+```
 
 #### name="comment"
 
-Комментарий к позиции заказа, для работы поля с данным атрибутом комментарии к заказам должны быть включены в бэк-офисе
+Комментарий к позиции заказа. Для корректной работы необходимо, чтобы комментарии к заказам были включены в админ-панели, в разделе "Настройки" > "Оформление заказа"
 
-```
+```html
 <input type="text" name="comment" value="">
 ```
-
-
-
-## События
-
-| Событие                           | Описание                                                              |
-|-----------------------------------|-----------------------------------------------------------------------|
-| before:insales:product            | Событие срабатывает перед любым взаимодействием с компонетом продукта |
-| always:insales:product            | Событие срабатывает после любого взаимодействия с компонетом продукта |
-| change_quantity:insales:product   | Обновление кол-ва в продукте                                          |
-| unchange_quantity:insales:product | Если введено кол-во больше доступного                                 |
-|overload:quantity:insales:product| Событие срабатывает когда с помощью +/- накликали до максимального значения  quantity (Работает если вы используете параметр useMax)|
-|max:quantity:insales:product| Cрабатывает всегда когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает если вы используете параметр useMax)|
-| update_variant:insales:product    | Обновление варианта в продукте                                        |
 
 ## Селектор модификаций
 
 ### Привязка шаблона модификации к опции
 
-> В методе `setConfig` нужно передать объект options в виде `имя опции: id шаблона`
+> В методе `setConfig` нужно передать объект options в виде `имя опции: ID шаблона`
 
 ```js
 Products.setConfig({
@@ -244,13 +348,11 @@ Products.setConfig({
 </script>
 ```
 
-
-
 ### Передать изображения для шаблона селектора модификаций
 
 > Ссылки формируются в виде `значение свойства + .png | file_url`
 
-```twig
+```html
 <script>
   {% comment %}
     создание объекта с картинками из файлов для collection
@@ -304,12 +406,10 @@ Products.setConfig({
 </script>
 ```
 
-
-
 ### Шаблоны для селектора модификаций
 
-
-**select**
+<details>
+<summary>select</summary>
 
 ```html
 <script type="text/template" data-template-id="option-select">
@@ -328,9 +428,55 @@ Products.setConfig({
   </div>
 </script>
 ```
+</details>
 
+<details>
+<summary>select-image</summary>
 
-**span**
+```html
+<script type="text/template" data-template-id="option-select-image">
+<div class="<%= classes.option %> <%= _.find(values, 'image_url') ? 'is-system-color' : '' %> is-select">
+  <% if (_.find(values, 'image_url')) { %>
+    <label class="<%= classes.label %>">
+      <%= title %>
+    </label>
+    <div class="<%= classes.values %>">
+      <% _.forEach(values, function (value){ %>
+        <label class="<%= value.classes.all %> is-radio">
+          <input class="<%= value.classes.state %>" type="radio" name="<%= handle %>" <%= value.state %>
+          <%= value.controls %>
+            >
+            <span class="option-value-system-color <%= value.image_url ? 'with-image-color' : 'without-image-color' %>">
+              <% if (value.image_url) { %>
+                <img width="40px" src="<%= value.image_url %>" alt="<%= value.titleWithoutQuotes %>"
+                  title="<%= value.titleWithoutQuotes %>">
+                <% } else { %>
+                  <%= value.title %>
+                <% } %>
+            </span>
+        </label>
+        <% }) %>
+    </div>
+  <% } else { %>
+    <label class="<%= classes.label %>"><%= title %></label>
+      <select class="<%= classes.values %>" data-option-bind="<%= option.id %>">
+        <% _.forEach(values, function (value){ %>
+          <option
+            <%= value.controls %>
+            <%= value.state %>
+          >
+            <%= value.title %>
+          </option>
+        <% }) %>
+      </select>
+    <% } %>
+</div>
+</script>
+```
+</details>
+
+<details>
+<summary>span</summary>
 
 ```html
 <script type="text/template" data-template-id="option-span">
@@ -349,9 +495,10 @@ Products.setConfig({
   </div>
 </script>
 ```
+</details>
 
-
-**radio**
+<details>
+<summary>radio</summary>
 
 ```html
 <script type="text/template" data-template-id="option-radio">
@@ -376,38 +523,10 @@ Products.setConfig({
   </div>
 </script>
 ```
+</details>
 
-
-**image**
-
-```html
-<script type="text/template" data-template-id="option-image">
-  <div class="<%= classes.option %> option-<%= option.handle %>">
-    <label class="<%= classes.label %>"><%= title %></label>
-    <div>
-      <% _.forEach(option.values, function (value){ %>
-        <span
-          data-option-bind="<%= option.id %>"
-          data-value-position="<%= value.position %>"
-          class="option-image
-          <% if (option.selected == value.position & initOption) { %>active<% } %>
-          <% if (!value.available) { %>disabled<% } %>"
-        >
-          <% if (images[value.name]) { %>
-            <img src="<%= images[value.name].small_url %>" alt="<%= value.title %>">
-          <% }else{ %>
-            <span><%= value.title %></span>
-          <% } %>
-        </span>
-      <% }) %>
-    </div>
-  </div>
-</script>
-```
-
-
-
-**preview**
+<details>
+<summary>preview</summary>
 
 ```html
 <script type="text/template" data-template-id="option-preview">
@@ -428,17 +547,45 @@ Products.setConfig({
     <% }) %>
   </div>
 </div>
-
 </script>
 ```
+</details>
 
+<details>
+<summary>preview-text</summary>
 
+```html
+<script type="text/template" data-template-id="option-preview-text">
+<div class="<%= classes.option %> is-span is-preview-text">
+  <label class="<%= classes.label %>">
+    <%= title %>
+  </label>
+  <div class="<%= classes.values %>">
+    <% _.forEach(values, function (value){ %>
+      <button class="<%= value.classes.all %> is-span is-preview-text <%= (value.variant.image_id ? 'is-img' : 'is-text') %>" <%= value.controls %>
+        <%= value.state %>
+          >
+            <% if(value.imageFromVariant && value.variant.image_id){ %>
+              <img width="40px" src="<%= value.imageFromVariant.medium_url %>" alt="<%= value.titleWithoutQuotes %>"
+                title="<%= value.titleWithoutQuotes %>">
+            <% }else{ %>
+              <span>
+                <%= value.title %>
+              </span>
+              <% } %>
+      </button>
+      <% }) %>
+  </div>
+</div>
+</script>
+```
+</details>
 
 ## Методы класса Products
 
 ### get
 
-Получить объект с информацией о товаре
+Получить объект с информацией о конкретном товаре
 
 ```js
 /**
@@ -458,6 +605,7 @@ Products.get(123456)
 ```js
 /**
  * @param {Array} idList - массив, состоящий из id товаров
+ * @param {Object} options - объект, в котором можно передать опцию no_cache, если необходимо не кешировать товары в local storage.
  * @return {Deferred}
  */
 Products.getList([123456, 123455, 1234454, 123458])
@@ -465,7 +613,11 @@ Products.getList([123456, 123455, 1234454, 123458])
   .fail(function (onFail) { console.log('onFail', onFail) });
 ```
 
+!!! info
+    Все полученные товары кэшируются в local storage. Это означает, что при отправке новых запросов товары, которые уже были получены с сервера в предыдущих запросах, будут доставаться из кэша. Это работает только в рамках одной сессии. То есть, если перезагрузить страницу, то товары снова будут получены запросом. Если по каким-то причинам вам нужно, чтобы этого не происходило, то необходимо вторым аргументом передать объект со свойством `no_cache` и значением `true`.
 
+!!! warning
+    В одном запросе можно получить не более 700 товаров. Если превысить этот лимит, то перед отправкой запроса на сервер массив будет обрезан.
 
 ### setConfig
 
@@ -473,18 +625,21 @@ Products.getList([123456, 123455, 1234454, 123458])
 
 Параметры
 
-| Property     | Default       | Назначение                                                                                                                                |
-|--------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| options      | ```{ 'default': 'option-default' }``` | Через данный объект задаются шаблоны для вывода опций                                                                                     |
-| fileUrl      | Пустой объект | Объект для хранения картинок из раздела «Файлы»                                                                                           |
-| decimal      | Пустой объект | Колличество символов после запятой, для единиц измерения                                                                                  |
-| filtered     | true          | Если значение true, то недоступные опции не выводятся в шаблон. |
-| disableHideItem     | false          | Показывает недоступные варианты товаров, даже если в бек-офисе они отключены |
-| selectUnavailable     | true          | Разрешить выбирать недоступный вариант (актуально если `filtered: false`) |
-| allowUnavailable     | false          | Разрешить выбирать первым недоступный вариант |
-| showVariants | true          | При значении false, рендер опций не производится                                                                                          |
-| initOption   | true          | Отмечать активные опции при инициализации?                                                                                                |
-| useMax       | false         | Использовать максимальное колличество? Если значение true, в quantity невозможно указать колличество больше чем доступно на складе.       |
+| Property          | Default                               | Назначение                                                                   |
+|-------------------|---------------|------------------------------------------------------------------------------------------------------|
+| options           | ```{ 'default': 'option-default' }``` | Через данный объект задаются шаблоны для вывода свойств варианта             |
+| fileUrl           | Пустой объект                         | Объект для хранения картинок из раздела «Файлы»                              |
+| decimal           | Пустой объект                         | Количество символов после запятой для единиц измерения                      |
+| filtered          | true                                  | Если значение true, то недоступные опции не выводятся в шаблон.              |
+| disableHideItem   | false                                 | Показывает отсутствующие в наличии варианты товаров, даже если в админ-панели их отображение отключено |
+| selectUnavailable | true                                  | Разрешить выбирать недоступный вариант (актуально если `filtered: false`)    |
+| allowUnavailable  | false                                 | Разрешить выбирать первым недоступный вариант                                |
+| showVariants      | true                                  | При значении false рендер вариантов не производится                         |
+| initOption        | true                                  | Отмечать активные свойства при инициализации?                                |
+| useMax       | false                                      | Использовать максимальное количество? Если значение true, в quantity невозможно указать количество больше, чем доступно на складе |
+
+!!! warning
+    Вызов данного метода стоит оставлять в глобальной области видимости. Если запустить метод внутри `$(document).ready(function() {})`, результат может быть непредсказуем.
 
 ```js
 Products.setConfig({
@@ -496,8 +651,6 @@ Products.setConfig({
   selectUnavailable: true
 })
 ```
-
-
 
 ### getInstance
 
@@ -512,11 +665,9 @@ Products.setConfig({
    .fail(function (onFail) { console.log('onFail', onFail) });
 ```
 
-
 ### initInstance
 
-Инициализировать форму товара
-
+Инициализация формы товара
 
 ```js
 /**
@@ -525,4 +676,27 @@ Products.setConfig({
 Products.initInstance($('.product-cart-control'))
    .done(function (onDone) { console.log('onDone', onDone) })
    .fail(function (onFail) { console.log('onFail', onFail) });
+```
+
+## События
+
+| Событие                           | Описание                                                                                           |
+|-----------------------------------|----------------------------------------------------------------------------------------------------|
+| init_instance:insales:product     | Срабатывает после инициализации оберток [data-product-id] с инициализацией всех дочерних элементов |
+| before:insales:product            | Срабатывает перед любым взаимодействием с компонентом товара                                       |
+| always:insales:product            | Срабатывает после любого взаимодействия с компонентом товара                                       |
+| change_quantity:insales:product   | Обновление количества товара в инпуте quantity                                                     |
+| unchange_quantity:insales:product | Если введено кол-во больше доступного                                                              |
+| overload:quantity:insales:product | Событие срабатывает, когда с помощью +/- накликали до максимального значения  quantity (Работает, если вы используете параметр useMax) |
+| max:quantity:insales:product      | Срабатывает всегда, когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает, если вы используете параметр useMax) |
+| change_variant:insales:product    | Срабатывает при выборе варианта товара                                                             |
+| update_variant:insales:product    | Обновление варианта товара                                                                         |
+
+
+**Пример подписки на событие**
+
+```js
+EventBus.subscribe('change_quantity:insales:product', function (data) {
+  console.log('Изменено количество товара в счётчике', data);
+}); 
 ```

@@ -29,7 +29,7 @@
 Где:
 
 - & - автоматически генерируемый класс виджета
-- article-hide-photo - автоматически подставляется к родительскому классу виджета в атрибут style.`"name":"article-hide-photo"` наименование настройки, которые мы задаем в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_name">setting_form.json</a> и меняем в редакторе. Настройки по умолчанию в <a href="/4%20поколение/Виджеты/settings_data/#setting_data_name">setting_data.json</a>
+- article-hide-photo - автоматически подставляется к родительскому классу виджета в атрибут style.`"name":"article-hide-photo"`- наименование настройки, которые мы задаем в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_name">setting_form.json</a> и меняем в редакторе. <br> Настройки по умолчанию в <a href="/4%20поколение/Виджеты/settings_data/#setting_data_name">setting_data.json</a>
 
 
 Учитываем две настройки одновременно:
@@ -48,7 +48,7 @@
 ```
 
 #### Переменные
-С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают по <a href="https://insales.github.io/my-layout/#" target="_blank">ссылке</a>
+С полным списком переменных можно ознакомится по <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">ссылке</a>, а посмотреть как они работают - <a href="https://insales.github.io/my-layout/#" target="_blank">здесь</a>
 
 Пример:
 ```scss
@@ -63,7 +63,7 @@
 }
 
 ```
-Мы используем методологию БЭМ, grid-areas и поддерживаем последние версии браузеров.
+Мы используем методологию БЭМ, grid и поддерживаем последние версии браузеров.
 
 Пример:
 ```scss

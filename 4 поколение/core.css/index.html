@@ -1547,8 +1547,8 @@
 <h1 id="corecss">Core.css</h1>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>На каждой странице магазина подключен библиотека стилей Core.css. Мы используем css переменные, гриды. В библиотеке прописанны стили для определенных классов. Посмотреть, как это работает, можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>.
-Более подробную информацию можно посмотреть на <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">github</a>. </p>
+<p>На каждой странице магазина подключена библиотека стилей Core.css. Мы используем css переменные и гриды. В библиотеке прописаны стили для определенных классов. Посмотреть, как это работает, можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>. <br>
+Более подробную информацию можно найти на <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">github</a>. </p>
 </div>
 <h4 id="css">Сброс стилей CSS</h4>
 <p>Для сброса стилей css и для улучшения кроссбраузерности в стилях по умолчанию мы используем <a href="https://github.com/necolas/normalize.css" target="_blank">normalize.css</a></p>
@@ -1652,7 +1652,7 @@ Css переменные
 </code></pre></div></li>
 </ul>
 <h4 id="_1">Элементы формы</h4>
-<p>Кнопки, элементы формы - input, textarea, select.
+<p>Кнопки и элементы формы - input, textarea, select.
 Переменные CSS для специфичных настроек кнопок - controls-btn-<em>, для элементов формы - --controls-form-</em></p>
 <p><div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">*/</span><span class="w"></span>
 <span class="w">  </span><span class="nt">--controls-height-s</span><span class="o">:</span><span class="w"> </span><span class="nt">30px</span><span class="o">;</span><span class="w"></span>
@@ -1674,7 +1674,7 @@ Css переменные
 <span class="w">  </span><span class="c">/**/</span><span class="w"></span>
 <span class="w">  </span><span class="nt">--controls-border-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1px</span><span class="o">;</span><span class="w"></span>
 </code></pre></div>
-Текстовое поле размера s, со скругленными углами:
+Текстовое поле размера s со скругленными углами:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-s form-control_border-round&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
 </code></pre></div></p>
 <p>Текстовое поле размера m:
@@ -1686,7 +1686,7 @@ Css переменные
 Текстовое поле размера xl:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-xl&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
 </code></pre></div></p>
-<p>Текстовое поле размера l, растянутое на всю ширину контейнера:
+<p>Текстовое поле размера l растянутое на всю ширину контейнера:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_wide form-control_size-l&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
 </code></pre></div></p>
 <h4 id="_2">Скрыть элемент</h4>
@@ -1716,10 +1716,10 @@ Css переменные
 <p>Кнопка размера l:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_size-l&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
-Кнопка размера s, со скругленными углами:
+Кнопка размера s со скругленными углами:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_size-l button_border-round&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
-Кнопка размера xl, с прозрачным фоном:
+Кнопка размера xl с прозрачным фоном:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_size-xl button_second&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 Кнопка размера m, растянутая на всю ширину контейнера:
@@ -1734,7 +1734,8 @@ Css переменные
 <li><code>.img-ratio</code> и <code>.img-ratio_contain</code> - изображение подстраивается под область внутри блока пропорционально собственным параметрам</li>
 <li><code>.img-fit</code> - скрывает содержимое, выходящее за пределы контейнера. </li>
 </ul>
-<p>Изображение растягивается на весь блок, разметка:
+<p>Изображение растягивается на весь блок.  <br>
+Пример разметки:
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio img-ratio_cover&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio__inner&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>

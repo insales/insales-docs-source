@@ -1561,7 +1561,7 @@
 
 
 <h1 id="infojson">info.json</h1>
-<p>Метаданные виджета в которых прописывается: поколение виджета, тип виджета, id (идентификатор), доступность в шаблонах страницы магазина, виджетлист (раздел виджетов), категории виджетов, используемый шаблон блоков, доступные зависимости (плагины).</p>
+<p>Метаданные виджета, в которых прописывается: поколение виджета, тип виджета, id (идентификатор), доступность в шаблонах страницы магазина, виджет-лист (раздел виджетов), категории виджетов, используемый шаблон блоков, доступные зависимости (плагины).</p>
 <h4 id="_1">Поколение виджета</h4>
 <p>На данный момент используется только виджеты 4 поколения, пример:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
@@ -1570,7 +1570,7 @@
 <p>Без привязки блоков
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SimpleWidgetType&quot;</span><span class="w"></span>
 </code></pre></div>
-С блоками (необходимо добавить файл setup.json с указанием параметром блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
+С блоками (необходимо добавить файл <a href="/4%20поколение/Виджеты/setup/">setup.json</a> с указанием параметром блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block_list_widget_type&quot;</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="_3">Типы виджетов, примеры:</h4>
@@ -1585,18 +1585,18 @@
 </div>
 </div>
 <h4 id="_4">Папка с виджетом</h4>
-<p>В данном примере <code>system_widget</code> означает что виджет будет системным и использоваться везде. <code>v4</code> означает 4ое поколение, а <code>alerts</code> означает функционал виджета - оповещение. Главное чтобы имя папки было уникальным, наименование может быть любым.
+<p>В данном примере <code>system_widget</code> означает, что виджет будет системным и использоваться везде. <code>v4</code> означает 4ое поколение, а <code>alerts</code> означает функционал виджета - оповещение. Главное - чтобы имя папки было уникальным, при этом наименование может быть любым.
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;v4_alerts&quot;</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="id">Уникальный id виджета</h4>
-<p>Мы придумываем id на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить что id виджета уникален, вы можете посмотреть ID виджета в редакторе шаблона, при добавлении. При изменении виджета путем редактирование кода - <a href="/4%20поколение/Виджеты/Примеры/SimpleWidgetType/#online">online</a>, в его id добавляется точка <code>.</code>, пример <code>FM1.1</code>. При добавлении виджета с одинаковым ID, в его id добавляется тире <code>-</code>, пример <code>FM1-1</code> и <code>FM1-2</code>.
+<p>Мы придумываем id на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить, что id виджета уникален. Вы можете посмотреть id виджета в редакторе шаблона при добавлении. При изменении виджета путем редактирования кода <a href="/4%20поколение/Виджеты/Примеры/SimpleWidgetType/#online">online</a> в его id добавляется точка (пример <code>FM1.1</code>). При добавлении виджета с одинаковым id в наименование добавляется тире <code>-</code> (пример <code>FM1-1</code> и <code>FM1-2</code>).
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;FM1&quot;</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
 <p><div class="highlight"><pre><span></span><code><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;product,collection&quot;</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
-Если указать например "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть в левом верхнем углу редактора. Там есть выпадающий список со всеми страницами шаблона.
-Доступный список(то как мы прописываем page_kinds в файле info.json - страницы в редакторе):</p>
+Если указать, например, "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть посередине верхней панели. Там расположен выпадающий список со всеми страницами шаблона. <br>
+Доступный список страниц (то как мы прописываем page_kinds в файле info.json:</p>
 <ul>
 <li>all - все страницы</li>
 <li>index - главная страница</li>
@@ -1611,7 +1611,7 @@
 <li>favorite - страница избранного</li>
 </ul>
 <h4 id="_6">Разделы страницы</h4>
-<p>Привязка к типу виджетлиста. Доступные разделы страницы:</p>
+<p>Привязка к типу виджет-листа. Доступные разделы страницы:</p>
 <ul>
 <li>Верхняя панель - top_panel</li>
 <li>Шапка - header</li>
@@ -1621,14 +1621,15 @@
 <li>Вне контента - outside</li>
 <li>Сайдбар - sidebar</li>
 </ul>
-<p><span style="text-align:center; display: block;" align="center">Виджет-листы</span>  <br />
+<p><span style="text-align:left; display: block;" align="">Виджет-листы</span>  <br />
 <img alt="" src="/img/info2.svg" />
-Нужен чтобы, например, в виджетлисте сайдбара не было виджетов шапки/футера.</p>
+Нужен чтобы, например, в виджет-листе сайдбара не было виджетов шапки/футера.</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
 Может содержать элементы из следующего списка:</p>
 <h4 id="_7">Категории виджетов <a name="widget_category_handle"></a></h4>
-<p>Категории виджетов, нужна для сортировки виджетов по вкладкам. Категория баннеры:</p>
+<p>Категории виджетов нужны для сортировки виджетов по категориям. <br>
+Например, категория баннеры:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span><span class="w"></span>
 </code></pre></div>
 <ul>

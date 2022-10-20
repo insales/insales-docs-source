@@ -21,7 +21,7 @@
 
 #### setup.json
 
-Фрагмент в котором мы добавили виджет с пермалинком `system_widget_v4_promo_slider_4` к виджет-листу `index-list`.
+Фрагмент, в котором мы добавили виджет с пермалинком `system_widget_v4_promo_slider_4` к виджет-листу `index-list`.
 
 ```json
 "theme_widgets":{
@@ -60,7 +60,7 @@
 
 #### settings.json
 
-Настройки шаблона где мы прописали:
+Настройки шаблона, где мы прописали:
 
 - шрифт шаблона `"font-family": "PT Root UI"`
 - общий фон шаблона `"bg": "#FFFFFF"`

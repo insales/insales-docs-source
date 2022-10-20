@@ -1,35 +1,7 @@
 # snippet.scss
 Мы используем scss и методолгию <a href="https://ru.bem.info/" target="_blank">БЭМ</a>.
-#### Доступные миксины:
 
-```scss
-@mixin background-color($color) {
-  $dark_selector: '[style*="#{$color}-is-dark:true"]';
-  $light_selector: '[style*="#{$color}-is-light:true"]';
-  background-color: var(#{$color});
-  @at-root #{selector-append($dark_selector, &)} {
-    color: var(--color-text-light);
-    --color-text: var(--color-text-light);
-    --color-text-minor-shade: var(--color-text-light-minor-shade);
-    --color-text-major-shade: var(--color-text-light-major-shade);
-    --color-text-half-shade: var(--color-text-light-half-shade);
-  }
-  @at-root #{selector-append($light_selector, &)} {
-    color: var(--color-text-dark);
-    --color-text: var(--color-text-dark);
-    --color-text-minor-shade: var(--color-text-dark-minor-shade);
-    --color-text-major-shade: var(--color-text-dark-major-shade);
-    --color-text-half-shade: var(--color-text-dark-half-shade);
-  }
-}
-```
-
-Можно использовать уже готовый миксин, чтобы при изменении цвета фона, цвет текста менялся на читаемый:
-
-```scss
-@include background-color(--bg);
-```
-У корневого дива при изменении настроек меняется значение css переменных.
+У родительского класса <a href="/4%20поколение/core.css/">layout</a> при изменении настроек меняется значение css переменных.
 В стилях можно прописывать состояния для класса css при изменении настроек, примеры:
 
 ```scss
@@ -57,7 +29,7 @@
 Где:
 
 - & - автоматически генерируемый класс виджета
-- article-hide-photo - "name":"article-hide-photo" наименование настройки, которые мы задаем в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_name">setting_form.json</a> и прописываем настройки по умолчанию в  - <a href="/4%20поколение/Виджеты/settings_data/#setting_data_name">setting_data.json</a>
+- article-hide-photo - автоматически подставляется к родительскому классу виджета в атрибут style.`"name":"article-hide-photo"` наименование настройки, которые мы задаем в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_name">setting_form.json</a> и меняем в редакторе. Настройки по умолчанию в <a href="/4%20поколение/Виджеты/settings_data/#setting_data_name">setting_data.json</a>
 
 
 Учитываем две настройки одновременно:

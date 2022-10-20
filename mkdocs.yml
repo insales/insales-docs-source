@@ -15,6 +15,71 @@ extra_javascript:
   - js/jquery.min.js
   - js/extra.js
 
+nav:
+  - index.md
+  - 4 поколение:
+    - 4 поколение/core.css.md
+    - Виджеты:
+      - 4 поколение/Виджеты/index.md
+      - 4 поколение/Виджеты/info.md
+      - 4 поколение/Виджеты/messages.md
+      - 4 поколение/Виджеты/preview.md
+      - 4 поколение/Виджеты/settings_data.md
+      - 4 поколение/Виджеты/settings_form.md
+      - 4 поколение/Виджеты/setup.md
+      - 4 поколение/Виджеты/snippet.js.md
+      - 4 поколение/Виджеты/snippet.liquid.md
+      - 4 поколение/Виджеты/snippet.scss.md
+    - Иконки:
+      - 4 поколение/Иконки/icons_editor.md
+      - 4 поколение/Иконки/icons_theme.md
+    - Шаблон:
+      - 4 поколение/Шаблон/index.md
+      - 4 поколение/Шаблон/settings.json.md
+      - 4 поколение/Шаблон/setup.json.md
+  - common.v2.js:
+    - common.v2.js/1readme.md
+    - common.v2.js/2Products.md
+    - common.v2.js/3Cart.md
+    - common.v2.js/ajaxAPI.md
+    - common.v2.js/AjaxSearch.md
+    - common.v2.js/Compare.md
+    - common.v2.js/EventBus.md
+    - common.v2.js/FavoritesProducts.md
+    - common.v2.js/InSalesUI.md
+    - common.v2.js/Shop.md
+    - common.v2.js/Template.md
+    - common.v2.js/ui-ajax-filters.md
+    - common.v2.js/ui-feedback.md
+    - common.v2.js/ui-trigger-events.md
+  - Примеры работы с данными магазина:
+      - images_for_options:
+        - Примеры работы с данными магазина/images_for_options/README.md
+      - reCAPTCHA:
+        - Примеры работы с данными магазина/reCAPTCHA/README.md
+        - Примеры работы с данными магазина/reCAPTCHA/aroma2.md
+        - Примеры работы с данными магазина/reCAPTCHA/commonjs.v2.md
+        - Примеры работы с данными магазина/reCAPTCHA/dotstore.md
+        - Примеры работы с данными магазина/reCAPTCHA/fleur.md
+        - Примеры работы с данными магазина/reCAPTCHA/prezent.md
+        - Примеры работы с данными магазина/reCAPTCHA/recaptcha-common.md
+        - Примеры работы с данными магазина/reCAPTCHA/template_without_commonjs.md
+        - Примеры работы с данными магазина/reCAPTCHA/v3.md
+        - Примеры работы с данными магазина/reCAPTCHA/z.InSales.md
+      - site_currencies:
+        - Примеры работы с данными магазина/images_for_options/index.md
+  - InSales API:
+    - InSales API/01 readme.md
+    - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
+    - InSales API/03 Получение только изменившихся данных.md
+    - InSales API/04 API для работы с частичными скидками.md
+    - InSales API/05 InSales API - Widgets.md
+    - InSales API/06 InSales API - Счета приложения.md
+      
+        
+  
+
+
 
 extra:
   search:

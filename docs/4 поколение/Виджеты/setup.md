@@ -1,6 +1,6 @@
 # setup.json
 
-Дефолтный контент блоков виджета. Указывается в файле info.json
+Дефолтный контент блоков виджета. Указывается в файле <a href="/4%20поколение/Виджеты/info/">info.json</a>
 
 ```JSON
 "block_template_handle": "system-benefit-2"

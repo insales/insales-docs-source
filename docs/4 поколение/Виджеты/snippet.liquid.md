@@ -1,6 +1,6 @@
 # snippet.liquid
 
-Данный сниппет предназначен для написание html разметки. Осуществеляется с помощью шаблонизатора <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a>
+Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a>
 
 
 #### В примере ниже:

@@ -1,6 +1,6 @@
 # messages.json
 
-Переводы настроек, подсказок в виджетах.
+Переводы настроек и подсказок в виджетах.
 Ниже пример, где
 `"youtube_link"`
 используемое значение (ключ) в файлах <a href="/4%20поколение/Виджеты/snippet.liquid/#translate_example">*snippet.liquid</a>, <a href="/4%20поколение/Виджеты/settings_form/#translate_example">*settings_form.json</a>

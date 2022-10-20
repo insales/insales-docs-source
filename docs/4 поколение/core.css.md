@@ -2,8 +2,8 @@
 
 !!! info
 
-    На каждой странице магазина подключен библиотека стилей Core.css. Мы используем css переменные, гриды. В библиотеке прописанны стили для определенных классов. Посмотреть, как это работает, можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>.
-    Более подробную информацию можно посмотреть на <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">github</a>. 
+    На каждой странице магазина подключена библиотека стилей Core.css. Мы используем css переменные и гриды. В библиотеке прописаны стили для определенных классов. Посмотреть, как это работает, можно на странице: <a href="https://insales.github.io/my-layout/" target="_blank"> https://insales.github.io/my-layout/</a>. <br>
+    Более подробную информацию можно найти на <a href="https://github.com/insales/my-layout/blob/main/dist/css/core-css.css" target="_blank">github</a>. 
 
 #### Сброс стилей CSS
 
@@ -140,7 +140,7 @@ a {
 
 #### Элементы формы 
 
-Кнопки, элементы формы - input, textarea, select.
+Кнопки и элементы формы - input, textarea, select.
 Переменные CSS для специфичных настроек кнопок - controls-btn-*, для элементов формы - --controls-form-*
 
 ```css
@@ -164,7 +164,7 @@ a {
   /**/
   --controls-border-width: 1px;
 ```
-Текстовое поле размера s, со скругленными углами:
+Текстовое поле размера s со скругленными углами:
 ```html
 
 <input type="text" class="form-control form-control_size-s form-control_border-round" name="" value="" placeholder="">
@@ -190,7 +190,7 @@ a {
 
 ```
 
-Текстовое поле размера l, растянутое на всю ширину контейнера:
+Текстовое поле размера l растянутое на всю ширину контейнера:
 ```html
 
 <textarea name="" placeholder="" class="form-control form-control_wide form-control_size-l"></textarea>
@@ -233,11 +233,11 @@ a {
 ```html
 <button class="button button_size-l" type="submit">Отправить</button>
 ```
-Кнопка размера s, со скругленными углами:
+Кнопка размера s со скругленными углами:
 ```html
 <button class="button button_size-l button_border-round" type="submit">Отправить</button>
 ```
-Кнопка размера xl, с прозрачным фоном:
+Кнопка размера xl с прозрачным фоном:
 ```html
 <button class="button button_size-xl button_second" type="submit">Отправить</button>
 ```
@@ -255,7 +255,8 @@ a {
 - `.img-ratio` и `.img-ratio_contain` - изображение подстраивается под область внутри блока пропорционально собственным параметрам
 - `.img-fit` - скрывает содержимое, выходящее за пределы контейнера. 
 
-Изображение растягивается на весь блок, разметка:
+Изображение растягивается на весь блок.  <br>
+Пример разметки:
 ```html
 <div class="img-ratio img-ratio_cover">
   <div class="img-ratio__inner">

@@ -1,6 +1,6 @@
 # snippet.js
 
-Сниппет нужен для написания javascript кода, относящейся к данному виджету. 
+Сниппет нужен для написания javascript кода, относящегося к данному виджету. 
 В сниппете доступна библиотека jquery.
 `$widget` - будет использоваться автоматически генерируемый класс родительского блока виджета. 
 Для того чтобы избежать багов при использовании более одного виджета на странице, их нужно перебирать через метод `each`:
@@ -12,7 +12,7 @@ $widget.each(function(index, el) {
 });
 ```
 
-Можно использовать встроенные события EventBus, подробнее можно почитать по <a href="https://liquidhub.ru/collection/start" target="_blank">ссылке</a>
+Можно использовать встроенные события EventBus, подробнее можно ознокомиться <a href="/common.v2.js/EventBus/" target="_blank">здесь</a>
 
 ```js
   EventBus.subscribe('change_variant:insales:product', function(data) {
@@ -25,7 +25,7 @@ $widget.each(function(index, el) {
   });
 ```
 
-#### Доступные зависимости (плагины). Зависимости используются только те которые установлены на стороне платформы:
+#### Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:
 - commonjs_v2 - фреймворк inSales | <a href="https://liquidhub.ru/collection/start" target="_blank">Документация</a> 
 - jquery | <a href="https://jquery.com/" target="_blank">Документация</a> 
 - microalert	|<a href="https://github.com/VladimirIvanin/microAlert" target="_blank"> Github</a> 

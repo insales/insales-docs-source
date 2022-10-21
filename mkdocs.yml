@@ -17,8 +17,7 @@ extra_javascript:
 
 nav:
   - index.md
-  - 4 поколение:
-    - 4 поколение/core.css.md
+  - 4 поколение:    
     - Виджеты:
       - 4 поколение/Виджеты/index.md
       - 4 поколение/Виджеты/info.md
@@ -37,6 +36,7 @@ nav:
       - 4 поколение/Шаблон/index.md
       - 4 поколение/Шаблон/settings.json.md
       - 4 поколение/Шаблон/setup.json.md
+    - 4 поколение/core.css.md
   - common.v2.js:
     - common.v2.js/1readme.md
     - common.v2.js/2Products.md
@@ -70,11 +70,11 @@ nav:
         - Примеры работы с данными магазина/images_for_options/index.md
   - InSales API:
     - InSales API/01 readme.md
-    - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
-    - InSales API/03 Получение только изменившихся данных.md
-    - InSales API/04 API для работы с частичными скидками.md
-    - InSales API/05 InSales API - Widgets.md
-    - InSales API/06 InSales API - Счета приложения.md
+    # - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
+    # - InSales API/03 Получение только изменившихся данных.md
+    # - InSales API/04 API для работы с частичными скидками.md
+    # - InSales API/05 InSales API - Widgets.md
+    # - InSales API/06 InSales API - Счета приложения.md
       
         
   

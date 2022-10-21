@@ -1502,6 +1502,9 @@ body {
   padding: 0;
   font-size: 16px;
 }
+.md-content .main article dl dd ul {
+  margin-top: 5px;
+}
 .md-content .main article dt {
   margin-bottom: 2px;
 }
@@ -1531,6 +1534,10 @@ body {
 .main a {
   color: rgba(0,0,0,.87);
 }
+.main dt > a {
+  display: flex;
+  align-items: center;
+}
 .bg-gray{
   background: rgba(135,131,120,0.15);
   color: #EB5757;
@@ -1539,8 +1546,8 @@ body {
   padding: 0.2em 0.4em;
 }
 .main .twemoji{
-  margin-top: 3px;
-  margin-right: 3px;
+  margin-top: 2px;
+  margin-right: 5px;
 }
 .main ul li a {
   color: rgba(55,53,47,0.7);
@@ -1549,5 +1556,8 @@ body {
   border-bottom: 0.05em solid;
   word-wrap: break-word;
   font-weight: 600;
+}
+.md-typeset .main ul li {
+  margin-bottom: 6px;
 }
 /* main page end */

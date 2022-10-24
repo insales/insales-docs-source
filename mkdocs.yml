@@ -29,6 +29,9 @@ nav:
       - 4 поколение/Виджеты/snippet.js.md
       - 4 поколение/Виджеты/snippet.liquid.md
       - 4 поколение/Виджеты/snippet.scss.md
+      - Примеры:
+        - 4 поколение/Виджеты/Примеры/block_list_widget_type.md
+        - 4 поколение/Виджеты/Примеры/SimpleWidgetType.md
     - Иконки:
       - 4 поколение/Иконки/icons_editor.md
       - 4 поколение/Иконки/icons_theme.md

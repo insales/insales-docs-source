@@ -1545,12 +1545,40 @@
 <p><code>layout</code> - это родительский класс виджета, где в атрибуте <code>[style]</code> прописаны настройки в виде css переменных. Класс layout генерируется автоматически и является оберткой любого виджета.
 </br></br>
 Стандартные настройки для большинства виджетов:</p>
-<p><code>.layout[style*="--bg:#ffffff"]</code> - При выборе настроек <code>Виджет -&gt; Цвет фона виджета</code></p>
-<p><code>.layout[style*="--layout-wide-bg:true"]</code> - При выборе настроек <code>Виджет -&gt; Растянуть фон</code></p>
-<p><code>.layout[style*="--layout-edge:true"]</code> - При выборе настроек <code>Виджет -&gt; Убрать отступы по краям</code></p>
-<p><code>.layout[style*="--hide-mobile:true"]</code> - При выборе настроек <code>Виджет -&gt; Скрыть на телефоне</code></p>
-<p><code>.layout[style*="--hide-desktop:true"]</code> - При выборе настроек <code>Виджет -&gt; Скрыть на десктопе</code></p>
-<p><code>.layout[style*="--bg:"][style*="--layout-wide-bg:true"]</code> - Мы можем комбинировать настройки. При выборе настроек <code>Виджет -&gt; Цвет фона виджета</code> и <code>Виджет -&gt; Растянуть фон</code></p>
+<table>
+<thead>
+<tr>
+<th>Css переменные</th>
+<th>Настройки виджета</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.layout[style*="--bg:#ffffff"]</code></td>
+<td><code>Виджет -&gt; Цвет фона виджета</code></td>
+</tr>
+<tr>
+<td><code>.layout[style*="--layout-wide-bg:true"]</code></td>
+<td><code>Виджет -&gt; Растянуть фон</code></td>
+</tr>
+<tr>
+<td><code>.layout[style*="--layout-edge:true"]</code></td>
+<td><code>Виджет -&gt; Убрать отступы по краям</code></td>
+</tr>
+<tr>
+<td><code>.layout[style*="--hide-mobile:true"]</code></td>
+<td><code>Виджет -&gt; Скрыть на телефоне</code></td>
+</tr>
+<tr>
+<td><code>.layout[style*="--hide-desktop:true"]</code></td>
+<td><code>Виджет -&gt; Скрыть на десктопе</code></td>
+</tr>
+<tr>
+<td><code>.layout[style*="--bg:"][style*="--layout-wide-bg:true"]</code></td>
+<td>Мы можем комбинировать настройки. <code>Виджет -&gt; Цвет фона виджета</code> и <code>Виджет -&gt; Растянуть фон</code></td>
+</tr>
+</tbody>
+</table>
 <p>Настройки по умолчанию можно прописать в <a href="/4%20поколение/Виджеты/settings_data/" >settings_data</a></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>

@@ -44,11 +44,6 @@
 #### Поле файл
 Чтобы подгрузить файл (изображение) по умолчанию, нужно:
 
-
-- Перейти от имени администратора из <a target="_blank" href="https://admins.insales.ru/">https://admins.insales.ru/</a> в магазин <a target="_blank" href="http://file-store.myinsales.ru/">http://file-store.myinsales.ru/</a>
-- Перейти в раздел Дизайн -> Файлы
-- Добавить файл
-- Получить ссылку файла <a target="_blank" href="https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg">https://static.insales-cdn.com/files/1/1816/20350744/original/MagnifyingGlassPlus.svg</a>, скопировать id - `20350744`
 - Добавить в файл <a href="/4%20поколение/Виджеты/settings_data/">settings_data.json</a>
 
 ```json

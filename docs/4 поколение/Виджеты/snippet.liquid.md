@@ -1,13 +1,24 @@
 # snippet.liquid
 
-Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/" target="_blank">https://liquidhub.ru/</a>
+Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>
 
 
 #### В примере ниже:
-- `widget_settings.layout-wide-content` - получаем layout-wide-content из настроек виджета
-- `{% for video in data.blocks %}` - цикл перебирающий блоки 
-- `video.link` - ссылка указанная в блоке. Доступные поля можно посмотреть - <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a>
-- `video.image` - изображение указанное в блоке. Доступные поля можно посмотреть - <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a> 
+- Получить значения настроек виджета из файла <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> можно с помощью liquid-переменной `widget_settings`. Например, значение настройки ширины контента можно так:
+```HTML 
+{{ widget_settings.layout-wide-content }}
+```
+- Если виджет блочный, то блоки можно получить из liquid-переменной `data.blocks`.
+Пример цикла для перебора блоков и получения значения свойства блока: 
+```HTML 
+{% for block in data.blocks %}
+
+{{ block.name }}
+
+{% endfor %}
+```
+- `block.name` - название указанное в блоке. Доступные поля можно посмотреть - <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a>
+
 
 #### Пример:
 ```HTML
@@ -88,6 +99,10 @@
 
 
 ####Другие примеры:
-- `{{ widget_messages.product_bundle_gift_text }}` - получаем перевод из файла <a href="/4%20поколение/Виджеты/messages/" id="translate_example">messages.json</a>
-- `{{ messages.reviews_are_moderated }}` - можно использовать ключи с переводом из файла <a href="/4%20поколение/Виджеты/messages/">messages.json</a>, если перевод не будет найден, то мы идем в глобальные переводы messages.
-- `{% if editor_mode? %}` - условие: если включен редактор
+Если вам нужно узнать какие переменные доступны на странице, или какие есть свойства у объекта, то используйте help:
+
+`{% help %}` - выведет доступные переменные.
+
+`{% help account %}` - выведет список свойств объекта account
+
+Liquid-переменная `widget_messages` содержит переводы текстов для разных языковых версий из файла <a href="/4%20поколение/Виджеты/messages/">messages.json</a>

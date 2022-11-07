@@ -10,11 +10,19 @@ hide:
         <header>4 поколение </header>
         <div>
             <dl>
+                <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"></path></svg></span>Шаблоны</dt>
+                        <dd><a class="black" href="/4%20поколение/Шаблон/">Шаблоны</a> состоят из <a href="/4%20поколение/Виджеты/" class="black">виджетов</a> и файлов с настройками 
+                            <ul>
+                                <li><a href="/4%20поколение/Шаблон/setup.json/">Setup</a><span class="bg-gray">setup.json</span></a></li>
+                                <li><a href="/4%20поколение/Шаблон/settings.json/">Settings <span class="bg-gray">settings.json</span></a></li>
+                            </ul>
+                        </dd>
                 <dt><a href="/4%20поколение/Виджеты/" class=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h8v4.34l5.66-5.65 5.65 5.65L16.66 13H21v8h-8v-8h3.66L11 7.34V11H3V3m0 10h8v8H3v-8Z"></path></svg></span>Виджеты</a></dt>
                     <dd>Из виджетов собираются <a class="black" href="/4%20поколение/Шаблон/">шаблоны</a>. Виджеты состоят из следующих файлов:
                         <ul>
-                            <li><a href="4%20поколение/Виджеты/snippet.liquid/">Сниппет <span class="bg-gray">snippet.liquid</span></a></li>
+                            <li><a href="4%20поколение/Виджеты/snippet.liquid/">HTML виджета <span class="bg-gray">snippet.liquid</span></a></li>
                             <li><a href="/4%20поколение/Виджеты/snippet.scss/">SCSS <span class="bg-gray">snippet.scss</span></a></li>
+                            <li><a href="/4%20поколение/Виджеты/snippet.js/">JS <span class="bg-gray">snippet.js</span></a></li>
                             <li><a href="4%20поколение/Виджеты/messages/">Переводы <span class="bg-gray">messages.json</span></a></li>
                             <li><a href="4%20поколение/Виджеты/settings_form/">Форма настроек <span class="bg-gray">settings_form.json</span></a></li>
                             <li><a href="4%20поколение/Виджеты/settings_data/">Настройки по умолчанию <span class="bg-gray">settings_data.json</a></span></li>
@@ -22,19 +30,12 @@ hide:
                             <li><a href="4%20поколение/Виджеты/preview/">Превью <span class="bg-gray">preview.jpg</span></a> и <a href="4%20поколение/Виджеты/preview/"><span class="bg-gray">mobile_preview.jpg</span></a></li>
                             <li><a href="4%20поколение/Виджеты/info/">Метаданные <span class="bg-gray">info.json</span></a></li>
                         </ul>
-                    </dd>
-                <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"></path></svg></span>Шаблоны</dt>
-                    <dd><a class="black" href="/4%20поколение/Шаблон/">Шаблоны</a> состоят из <a href="/4%20поколение/Виджеты/" class="black">виджетов</a> и файлов с настройками 
-                        <ul>
-                            <li><a href="/4%20поколение/Шаблон/setup.json/">Setup</a><span class="bg-gray">setup.json</span></a></li>
-                            <li><a href="/4%20поколение/Шаблон/settings.json/">Settings <span class="bg-gray">settings.json</span></a></li>
-                        </ul>
-                    </dd>
-                <dt><a href="/4%20поколение/core.css/" class=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m568.1 196.3-22.62-22.62c-4.533-4.533-10.56-7.029-16.97-7.029s-12.44 2.496-16.97 7.029l-5.654 5.656-20.12-20.12c4.596-23.46-2.652-47.9-19.47-64.73l-45.25-45.25C390.2 17.47 347.1 0 303.1 0 258.2 0 216 17.47 184.3 49.21l-7.8 7.84 96 48.05v13.81c0 18.95 7.688 37.5 21.09 50.91l49.16 49.14c13.44 13.45 31.39 20.86 50.54 20.86a73.2 73.2 0 0 0 14.18-1.387l20.12 20.12-5.654 5.654c-9.357 9.357-9.357 24.58-.002 33.94l22.62 22.62c4.535 4.533 10.56 7.031 16.97 7.031s12.44-2.498 16.97-7.031l90.53-90.5C578.3 220.8 578.3 205.6 568.1 196.3zm-297.2-3.9c-3.846-3.846-7.197-8.113-10.37-12.49l-239.5 209.2c-28.12 28.12-28.16 73.72-.037 101.8C35.12 505 53.56 512 71.1 512s36.84-7.031 50.91-21.09l209.1-239.4c-4.141-3.061-8.184-6.289-11.89-9.996L270.9 192.4z"></path></svg></span>Core.css</a></dt>
-                    <dd>Core.css являются стилями по умолчанию, которые можно использовать, чтобы облегчить написание кода в <a href="4%20поколение/Виджеты/snippet.liquid/" class="black">snippet.liquid</a> и в <a href="/4%20поколение/Виджеты/snippet.scss/" class="black">snipet.scss</a></dd>
+                    </dd>  
                 <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16c.56.84 1.31 1.53 2.2 2L12 20.2 9.8 18c.89-.47 1.65-1.16 2.2-2m5-4.8a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m-10 0a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m10-2.5a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m-10 0a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4M2.24 1c1.76 3.7.49 6.46-.69 9.2-.36.8-.55 1.63-.55 2.5a6 6 0 0 0 6 6c.21-.01.42-.02.63-.05l2.96 2.96L12 23l1.41-1.39 2.96-2.96c.21.03.42.04.63.05a6 6 0 0 0 6-6c0-.87-.19-1.7-.55-2.5C21.27 7.46 20 4.7 21.76 1c-2.64 2.06-6.4 3.69-9.76 3.7C8.64 4.69 4.88 3.06 2.24 1Z"></path></svg></span>Иконки</dt>
                     <dd>Есть иконки редактора, которые можно прописывать в настройках <a href="4%20поколение/Виджеты/settings_form/"> <span class="bg-gray">settings_form.json</a></dd>
-                    <dd>Есть иконки шаблонов, которые мы можем использовать в <a href="4%20поколение/Виджеты/snippet.liquid/"> <span class="bg-gray">snippet.liquid</span></a>, используя классы. </dd>
+                    <dd>Есть иконки шаблонов, которые мы можем использовать в <a href="4%20поколение/Виджеты/snippet.liquid/"> <span class="bg-gray">snippet.liquid</span></a>, используя классы. </dd>              
+                <dt><a href="/4%20поколение/core.css/" class=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m568.1 196.3-22.62-22.62c-4.533-4.533-10.56-7.029-16.97-7.029s-12.44 2.496-16.97 7.029l-5.654 5.656-20.12-20.12c4.596-23.46-2.652-47.9-19.47-64.73l-45.25-45.25C390.2 17.47 347.1 0 303.1 0 258.2 0 216 17.47 184.3 49.21l-7.8 7.84 96 48.05v13.81c0 18.95 7.688 37.5 21.09 50.91l49.16 49.14c13.44 13.45 31.39 20.86 50.54 20.86a73.2 73.2 0 0 0 14.18-1.387l20.12 20.12-5.654 5.654c-9.357 9.357-9.357 24.58-.002 33.94l22.62 22.62c4.535 4.533 10.56 7.031 16.97 7.031s12.44-2.498 16.97-7.031l90.53-90.5C578.3 220.8 578.3 205.6 568.1 196.3zm-297.2-3.9c-3.846-3.846-7.197-8.113-10.37-12.49l-239.5 209.2c-28.12 28.12-28.16 73.72-.037 101.8C35.12 505 53.56 512 71.1 512s36.84-7.031 50.91-21.09l209.1-239.4c-4.141-3.061-8.184-6.289-11.89-9.996L270.9 192.4z"></path></svg></span>Core.css</a></dt>
+                    <dd>Core.css являются стилями по умолчанию, которые можно использовать, чтобы облегчить написание кода в <a href="4%20поколение/Виджеты/snippet.liquid/" class="black">snippet.liquid</a> и в <a href="/4%20поколение/Виджеты/snippet.scss/" class="black">snipet.scss</a></dd>                
             </dl>
         </div>
     </article>
@@ -80,4 +81,5 @@ hide:
 <b>Область редактирования</b> - основная часть редактора, в которой отображается версия сайта с текущими изменениями. Изменения применяются в режиме реального времени.<br>
 <b>Верхняя панель редактора</b> - область редактора, где располагаются общие настройки шаблона.<br>
 <b>Виджет</b> - это настраиваемый элемент сайта, который иногда состоит из блоков.<br>
+<b>Виджет-листы</b> - <a href="/4%20поколение/Виджеты/#ListWidgetInfo">области страницы</a>, где располагается список виджетов. Например, шапка или контент. <br>
 <b>Блок</b> - это идентичные повторяющиеся настройки виджета, которые позволяет пользователю добавлять блоки и менять их местами через редактор.

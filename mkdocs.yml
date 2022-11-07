@@ -17,29 +17,30 @@ extra_javascript:
 
 nav:
   - index.md
-  - 4 поколение:    
-    - Виджеты:
-      - 4 поколение/Виджеты/index.md
-      - 4 поколение/Виджеты/info.md
-      - 4 поколение/Виджеты/messages.md
-      - 4 поколение/Виджеты/preview.md
-      - 4 поколение/Виджеты/settings_data.md
-      - 4 поколение/Виджеты/settings_form.md
-      - 4 поколение/Виджеты/setup.md
-      - 4 поколение/Виджеты/snippet.js.md
-      - 4 поколение/Виджеты/snippet.liquid.md
-      - 4 поколение/Виджеты/snippet.scss.md
-      - Примеры:
-        - 4 поколение/Виджеты/Примеры/block_list_widget_type.md
-        - 4 поколение/Виджеты/Примеры/SimpleWidgetType.md
-    - Иконки:
-      - 4 поколение/Иконки/icons_editor.md
-      - 4 поколение/Иконки/icons_theme.md
+  - 4 поколение: 
     - Шаблон:
       - 4 поколение/Шаблон/index.md
       - 4 поколение/Шаблон/settings.json.md
-      - 4 поколение/Шаблон/setup.json.md
-    - 4 поколение/core.css.md
+      - 4 поколение/Шаблон/setup.json.md     
+    - Виджеты:
+      - 4 поколение/Виджеты/snippet.liquid.md
+      - 4 поколение/Виджеты/snippet.scss.md
+      - 4 поколение/Виджеты/snippet.js.md 
+      - 4 поколение/Виджеты/messages.md
+      - 4 поколение/Виджеты/settings_form.md
+      - 4 поколение/Виджеты/settings_data.md 
+      - 4 поколение/Виджеты/setup.md
+      - 4 поколение/Виджеты/preview.md 
+      - 4 поколение/Виджеты/info.md 
+      - 4 поколение/Виджеты/index.md        
+
+      - Примеры:
+        - 4 поколение/Виджеты/Примеры/SimpleWidgetType.md
+        - 4 поколение/Виджеты/Примеры/block_list_widget_type.md        
+    - Иконки:
+      - 4 поколение/Иконки/icons_editor.md
+      - 4 поколение/Иконки/icons_theme.md
+    - 4 поколение/core.css.md  
   - common.v2.js:
     - common.v2.js/1readme.md
     - common.v2.js/2Products.md

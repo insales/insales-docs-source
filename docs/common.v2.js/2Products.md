@@ -678,6 +678,17 @@ Products.initInstance($('.product-cart-control'))
    .fail(function (onFail) { console.log('onFail', onFail) });
 ```
 
+### getRecentlyViewed
+
+Возвращает массив с ID просмотренных товаров
+
+```js
+Products.getRecentlyViewed()
+   .done(function (onDone) { console.log('onDone', onDone) })
+   .fail(function (onFail) { console.log('onFail', onFail) });
+```
+
+
 ## События
 
 | Событие                           | Описание                                                                                           |

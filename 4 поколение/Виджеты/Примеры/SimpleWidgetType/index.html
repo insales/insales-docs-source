@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
     
     
       
@@ -20,7 +20,7 @@
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.815d1a91.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -54,7 +54,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -1526,10 +1526,9 @@
 <h1 id="_1">Простой виджет</h1>
 <p>В данном уроке мы создадим простой виджет (<a href="/4%20поколение/Виджеты/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет содержать текст, изображение и несколько настроек.</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
-<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код. В примере ниже мы указываем настройку виджета <code>widget_settings.banner_name</code>, слева в редакторе пользователь сможет поменять текст данной настройки. <code>widget_settings.banner-img</code> - картинку можно будет заменить через редактор. <code>{% if widget_settings.banner-img %}</code> - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне <code>img_width = widget_settings.layout-content-max-width</code><br />
-<br>
-<a name="snippet_liquid"></a>Пример кода:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
+<p>Редактируем snippet.liquid.</p>
+<p><a name="snippet_liquid"></a>Пример кода:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item-title h2&quot;</span><span class="p">&gt;</span>
     {{ widget_settings.banner_name }}
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -1554,6 +1553,9 @@
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
+<code>widget_settings.banner_name</code> - название баннера из настроек виджета <br> 
+<code>{% if widget_settings.banner-img %}</code> - условие если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне 
+<br></p>
 <h4 id="2-settings_formjson">Шаг 2 (settings_form.json)</h4>
 <p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/4%20поколение/Виджеты/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/4%20поколение/Виджеты/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
 <code>{{ messages.content }}</code> - Является заголовком группы - "Контент". Настройка <code>"banner-img"</code> типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка <code>"banner-img"</code> является основной <code>"general": true</code>, <code>"general_position": 1</code> - будет первой в списке основных настроек. Настройка с именем <code>"name": "font-size"</code>, предлагает пользователю выбрать размер текста в редакторе. А настройка <code>"name": "hide-title"</code> - предлагает скрыть заголовок в редакторе. Пример:

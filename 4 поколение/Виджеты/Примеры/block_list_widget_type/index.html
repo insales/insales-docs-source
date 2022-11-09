@@ -1554,10 +1554,9 @@
 <h1 id="_1">Виджет с блоками</h1>
 <p>В данном уроке мы создадим виджет с блоками (<a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">blockListWidgetType</a>), который будет содержать несколько блоков, внутри которых будут картинка и ссылка, и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/4%20поколение/Виджеты/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)</p>
 <h4 id="1-snippetliquid">Шаг 1 (snippet.liquid)</h4>
-<p>Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код. В примере ниже мы прописываем класс <code>grid-list</code>, внутри <code>div</code> мы используем цикл <code>{% for slide in data.blocks %}</code>, перебирая блоки <code>slide</code>. Затем проверяем не передается ли пустое строковое значение в ссылке блока <code>slide</code> - <code>{% if slide.link != "" %}</code>. Далее, внутри атрибута <code>href</code> мы указываем поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>link</code></a> блока <code>slide</code> - <code>{{ slide.link }}</code>. Когда мы указываем поле ссылка, в редакторе пользователь сможет перейти в параметры блока и указать ссылку самостоятельно. 
-Далее проверяем не передается ли пустое значение в картинке блока <code>slide</code> - <code>{% if slide.image %}</code>. Затем, внутри атрибута <code>data-src</code> мы указываем поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>image</code></a> блока <code>slide</code> - <code>{{ slide.image }}</code>. Когда мы указываем поле изображение, в редакторе пользователь сможет перейти в параметры блока и добавить картинку самостоятельно. </p>
+<p>Редактируем snippet.liquid. <br></p>
 <p>Пример кода:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list grid-list&quot;</span><span class="p">&gt;</span>
+<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list grid-list&quot;</span><span class="p">&gt;</span>
   {% for slide in data.blocks %}
   {% if slide.link != &quot;&quot; %}
   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ slide.link }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
@@ -1582,8 +1581,15 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% assign image_title = null %}
 </code></pre></div>
+<code>{% for slide in data.blocks %}</code> - цикл для перебора блоков <code>slide</code>. <br> 
+<code>{% if slide.link != "" %}</code> - проверка передачи пустого строкового значения в ссылке блока <code>slide</code>. <br> 
+<code>{{ slide.link }}</code> - внутри атрибута <code>href</code> мы указываем поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>link</code></a> блока <code>slide</code>. В редакторе будет отображаться пустое поле для ссылки.
+<br> 
+<code>{% if slide.image %}</code> - проверка передачи пустого значения в поле с изображением блока <code>slide</code>.
+<br> 
+<code>data-src="{{ slide.image }}</code> - поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>image</code></a> блока <code>slide</code>. В редакторе будет отображаться поле с загрузкой изображения.</p>
 <h4 id="2-setupjson">Шаг 2 (setup.json)</h4>
-<p>В файле setup мы прописываем количество блоков с параметрами 'image' и 'link', в примере ниже 6 блоков с пустыми ссылками и одинаковым изображениями. </p>
+<p>В файле setup мы прописываем блоки с параметрами <code>image</code> и <code>link</code>, в примере ниже 6 блоков с пустыми ссылками и одинаковыми изображениями. </p>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
@@ -1614,8 +1620,8 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="3-settings_formjson">Шаг 3 (settings_form.json)</h4>
-<p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/4%20поколение/Виджеты/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/4%20поколение/Виджеты/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
-<code>{{ messages.content }}</code> - Является заголовком группы - "Контент". Настройка <code>"banner-img"</code> типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка <code>"banner-img"</code> является основной <code>"general": true</code>, <code>"general_position": 1</code> - будет первой в списке основных настроек. Настройка с именем <code>"name": "font-size"</code>, предлагает пользователю выбрать размер текста в редакторе. А настройка <code>"name": "hide-title"</code> - предлагает скрыть заголовок в редакторе. Пример:
+<p>Редактируем settings_form.json. <br></p>
+<p>Пример кода:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;{{ messages.banner }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
@@ -1665,7 +1671,13 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<p><code>{{ messages.content }}</code> - является заголовком группы - "Контент". <br>
+<code>"banner-img"</code> - типа файл, предлагает загрузить пользователю картинку в редакторе. <br>
+<code>"general": true</code> - основная настройка. <br>
+<code>"general_position": 1</code> - порядок в списке основных настроек. <br> 
+<code>"name": "font-size"</code> - размер текста. <br>
+<code>"name": "hide-title"</code> - скрыть заголовок в редакторе.</p>
 <h4 id="4-messagesjson">Шаг 4 (messages.json)</h4>
 <p>В файле messages мы прописываем перевод ключа <code>hide_desktop</code> из settings_form.json на 4 языках. Более подробно можно почитать <a href="/4%20поколение/Виджеты/messages/">здесь</a>.</p>
 <p>Пример:
@@ -1685,10 +1697,8 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="5-settings_datajson">Шаг 5 (settings_data.json)</h4>
-<p>В данном файле мы прописываем значение настроек (settings_form.json), по умолчанию.
-<code>hide-desktop</code> - скрыть на детскопе, по умолчанию <code>false</code>, что означает что мы не скрываем на детскопе наш виджет по умолчанию. <code>grid-list-row-gap</code> - отступ по вертикали, в <code>2</code> rem.
-<code>grid-list-column-gap</code> - отступ по горизонтали, в <code>2</code> rem. <code>bg</code> - цвет фона по умолчанию <code>"#ffda33"</code></p>
-<p>Пример:</p>
+<p>Редактируем settings_data.json. <br>
+Пример:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;hide-desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;grid-list-row-gap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
@@ -1696,18 +1706,13 @@
 <span class="w">  </span><span class="nt">&quot;bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ffda33&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+<p><code>hide-desktop</code> - скрыть на детскопе, по умолчанию <code>false</code>, что означает что мы не скрываем на детскопе виджет. <br>
+<code>grid-list-row-gap</code> - отступ по вертикали, в <code>2</code> rem. <br>
+<code>grid-list-column-gap</code> - отступ по горизонтали, в <code>2</code> rem. <br>
+<code>bg</code> - цвет фона по умолчанию <code>"#ffda33"</code></p>
 <h4 id="6-infojson">Шаг 6 (info.json)</h4>
-<ul>
-<li><code>"generation": 4</code> - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются</li>
-<li><code>"type":"blockListWidgetType"</code> - Тип виджета с привязкой блоков</li>
-<li><code>"handle":"banner_with_button_1"</code> - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на <code>system_widget_</code></li>
-<li><code>"sku":"BG10"</code> - уникальный ID виджета</li>
-<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/4%20поколение/Виджеты/info/#page_kinds">ссылке</a></li>
-<li><code>"widget_list_kinds":["before_content", "content", "after_content"]</code> - виджет будет доступен на всех страницах шаблона</li>
-<li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/4%20поколение/Виджеты/info/#widget_category_handle">ссылке</a></li>
-<li><code>"name"</code> - имя виджета</li>
-<li><code>"description"</code> - описание виджета</li>
-<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступных библиотек можно посмотреть по <a href="/4%20поколение/Виджеты/info/#libraries">ссылке</a>
+<p>Редактируем info.json. <br>
+Пример:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blockListWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner_with_button_1&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1735,23 +1740,36 @@
 <span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div></li>
+</code></pre></div>
+<ul>
+<li><code>"generation": 4</code> - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются</li>
+<li><code>"type":"blockListWidgetType"</code> - Тип виджета с привязкой блоков</li>
+<li><code>"handle":"banner_with_button_1"</code> - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на <code>system_widget_</code></li>
+<li><code>"sku":"BG10"</code> - уникальный ID виджета</li>
+<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/4%20поколение/Виджеты/info/#page_kinds">ссылке</a></li>
+<li><code>"widget_list_kinds":["before_content", "content", "after_content"]</code> - виджет будет доступен на всех страницах шаблона</li>
+<li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/4%20поколение/Виджеты/info/#widget_category_handle">ссылке</a></li>
+<li><code>"name"</code> - имя виджета</li>
+<li><code>"description"</code> - описание виджета</li>
+<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступных библиотек можно посмотреть по <a href="/4%20поколение/Виджеты/info/#libraries">ссылке</a></li>
 </ul>
 <h4 id="7-previewjpg">Шаг 7 (preview.jpg)</h4>
-<p>Для загрузки превью виджета необходимо добавить в папку два файла с именами:</p>
+<p>Для загрузки превью виджета необходимо добавить в папку виджета два файла с именами:</p>
 <ul>
 <li><code>preview.jpg</code> | для десктопной версии устройства</li>
 <li><code>mobile_preview.jpg</code> | для мобильной версии устройства</li>
 </ul>
 <h4 id="8-snippetjs">Шаг 8 (snippet.js)</h4>
-<p>В данном примере реализуем ленивую загрузку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></p>
-<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<p>Редактируем snippet.js. <br>
+Пример:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="w"></span>
 <span class="w">    </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
+В данном примере реализуем ленивую загрузку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></p>
 <h4 id="9-snippetscss">Шаг 9 (snippet.scss)</h4>
 <p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек. Интегрируем миксин <code>@include background-color(--bg)</code> и посмотрим как он работает на практике: </p>
 <div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">include</span><span class="w"> </span><span class="nt">background-color</span><span class="o">(</span><span class="nt">--bg</span><span class="o">)</span><span class="p">;</span><span class="w"></span>

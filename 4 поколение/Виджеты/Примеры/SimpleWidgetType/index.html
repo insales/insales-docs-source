@@ -1557,8 +1557,8 @@
 <code>{% if widget_settings.banner-img %}</code> - условие если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне 
 <br></p>
 <h4 id="2-settings_formjson">Шаг 2 (settings_form.json)</h4>
-<p>Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/4%20поколение/Виджеты/settings_form/#setting_form_text">типа</a> <code>text</code> и поле с настройкой  <a href="/4%20поколение/Виджеты/settings_form/#setting_form_rich_texts">типа</a> <code>rich-text</code>. 
-<code>{{ messages.content }}</code> - Является заголовком группы - "Контент". Настройка <code>"banner-img"</code> типа файл, предлагает загрузить пользователю картинку в редакторе. Настройка <code>"banner-img"</code> является основной <code>"general": true</code>, <code>"general_position": 1</code> - будет первой в списке основных настроек. Настройка с именем <code>"name": "font-size"</code>, предлагает пользователю выбрать размер текста в редакторе. А настройка <code>"name": "hide-title"</code> - предлагает скрыть заголовок в редакторе. Пример:
+<p>Редактируем settings_form.json. <br>
+Пример:
 <a name="settings_form"></a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;{{ messages.content }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -1605,9 +1605,16 @@
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">]</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+<code>{{ messages.content }}</code> - является заголовком группы - "Контент". <br>
+<code>"banner-img"</code> - типа файл, предлагает загрузить пользователю картинку в редакторе. <br>
+<code>"general": true</code> - основная настройка. <br>
+<code>"general_position": 1</code> - порядок в списке основных настроек. <br> 
+<code>"name": "font-size"</code> - размер текста. <br>
+<code>"name": "hide-title"</code> - скрыть заголовок в редакторе.</p>
 <h4 id="3-settings_datajson">Шаг 3 (settings_data.json)</h4>
-<p>В данном файле мы прописываем значение настроек по умолчанию, они могут быть переведены на другие языки. А размер языка выбираем в 20 пикселей. Заголовок по умолчанию скрывать не будем. Картинка по умолчанию, по id из нашего магазина. Пример:
+<p>Редактируем settings_data.json. <br>
+Пример:
 <a name="settings_data"></a>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;banner_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1623,22 +1630,15 @@
 <span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Nos enfrentamos a esta pregunta cada vez antes de las vacaciones.&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="p">},</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;font-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;hide-title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;banner-img&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14935940&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;hide-title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+В данном файле мы прописываем значение настроек по умолчанию, они переведены на другие языки. <br>
+<code>"font-size": 20</code> - размер языка в 20 пикселей. <br>
+<code>"hide-title": false</code> - не скрывать заголовок.</p>
 <h4 id="4-infojson">Шаг 4 (info.json)</h4>
-<ul>
-<li><code>"generation": 4</code> - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются</li>
-<li><code>"type":"SimpleWidgetType"</code> - Тип виджета без привязки блоков</li>
-<li><code>"handle":"banner_with_button_1"</code> - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на <code>system_widget_</code></li>
-<li><code>"sku":"BB1"</code> - уникальный ID виджета</li>
-<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/4%20поколение/Виджеты/info/#page_kinds">ссылке</a></li>
-<li><code>"widget_list_kinds":["before_content", "content", "after_content"]</code> - виджет будет доступен на всех страницах шаблона</li>
-<li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/4%20поколение/Виджеты/info/#widget_category_handle">ссылке</a></li>
-<li><code>"name"</code> - имя виджета</li>
-<li><code>"description"</code> - описание виджета</li>
-<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступных библиотек можно посмотреть по <a href="/4%20поколение/Виджеты/info/#libraries">ссылке</a>
+<p>Редактируем info.json. <br>
+Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;SimpleWidgetType&quot;</span><span class="p">,</span><span class="w"></span>
@@ -1661,24 +1661,37 @@
 <span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="p">]</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</code></pre></div></li>
+</code></pre></div></p>
+<ul>
+<li><code>"generation": 4</code> - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются</li>
+<li><code>"type":"SimpleWidgetType"</code> - Тип виджета без привязки блоков</li>
+<li><code>"handle":"banner_with_button_1"</code> - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на <code>system_widget_</code></li>
+<li><code>"sku":"BB1"</code> - уникальный ID виджета</li>
+<li><code>"page_kinds":["all"]</code> - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/4%20поколение/Виджеты/info/#page_kinds">ссылке</a></li>
+<li><code>"widget_list_kinds":["before_content", "content", "after_content"]</code> - виджет будет доступен на всех страницах шаблона</li>
+<li><code>"widget_category_handle":"banner"</code> - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/4%20поколение/Виджеты/info/#widget_category_handle">ссылке</a></li>
+<li><code>"name"</code> - имя виджета</li>
+<li><code>"description"</code> - описание виджета</li>
+<li><code>"libraries"</code> - используемые библиотеки виджета в данном случае - jquery, my-layout, vanilla-lazyload. Список доступных библиотек можно посмотреть по <a href="/4%20поколение/Виджеты/info/#libraries">ссылке</a></li>
 </ul>
 <h4 id="5-previewjpg">Шаг 5 (preview.jpg)</h4>
-<p>Для загрузки превью виджета необходимо добавить в папку два файла с именами:</p>
+<p>Для загрузки превью виджета необходимо добавить в папку виджета два файла с именами:</p>
 <ul>
 <li><code>preview.jpg</code> | для десктопной версии устройства</li>
 <li><code>mobile_preview.jpg</code> | для мобильной версии устройства</li>
 </ul>
 <h4 id="6-snippetjs">Шаг 6 (snippet.js)</h4>
-<p>В данном примере реализуем ленивую загрузку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a>
-<a name="snippet_js"></a>
+<p>Редактируем snippet.js. <br>
+Пример:</p>
+<p><a name="snippet_js"></a>
 <div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="w"></span>
 <span class="w">    </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"></span>
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span><span class="w"></span>
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+В данном примере реализуем ленивую загрузку изображений с помощью плагина LazyLoad  | <a href="https://github.com/verlok/vanilla-lazyload" target="_blank">Github</a></p>
 <h4 id="7-snippetscss">Шаг 7 (snippet.scss)</h4>
 <p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек
 <a name="snippet_scss"></a>

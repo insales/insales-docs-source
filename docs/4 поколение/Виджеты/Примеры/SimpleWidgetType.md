@@ -3,9 +3,8 @@
 В данном уроке мы создадим простой виджет (<a href="/4%20поколение/Виджеты/info/#SimpleWidgetType">SimpleWidgetType</a>), который будет содержать текст, изображение и несколько настроек.
 
 #### Шаг 1 (snippet.liquid)
+Редактируем snippet.liquid.
 
-Создаем файл snippet.liquid или мы можем поменять код в редакторе, нажав кнопку "редактировать код". Используем html разметку и liquid код. В примере ниже мы указываем настройку виджета `widget_settings.banner_name`, слева в редакторе пользователь сможет поменять текст данной настройки. `widget_settings.banner-img` - картинку можно будет заменить через редактор. `{% if widget_settings.banner-img %}` - если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне `img_width = widget_settings.layout-content-max-width`  
-<br>
 <a name="snippet_liquid"></a>Пример кода:
 
 ```html
@@ -34,7 +33,9 @@
   </div>
 </div>
 ```
-
+`widget_settings.banner_name` - название баннера из настроек виджета <br> 
+`{% if widget_settings.banner-img %}` - условие если картинка загружена, то ширину картинки берем из общих настроек контента в шаблоне 
+<br>
 #### Шаг 2 (settings_form.json)
 
 Теперь в файле settings_form.json мы прописываем настройку с полем <a href="/4%20поколение/Виджеты/settings_form/#setting_form_text">типа</a> `text` и поле с настройкой  <a href="/4%20поколение/Виджеты/settings_form/#setting_form_rich_texts">типа</a> `rich-text`. 

@@ -61,27 +61,27 @@
 ```json
 {
   "blocks": [{
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     },
     {
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     },
     {
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     },
     {
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     },
     {
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     },
     {
-      "image": "16779404",
+      "image": "23802459",
       "link": "#"
     }
   ]
@@ -96,44 +96,52 @@
 
 ```json
 {
-  "{{ messages.banner }}": [{
-    "items": [{
-        "class": "range",
-        "name": "grid-list-row-gap",
-        "min": 0,
-        "max": 3,
-        "step": 0.5,
-        "unit": "rem",
-        "label": "{{ messages.vertical_padding_between_blocks }}",
-        "type":"number",
+  "{{ messages.banner }}":[
+    {
+      "group_name":"{{ messages.indentation }}",
+      "items": [
+        {
+          "class":"range",
+          "name":"grid-list-row-gap",
+          "min":0,
+          "max":10,
+          "step":0.5,
+          "unit":"rem",
+          "label":"{{ messages.vertical_padding_between_blocks }}",
+          "type":"number",
           "with_btns": true
-      },
-      {
-        "class": "range",
-        "name": "grid-list-column-gap",
-        "min": 0,
-        "max": 3,
-        "step": 0.5,
-        "unit": "rem",
-        "label": "{{ messages.horizontal_padding_between_blocks }}",
-        "type":"number",
-        "with_btns": true
-      },
-  
-  "{{ messages.label_widget }}": [{
-      "group_name": "{{ messages.background }}",
-      "items": [{
-          "name": "bg",
-          "label": "{{ messages.widget_background_color }}",
-          "value": "",
-          "type": "color",
+        },
+        {
+          "class":"range",
+          "name":"grid-list-column-gap",
+          "min":0,
+          "max":10,
+          "step":0.5,
+          "unit":"rem",
+          "label":"{{ messages.horizontal_padding_between_blocks }}",
+          "type":"number",
+          "with_btns": true
+        }
+      ]
+    }
+  ],
+  "{{ messages.label_widget }}": [
+    {
+      "group_name":"{{ messages.background }}",
+      "items": [
+        {
+          "name":"bg",
+          "label":"{{ messages.widget_background_color }}",
+          "value":"",
+          "type":"color",
           "clearable": true
         }
       ]
     },
     {
-      "group_name": "{{ messages.adaptive }}",
-      "items": [{
+      "group_name":"{{ messages.adaptive }}",
+      "items": [
+        {
           "class": "checkbox",
           "name": "hide-desktop",
           "label": "{{ messages.hide_desktop }}",
@@ -144,6 +152,7 @@
     }
   ]
 }
+
 ```
 
 `{{ messages.content }}` - является заголовком группы - "Контент". <br>
@@ -184,7 +193,7 @@
   "hide-desktop": false,
   "grid-list-row-gap": 2,
   "grid-list-column-gap": 2,
-  "bg": "#ffda33"
+  "bg": "#ddd9d6"
 }
 
 

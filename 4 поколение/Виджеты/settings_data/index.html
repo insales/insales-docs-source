@@ -1445,12 +1445,44 @@
 
 <h1 id="settings_datajson">settings_data.json</h1>
 <p>Значения по умолчанию для настроек, указанных в <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> </p>
+<p>В settings_data.json мы прописываем настройки виджета по умолчанию. Уникальное имя настройки прописывается в поле <code>"name"</code> в файле <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a>. У настройки есть параметр <code>"type"</code>, какие бывают типы настроек можно прочитать <a href="/4%20поколение/Виджеты/settings_form/">здесь</a>. В зависимости от типа настройки существует допустимые значения.</p>
+<table>
+<thead>
+<tr>
+<th>Тип настройки</th>
+<th>Допустимый тип данных</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"type":"text"</td>
+<td>тип string (строка)</td>
+<td><code>"left"</code></td>
+</tr>
+<tr>
+<td>"type":"number"</td>
+<td>тип number (число)</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td>"type":"checkbox"</td>
+<td>Boolean (булевый тип)</td>
+<td><code>true</code> или <code>false</code></td>
+</tr>
+<tr>
+<td>"type":"color"</td>
+<td>тип string (строка), формат значения RGB</td>
+<td><code>"#FFFFFF"</code></td>
+</tr>
+<tr>
+<td>"type":"text"</td>
+<td>тип object (объект)</td>
+<td><code>"button-text": {"ru": "Текст кнопки","en": "Button text"}</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="json">Пример json формата:</h4>
-<ul>
-<li><code>true</code> или <code>false</code> - Boolean | булевый тип</li>
-<li><code>2</code> - тип number | Число</li>
-<li><code>"left"</code> - тип string | строка</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;layout-wide-bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;layout-wide-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
@@ -1466,7 +1498,13 @@
 <span class="w">  </span><span class="nt">&quot;img-position&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;img-fit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cover&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;align-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;banner-text-color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ffffff&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;banner-text-color&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ffffff&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;button-text&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Текст кнопки&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Текст кнопки&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Button text&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Texto del button&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h4 id="_1">Текстовые поля</h4>

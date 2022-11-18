@@ -1554,7 +1554,7 @@
 С блоками (необходимо добавить файл <a href="/4%20поколение/Виджеты/setup/">setup.json</a> с указанием параметром блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blockListWidgetType&quot;</span><span class="w"></span>
 </code></pre></div>
-Доступные шаблоны блоков описаны <a href="/4%20поколение/Виджеты/info/#_8">здесь</a></p>
+Шаблон блока это поля с разными типами настроек. Доступные шаблоны блоков описаны <a href="/4%20поколение/Виджеты/info/#_8">здесь</a></p>
 <h4 id="_3">Типы виджетов, примеры:</h4>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">blockListWidgetType (виджет с блоками)</label></div>
 <div class="tabbed-content">
@@ -1650,100 +1650,117 @@
 <li>Истории | stories</li>
 </ul>
 <h4 id="_8">Шаблон привязанных блоков</h4>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span><span class="w"></span>
+<p>Внутри блока есть поля настройки, которые можно поменять в редакторе. 
+Для каждого набора полей есть свой уникальный шаблон. Можно выбрать существующий, а можно создать свой в панели администратора. </p>
+<p>Нужно перейти в <code>Настройки -&gt; Настройки сайта -&gt; Шаблоны блоков</code>. Url - <code>Имя_вашего_магазина/admin2/block_templates</code>.
+В столбце поля перечислены типы используемых полей. Слева указан идентификатор, который прописывается в значении параметра <code>block_template_handle</code>.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span><span class="w"></span>
 </code></pre></div>
-<p>Доступные шаблоны блоков:</p>
-<ul>
-<li><code>system-banner</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Пропорции - <code>ratio</code> (тип поля в редакторе - Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-banner-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-banner-3</code> | Поля:  Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-banner-4</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-banner-5</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение на мобильном - <code>image-mobile</code> (тип поля в редакторе - Файл), Заголовок - <code>caption</code> (тип поля в редакторе - (Текст), Название - <code>name</code> (тип поля в редакторе - Текст), Текст на кнопке - <code>link-text</code> (тип поля в редакторе - Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-banner-6</code> | Поля:  Изображение - <code>image</code> (тип поля в редакторе - Файл), Заголовок - <code>caption</code> (тип поля в редакторе - (Текст), Подзаголовок - <code>subtitle</code> (тип поля в редакторе - (Текст), Описание - <code>description</code> (тип поля в редакторе - HTML), Текст ссылки - <code>link-text</code> (тип поля в редакторе - Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Выравнивание - <code>text-align</code> (тип поля в редакторе - Выпадающий список)
-<a name="systembanner7"></a></li>
-<li><code>system-banner-7</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл),  Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li>
-<p><code>system-banner-8</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</p>
-</li>
-<li>
-<p><code>system-banner-block-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Универсальная ссылка), Текст ссылки - <code>button_text</code> (Текст)</p>
-</li>
-<li><code>system-banner-block-3</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Карта - <code>map</code> (Текст)</li>
-<li><code>system-banner-image-text</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Положение изображения - <code>image_position</code> (Выпадающий список), Ссылка на изображение - <code>link_image</code> (Текст), Текст - <code>content</code> (HTML)</li>
-<li><code>system-banner-mansonry</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Контент - <code>content</code> (HTML), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл), Соотношение сторон - <code>ratio</code> (Высота / Ширина) (Выпадающий список)</li>
-<li><code>system-banner-video</code> <a name="blocks_example"></a> | Поля: Ссылка - <code>link</code> (тип поля в редакторе - Текст), Заставка - <code>image</code> (Файл)</li>
-<li><code>system-banner-video-2</code> | Поля: Ссылка - <code>link</code> (Универсальная ссылка), Заставка - <code>image</code> (Файл)</li>
-<li><code>system-benefit</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-benefit-2</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-collection</code> | Поля: Категория - <code>name</code> (Категория)</li>
-<li><code>system-collection-2</code> | Поля: Название вкладки - <code>name</code> (Текст), Категория - <code>collection</code> (Категория)</li>
-<li><code>system-collection-3</code> | Поля: Категория - <code>collection</code> (Категория), Заголовок - <code>name</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-collection-4</code> | Поля: Категория - <code>collection</code> (Категория), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-collection-5</code> | Поля: Товар - <code>product</code> (Товар), Расположение по горизонтали - <code>raspolozhenie-po-gorizontali</code> (Число из диапазона с полем ввода), Расположение по вертикали - <code>raspolozhenie-po-vertikali</code> (Число из диапазона с полем ввода), Скрывать цену - <code>skryvat-tsenu</code> (Чекбокс), Скрывать название - <code>skryvat-nazvanie</code> (Чекбокс), Скрывать изображение - <code>skryvat-kartinku</code> (Чекбокс)</li>
-<li>
-<p><code>system-collection-with-description</code> | Поля: Коллекция - <code>collection</code> (Категория), Описание - <code>description</code> (HTML)</p>
-</li>
-<li>
-<p><code>system-custom-block</code> | Поля: Контент - <code>content</code> (HTML), Фон - <code>theme</code> (Выпадающий список), Ширина блока - <code>cells</code> (Выпадающий список), Ширина блока на планшете - <code>cells_sm</code> (Выпадающий список), Ширина блока на телефоне - <code>cells_xs</code> (Выпадающий список), Вертикальное выравнивание внутри блока - <code>align_self</code> (Выпадающий список), Вертикальный отступ блока - <code>padding_y</code> (Выпадающий список), Горизонтальный отступ блока - <code>padding_x</code> (Выпадающий список), Скругление углов - <code>border_radius</code> (Выпадающий список)  </p>
-</li>
-<li>
-<p><code>system-element-header</code> | Поля: Элемент - <code>element</code> (Выпадающий список), Ширина блока [десктоп] - <code>cell_desktop</code> (Выпадающий список), Выравнивание - <code>align_desktop</code> [десктоп] (Выпадающий список), Скрыть - <code>hide_desktop</code> [десктоп] (Чекбокс), Ширина блока - <code>cell_tablet</code> [планшет] (Выпадающий список), Выравнивание - <code>align_tablet</code> [планшет] (Выпадающий список), Скрыть - <code>hide_tablet</code> [планшет] (Чекбокс), Ширина блока - <code>cell_phone</code> [телефон] (Выпадающий список), Выравнивание - <code>align_phone</code> [телефон] (Выпадающий список), Скрыть - <code>hide_phone</code> [телефон] (Чекбокс), Контент для элемента "Текст" - <code>content</code> (HTML)</p>
-</li>
-<li>
-<p><code>system-faq</code> | Поля: Вопрос - <code>question</code> (Текст), Ответ - <code>answer</code> (HTML)</p>
-</li>
-<li>
-<p><code>system-faq-2</code> | Поля:    Вопрос - <code>question</code> (Текст), Ответ - <code>answer</code> (HTML)</p>
-</li>
-<li>
-<p><code>system-form-constructor</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Тип поля - <code>type</code> (Выпадающий список), Значения - <code>type</code> (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-form-constructor-2</code> | Поля: Тип поля- <code>type</code> (Выпадающий список), Ширина поля- <code>cells</code>(Выпадающий список), Название - <code>label</code> (тип поля в редакторе - Текст), Подсказка - <code>placeholder</code> (только для текста и текстовая область) (Текст), Значения - <code>values</code> (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-form-constructor-3</code> | Поля: Тип поля - <code>type</code> (Выпадающий список), Название - <code>label</code> (тип поля в редакторе - Текст), Обязательное поле - <code>required</code> (Чекбокс)</p>
-</li>
-<li>
-<p><code>system-image</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл)</p>
-</li>
-<li>
-<p><code>system-image-and-content</code> | Поля: Вертикальная позиция изображения - <code>vertical_position</code> (Выпадающий список), Скрыть изображение? - <code>hide_image</code> (Чекбокс), Текст - <code>content</code> (HTML), Горизонтальная позиция изображения - <code>horizontal_position</code> (Выпадающий список), Изображение - <code>image</code> (тип поля в редакторе - Файл)</p>
-</li>
-<li>
-<p><code>system-image-link-text</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Кнопка - <code>link</code> (Текст), Текст кнопки - <code>link_text</code> (Текст)</p>
-</li>
-<li><code>system-image_text</code> | Поля: Текст - <code>text</code> (HTML), Изображение - <code>image</code> (Файл)</li>
-<li><code>system-image-text-button-icon</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Описание - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Текст кнопки - <code>button_text</code> (Текст), Иконка - <code>icon</code> (Файл)</li>
-<li><code>system-messenger</code> | Поля: Заголовок - <code>caption</code> (Текст), Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Цвет - <code>color</code> (Текст)</li>
-<li><code>system-messengers</code> | Поля: Заголовок - <code>caption</code> (Текст), Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Цвет- <code>color</code> (Цвет)</li>
-<li><code>system-payments</code> | Поля: Ссылка - <code>link</code> (Текст)</li>
-<li><code>system-payments-prime</code> | Поля: Иконка - <code>image</code> (Файл), Название - <code>name</code> (title) (Текст)</li>
-<li><code>system-payments-social</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Иконка - <code>image</code> (Файл), Тип - <code>type</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-personal</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Описание - <code>description</code> (HTML), Подзаголовок - <code>subtitle</code> (Текст), Заголовок - <code>name</code> (Текст)</li>
-<li><code>system-promo-slide</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Текст)</li>
-<li><code>system-promo-slide-2</code> | Поля: Описание - <code>description</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (Универсальная ссылка)</li>
-<li><code>system-promo-slider-2</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл), Надпись на кнопке - <code>button_title</code> (Текст)</li>
-<li><code>system-promo-slider-3</code> | Поля: Надпись на кнопке - <code>button_title</code> (Текст), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Изображение - <code>image</code> (тип поля в редакторе - Файл), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст)</li>
-<li><code>system-promo-slider-4</code> | Поля: Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст), Ссылка - <code>link</code> (тип поля в редакторе - Текст), Изображение - <code>image</code> (Файл)</li>
-<li><code>system-promo-slider-5</code> | Поля: Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Изображение - <code>image</code> (Файл), Надпись на кнопке - <code>button_title</code> (Текст)</li>
-<li><code>system-promo-slider-6</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Надпись на кнопке - <code>button_title</code> (Текст)</li>
-<li><code>system-promo-slider-7</code> | Поля: Описание - <code>description</code> (Текст), Заголовок - <code>name</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка), Изображение - <code>image</code> (Файл)</li>
-<li><code>system-promo-slider-8</code> | Поля: Изображение - <code>image</code> (тип поля в редакторе - Файл), Изображение для мобильных устройств - <code>image_mobile</code> (Файл), Заголовок - <code>name</code> (Текст), Описание - <code>description</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка)</li>
-<li><code>system-review</code> | Поля: Скрыть изображение? - <code>hide_image</code> (Чекбокс), Текст - <code>content</code> (HTML), Имя - <code>name</code> (Текст), Позиция изображения - <code>image_position</code> (Выпадающий список), Изображение - <code>image</code> (тип поля в редакторе - Файл)</li>
-<li><code>system-review-2</code> | Поля: Скрыть изображение? - <code>hide_image</code> (Чекбокс), Имя - <code>name</code> (Текст), Текст - <code>content</code> (HTML), Изображение - <code>image</code> (Файл)</li>
-<li><code>system-review-4</code> | Поля: Заголовок - <code>name</code> (Текст), Подзаголовок - <code>company</code> (Текст), Текст - <code>content</code> (HTML), Изображение - <code>image</code> (тип поля в редакторе - Файл), Скрыть изображение? - <code>hide_image</code> (Чекбокс)</li>
-<li><code>system-review-shop</code> | Поля: Имя  - <code>name</code>(Текст), Текст - <code>content</code> (HTML), Рейтинг - <code>rating</code> (Число из диапазона со слайдером), Дата - <code>date</code> (Текст), Изображение - <code>image</code> (тип поля в редакторе - Файл), Скрыть изображение? - <code>hide_image</code> (Чекбокс)</li>
-<li><code>system-review-social</code> | Поля: Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-social-2</code> | Поля: Иконка - <code>icons</code> (Выпадающий список), Ссылка - <code>link</code> (тип поля в редакторе - Текст)</li>
-<li><code>system-special_products</code> | Поля: Заголовок - <code>name</code> (Текст), Категория - <code>collection</code> (Категория)</li>
-<li><code>system-text-column</code> | Поля: Контент - <code>content</code> (HTML)</li>
-<li><code>system-text-hex</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Цвет - <code>hex</code> (hex формат) (Текст)</li>
-<li><code>system-text-hex-2</code> | Поля: Название - <code>name</code> (тип поля в редакторе - Текст), Цвет - <code>hex</code> (Цвет)</li>
-<li><code>system-text-link</code> | Поля: Текст - <code>text</code> (Текст), Ссылка - <code>link</code> (Универсальная ссылка)</li>
-<li><code>system-title-and-content</code> | Поля: Содержание - <code>content</code> (HTML)</li>
-<li><code>system-widget-feedback</code> | Поля: Текст на кнопке - <code>submit-text</code> (Текст)</li>
-</ul>
+Чтобы создать свой шаблон блока, нужно нажать <code>добавить</code>, указать название и идентификатор. Затем нажать на иконку карандаша, чтобы добавить нужные поля. Далее нужно нажать <code>добавить</code> под заголовком поля. 
+Название на русском, идентификатор латинскими буквами. 
+В качестве примера можно создать шаблон блока для изображения со ссылкой. 
+Название - баннер. Идентификатор - <code>banner-image-link</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Название</th>
+<th>Идентификатор</th>
+<th>Тип</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ссылка</td>
+<td>link</td>
+<td>Текст</td>
+</tr>
+<tr>
+<td>Изображение</td>
+<td>image</td>
+<td>Файл</td>
+</tr>
+</tbody>
+</table>
+<p>Чтобы использовать созданный шаблон блока необходимо указать индентификатор:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner-image-link&quot;</span><span class="w"></span>
+</code></pre></div></p>
+<!-- 
+Доступные шаблоны блоков:
+
+- `system-banner` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Пропорции - `ratio` (тип поля в редакторе - Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-banner-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-banner-3` | Поля:  Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-banner-4` | Поля: Изображение - `image` (тип поля в редакторе - Файл)
+- `system-banner-5` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение на мобильном - `image-mobile` (тип поля в редакторе - Файл), Заголовок - `caption` (тип поля в редакторе - (Текст), Название - `name` (тип поля в редакторе - Текст), Текст на кнопке - `link-text` (тип поля в редакторе - Текст), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-banner-6` | Поля:  Изображение - `image` (тип поля в редакторе - Файл), Заголовок - `caption` (тип поля в редакторе - (Текст), Подзаголовок - `subtitle` (тип поля в редакторе - (Текст), Описание - `description` (тип поля в редакторе - HTML), Текст ссылки - `link-text` (тип поля в редакторе - Текст), Ссылка - `link` (тип поля в редакторе - Текст), Выравнивание - `text-align` (тип поля в редакторе - Выпадающий список)
+<a name="systembanner7"></a>
+- `system-banner-7` | Поля: Изображение - `image` (тип поля в редакторе - Файл),  Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-banner-8` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
+
+- `system-banner-block-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Универсальная ссылка), Текст ссылки - `button_text` (Текст)
+- `system-banner-block-3` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Карта - `map` (Текст)
+- `system-banner-image-text` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Положение изображения - `image_position` (Выпадающий список), Ссылка на изображение - `link_image` (Текст), Текст - `content` (HTML)
+- `system-banner-mansonry` | Поля: Название - `name` (тип поля в редакторе - Текст), Контент - `content` (HTML), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл), Соотношение сторон - `ratio` (Высота / Ширина) (Выпадающий список)
+- `system-banner-video` <a name="blocks_example"></a> | Поля: Ссылка - `link` (тип поля в редакторе - Текст), Заставка - `image` (Файл)
+- `system-banner-video-2` | Поля: Ссылка - `link` (Универсальная ссылка), Заставка - `image` (Файл)
+- `system-benefit` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл)
+- `system-benefit-2` | Поля: Заголовок - `name` (Текст), Описание - `description` (HTML), Изображение - `image` (тип поля в редакторе - Файл)
+- `system-collection` | Поля: Категория - `name` (Категория)
+- `system-collection-2` | Поля: Название вкладки - `name` (Текст), Категория - `collection` (Категория)
+- `system-collection-3` | Поля: Категория - `collection` (Категория), Заголовок - `name` (Текст), Изображение - `image` (тип поля в редакторе - Файл)
+- `system-collection-4` | Поля: Категория - `collection` (Категория), Изображение - `image` (тип поля в редакторе - Файл)
+- `system-collection-5` | Поля: Товар - `product` (Товар), Расположение по горизонтали - `  raspolozhenie-po-gorizontali` (Число из диапазона с полем ввода), Расположение по вертикали - `raspolozhenie-po-vertikali` (Число из диапазона с полем ввода), Скрывать цену - `skryvat-tsenu` (Чекбокс), Скрывать название - `skryvat-nazvanie` (Чекбокс), Скрывать изображение - `skryvat-kartinku` (Чекбокс)
+- `system-collection-with-description` | Поля: Коллекция - `collection` (Категория), Описание - `description` (HTML)
+
+- `system-custom-block` | Поля: Контент - `content` (HTML), Фон - `theme` (Выпадающий список), Ширина блока - `cells` (Выпадающий список), Ширина блока на планшете - `cells_sm` (Выпадающий список), Ширина блока на телефоне - `cells_xs` (Выпадающий список), Вертикальное выравнивание внутри блока - `align_self` (Выпадающий список), Вертикальный отступ блока - `padding_y` (Выпадающий список), Горизонтальный отступ блока - `padding_x` (Выпадающий список), Скругление углов - `border_radius` (Выпадающий список)  
+
+- `system-element-header` | Поля: Элемент - `element` (Выпадающий список), Ширина блока [десктоп] - `   cell_desktop` (Выпадающий список), Выравнивание - `align_desktop` [десктоп] (Выпадающий список), Скрыть - `hide_desktop` [десктоп] (Чекбокс), Ширина блока - `cell_tablet` [планшет] (Выпадающий список), Выравнивание - `align_tablet` [планшет] (Выпадающий список), Скрыть - `hide_tablet` [планшет] (Чекбокс), Ширина блока - `cell_phone` [телефон] (Выпадающий список), Выравнивание - `align_phone` [телефон] (Выпадающий список), Скрыть - `hide_phone` [телефон] (Чекбокс), Контент для элемента "Текст" - `content` (HTML)
+
+- `system-faq` | Поля: Вопрос - `question` (Текст), Ответ - `answer` (HTML)
+
+- `system-faq-2` | Поля:    Вопрос - `question` (Текст), Ответ - `answer` (HTML)
+- `system-form-constructor` | Поля: Название - `name` (тип поля в редакторе - Текст), Тип поля - `type` (Выпадающий список), Значения - `type` (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - `required` (Чекбокс)
+
+- `system-form-constructor-2` | Поля: Тип поля- `type` (Выпадающий список), Ширина поля- `cells`(Выпадающий список), Название - `label` (тип поля в редакторе - Текст), Подсказка - `placeholder` (только для текста и текстовая область) (Текст), Значения - `values` (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - `required` (Чекбокс)
+
+- `system-form-constructor-3` | Поля: Тип поля - `type` (Выпадающий список), Название - `label` (тип поля в редакторе - Текст), Обязательное поле - `required` (Чекбокс)
+
+- `system-image` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (Файл)
+
+- `system-image-and-content` | Поля: Вертикальная позиция изображения - `vertical_position` (Выпадающий список), Скрыть изображение? - `hide_image` (Чекбокс), Текст - `content` (HTML), Горизонтальная позиция изображения - `horizontal_position` (Выпадающий список), Изображение - `image` (тип поля в редакторе - Файл)
+
+- `system-image-link-text` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Кнопка - `link` (Текст), Текст кнопки - `link_text` (Текст)
+- `system-image_text` | Поля: Текст - `text` (HTML), Изображение - `image` (Файл)
+- `system-image-text-button-icon` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст), Текст кнопки - `button_text` (Текст), Иконка - `icon` (Файл)
+- `system-messenger` | Поля: Заголовок - `caption` (Текст), Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст), Цвет - `color` (Текст)
+- `system-messengers` | Поля: Заголовок - `caption` (Текст), Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст), Цвет- `color` (Цвет)
+- `system-payments` | Поля: Ссылка - `link` (Текст)
+- `system-payments-prime` | Поля: Иконка - `image` (Файл), Название - `name` (title) (Текст)
+- `system-payments-social` | Поля: Название - `name` (тип поля в редакторе - Текст), Иконка - `image` (Файл), Тип - `type` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-personal` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Описание - `description` (HTML), Подзаголовок - `subtitle` (Текст), Заголовок - `name` (Текст)
+- `system-promo-slide` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Текст)
+- `system-promo-slide-2` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Универсальная ссылка)
+- `system-promo-slider-2` | Поля: Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл), Надпись на кнопке - `button_title` (Текст)
+- `system-promo-slider-3` | Поля: Надпись на кнопке - `button_title` (Текст), Изображение для мобильных устройств - `image_mobile` (Файл), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст), Описание - `description` (Текст), Заголовок - `name` (Текст)
+- `system-promo-slider-4` | Поля: Описание - `description` (Текст), Заголовок - `name` (Текст), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл)
+- `system-promo-slider-5` | Поля: Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка), Изображение - `image` (Файл), Надпись на кнопке - `button_title` (Текст)
+- `system-promo-slider-6` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение для мобильных устройств - `image_mobile` (Файл), Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка), Надпись на кнопке - `button_title` (Текст)
+- `system-promo-slider-7` | Поля: Описание - `description` (Текст), Заголовок - `name` (Текст), Ссылка - `link` (Универсальная ссылка), Изображение - `image` (Файл)
+- `system-promo-slider-8` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение для мобильных устройств - `image_mobile` (Файл), Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка)
+- `system-review` | Поля: Скрыть изображение? - `hide_image` (Чекбокс), Текст - `content` (HTML), Имя - `name` (Текст), Позиция изображения - `image_position` (Выпадающий список), Изображение - `image` (тип поля в редакторе - Файл)
+- `system-review-2` | Поля: Скрыть изображение? - `hide_image` (Чекбокс), Имя - `name` (Текст), Текст - `content` (HTML), Изображение - `image` (Файл)
+- `system-review-4` | Поля: Заголовок - `name` (Текст), Подзаголовок - `company` (Текст), Текст - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Скрыть изображение? - `hide_image` (Чекбокс)
+- `system-review-shop` | Поля: Имя  - `name`(Текст), Текст - `content` (HTML), Рейтинг - `rating` (Число из диапазона со слайдером), Дата - `date` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Скрыть изображение? - `hide_image` (Чекбокс)
+- `system-review-social` | Поля: Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-social-2` | Поля: Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
+- `system-special_products` | Поля: Заголовок - `name` (Текст), Категория - `collection` (Категория)
+- `system-text-column` | Поля: Контент - `content` (HTML)
+- `system-text-hex` | Поля: Название - `name` (тип поля в редакторе - Текст), Цвет - `hex` (hex формат) (Текст)
+- `system-text-hex-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Цвет - `hex` (Цвет)
+- `system-text-link` | Поля: Текст - `text` (Текст), Ссылка - `link` (Универсальная ссылка)
+- `system-title-and-content` | Поля: Содержание - `content` (HTML)
+- `system-widget-feedback` | Поля: Текст на кнопке - `submit-text` (Текст) -->
+
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BlockListWidgetType&quot;</span><span class="p">,</span><span class="w"></span>

@@ -450,7 +450,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Другие примеры:
+    Другие примеры
   </a>
   
 </li>
@@ -1418,7 +1418,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    Другие примеры:
+    Другие примеры
   </a>
   
 </li>
@@ -1444,13 +1444,13 @@
 
 
 <h1 id="snippetliquid">snippet.liquid</h1>
-<p>Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a></p>
+<p>Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>. Код виджета будет обернут в блок с классом <code>layout</code> и автоматически генерируемом уникальным классом виджета. У родительского класса <a href="/4%20поколение/core.css/">layout</a> при изменении настроек в редакторе меняется значение css переменных в атрибуте <code>style</code>.</p>
 <h4 id="_1">В примере ниже:</h4>
 <ul>
 <li>Получить значения настроек виджета из файла <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> можно с помощью liquid-переменной <code>widget_settings</code>. Например, значение настройки ширины контента можно так:
 <div class="highlight"><pre><span></span><code>{{ widget_settings.layout-wide-content }}
 </code></pre></div></li>
-<li>Если виджет блочный, то блоки можно получить из liquid-переменной <code>data.blocks</code>.
+<li>Если виджет блочный, то <a href="/4%20поколение/Виджеты/info/#SimpleWidgetType">блоки</a> можно получить из liquid-переменной <code>data.blocks</code>.
 Пример цикла для перебора блоков и получения значения свойства блока: 
 <div class="highlight"><pre><span></span><code>{% for block in data.blocks %}
 
@@ -1458,7 +1458,7 @@
 
 {% endfor %}
 </code></pre></div></li>
-<li><code>block.name</code> - название указанное в блоке. Доступные поля можно посмотреть - <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a></li>
+<li><code>block.name</code> - название указанное в блоке. Доступные поля можно посмотреть <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a></li>
 </ul>
 <h4 id="_2">Пример:</h4>
 <div class="highlight"><pre><span></span><code>{% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}
@@ -1535,8 +1535,8 @@
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
-<h4 id="_3">Другие примеры:</h4>
-<p>Если вам нужно узнать какие переменные доступны на странице, или какие есть свойства у объекта, то используйте help:</p>
+<h4 id="_3">Другие примеры</h4>
+<p>Если вам нужно узнать, какие переменные доступны на странице или какие есть свойства у объекта, то используйте help:</p>
 <p><code>{% help %}</code> - выведет доступные переменные.</p>
 <p><code>{% help account %}</code> - выведет список свойств объекта account</p>
 <p>Liquid-переменная <code>widget_messages</code> содержит переводы текстов для разных языковых версий из файла <a href="/4%20поколение/Виджеты/messages/">messages.json</a></p>

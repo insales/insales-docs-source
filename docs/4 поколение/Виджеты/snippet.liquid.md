@@ -8,7 +8,7 @@
 ```HTML 
 {{ widget_settings.layout-wide-content }}
 ```
-- Если виджет блочный, то блоки можно получить из liquid-переменной `data.blocks`.
+- Если виджет блочный, то <a href="/4%20поколение/Виджеты/info/#SimpleWidgetType">блоки</a> можно получить из liquid-переменной `data.blocks`.
 Пример цикла для перебора блоков и получения значения свойства блока: 
 ```HTML 
 {% for block in data.blocks %}

@@ -13,8 +13,10 @@ hide:
                 <dt><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0 3 7l1.63 1.27L12 14l7.36-5.73L21 7l-9-7m7.37 10.73L12 16.47l-7.38-5.73L3 12l9 7 9-7-1.63-1.27m0 5L12 21.47l-7.38-5.73L3 17l9 7 9-7-1.63-1.27Z"></path></svg></span>Шаблоны</dt>
                         <dd><a class="black" href="/4%20поколение/Шаблон/">Шаблоны</a> состоят из <a href="/4%20поколение/Виджеты/" class="black">виджетов</a> и файлов с настройками 
                             <ul>
-                                <li><a href="/4%20поколение/Шаблон/setup.json/">Setup</a><span class="bg-gray">setup.json</span></a></li>
+                            <li><a href="/4%20поколение/Шаблон/layout.liquid/">Layout для страниц <span class="bg-gray">layout.liquid</span></a></li>
+                                <li><a href="/4%20поколение/Шаблон/setup.json/">Setup </a><span class="bg-gray">setup.json</span></a></li>
                                 <li><a href="/4%20поколение/Шаблон/settings.json/">Settings <span class="bg-gray">settings.json</span></a></li>
+                                <li><a href="/4%20поколение/Шаблон/messages.json/">Messages <span class="bg-gray">messages.json</span></a></li>
                             </ul>
                         </dd>
                 <dt><a href="/4%20поколение/Виджеты/" class=""><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3h8v4.34l5.66-5.65 5.65 5.65L16.66 13H21v8h-8v-8h3.66L11 7.34V11H3V3m0 10h8v8H3v-8Z"></path></svg></span>Виджеты</a></dt>

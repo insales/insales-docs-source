@@ -1548,6 +1548,7 @@
 <li>Шаблон значений параметра, если он задан как числовой</li>
 </ul>
 </li>
+<li>Шаблон элемента прелоадера для списка характеристик</li>
 </ul>
 <p>Чтобы показать зависимость шаблонов значений от шаблона элемента фильтра, в списке они показаны как вложенные, однако ни один из шаблонов не вложен в другой. Каждый из них — это отдельная часть кода внутри формы. Для того чтобы всё работало корректно, в коде формы рекомендуется использовать все перечисленные шаблоны.</p>
 <h2 id="_3">События</h2>
@@ -1725,6 +1726,12 @@
           <span class="p">/&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+  <span class="cm">&lt;!-- Шаблон элемента прелоадера для списка характеристик --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-items-template-preloader</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-filter-items-preloader</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>

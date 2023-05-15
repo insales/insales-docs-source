@@ -2,11 +2,19 @@
 
 Значения по умолчанию для настроек, указанных в <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> 
 
-#### Пример json формата:
 
-- `true` или `false` - Boolean | булевый тип
-- `2` - тип number | Число
-- `"left"` - тип string | строка
+В settings_data.json мы прописываем настройки виджета по умолчанию. Уникальное имя настройки прописывается в поле `"name"` в файле <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a>. У настройки есть параметр `"type"`, какие бывают типы настроек можно прочитать <a href="/4%20поколение/Виджеты/settings_form/">здесь</a>. В зависимости от типа настройки существует допустимые значения.
+
+
+|Тип настройки|Допустимый тип данных|Пример|
+|-|-|-|
+|"type":"text"|тип string (строка)|`"left"`|
+|"type":"number"|тип number (число)|`2`|
+|"type":"checkbox"|Boolean (булевый тип)|`true` или `false`|
+|"type":"color"|тип string (строка), формат значения RGB|`"#FFFFFF"`|
+|"type":"text"|тип object (объект)|`"button-text": {"ru": "Текст кнопки","en": "Button text"}`|
+
+#### Пример json формата:
 
 ```json
 {
@@ -24,7 +32,13 @@
   "img-position": "left",
   "img-fit": "cover",
   "align-content": "start",
-  "banner-text-color": "#ffffff"
+  "banner-text-color": "#ffffff",
+  "button-text": {
+    "ru": "Текст кнопки",
+    "ua": "Текст кнопки",
+    "en": "Button text",
+    "es": "Texto del button"
+  }
 }
 ```
 

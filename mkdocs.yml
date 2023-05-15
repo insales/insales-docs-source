@@ -20,6 +20,8 @@ nav:
   - 4 поколение:
     - Шаблон:
       - 4 поколение/Шаблон/index.md
+      - 4 поколение/Шаблон/layout.liquid.md
+      - 4 поколение/Шаблон/messages.json.md     
       - 4 поколение/Шаблон/settings.json.md
       - 4 поколение/Шаблон/setup.json.md
     - Виджеты:
@@ -76,7 +78,7 @@ nav:
         - Примеры работы с данными магазина/reCAPTCHA/v3.md
         - Примеры работы с данными магазина/reCAPTCHA/z.InSales.md
       - site_currencies:
-        - Примеры работы с данными магазина/images_for_options/index.md
+        - Примеры работы с данными магазина/site_currencies/index.md
   - InSales API:
     - InSales API/01 readme.md
     # - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md

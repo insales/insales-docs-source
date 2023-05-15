@@ -17,32 +17,32 @@ extra_javascript:
 
 nav:
   - index.md
-  - 4 поколение: 
+  - 4 поколение:
     - Шаблон:
       - 4 поколение/Шаблон/index.md
       - 4 поколение/Шаблон/layout.liquid.md
       - 4 поколение/Шаблон/messages.json.md     
       - 4 поколение/Шаблон/settings.json.md
-      - 4 поколение/Шаблон/setup.json.md     
+      - 4 поколение/Шаблон/setup.json.md
     - Виджеты:
       - 4 поколение/Виджеты/snippet.liquid.md
       - 4 поколение/Виджеты/snippet.scss.md
-      - 4 поколение/Виджеты/snippet.js.md 
+      - 4 поколение/Виджеты/snippet.js.md
       - 4 поколение/Виджеты/messages.md
       - 4 поколение/Виджеты/settings_form.md
-      - 4 поколение/Виджеты/settings_data.md 
+      - 4 поколение/Виджеты/settings_data.md
       - 4 поколение/Виджеты/setup.md
-      - 4 поколение/Виджеты/preview.md 
-      - 4 поколение/Виджеты/info.md 
-      - 4 поколение/Виджеты/index.md        
+      - 4 поколение/Виджеты/preview.md
+      - 4 поколение/Виджеты/info.md
+      - 4 поколение/Виджеты/index.md
 
       - Примеры:
         - 4 поколение/Виджеты/Примеры/SimpleWidgetType.md
-        - 4 поколение/Виджеты/Примеры/block_list_widget_type.md        
+        - 4 поколение/Виджеты/Примеры/block_list_widget_type.md
     - Иконки:
       - 4 поколение/Иконки/icons_editor.md
       - 4 поколение/Иконки/icons_theme.md
-    - 4 поколение/core.css.md  
+    - 4 поколение/core.css.md
   - common.v2.js:
     - common.v2.js/1readme.md
     - common.v2.js/2Products.md
@@ -51,12 +51,16 @@ nav:
     - common.v2.js/5Compare.md
     - common.v2.js/6FavoritesProducts.md
     - common.v2.js/7EventBus.md
-    - common.v2.js/8ajaxAPI.md  
+    - common.v2.js/8ajaxAPI.md
+    - AJAX-товары:
+      - common.v2.js/ajax-products/README.md
+      - common.v2.js/ajax-products/ui-ajax-product.md
+      - common.v2.js/ajax-products/ui-ajax-products.md
     - common.v2.js/9ui-ajax-filters.md
     - common.v2.js/10ui-feedback.md
     - common.v2.js/11ui-trigger-events.md
-    - common.v2.js/12Template.md   
-    - common.v2.js/13InSalesUI.md    
+    - common.v2.js/12Template.md
+    - common.v2.js/13InSalesUI.md
     - common.v2.js/14Shop.md
 
   - Примеры работы с данными магазина:
@@ -82,9 +86,9 @@ nav:
     # - InSales API/04 API для работы с частичными скидками.md
     # - InSales API/05 InSales API - Widgets.md
     # - InSales API/06 InSales API - Счета приложения.md
-      
-        
-  
+
+
+
 
 
 
@@ -93,7 +97,7 @@ extra:
     language: 'en, ru'
 
 markdown_extensions:
-  - attr_list 
+  - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -101,8 +105,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
-  - codehilite   
+      alternate_style: true
+  - codehilite
   - md_in_html
   - pymdownx.critic
   - pymdownx.caret

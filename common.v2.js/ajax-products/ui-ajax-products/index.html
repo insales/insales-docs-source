@@ -2274,7 +2274,7 @@
 <ol>
 <li>На странице, где вы хотите использовать компонент, создайте блок с атрибутом <code>data-ajax-products</code>.</li>
 <li>Внутри этого блока разместите другой блок с атрибутом <code>data-ajax-products-list</code>, в который будут добавляться товары.</li>
-<li>Задайте значения атрибута <code>data-ajax-products-list</code>, указывая настройки для загрузки товаров:<ul>
+<li>В значение атрибута <code>data-ajax-products-list</code> передайте объект с настройками:<ul>
 <li><code>collection</code> — handle категории, из которой нужно получить товары</li>
 <li><code>limit</code> — максимальное количество товаров для загрузки</li>
 <li><code>imageResizingRules</code> — правила изменения размеров изображений товаров, их формат, качество и параметры изменения размера</li>
@@ -2290,9 +2290,9 @@
 <span class="s">    &quot;collection&quot;: &quot;my-collection&quot;,</span>
 <span class="s">    &quot;limit&quot;: &quot;20&quot;,</span>
 <span class="s">    &quot;imageResizingRules&quot;: [</span>
-<span class="s">      {&quot;size&quot;:&quot;{{ img_width }}&quot;, &quot;format&quot;:&quot;webp&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;},</span>
-<span class="s">      {&quot;size&quot;:&quot;{{ img_width_mobile }}&quot;, &quot;format&quot;:&quot;webp&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;},</span>
-<span class="s">      {&quot;size&quot;:&quot;{{ img_width }}&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;}</span>
+<span class="s">      {&quot;size&quot;:&quot;1000&quot;, &quot;format&quot;:&quot;webp&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;},</span>
+<span class="s">      {&quot;size&quot;:&quot;500&quot;, &quot;format&quot;:&quot;webp&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;},</span>
+<span class="s">      {&quot;size&quot;:&quot;100&quot;, &quot;resizing_type&quot;:&quot;fit_width&quot;, &quot;quality&quot;:&quot;100&quot;}</span>
 <span class="s">    ],</span>
 <span class="s">    &quot;hideVariants&quot;: &quot;true&quot;,</span>
 <span class="s">    &quot;switchImages&quot;: &quot;false&quot;,</span>
@@ -2303,7 +2303,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="_2">Инициализация компонента</h2>
-<p>После события <code>DOMContentLoaded</code>, в компоненте происходит подписка на событие <code>ui-ajax-products:load-products-list</code>. Чтобы инициализировать компонент, нужно опубликовать это событие через JavaScript и передать в него DOM-элемент с атрибутом <code>data-ajax-products-list</code>.</p>
+<p>После события <code>DOMContentLoaded</code> в компоненте происходит подписка на событие <code>ui-ajax-products:load-products-list</code>. Чтобы инициализировать компонент, нужно опубликовать это событие через JavaScript и передать в него DOM-элемент с атрибутом <code>data-ajax-products-list</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Получаем массив с элементами с атрибутом data-ajax-products-list</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">productListNodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;[data-ajax-products-list]&#39;</span><span class="p">));</span>
 
@@ -2335,7 +2335,7 @@
 <span class="w">  </span><span class="c1">// Например, здесь может быть код инициализации слайдера или других интерактивных элементов.</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Теперь, когда вы подписались на событие <code>init-products:ui-ajax-products</code>, ваша функция <code>initAjaxProductsCallback</code> будет вызвана после того, как товары будут успешно загружены и отрисованы на странице. В этой функции вы можете выполнять любые действия, связанные с полученными товарами, такие как инициализация слайдеров, применение фильтров или добавление анимаций.</p>
+<p>Теперь, когда вы подписались на событие <code>init-products:ui-ajax-products</code>, ваша функция <code>initAjaxProductsCallback</code> будет вызвана после того, как товары будут успешно загружены и отрисованы на странице. В этой функции вы можете выполнять любые действия, связанные с полученными товарами, такие как: инициализация слайдеров, применение фильтров или добавление анимаций.</p>
 <h2 id="_4">Подробно о шаблонах</h2>
 <p>Шаблоны играют ключевую роль в структурировании и отображении превью товаров. Чтобы лучше понять их функциональность, давайте разобьем превью товара на древовидную структуру:</p>
 <ul>
@@ -2348,14 +2348,14 @@
 <p>Для рендера каждой отдельной ветки вышеописанного дерева в Common.js были реализованы отдельные шаблоны.</p>
 <p>Всего реализовано 4 шаблона:</p>
 <ul>
-<li>Шаблон превью товара (<code>data-ajax-products-list-item-template</code>)<ul>
-<li>Шаблон изображения товара (<code>data-ajax-products-list-item-image-template</code>)</li>
-<li>Шаблон для вывода значений свойств вариантов в виде изображений (<code>data-ajax-products-list-item-option-values-images-item-template</code>)</li>
-<li>Шаблон для вывода значений свойств вариантов в виде текста  (<code>data-ajax-products-list-item-option-values-item-text-template</code>)</li>
+<li>Шаблон превью товара (<a href="#data-ajax-products-list-item-template"><code>data-ajax-products-list-item-template</code></a>)<ul>
+<li>Шаблон изображения товара (<a href="#data-ajax-products-list-item-image-template"><code>data-ajax-products-list-item-image-template</code></a>)</li>
+<li>Шаблон для вывода значений свойств вариантов в виде изображений (<a href="#data-ajax-products-list-item-option-values-images-item-template"><code>data-ajax-products-list-item-option-values-images-item-template</code></a>)</li>
+<li>Шаблон для вывода значений свойств вариантов в виде текста  (<a href="#data-ajax-products-list-item-option-values-item-text-template"><code>data-ajax-products-list-item-option-values-item-text-template</code></a>)</li>
 </ul>
 </li>
 </ul>
-<p>Чтобы показать зависимость других шаблонов от шаблона превью товара, они указаны в списке как вложенные, хотя ни один из шаблонов не является дочерним по отношению к другому. Каждый из них представляет собой отдельный фрагмент кода внутри блока с атрибутом <code>data-ajax-products</code>. Для корректной работы достаточно использовать первые два шаблона. Шаблоны для вывода значений свойств являются необязательными, но могут быть полезными, если вы хотите показать значения свойств при наведении на превью, как это сделано в виджете товаров определенной категории SP12.</p>
+<p>Чтобы показать зависимость других шаблонов от шаблона превью товара, они указаны в списке как вложенные, хотя ни один из них не является дочерним по отношению к другому. Каждый представляет собой отдельный фрагмент кода внутри блока с атрибутом <code>data-ajax-products</code>. Для корректной работы достаточно использовать первые два шаблона. Шаблоны для вывода значений свойств являются необязательными, но могут быть полезными, если вы хотите показать значения свойств при наведении на превью, как это сделано в виджете товаров определенной категории SP12.</p>
 <h3 id="data-ajax-products-list-item-template">data-ajax-products-list-item-template</h3>
 <p>Основной шаблон, отвечающий за отрисовку превью каждого товара из запрашиваемой категории.</p>
 <h4 id="_5">Корневые элементы</h4>
@@ -2381,7 +2381,7 @@
 <h4 id="data-ajax-products-list-item-form_1">Вложенные элементы формы товара (<code>data-ajax-products-list-item-form</code>)</h4>
 <h5 id="data-ajax-products-list-item-title">data-ajax-products-list-item-title</h5>
 <p>Добавляет название товара в <code>textContent</code> элемента.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span>
   <span class="na">data-ajax-products-list-item-title</span>
 <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
@@ -2397,14 +2397,14 @@
 <p>Атрибут для рендера <a href="#data-ajax-products-list-item-image-template">шаблона</a> вывода изображения товара (<code>data-ajax-products-list-item-image-template</code>).</p>
 <h5 id="data-ajax-products-list-item-short-description">data-ajax-products-list-item-short-description</h5>
 <p>Атрибут для вывода краткого описания товара внутри элемента.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">data-ajax-products-list-item-short-description</span>
 <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-products-list-item-price-min">data-ajax-products-list-item-price-min</h5>
 <p>Атрибут для вывода минимальной цены товара. Может быть использован для товаров с вариантами, у которых отличаются цены.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span>
   <span class="na">data-ajax-products-list-item-price-min</span>
 <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
@@ -2429,7 +2429,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Чтобы скрыть ненужные элементы, вы можете использовать классы на форме товара, которые перечислены <a href="#data-ajax-products-list-item-form_2">здесь</a></p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span>
     <span class="na">class</span><span class="o">=</span><span class="s">&quot;product-preview__price-max&quot;</span>
     <span class="na">data-ajax-products-list-item-price-max</span>
@@ -2439,7 +2439,7 @@
 <p>Атрибут для вывода максимальной цены товара. Может быть использован для товаров с вариантами, у которых отличаются цены.</p>
 <h5 id="data-ajax-products-list-item-variants-select-block">data-ajax-products-list-item-variants-select-block</h5>
 <p>Позволяет вывести селектор для выбора варианта товара. Работает по тому же принципу, как и в случае со <a href="/common.v2.js/2Products/#data-product-variants">стандартной карточкой товара</a>, только вид отображения необходимо передать в значении атрибута <code>data-ajax-products-list-item-variants-select-block</code>, а не <code>data-product-variants</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">data-ajax-products-list-item-variants-select-block</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">    &quot;default&quot;: &quot;option-radio&quot;,</span>
@@ -2453,7 +2453,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-products-list-item-add-cart">data-ajax-products-list-item-add-cart</h5>
-<p>Удаляет из разметки элемент, которому назначен этот атрибут, если товара нет в наличии и в настройках магазина включена опция "Запретить заказывать больше чем есть в наличии".</p>
+<p>Удаляет из разметки элемент, которому назначен этот атрибут, если товара нет в наличии и в настройках магазина включена опция "Запретить заказывать больше, чем есть в наличии".</p>
 <p>Например, если описанное выше условие истинно, то весь блок ниже будет удалён из разметки:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">data-ajax-products-list-item-add-cart</span>
@@ -2472,7 +2472,7 @@
 </ol>
 <p>Для вывода значений свойств в виде изображений необходимо создать вложенный блок с атрибутом <code>data-ajax-products-list-item-option-values-images</code>.</p>
 <p>Текстовые значения будут автоматически разбиты на отдельные блоки и добавлены в блок с атрибутом <code>data-ajax-products-list-item-option-values</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">data-ajax-products-list-item-option-values</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">    &quot;imagesOptionNames&quot;: &quot;цвет,color,расцветка,цвет товара&quot;</span>
@@ -2490,7 +2490,7 @@
 <p>Управлять отображением элементов вы можете с помощью <a href="#data-ajax-products-list-item-option-values_1">классов</a>.</p>
 <h5 id="data-ajax-products-list-item-stickers">data-ajax-products-list-item-stickers</h5>
 <p>Позволяет отобразить стикеры (значения параметра товара, у которого <code>handle</code> равен <code>label</code>). В качестве вложенных элементов могут быть использованы стандартные элементы формы товара, такие как <code>data-product-card-sale-value</code> (скидка на товар, если старая цена выше цены продажи) или ваши собственные стикеры.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">class</span><span class="o">=</span><span class="s">&quot;stickers&quot;</span>
   <span class="na">data-ajax-products-list-item-stickers</span>
@@ -2506,7 +2506,7 @@
 </code></pre></div>
 <h5 id="data-ajax-products-list-item-favorites-trigger">data-ajax-products-list-item-favorites-trigger</h5>
 <p>Позволяет добавить кнопку для добавления товара в избранное. Работает в связке со стандартным атрибутом <code>data-ui-favorites-trigger</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.favorite_enabled %}
 <span class="p">&lt;</span><span class="nt">span</span>
   <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_size-s favorites_btn&quot;</span>
@@ -2518,7 +2518,7 @@
 <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
-<p>Для корректной работы кнопки после загрузки и отрисовки товаров, необходимо вызвать метод <code>update</code> класса <code>FavoritesProducts</code>.</p>
+<p>Для корректной работы кнопки после загрузки и отрисовки товаров необходимо вызвать метод <code>update</code> класса <code>FavoritesProducts</code>.</p>
 <p>Пример кода на JavaScript:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Подписываемся на событие init-products:ui-ajax-products, чтобы после загрузки и отрисовки товаров продолжить работу с ними</span>
 <span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;init-products:ui-ajax-products&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">initAjaxProductsCallback</span><span class="p">);</span>
@@ -2527,13 +2527,13 @@
 <span class="w">    </span><span class="c1">// Обновляем состояние избранных товаров</span>
 <span class="w">    </span><span class="nx">FavoritesProducts</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 
-<span class="w">    </span><span class="c1">// Код который должен выполниться после того как товары были загружены и отрисованы. Например, здесь может быть код инициализации слайдера.</span>
+<span class="w">    </span><span class="c1">// Код, который должен выполниться после того, как товары были загружены и отрисованы. Например, здесь может быть код инициализации слайдера.</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Подробнее о работе с избранными товарами можно узнать <a href="/common.v2.js/6FavoritesProducts/">здесь</a>.</p>
 <h5 id="data-ajax-products-list-item-compare-trigger">data-ajax-products-list-item-compare-trigger</h5>
 <p>Работает аналогично атрибуту избранных товаров.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.compare_enabled == null or settings.compare_enabled %}
 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;product__compare&quot;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">span</span>
@@ -2559,7 +2559,7 @@
 <span class="w">    </span><span class="nx">FavoritesProducts</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 <span class="w">    </span><span class="nx">Compare</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
 
-<span class="w">    </span><span class="c1">// Код который должен выполниться после того как товары были загружены и отрисованы. Например, здесь может быть код инициализации слайдера.</span>
+<span class="w">    </span><span class="c1">// Код, который должен выполниться после того, как товары были загружены и отрисованы. Например, здесь может быть код инициализации слайдера.</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Подробнее о работе со сравнением товаров можно узнать <a href="/common.v2.js/5Compare/">здесь</a>.</p>

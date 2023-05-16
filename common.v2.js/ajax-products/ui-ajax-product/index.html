@@ -2423,7 +2423,7 @@
 <h2 id="_1">Как это работает</h2>
 <ol>
 <li>На странице, где вы хотите использовать компонент, создайте блок с атрибутом <code>data-ajax-product</code>.</li>
-<li>Задайте значения атрибута <code>data-ajax-product</code>, указывая настройки для загрузки товаров:<ul>
+<li>В значение атрибута <code>data-ajax-product</code> передайте объект с настройками:<ul>
 <li><code>productId</code> — ID товара в InSales, который нужно получить и вывести</li>
 <li><code>productData</code> — сюда необходимо передать в виде массива строк данные товара, которые вы хотите получить. Полный список доступных данных можно найти по <a href="#productdata">ссылке</a>.</li>
 <li><code>initOnLoadPage</code> — определяет, нужно ли загружать и отрисовывать данные о товаре сразу после загрузки страницы (событие <code>DOMContentLoaded</code>). Возможные значения: <code>true</code>/<code>false</code></li>
@@ -2501,7 +2501,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="_4">Подробно о шаблонах</h2>
-<p>Шаблоны играют важную роль в структурировании и представлении информации о товаре. Для понимания принципов работы шаблонов, рассмотрим структуру карточки товара в виде иерархического дерева:</p>
+<p>Шаблоны играют важную роль в структурировании и представлении информации о товаре. Для понимания принципов работы шаблонов рассмотрим структуру карточки товара в виде иерархического дерева:</p>
 <ul>
 <li>Карточка товара<ul>
 <li>Галерея изображений</li>
@@ -2515,14 +2515,14 @@
 <p>В Common.js для каждого уровня данного дерева реализованы специализированные шаблоны.</p>
 <p>Всего предусмотрено 7 шаблонов:</p>
 <ul>
-<li>Шаблон карточки товара (<code>data-ajax-product-template</code>)<ul>
-<li>Шаблон галереи фото и видео товара (<code>data-ajax-product-gallery-template</code>)</li>
-<li>Шаблон с единственным фото товара (<code>data-ajax-product-one-photo-template</code>)</li>
-<li>Шаблон краткого описания товара (<code>data-ajax-product-short-description-template</code>)</li>
-<li>Шаблон полного описания товара (<code>data-ajax-product-full-description-template</code>)</li>
-<li>Шаблон параметров товара (<code>data-ajax-product-properties-template</code>)</li>
-<li>Шаблон компонента комплекта (<code>data-ajax-product-bundle-components-item-template</code>)</li>
-<li>Шаблон вывода названий и значений свойств компонента комплекта (<code>data-ajax-product-bundle-components-item-options-template</code>)</li>
+<li>Шаблон карточки товара (<a href="#data-ajax-product-template"><code>data-ajax-product-template</code></a>)<ul>
+<li>Шаблон галереи фото и видео товара (<a href="#data-ajax-product-gallery-template"><code>data-ajax-product-gallery-template</code></a>)</li>
+<li>Шаблон с единственным фото товара (<a href="#data-ajax-product-one-photo-template"><code>data-ajax-product-one-photo-template</code></a>)</li>
+<li>Шаблон краткого описания товара (<a href="#data-ajax-product-short-description-template"><code>data-ajax-product-short-description-template</code></a>)</li>
+<li>Шаблон полного описания товара (<a href="#data-ajax-product-full-description-template"><code>data-ajax-product-full-description-template</code></a>)</li>
+<li>Шаблон параметров товара (<a href="#data-ajax-product-properties-template"><code>data-ajax-product-properties-template</code></a>)</li>
+<li>Шаблон компонента комплекта (<a href="#data-ajax-product-bundle-components-item-template"><code>data-ajax-product-bundle-components-item-template</code></a>)</li>
+<li>Шаблон вывода названий и значений свойств компонента комплекта (<a href="#data-ajax-product-bundle-components-item-options-template"><code>data-ajax-product-bundle-components-item-options-template</code></a>)</li>
 </ul>
 </li>
 </ul>
@@ -2532,7 +2532,7 @@
 <h4 id="data-ajax-product-form">Вложенные элементы формы товара (<code>data-ajax-product-form</code>)</h4>
 <h5 id="data-ajax-product-title">data-ajax-product-title</h5>
 <p>Добавляет название товара в <code>textContent</code> элемента.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-ajax-product-title</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-link">data-ajax-product-link</h5>
@@ -2544,7 +2544,7 @@
 </code></pre></div>
 <h5 id="data-ajax-product-stickers">data-ajax-product-stickers</h5>
 <p>Позволяет отобразить стикеры (значения параметра товара, у которого <code>handle</code> равен <code>label</code>). В качестве дочерних элементов можно использовать стандартные элементы формы товара, такие как <code>data-product-card-sale-value</code> (скидка на товар, если старая цена выше цены продажи) или ваши собственные стикеры.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">class</span><span class="o">=</span><span class="s">&quot;stickers&quot;</span>
   <span class="na">data-ajax-product-stickers</span>
@@ -2565,13 +2565,13 @@
 </div>
 <h5 id="data-ajax-product-sizes-table-btn">data-ajax-product-sizes-table-btn</h5>
 <p>Удаляет элемент из разметки, если у товара отсутствует вариант со свойством, название которого соответствует переданным значениям. Исключение составляет случай, когда товар является комплектом.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-sizes-table-btn</span><span class="o">=</span><span class="s">&quot;Размер,Size&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;</span>Размерная сетка<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-add-cart">data-ajax-product-add-cart</h5>
-<p>Удаляет элемент из разметки, если товара нет в наличии и в настройках магазина активирована опция "Запретить заказывать больше, чем есть в наличии".</p>
+<p>Удаляет элемент из разметки, если товара нет в наличии, и в настройках магазина активирована опция "Запретить заказывать больше, чем есть в наличии".</p>
 <p>Например, если описанное выше условие истинно, то весь нижеприведенный блок будет удален из разметки:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-add-cart</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">data-item-add</span><span class="p">&gt;</span>
@@ -2581,7 +2581,7 @@
 </code></pre></div>
 <h5 id="data-ajax-product-gallery">data-ajax-product-gallery</h5>
 <p>Атрибут для отрисовки <a href="#data-ajax-product-gallery-template">шаблона галереи товара (<code>data-ajax-product-gallery-template</code>)</a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-gallery</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-one-photo">data-ajax-product-one-photo</h5>
@@ -2590,7 +2590,7 @@
 </code></pre></div>
 <h5 id="data-ajax-product-variants-select-block">data-ajax-product-variants-select-block</h5>
 <p>Позволяет выводить селектор для выбора варианта товара. Работает по тому же принципу, что и в случае со <a href="/common.v2.js/2Products/#data-product-variants">стандартной карточкой товара</a>, но вид отображения должен быть указан в значении атрибута <code>data-ajax-product-variants-select-block</code>, а не <code>data-product-variants</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-ajax-product-variants-select-block</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">    &quot;default&quot;: &quot;{% if widget_settings.display-property-color == &quot;option-radio&quot; %}option-radio{% else %}option-span{% endif %}&quot;,</span>
@@ -2610,12 +2610,12 @@
 </div>
 <h5 id="data-ajax-product-short-description">data-ajax-product-short-description</h5>
 <p>Атрибут для отрисовки <a href="#data-ajax-product-short-description-template">шаблона краткого описания товара (<code>data-ajax-product-short-description-template</code>)</a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-short-description</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-full-description">data-ajax-product-full-description</h5>
 <p>Атрибут для отрисовки <a href="#data-ajax-product-full-description-template">шаблона краткого описания товара (<code>data-ajax-product-full-description-template</code>)</a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-full-description</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-properties">data-ajax-product-properties</h5>
@@ -2624,7 +2624,7 @@
  - <code>maxCount</code> - ограничивает максимальное количество выводимых параметров (по умолчанию 100 штук)
  - <code>maxVisibleItemsCount</code> - указывает количество отображаемых параметров, остальным элементам с параметрами будет присвоен класс <code>ajax-product-property-hidden</code>
  - <code>excludeHandles</code> - позволяет указать через запятую handle параметров, которые не должны выводиться</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-ajax-product-properties</span><span class="o">=</span><span class="s">&#39;{</span>
 <span class="s">      &quot;maxCount&quot;: &quot;100&quot;,</span>
@@ -2635,12 +2635,12 @@
 </code></pre></div>
 <h5 id="data-ajax-product-unit">data-ajax-product-unit</h5>
 <p>Добавляет единицы измерения товара в <code>textContent</code> элемента.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-ajax-product-unit</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h5 id="data-ajax-product-favorites-trigger">data-ajax-product-favorites-trigger</h5>
 <p>Позволяет добавить кнопку для добавления товара в избранное. Работает в связке со стандартным атрибутом <code>data-ui-favorites-trigger</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.favorite_enabled %}
 <span class="p">&lt;</span><span class="nt">span</span>
     <span class="na">data-ui-favorites-trigger</span>
@@ -2666,7 +2666,7 @@
 <p>Подробнее о работе с избранными товарами можно узнать <a href="/common.v2.js/6FavoritesProducts/">здесь</a>.</p>
 <h5 id="data-ajax-product-compare-trigger">data-ajax-product-compare-trigger</h5>
 <p>Позволяет добавить кнопку для добавления товара в сравнение. Работает в связке со стандартным атрибутом <code>data-compare-trigger</code>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.compare_enabled == null or settings.compare_enabled %}
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span>
@@ -2700,7 +2700,7 @@
 <p>Подробнее о работе со сравнением товаров можно узнать <a href="/common.v2.js/5Compare/">здесь</a>.</p>
 <h5 id="data-ajax-product-bundle-discount">data-ajax-product-bundle-discount</h5>
 <p>Если товар является комплектом и имеет скидку, то выводит скидку на весь комплект.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;product__bundle-discount&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;product__bundle-discount-label&quot;</span><span class="p">&gt;</span>{{messages.product_bundle_discount_label}}:<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">span</span>
@@ -2713,7 +2713,7 @@
 <p>Атрибут для отрисовки <a href="#data-ajax-product-bundle-components-item-template">шаблона вывода компонентов комплекта (<code>data-ajax-product-bundle-components-item-template</code>)</a>, если товар является комплектом.</p>
 <p>Во время загрузки комплекта элементу будет присвоен класс <code>ajax-product-bundle-items-loading</code>. После загрузки комплекта и его отображения будет присвоен класс <code>ajax-product-bundle-items-loaded</code>.</p>
 <p>Полный список классов доступен по <a href="#css">ссылке</a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-bundle-components</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-ajax-product-gallery-template">Шаблон для отрисовки галереи товара: <code>data-ajax-product-gallery-template</code></h3>
@@ -2854,7 +2854,7 @@
 <li><code>data-ajax-product-gallery-media-preview</code> — добавляет атрибут <code>src</code> со ссылкой на картинку-заглушку.</li>
 <li><code>data-ajax-product-gallery-media-content</code> — заменяет элемент на элемент <code>&lt;video&gt;</code> с внутренним источником (<code>&lt;source&gt;</code>).</li>
 </ul>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Шаблон галереи фото и видео товара --&gt;</span>
 <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-product-gallery-template</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-gallery-main-video</span><span class="p">&gt;</span>
@@ -2988,7 +2988,7 @@
 <p>Добавляет цену варианта товара в <code>textContent</code> элемента. Если цена варианта товара равна нулю, элемент с атрибутом <code>data-ajax-product-bundle-components-item</code> получает класс <code>ajax-product-bundle-item-is-free</code>.</p>
 <h5 id="data-ajax-product-bundle-components-item-options">data-ajax-product-bundle-components-item-options</h5>
 <p>Атрибут используется для отрисовки шаблона, содержащего названия и значения свойств варианта товара (<code>data-ajax-product-bundle-components-item-options-template</code>), о котором можно узнать по <a href="#data-ajax-product-bundle-components-item-options-template">ссылке</a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Шаблон компонента комплекта --&gt;</span>
 <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-product-bundle-components-item-template</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-ajax-product-bundle-components-item</span><span class="p">&gt;</span>
@@ -3037,7 +3037,7 @@
 <h3 id="data-ajax-product-bundle-components-item-options-template">Шаблон для отрисовки названий и значений свойств компонента комплекта: <code>data-ajax-product-bundle-components-item-options-template</code></h3>
 <p>Шаблон для отрисовки названий и значений свойств вариантов товаров, являющихся компонентами комплекта. Внутри шаблона обязательно должен присутствовать элемент с атрибутом <code>data-ajax-product-bundle-components-item-options-item</code>, содержащий название и/или значение свойства.</p>
 <p>Шаблон можно подключить внутри шаблона компонента комплекта <code>data-ajax-product-bundle-components-item-template</code> с помощью элемента с атрибутом <a href="#data-ajax-product-bundle-components-item-options"><code>data-ajax-product-bundle-components-item-options</code></a>.</p>
-<p>Пример:</p>
+<p>Пример использования:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Шаблон вывода названий и значений свойств компонента комплекта --&gt;</span>
 <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-product-bundle-components-item-options-template</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>

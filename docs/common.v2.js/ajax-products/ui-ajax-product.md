@@ -7,7 +7,7 @@
 ## Как это работает
 
 1. На странице, где вы хотите использовать компонент, создайте блок с атрибутом `data-ajax-product`.
-2. Задайте значения атрибута `data-ajax-product`, указывая настройки для загрузки товаров:
+2. В значение атрибута `data-ajax-product` передайте объект с настройками:
     - `productId` — ID товара в InSales, который нужно получить и вывести
     - `productData` — сюда необходимо передать в виде массива строк данные товара, которые вы хотите получить. Полный список доступных данных можно найти по [ссылке](#productdata).
     - `initOnLoadPage` — определяет, нужно ли загружать и отрисовывать данные о товаре сразу после загрузки страницы (событие `DOMContentLoaded`). Возможные значения: `true`/`false`
@@ -100,7 +100,7 @@ function initAjaxProductCallback(data) {
 
 ## Подробно о шаблонах
 
-Шаблоны играют важную роль в структурировании и представлении информации о товаре. Для понимания принципов работы шаблонов, рассмотрим структуру карточки товара в виде иерархического дерева:
+Шаблоны играют важную роль в структурировании и представлении информации о товаре. Для понимания принципов работы шаблонов рассмотрим структуру карточки товара в виде иерархического дерева:
 
 -  Карточка товара
 	- Галерея изображений
@@ -113,14 +113,14 @@ function initAjaxProductCallback(data) {
 
 Всего предусмотрено 7 шаблонов:
 
- - Шаблон карточки товара (`data-ajax-product-template`)
-	 - Шаблон галереи фото и видео товара (`data-ajax-product-gallery-template`)
-	 - Шаблон с единственным фото товара (`data-ajax-product-one-photo-template`)
-	 - Шаблон краткого описания товара (`data-ajax-product-short-description-template`)
-	 - Шаблон полного описания товара (`data-ajax-product-full-description-template`)
-	 - Шаблон параметров товара (`data-ajax-product-properties-template`)
-	 - Шаблон компонента комплекта (`data-ajax-product-bundle-components-item-template`)
-	 - Шаблон вывода названий и значений свойств компонента комплекта (`data-ajax-product-bundle-components-item-options-template`)
+ - Шаблон карточки товара ([`data-ajax-product-template`](#data-ajax-product-template))
+	 - Шаблон галереи фото и видео товара ([`data-ajax-product-gallery-template`](#data-ajax-product-gallery-template))
+	 - Шаблон с единственным фото товара ([`data-ajax-product-one-photo-template`](#data-ajax-product-one-photo-template))
+	 - Шаблон краткого описания товара ([`data-ajax-product-short-description-template`](#data-ajax-product-short-description-template))
+	 - Шаблон полного описания товара ([`data-ajax-product-full-description-template`](#data-ajax-product-full-description-template))
+	 - Шаблон параметров товара ([`data-ajax-product-properties-template`](#data-ajax-product-properties-template))
+	 - Шаблон компонента комплекта ([`data-ajax-product-bundle-components-item-template`](#data-ajax-product-bundle-components-item-template))
+	 - Шаблон вывода названий и значений свойств компонента комплекта ([`data-ajax-product-bundle-components-item-options-template`](#data-ajax-product-bundle-components-item-options-template))
 
 Хотя в данном списке шаблоны представлены как вложенные друг в друга, на самом деле каждый из них является самостоятельным и независимым фрагментом кода, размещенным внутри блока с атрибутом `data-ajax-product`. Вложенность шаблонов в списке демонстрирует их взаимосвязь в контексте карточки товара.
 
@@ -134,7 +134,7 @@ function initAjaxProductCallback(data) {
 
 Добавляет название товара в `textContent` элемента.
 
-Пример:
+Пример использования:
 
 ```html
 <span data-ajax-product-title></span>
@@ -155,7 +155,7 @@ function initAjaxProductCallback(data) {
 
 Позволяет отобразить стикеры (значения параметра товара, у которого `handle` равен `label`). В качестве дочерних элементов можно использовать стандартные элементы формы товара, такие как `data-product-card-sale-value` (скидка на товар, если старая цена выше цены продажи) или ваши собственные стикеры.
 
-Пример:
+Пример использования:
 
 ```html
 <div
@@ -180,7 +180,7 @@ function initAjaxProductCallback(data) {
 
 Удаляет элемент из разметки, если у товара отсутствует вариант со свойством, название которого соответствует переданным значениям. Исключение составляет случай, когда товар является комплектом.
 
-Пример:
+Пример использования:
 
 ```html
 <div data-ajax-product-sizes-table-btn="Размер,Size">
@@ -190,7 +190,7 @@ function initAjaxProductCallback(data) {
 
 ##### data-ajax-product-add-cart
 
-Удаляет элемент из разметки, если товара нет в наличии и в настройках магазина активирована опция "Запретить заказывать больше, чем есть в наличии".
+Удаляет элемент из разметки, если товара нет в наличии, и в настройках магазина активирована опция "Запретить заказывать больше, чем есть в наличии".
 
 Например, если описанное выше условие истинно, то весь нижеприведенный блок будет удален из разметки:
 
@@ -206,7 +206,7 @@ function initAjaxProductCallback(data) {
 
 Атрибут для отрисовки [шаблона галереи товара (`data-ajax-product-gallery-template`)](#data-ajax-product-gallery-template).
 
-Пример:
+Пример использования:
 
 ```html
 <div data-ajax-product-gallery></div>
@@ -224,7 +224,7 @@ function initAjaxProductCallback(data) {
 
 Позволяет выводить селектор для выбора варианта товара. Работает по тому же принципу, что и в случае со [стандартной карточкой товара](/common.v2.js/2Products/#data-product-variants), но вид отображения должен быть указан в значении атрибута `data-ajax-product-variants-select-block`, а не `data-product-variants`.
 
-Пример:
+Пример использования:
 
 ```html
 <div
@@ -248,7 +248,7 @@ function initAjaxProductCallback(data) {
 
 Атрибут для отрисовки [шаблона краткого описания товара (`data-ajax-product-short-description-template`)](#data-ajax-product-short-description-template).
 
-Пример:
+Пример использования:
 
 ```html
 <div data-ajax-product-short-description></div>
@@ -258,7 +258,7 @@ function initAjaxProductCallback(data) {
 
 Атрибут для отрисовки [шаблона краткого описания товара (`data-ajax-product-full-description-template`)](#data-ajax-product-full-description-template).
 
-Пример:
+Пример использования:
 
 ```html
 <div data-ajax-product-full-description></div>
@@ -273,7 +273,7 @@ function initAjaxProductCallback(data) {
  - `maxVisibleItemsCount` - указывает количество отображаемых параметров, остальным элементам с параметрами будет присвоен класс `ajax-product-property-hidden`
  - `excludeHandles` - позволяет указать через запятую handle параметров, которые не должны выводиться
 
-Пример:
+Пример использования:
 
 ```html
 <div
@@ -289,7 +289,7 @@ function initAjaxProductCallback(data) {
 
 Добавляет единицы измерения товара в `textContent` элемента.
 
-Пример:
+Пример использования:
 
 ```html
 <span data-ajax-product-unit></span>
@@ -299,7 +299,7 @@ function initAjaxProductCallback(data) {
 
 Позволяет добавить кнопку для добавления товара в избранное. Работает в связке со стандартным атрибутом `data-ui-favorites-trigger`.
 
-Пример:
+Пример использования:
 
 ```html
 {% if settings.favorite_enabled %}
@@ -335,7 +335,7 @@ function initAjaxProductCallback(data) {
 
 Позволяет добавить кнопку для добавления товара в сравнение. Работает в связке со стандартным атрибутом `data-compare-trigger`.
 
-Пример:
+Пример использования:
 
 ```html
 {% if settings.compare_enabled == null or settings.compare_enabled %}
@@ -379,7 +379,7 @@ function initAjaxProductCallback(data) {
 
 Если товар является комплектом и имеет скидку, то выводит скидку на весь комплект.
 
-Пример:
+Пример использования:
 
 ```html
 <div class="product__bundle-discount">
@@ -399,7 +399,7 @@ function initAjaxProductCallback(data) {
 
 Полный список классов доступен по [ссылке](#css).
 
-Пример:
+Пример использования:
 
 ```html
 <div data-ajax-product-bundle-components></div>
@@ -577,7 +577,7 @@ function initAjaxProductCallback(data) {
 - `data-ajax-product-gallery-media-preview` — добавляет атрибут `src` со ссылкой на картинку-заглушку.
 - `data-ajax-product-gallery-media-content` — заменяет элемент на элемент `<video>` с внутренним источником (`<source>`).
 
-Пример:
+Пример использования:
 
 ```html
 <!-- Шаблон галереи фото и видео товара -->
@@ -752,7 +752,7 @@ function initAjaxProductCallback(data) {
 
 Атрибут используется для отрисовки шаблона, содержащего названия и значения свойств варианта товара (`data-ajax-product-bundle-components-item-options-template`), о котором можно узнать по [ссылке](#data-ajax-product-bundle-components-item-options-template).
 
-Пример:
+Пример использования:
 
 ```html
 <!-- Шаблон компонента комплекта -->
@@ -806,7 +806,7 @@ function initAjaxProductCallback(data) {
 
 Шаблон можно подключить внутри шаблона компонента комплекта `data-ajax-product-bundle-components-item-template` с помощью элемента с атрибутом [`data-ajax-product-bundle-components-item-options`](#data-ajax-product-bundle-components-item-options).
 
-Пример:
+Пример использования:
 
 ```html
 <!-- Шаблон вывода названий и значений свойств компонента комплекта -->

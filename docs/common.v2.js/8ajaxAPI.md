@@ -181,19 +181,36 @@ ajaxAPI.shop.comment(commentOption, '/blogs/blog/aktsiya')
 * @param {string} message.from - e-mail, с которого "отправлено" сообщение. Обязательно
 * @param {string} message.phone - телефон, указывается в теле письма. По-умолчанию - пустое
 * @param {string} message.name - имя, указывается в теле письма. По-умолчанию - пустое.
+* @param {string} message['g-recaptcha-response'] - ключ Google reCaptcha
 * @param {string} options.subject - тема письма.
 */
 
-ajaxAPI.shop.message({
-  'from': 'json@test.ru',
-  'name': 'test is my name',
-  'subject': 'test is my subject',
-  'content': 'Hello',
-  'phone': '+00000000000000'
+$('#myCustomForm').on('submit', (e) => {
+  e.preventDefault();
+
+  let feedback = {
+    "feedback[name]": 'Test',
+    "feedback[from]": 'test@insales.ru',
+    "feedback[phone]": '00000000000',
+    "feedback[subject]": 'Обратная связь',
+    "feedback[content]": 'Без сообщения',
+  }
+
+  // При отправке формы получаем элемент, в котором хранится ключ Google reCaptcha, где #myCustomForm это ID элемента вашей формы
+  let recaptchaElement = $('#myCustomForm [name="feedback[g-recaptcha-response]"]');
+
+  // Если посетитель поставил галочку "Я не робот", то достаём ключ и добавляем поле для отправки формы
+  if (recaptchaElement) {
+    feedback['g-recaptcha-response'] = recaptchaElement.val();
+  }
+
+  ajaxAPI.shop.message(feedback)
+  .done(function (onDone) { console.log('onDone: ', onDone) })
+  .fail(function (onFail) { console.log('onFail: ', onFail) });
 })
-.done(function (onDone) { console.log('onDone: ', onDone) })
-.fail(function (onFail) { console.log('onFail: ', onFail) });
 ```
+
+О методах подключения Google reCaptcha в различных шаблонах говорится [здесь](/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/reCAPTCHA/)
 
 ## Товары
 
@@ -257,7 +274,7 @@ ajaxAPI.collection.get('collection_handle', filter, pager)
 
 ## Оформление заказа
 
-Оформление заказа с указанием способа оплаты и доставки. 
+Оформление заказа с указанием способа оплаты и доставки.
 
 !!! warning
     Все поля обязательны для заполнения!

@@ -620,3 +620,42 @@
   ]
 }
 ```
+
+#### Группа иконок (icon_group)
+
+```JSON
+{
+ "design": [
+    {
+      "type": "group",
+      "name": "{{ messages.stylization }}",
+      "items": [
+        {
+          "class": "text",
+          "name": "btn-align",
+          "label": "{{ messages.align }}",
+          "options": [
+            {
+              "value": "left",
+              "title": "{{ messages.align_left }}",
+              "icon": "mdi-text-align-left"
+            },
+            {
+              "value": "center",
+              "title": "{{ messages.align_center }}",
+              "icon": "mdi-text-align-center"
+            },
+            {
+              "value": "right",
+              "title": "{{ messages.align_right }}",
+              "icon": "mdi-text-align-right"
+            }
+          ],
+          "value": null,
+          "type": "icon_group"
+        }
+      ]
+    }
+]
+}
+```

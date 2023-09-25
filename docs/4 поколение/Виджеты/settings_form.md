@@ -74,6 +74,7 @@
 - [Блог](#блог) (`blog`)
 - Меню (`navigation`)
 - Категория (`collection`)
+- Иконки (`icon_group`)
 
 <a name="setting_form_text"></a>
 #### Текст (text)

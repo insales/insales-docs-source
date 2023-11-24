@@ -21,7 +21,7 @@ nav:
     - Шаблон:
       - 4 поколение/Шаблон/index.md
       - 4 поколение/Шаблон/layout.liquid.md
-      - 4 поколение/Шаблон/messages.json.md     
+      - 4 поколение/Шаблон/messages.json.md
       - 4 поколение/Шаблон/settings.json.md
       - 4 поколение/Шаблон/setup.json.md
     - Виджеты:
@@ -58,6 +58,8 @@ nav:
       - common.v2.js/ajax-products/ui-ajax-products.md
     - common.v2.js/9ui-ajax-filters.md
     - common.v2.js/10ui-feedback.md
+    - common.v2.js/ui-reviews.md
+    - common.v2.js/ui-comments.md
     - common.v2.js/11ui-trigger-events.md
     - common.v2.js/12Template.md
     - common.v2.js/13InSalesUI.md

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
     
     
       
@@ -2148,7 +2148,7 @@
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">formData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormData</span><span class="p">(</span><span class="nx">$form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
 
 <span class="w">    </span><span class="c1">// Собираем значения полей</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ language.locale }}&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="s2">&quot;feedback[name]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[name]&#39;</span><span class="p">),</span>
 <span class="w">      </span><span class="s2">&quot;feedback[from]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[from]&#39;</span><span class="p">),</span>
@@ -2256,7 +2256,7 @@
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">formData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormData</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// Собираем все поля в один объект</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ language.locale }}&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="s2">&quot;feedback[name]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[name]&#39;</span><span class="p">),</span>
 <span class="w">      </span><span class="s2">&quot;feedback[from]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[from]&#39;</span><span class="p">),</span>

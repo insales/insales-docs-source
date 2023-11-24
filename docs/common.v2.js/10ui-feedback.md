@@ -9,7 +9,11 @@
 Обязательный атрибут для обёртки формы обратной связи
 
 ```html
-<form method="post" action="/client_account/feedback" data-feedback-form-wrapper>
+<form
+  method="post"
+  action="/client_account/feedback"
+  data-feedback-form-wrapper
+ы>
   <!-- Код формы -->
 </form>
 ```
@@ -32,14 +36,14 @@
 ```html
 <div data-feedback-form-field-area>
   	<div>Имя</div>
-    <input 
-      name="name" 
+    <input
+      name="name"
       data-feedback-form-field='{
-        "isRequired": true, 
+        "isRequired": true,
         "errorMessage": "Неправильно заполнено поле Имя"
-      }' 
-      type="text" 
-      value="" />  
+      }'
+      type="text"
+      value="" />
     <div data-feedback-form-field-error></div>
 </div>
 ```
@@ -60,30 +64,30 @@
 Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом `data-feedback-form-field-error`, а также указать обязательность заполнения поля. По умолчанию обязательными являются только поле from (можно отключить) и чекбокс согласия на обработку персональных данных (нельзя отключить).
 
 ```html
-<input 
-  name="name" 
+<input
+  name="name"
   data-feedback-form-field='{
-    "isRequired": true, 
+    "isRequired": true,
     "errorMessage": "Неправильно заполнено поле Имя"
-  }' 
-  type="text" 
-  value="" />  
+  }'
+  type="text"
+  value="" />
 ```
 
 Для поля ввода номера в свойствах `phoneNumberLength` и `secondPhoneNumberLength` можно указать ожидаемое количество цифр.
 
 ```html
-<input 
+<input
   name="phone"
   data-feedback-form-field='{
-    "isRequired": true, 
-    "errorMessage": "Неправильно заполнено поле Телефон", 
-    "phoneNumberLength": 11, 
+    "isRequired": true,
+    "errorMessage": "Неправильно заполнено поле Телефон",
+    "phoneNumberLength": 11,
     "secondPhoneNumberLength": 12
-  }' 
-  type="text" 
-  autocomplete="off" 
-  value="" />  
+  }'
+  type="text"
+  autocomplete="off"
+  value="" />
 ```
 
 !!! info
@@ -98,11 +102,47 @@
 ```html
 {% if settings.feedback_captcha_enabled %}
   <div data-feedback-form-field-area class="feedback__field-area">
-    <div 
+    <div
       data-feedback-form-recaptcha='{
-        "isRequired": true, 
+        "isRequired": true,
         "errorMessage": "{{messages.recaptcha_error | escape }}"
-        }' 
+        }'
+      class="feedback__recaptcha"
+    >
+    </div>
+    <div data-feedback-form-field-error class="feedback__field-error"></div>
+  </div>
+{% endif %}
+```
+#### ReCaptcha v3
+
+При использовании ReCaptcha v3 посетителю сайта больше не нужно нажимать на чекбокс "Я не робот". Проверка происходит автоматически при отправке формы.
+
+##### data-recaptcha-type
+
+Для использования новой версии в блок с атрибутом `data-feedback-form-recaptcha` необходимо добавить атрибут `data-recaptcha-type="invisible"`.
+
+##### data-badge
+
+В этом атрибуте можно задать где и как должен выводиться блок ReCaptcha. По умолчанию блок выводится в левом нижнем углу экрана (`bottomleft`).
+
+Возможные значения:
+- `inline` - блок выводится как в старой версии, но без чекбокса
+- `bottomleft` - фиксированный блок в левом нижнем углу экрана
+- `bottomright` - фиксированный блок в правом нижнем углу экрана
+
+Пример:
+
+```html
+{% if settings.feedback_captcha_enabled %}
+  <div data-feedback-form-field-area class="feedback__field-area">
+    <div
+      data-recaptcha-type="invisible"
+      data-badge="bottomleft"
+      data-feedback-form-recaptcha='{
+        "isRequired": true,
+        "errorMessage": "{{messages.recaptcha_error | escape }}"
+        }'
       class="feedback__recaptcha"
     >
     </div>
@@ -146,83 +186,91 @@ EventBus.subscribe('send-feedback:insales:ui_feedback', function (data) {
 ## Пример разметки
 
 ```html
-<form method="post" action="/client_account/feedback" data-feedback-form-wrapper>
-  <div 
-    data-feedback-form-success='{"showTime": 10000}' 
+<form
+  method="post"
+  action="/client_account/feedback"
+  data-feedback-form-wrapper
+>
+  <div
+    data-feedback-form-success='{"showTime": 10000}'
     class="success-message"
-  >Успешно отправлено</div>	
+  >Успешно отправлено</div>
 
   <div data-feedback-form-field-area>
   	<div>Телефон</div>
-    <input 
+    <input
       name="phone"
       data-feedback-form-field='{
-        "isRequired": true, 
-        "errorMessage": "Неправильно заполнено поле Телефон", 
+        "isRequired": true,
+        "errorMessage": "Неправильно заполнено поле Телефон",
         "phoneNumberLength": 11
       }'
-      type="text" 
-      autocomplete="off" 
-      value="" />  
+      type="text"
+      autocomplete="off"
+      value="" />
     <div data-feedback-form-field-error></div>
   </div>
 
   <div data-feedback-form-field-area>
   	<div>Имя</div>
-    <input 
-      name="name" 
+    <input
+      name="name"
       data-feedback-form-field='{
-        "isRequired": true, 
+        "isRequired": true,
         "errorMessage": "Неправильно заполнено поле Имя"
-      }' 
-      type="text" 
-      value="" />  
+      }'
+      type="text"
+      value="" />
     <div data-feedback-form-field-error></div>
   </div>
 
   <div data-feedback-form-field-area>
   	<div>Текст</div>
-    <textarea 
-      name="content" 
-      data-feedback-form-field='{"errorMessage": "Неправильно заполнено поле Текст"}'></textarea> 
+    <textarea
+      name="content"
+      data-feedback-form-field='{"errorMessage": "Неправильно заполнено поле Текст"}'></textarea>
     <div data-feedback-form-field-error></div>
   </div>
 
   <div data-feedback-form-field-area>
   	<div>email</div>
-    <input 
-      name="from" 
-      data-feedback-form-field='{"errorMessage": "Неправильно заполнено поле email"}' 
-      type="text" 
-      value="" /> 
+    <input
+      name="from"
+      data-feedback-form-field='{"errorMessage": "Неправильно заполнено поле email"}'
+      type="text"
+      value="" />
     <div data-feedback-form-field-error></div>
   </div>
 
   <div data-feedback-form-field-area>
     <label>
-      <input 
-        data-feedback-form-agree='{"errorMessage": "Необходимо подтвердить согласие"}' 
-        type="checkbox" 
-        name="agree" 
+      <input
+        data-feedback-form-agree='{"errorMessage": "Необходимо подтвердить согласие"}'
+        type="checkbox"
+        name="agree"
         value="" />
-        Согласен на обработку данных	
+        Согласен на обработку данных
     </label>
     <div data-feedback-form-field-error></div>
   </div>
-          
+
   {% if settings.feedback_captcha_enabled %}
     <div data-feedback-form-field-area class="feedback__field-area">
-      <div data-feedback-form-recaptcha='{
-        "isRequired": true, 
+      <div
+        data-recaptcha-type="invisible"
+        data-badge="bottomleft"
+        data-feedback-form-recaptcha='{
+        "isRequired": true,
         "errorMessage": "{{messages.recaptcha_error | escape }}"
-      }' 
-      class="feedback__recaptcha"></div>
+      }'
+        class="feedback__recaptcha"
+      ></div>
       <div data-feedback-form-field-error class="feedback__field-error"></div>
     </div>
   {% endif %}
-          
+
   <input type="text" value="Форма обратной связи" name="subject" />
-  <div>	
+  <div>
     <button class="button" type="submit">Отправить</button>
   </div>
 </form>

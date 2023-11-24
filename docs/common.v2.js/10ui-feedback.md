@@ -13,7 +13,7 @@
   method="post"
   action="/client_account/feedback"
   data-feedback-form-wrapper
-ы>
+>
   <!-- Код формы -->
 </form>
 ```

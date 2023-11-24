@@ -85,7 +85,7 @@ $(function() {
     const formData = new FormData($form.get(0));
 
     // Собираем значения полей
-    let feedback = {
+    const feedback = {
       lang: "{{ language.locale }}",
       "feedback[name]": formData.get('feedback[name]'),
       "feedback[from]": formData.get('feedback[from]'),
@@ -205,7 +205,7 @@ $(function() {
     const formData = new FormData(form);
 
     // Собираем все поля в один объект
-    let feedback = {
+    const feedback = {
       lang: "{{ language.locale }}",
       "feedback[name]": formData.get('feedback[name]'),
       "feedback[from]": formData.get('feedback[from]'),

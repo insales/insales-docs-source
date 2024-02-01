@@ -25,7 +25,7 @@
     <div class="item-accessories__header">
         Опции товара
     </div>
-    <div class="item-accessories__items is-hidden">
+    <div class="item-accessories__items">
       {% for accessory in item.accessory_lines %}
       <div class="accessory-item">
           <span class="accessory-item__name" data-item-accessory-value-id="{{ accessory.accessory_value_id }}">{{ accessory.accessory_value_name }}</span>

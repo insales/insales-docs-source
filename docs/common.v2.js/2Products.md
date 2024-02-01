@@ -85,6 +85,19 @@
 </form>
 ```
 
+#### data-product-without-many-variants
+
+Если в карточке товара отсутствует селектор выбора варианта, то рекомендуется указать данный атрибут со значение `true`. Тогда при запросе на сервер товар будет получен только с первым вариантом. Это может значительно ускорить загрузку страницы. Рекомендуется использовать в превью товаров, например, на страницах категорий.
+
+!!! info
+    Если задан атрибут `data-product-json`, то все данные о товаре, включая варианты, будут получены в виде JSON вместе с HTML-кодом страницы, а не запросом к серверу.
+
+```html
+<form data-product-id="{{ product.id }}" data-product-without-many-variants="true" action="{{ cart_url }}" method="post">
+  <!-- Код формы -->
+</form>
+```
+
 #### data-set-config
 
 Передать настройки товара через data-атрибут
@@ -237,9 +250,9 @@ EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
 
 #### data-product-card-preorder
 
-Атрибут предназначен для кнопки вызова формы предзаказа. При загрузке страницы кнопка получает атрибуты `data-preorder-product-name` и `data-preorder-variant`, которые содержат название товара и название выбранного варианта. 
+Атрибут предназначен для кнопки вызова формы предзаказа. При загрузке страницы кнопка получает атрибуты `data-preorder-product-name` и `data-preorder-variant`, которые содержат название товара и название выбранного варианта.
 
-Значение атрибута `data-preorder-variant` обновляется при выборе варианта товара. 
+Значение атрибута `data-preorder-variant` обновляется при выборе варианта товара.
 
 Если подписаться на EventBus-событие `show-preorder:insales:ui_product`, то при нажатии на кнопку вы сможете получать название товара и выбранного варианта, чтобы использовать их в форме предзаказа.
 
@@ -295,7 +308,7 @@ EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
 
 #### data-product-card-available
 
-Наличие варианта товара. 
+Наличие варианта товара.
 
 В качестве значения можно передать объект со статусами.
 
@@ -605,7 +618,6 @@ Products.get(123456)
 ```js
 /**
  * @param {Array} idList - массив, состоящий из id товаров
- * @param {Object} options - объект, в котором можно передать опцию no_cache, если необходимо не кешировать товары в local storage.
  * @return {Deferred}
  */
 Products.getList([123456, 123455, 1234454, 123458])
@@ -709,5 +721,5 @@ Products.getRecentlyViewed()
 ```js
 EventBus.subscribe('change_quantity:insales:product', function (data) {
   console.log('Изменено количество товара в счётчике', data);
-}); 
+});
 ```

@@ -58,7 +58,7 @@
 
 Корневой элемент шаблона значения опции (`data-product-accessory-values-template`).
 
-#### `data-product-accessory-values-template`
+### `data-product-accessory-values-template`
 
 Шаблон с атрибутом `data-product-accessory-values-template` используется для отрисовки каждого значения отдельной опции. Это позволяет детально настроить отображение каждого возможного выбора в рамках одной опции, например, различных цветов, размеров или дополнительных аксессуаров.
 

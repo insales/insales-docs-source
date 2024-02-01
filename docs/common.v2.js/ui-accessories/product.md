@@ -78,6 +78,22 @@
 
 Добавляет цену значения опции внутри элемента.
 
+## События
+
+| Событие                                        | Описание                                                                                                    |
+|------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| accessories-rendered:insales:ui_accessories    | Срабатывает после инициализации обёртки `data-product-accessories` с инициализацией всех дочерних элементов |
+| accessory_value_changed:insales:ui_accessories | Срабатывает при выборе любой из опций                                                                       |
+| prices-calculated:insales:ui_accessories       | Срабатывает после перерасчёта цен с учётом выбранных опций                                                  |
+
+**Пример подписки на событие**
+
+```js
+EventBus.subscribe('accessories-rendered:insales:ui_accessories', function (data) {
+  console.log('Была выполнена инициализация компонента ui-accessories', data);
+});
+```
+
 ## Пример разметки
 
 ```html

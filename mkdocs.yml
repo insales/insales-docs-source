@@ -46,6 +46,10 @@ nav:
   - common.v2.js:
     - common.v2.js/1readme.md
     - common.v2.js/2Products.md
+    - Опции:
+      - common.v2.js/ui-accessories/README.md
+      - common.v2.js/ui-accessories/product.md
+      - common.v2.js/ui-accessories/cart.md
     - common.v2.js/3Cart.md
     - common.v2.js/4AjaxSearch.md
     - common.v2.js/5Compare.md

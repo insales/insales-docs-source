@@ -4,12 +4,12 @@
 В этом разделе вы найдёте описания и примеры использования data-атрибутов формы корзины и карточки товара внутри корзины.
 ### Корневой элемент
 
-#### data-cart-form 
+#### data-cart-form
 
 Обязательный атрибут тега form
 
 ```html
-<form data-cart-form action="{{ cart_items }}" method="post">
+<form data-cart-form action="{{ cart_url }}" method="post">
   <!-- Код формы -->
 </form>
 ```
@@ -19,7 +19,7 @@
 Перезагрузка страницы после применения купона. Чтобы отключить перезагрузку, нужно указать `false` в качестве значения
 
 ```html
-<form data-reload-on-coupon="false" data-cart-form action="{{ cart_items }}" method="post">
+<form data-reload-on-coupon="false" data-cart-form action="{{ cart_url }}" method="post">
   <!-- Код формы -->
 </form>
 ```
@@ -31,7 +31,7 @@
 
 Обязательный атрибут для позиций в корзине. В качестве значения необходимо передать ID позиции.
 
-#### data-product-id 
+#### data-product-id
 
 Обязательный атрибут для инициализации товара. В качестве значения необходимо передать ID товара.
 

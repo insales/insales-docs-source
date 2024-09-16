@@ -20,8 +20,6 @@ Generated using nucleoapp.com
 
 
 
-
-
 /* --------------------------------
 
 Main components
@@ -1561,3 +1559,22 @@ body {
   margin-bottom: 6px;
 }
 /* main page end */
+
+.w-100 {
+  width:100%
+}
+
+.block-templates-table .md-typeset__table {
+  display: block;
+}
+.block-templates-table table:not([class]) {
+  table-layout: fixed;
+}
+
+.block-templates-table table:not([class]) th {
+  min-width: 150px;
+}
+
+.block-templates-table table:not([class]) th[data-field="fields"] {
+  min-width: 300px;
+}

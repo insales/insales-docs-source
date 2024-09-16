@@ -15,7 +15,23 @@ $(function () {
     }
   });
 
-  if ($(".block-templates-table").length > 0) {
+  if ($(".global-messages-table tbody").length > 0 && globalMessages) {
+    const $tableBody = $('.global-messages-table tbody');
+
+    $.each(globalMessages, function(key, value) {
+      const $row = $('<tr>');
+      
+      const $cellPermalink = $('<td>').text(key);
+      const $cellText = $('<td>').text(value);
+  
+      $row.append($cellPermalink);
+      $row.append($cellText);
+  
+      $tableBody.append($row);
+    });
+  }
+
+  if ($(".block-templates-table").length > 0 && blockTemplates) {
     function formatFields(fields) {
       return fields
         .map(

@@ -63,15 +63,18 @@
 
 В настройках можно использовать несколько видов полей настроек: 
 
-- `Текст`
-- `Число`
-- `Чекбокс` 
-- `Селект` 
-- `Ползунок` 
-- `Кнопки` 
-- `Файл` 
-- `Цвет`
-- `Блог`
+- [Текст](#текст-text) (`text`, `rich-text`)
+- [Число](#число-number) (`number`)
+- [Чекбокс](#чекбокс-checkbox) (`checkbox`)
+- [Селект](#селект-select) (`select`)
+- [Ползунок](#ползунок-range-slider) (`range`)
+- [Кнопки](#кнопки-button-group) (`button-group`)
+- [Файл](#файл-пример-из-настроек-шаблона) (`file`)
+- [Цвет](#цвет) (`color`)
+- [Блог](#блог) (`blog`)
+- Меню (`navigation`)
+- Категория (`collection`)
+- Иконки (`icon_group`)
 
 <a name="setting_form_text"></a>
 #### Текст (text)
@@ -444,7 +447,7 @@ Options:
 * `label` - Заголовок настройки
 * `value` - Значение по умолчанию
 * `help` - Подсказка (будет отображаться рядом с полем)
-* `type` - Тип `color`
+* `type` - Тип `blog`
 * `general` - Значение `true` или `false` - Boolean | булевый тип. Вывод настройки в основные в редакторе 
 * `general_position` - Значение `2` - тип number | Число. Порядок вывода настройки в основные в редакторе
 * `general_label` - Значение - `"{{ messages.title }}"`. Добавляет заголовок с переводом из messages в основных настройках виджета в редакторе
@@ -611,5 +614,44 @@ Options:
       ]
     }
   ]
+}
+```
+
+#### Группа иконок (icon_group)
+
+```JSON
+{
+ "design": [
+    {
+      "type": "group",
+      "name": "{{ messages.stylization }}",
+      "items": [
+        {
+          "class": "text",
+          "name": "btn-align",
+          "label": "{{ messages.align }}",
+          "options": [
+            {
+              "value": "left",
+              "title": "{{ messages.align_left }}",
+              "icon": "mdi-text-align-left"
+            },
+            {
+              "value": "center",
+              "title": "{{ messages.align_center }}",
+              "icon": "mdi-text-align-center"
+            },
+            {
+              "value": "right",
+              "title": "{{ messages.align_right }}",
+              "icon": "mdi-text-align-right"
+            }
+          ],
+          "value": null,
+          "type": "icon_group"
+        }
+      ]
+    }
+]
 }
 ```

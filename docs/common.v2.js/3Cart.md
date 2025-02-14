@@ -184,14 +184,14 @@
           quantity: 1,
           accessory_value_ids: {
               1234: 1,
-              1235: 1,
+              1235: 1
           }
         },
         {
           quantity: 1,
           accessory_value_ids: {
               1236: 1,
-              1237: 1,
+              1237: 1
           }
         }
       ]
@@ -254,14 +254,14 @@ Cart.delete({
             quantity: 0,
             accessory_value_ids: {
                 1234: 1,
-                1235: 1,
+                1235: 1
             }
         },
         {
             quantity: 0,
             accessory_value_ids: {
                 1236: 1,
-                1237: 1,
+                1237: 1
             }
         }
       ]
@@ -341,14 +341,14 @@ Cart.remove({
             quantity: 1,
             accessory_value_ids: {
                 1234: 1,
-                1235: 1,
+                1235: 1
             }
         },
         {
             quantity: 1,
             accessory_value_ids: {
                 1236: 1,
-                1237: 1,
+                1237: 1
             }
         }
       ]
@@ -396,14 +396,14 @@ Cart.set({
             quantity: 1,
             accessory_value_ids: {
                 1234: 1,
-                1235: 1,
+                1235: 1
             }
         },
         {
             quantity: 1,
             accessory_value_ids: {
                 1236: 1,
-                1237: 1,
+                1237: 1
             }
         }
       ]

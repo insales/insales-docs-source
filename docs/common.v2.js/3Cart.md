@@ -162,18 +162,40 @@
 
 ### add
 
-Добавить в корзину заданное количество товаров
+Добавить в корзину заданное количество вариантов товаров
 
 ```js
 /**
  * @param {Object} items объект с параметрами variant_id: quantity
+ * @param {Object} items.accessoriable_variant_ids объект с параметрами variant_id: [{quantity: quantity, accessory_value_ids: {accessory_value_id: quantity}}]
  * @param {Object} comments комментарий к позиции заказа. Ключ ID варианта, значение текст комментария
  * @param {string} coupon купон
  */
 {
   items: {
+    // Варианты товаров без опций
     123456: 2,
-    123457: 1
+    123457: 1,
+
+    // Варианты товаров с опциями
+    accessoriable_variant_ids: {
+      123458: [
+        {
+          quantity: 1,
+          accessory_value_ids: {
+              1234: 1,
+              1235: 1,
+          }
+        },
+        {
+          quantity: 1,
+          accessory_value_ids: {
+              1236: 1,
+              1237: 1,
+          }
+        }
+      ]
+    }
   },
   comments: {
     123457: 'Мой комментарий'
@@ -207,9 +229,45 @@ EventBus.subscribe('add_items:insales:cart', function (data) {
 /**
  * @param {Array} items массив ID вариантов к удалению
  */
- Cart.delete({
-   items: [160549240, 160549242]
- })
+Cart.delete({
+  items: [160549240, 160549242]
+})
+```
+
+Удалить позиции с опциями
+
+```js
+/**
+ * @param {Object} items объект с параметрами variant_id: variant_id
+ * @param {Object} items.accessoriable_variant_ids объект с параметрами variant_id: [{quantity: quantity, accessory_value_ids: {accessory_value_id: quantity}}]
+ */
+Cart.delete({
+  items: {
+    // Позиции без опций
+    160549240: 160549240,
+    160549242: 160549242,
+
+    // Позиции с опциями
+    accessoriable_variant_ids: {
+      160549243: [
+        {
+            quantity: 0,
+            accessory_value_ids: {
+                1234: 1,
+                1235: 1,
+            }
+        },
+        {
+            quantity: 0,
+            accessory_value_ids: {
+                1236: 1,
+                1237: 1,
+            }
+        }
+      ]
+    }
+  }
+})
 ```
 
 **События**
@@ -263,16 +321,38 @@ Cart.forceUpdate()
 
 ### remove
 
-Удалить из корзины заданное количество товаров
+Удалить из корзины заданное количество вариантов товаров
 
 ```js
 /**
-*  @param {Array} items объект с параметрами variant_id: quantity
+*  @param {Object} items объект с параметрами variant_id: quantity
+*  @param {Object} items.accessoriable_variant_ids объект с параметрами variant_id: [{quantity: quantity, accessory_value_ids: {accessory_value_id: quantity}}]
 */
 Cart.remove({
   items: {
+    // Варианты товаров без опций
     138231315: 1,
-    138231316: 1
+    138231316: 1,
+
+    // Варианты товаров с опциями
+    accessoriable_variant_ids: {
+      138231317: [
+        {
+            quantity: 1,
+            accessory_value_ids: {
+                1234: 1,
+                1235: 1,
+            }
+        },
+        {
+            quantity: 1,
+            accessory_value_ids: {
+                1236: 1,
+                1237: 1,
+            }
+        }
+      ]
+    }
   }
 })
 ```
@@ -296,16 +376,38 @@ EventBus.subscribe('remove_items:insales:cart', function (data) {
 
 ### set
 
-Устанавливает количество для каждой позиции товара в корзине
+Устанавливает количество для каждой позиции в корзине
 
 ```js
 /**
-* @param {Array} items объект с параметрами variant_id: quantity
+* @param {Object} items объект с параметрами variant_id: quantity
+* @param {Object} items.accessoriable_variant_ids объект с параметрами variant_id: [{quantity: quantity, accessory_value_ids: {accessory_value_id: quantity}}]
 */
 Cart.set({
   items: {
+    // Позиции без опций
     138231315: 1,
-    138231316: 1
+    138231316: 1,
+
+    // Позиции с опциями
+    accessoriable_variant_ids: {
+      138231317: [
+        {
+            quantity: 1,
+            accessory_value_ids: {
+                1234: 1,
+                1235: 1,
+            }
+        },
+        {
+            quantity: 1,
+            accessory_value_ids: {
+                1236: 1,
+                1237: 1,
+            }
+        }
+      ]
+    }
   }
 })
 ```

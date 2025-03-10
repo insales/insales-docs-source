@@ -220,7 +220,7 @@ function initAjaxProductsCallback(data) {
 ></span>
 ```
 
-#### data-ajax-products-list-item-zero-price-text
+##### data-ajax-products-list-item-zero-price-text
 
 Текст, который будет отображаться, если минимальная цена товара равна нулю. По умолчанию текст "Цена по запросу". Данный атрибут добавляется к элементу, в котором отображается минимальная цена товара (`data-ajax-products-list-item-price-min`).
 

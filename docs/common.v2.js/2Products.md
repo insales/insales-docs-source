@@ -290,6 +290,17 @@ EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
 <span data-product-card-price-from-cart></span>
 ```
 
+#### data-product-card-zero-price-text
+
+Текст, который будет отображаться, если цена товара равна нулю. По умолчанию текст "Цена по запросу". Данный атрибут добавляется к элементу, в котором отображается цена товара (`data-product-card-price` или `data-product-card-price-from-cart`).
+
+```html
+<span
+  data-product-card-price-from-cart
+  data-product-card-zero-price-text="Цена по запросу"
+></span>
+```
+
 #### data-product-card-old-price
 
 Старая цена варианта товара

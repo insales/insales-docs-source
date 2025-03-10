@@ -220,6 +220,32 @@ function initAjaxProductsCallback(data) {
 ></span>
 ```
 
+#### data-ajax-products-list-item-zero-price-text
+
+Текст, который будет отображаться, если минимальная цена товара равна нулю. По умолчанию текст "Цена по запросу". Данный атрибут добавляется к элементу, в котором отображается минимальная цена товара (`data-ajax-products-list-item-price-min`).
+
+```html
+<div class="product-preview__price">
+  <span
+	class="product-preview__price-label"
+>{{messages.from }}</span>
+  <span
+	class="product-preview__price-min"
+	data-ajax-products-list-item-price-min
+	data-ajax-products-list-item-zero-price-text="Цена по запросу"
+></span>
+  <span
+	class="product-preview__price-cur"
+	data-product-card-price-from-cart
+	data-product-card-zero-price-text="Цена по запросу"
+></span>
+  <span
+	class="product-preview__price-old"
+	data-product-card-old-price
+></span>
+</div>
+```
+
 ##### data-ajax-products-list-item-price-max
 
 Атрибут для вывода максимальной цены товара. Может быть использован для товаров с вариантами, у которых отличаются цены.

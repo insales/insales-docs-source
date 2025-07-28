@@ -306,7 +306,7 @@ EventBus.subscribe('send-comment:insales:ui_comments', function (data) {
     "reviews_moderated": {{ account.reviews_moderated? }},
     "url": "{{ article.url }}"
   }'
-  action="{{ aritcle.url }}/comments#comment_form"
+  action="{{ article.url }}/comments#comment_form"
 >
   <div
     data-comments-form-success='{

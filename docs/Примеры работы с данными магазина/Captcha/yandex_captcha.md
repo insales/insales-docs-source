@@ -6,7 +6,7 @@
 
 ## `initForUIBlocks()`
 
-Если у вас в магазине включена Yandex SmartCaptcha, и вашем шаблоне подключен CommonJS, то **этот метод автоматически вызовется при загрузке страницы**. Метод инициализирует Yandex Captcha для UI-компонентов CommonJS ([формы обратной связи](/common.v2.js/10ui-feedback/), [комментарии](/common.v2.js/ui-comments/), [отзывы](/common.v2.js/ui-reviews/), [заказ в один клик](/common.v2.js/ui-quick-checkout/)).
+Если у вас в магазине включена Yandex SmartCaptcha, и в вашем шаблоне подключен CommonJS, то **этот метод автоматически вызовется при загрузке страницы**. Метод инициализирует Yandex Captcha для UI-компонентов CommonJS ([формы обратной связи](/common.v2.js/10ui-feedback/), [комментарии](/common.v2.js/ui-comments/), [отзывы](/common.v2.js/ui-reviews/), [заказ в один клик](/common.v2.js/ui-quick-checkout/)).
 
 ```javascript
 document.addEventListener('DOMContentLoaded', () => {
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 ```
 
-Получает параметры рендера data-атрибутов контейнера, или возвращает дефолтные параметры, если атрибуты не заданы.
+Получает параметры рендера по умолчанию из data-атрибутов контейнера, или возвращает дефолтные параметры, если атрибуты не заданы.
 
 ```javascript
 document.addEventListener('DOMContentLoaded', () => {
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 - `data-yandex-captcha-type` - если имеет значение `invisible`, то рендерит невидимую капчу
 - `data-yandex-captcha-test` - если имеет значение `true`, рендерит капчу в тестовом режиме
 - `data-yandex-captcha-webview` - если имеет значение `true`, рендерит капчу в режиме WebView (для мобильных приложений)
-- `data-yandex-captcha-shield-position` - позиция бейджа с уведомлением об обработке данных для невидимой капчи(`top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`)
+- `data-yandex-captcha-shield-position` - позиция бейджа с уведомлением об обработке данных для невидимой капчи (`top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`)
 - `data-yandex-captcha-hide-shield` - если имеет значение `true`, скрывает бейдж с уведомлением об обработке данных для невидимой капчи
 
 ## `executeCaptchaInvisible(form, callback)`

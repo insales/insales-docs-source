@@ -73,7 +73,7 @@
 - `review[author]` (имя)
 - `review[email]` (e-mail)
 - `review[content]` (сообщение)
-- review[image_attributes][image] (файл изображения)
+- `review[image_attributes][image]` (файл изображения)
 
 Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом `data-reviews-form-field-error`, а также указать обязательность заполнения поля. Обязательными являются все поля кроме `review[image_attributes][image]`
 

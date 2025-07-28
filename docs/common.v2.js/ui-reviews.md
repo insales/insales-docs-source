@@ -442,7 +442,7 @@ EventBus.subscribe('send-review:insales:ui_reviews', function (data) {
           {% endif %}
         {% endif %}
 
-        <div class="form-field form-field_conctrols">
+        <div class="form-field form-field_controls">
           <button type="submit" class="button button_wide">{{ messages.give_feedback }}</button>
         </div>
       </div>

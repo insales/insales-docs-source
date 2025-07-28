@@ -1,8 +1,11 @@
 # Общие сведения
 
-В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления модуля reCaptcha.
+В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления модуля Google reCAPTCHA или Yandex Captcha.
 
 Чтобы проверка заработала, нужно добавить в настройки шаблона чекбокс с `name=feedback_captcha_enabled`.
+
+!!! note
+    В шаблонах 4 поколения проверка включена по умолчанию.
 
 ## Для settings.json
 
@@ -11,7 +14,7 @@
 ```json
   "Форма обратной связи":[
     {
-      "group_name":"reCAPTCHA",
+      "group_name":"Captcha",
       "items":[
         {
                   "name":"feedback_captcha_enabled",
@@ -46,4 +49,4 @@
 </fieldset>
 ```
 
-Когда данная настройка включена, сервер проверяет значение поля `feedback[g-recaptcha-response]` в запросе `/client_account/feedback.json`
+Когда данная настройка включена, сервер проверяет значение поля `feedback[g-recaptcha-response]` в запросе `/client_account/feedback.json`.

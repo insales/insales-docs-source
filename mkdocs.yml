@@ -75,17 +75,19 @@ nav:
   - Примеры работы с данными магазина:
       - images_for_options:
         - Примеры работы с данными магазина/images_for_options/README.md
-      - reCAPTCHA:
-        - Примеры работы с данными магазина/reCAPTCHA/README.md
-        - Примеры работы с данными магазина/reCAPTCHA/aroma2.md
-        - Примеры работы с данными магазина/reCAPTCHA/commonjs.v2.md
-        - Примеры работы с данными магазина/reCAPTCHA/dotstore.md
-        - Примеры работы с данными магазина/reCAPTCHA/fleur.md
-        - Примеры работы с данными магазина/reCAPTCHA/prezent.md
-        - Примеры работы с данными магазина/reCAPTCHA/recaptcha-common.md
-        - Примеры работы с данными магазина/reCAPTCHA/template_without_commonjs.md
-        - Примеры работы с данными магазина/reCAPTCHA/v3.md
-        - Примеры работы с данными магазина/reCAPTCHA/z.InSales.md
+      - Captcha:
+        - Google reCAPTCHA:
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/aroma2.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/commonjs.v2.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/dotstore.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/fleur.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/prezent.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/recaptcha-common.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/template_without_commonjs.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/v3.md
+          - Примеры работы с данными магазина/Captcha/Google reCAPTCHA/z.InSales.md
+        - Примеры работы с данными магазина/Captcha/yandex_captcha.md
+        - Примеры работы с данными магазина/Captcha/README.md
       - site_currencies:
         - Примеры работы с данными магазина/site_currencies/index.md
   - InSales API:

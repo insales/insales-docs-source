@@ -73,7 +73,7 @@
 - `review[author]` (имя)
 - `review[email]` (e-mail)
 - `review[content]` (сообщение)
-- review[image_attributes][image] (файл изображения)
+- `review[image_attributes][image]` (файл изображения)
 
 Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом `data-reviews-form-field-error`, а также указать обязательность заполнения поля. Обязательными являются все поля кроме `review[image_attributes][image]`
 
@@ -91,7 +91,10 @@
 
 ### data-reviews-form-recaptcha
 
-Элемент для вывода кнопки "Я не робот"
+Элемент для вывода кнопки "Я не робот" от Google reCAPTCHA.
+
+!!! info
+    Для использования необходимо, чтобы в панели администратора вашего магазина в разделе "Настройки" > "Карточка магазина" в разделе "Тип капчи" была выбрана "Google reCAPTCHA".
 
 ```html
 {% if review.captcha_enabled? %}
@@ -111,9 +114,9 @@
   </div>
 {% endif %}
 ```
-#### ReCaptcha v3
+#### Google reCAPTCHA v3
 
-При использовании ReCaptcha v3 посетителю сайта больше не нужно нажимать на чекбокс "Я не робот". Проверка происходит автоматически при отправке формы.
+При использовании reCAPTCHA v3 посетителю сайта не нужно нажимать на чекбокс "Я не робот". Проверка происходит автоматически при отправке формы.
 
 ##### data-recaptcha-type
 
@@ -121,9 +124,10 @@
 
 ##### data-badge
 
-В этом атрибуте можно задать где и как должен выводиться блок ReCaptcha. По умолчанию блок выводится в левом нижнем углу экрана (`bottomleft`).
+В этом атрибуте можно задать где и как должен выводиться блок reCAPTCHA. По умолчанию блок выводится в левом нижнем углу экрана (`bottomleft`).
 
 Возможные значения:
+
 - `inline` - блок выводится как в старой версии, но без чекбокса
 - `bottomleft` - фиксированный блок в левом нижнем углу экрана
 - `bottomright` - фиксированный блок в правом нижнем углу экрана
@@ -147,6 +151,104 @@
   </div>
 {% endif %}
 ```
+
+### data-reviews-form-yandex-captcha
+
+Атрибут для вывода кнопки "Я не робот" от Yandex SmartCaptcha.
+
+!!! info
+    Для использования необходимо, чтобы в панели администратора вашего магазина в разделе "Настройки" > "Карточка магазина" в разделе "Тип капчи" была выбрана "Yandex SmartCaptcha".
+
+Пример:
+
+```html
+{% if review.captcha_enabled? %}
+  <div
+    data-reviews-form-field-area
+    class="form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"
+  >
+    <div
+      data-reviews-form-yandex-captcha='{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'
+      id="captcha_challenge"
+      class="captcha-recaptcha"
+    ></div>
+    <div data-reviews-form-field-error class="form__field-error"></div>
+  </div>
+{% endif %}
+```
+
+#### data-yandex-captcha-test
+
+Если атрибут имеет значение `true`, то рендерит капчу в тестовом режиме. В этом случае при попытке отправки формы всегда будет показываться окно с заданием.
+
+Пример:
+
+```html
+{% if review.captcha_enabled? %}
+  <div
+    data-reviews-form-field-area
+    class="form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"
+  >
+    <div
+      data-reviews-form-yandex-captcha='{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'
+      data-yandex-captcha-test="true"
+      id="captcha_challenge"
+      class="captcha-recaptcha"
+    ></div>
+    <div data-reviews-form-field-error class="form__field-error"></div>
+  </div>
+{% endif %}
+```
+
+#### Yandex SmartCaptcha Invisible
+
+##### data-yandex-captcha-type
+
+Если атрибут имеет значение `invisible`, то рендерит невидимую капчу. Если атрибут не указан, то рендерит обычную капчу с кнопкой "Я не робот".
+
+При использовании Yandex SmartCaptcha Invisible посетителю сайта не нужно нажимать на чекбокс "Я не робот". Проверка происходит автоматически при отправке формы.
+
+##### data-yandex-captcha-shield-position
+
+Позиция бейджа с уведомлением об обработке данных для невидимой капчи.
+
+Возможные значения:
+
+- `top-left`
+- `center-left`
+- `bottom-left`
+- `top-right`
+- `center-right`
+- `bottom-right`
+
+По умолчанию используется значение `bottom-right`.
+
+##### data-yandex-captcha-hide-shield
+
+Если атрибут имеет значение `true`, то скрывает бейдж с уведомлением об обработке данных для невидимой капчи. По умолчанию бейдж отображается.
+
+Пример:
+
+```html
+{% if review.captcha_enabled? %}
+  <div
+    data-reviews-form-field-area
+    class="form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"
+  >
+    <div
+      data-reviews-form-yandex-captcha='{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'
+      data-yandex-captcha-type="invisible"
+      data-yandex-captcha-shield-position="bottom-left"
+      id="captcha_challenge"
+      class="captcha-recaptcha"
+    ></div>
+    <div data-reviews-form-field-error class="form__field-error"></div>
+  </div>
+{% endif %}
+```
+
+!!! warning
+    Вы обязаны уведомлять пользователей о том, что их данные обрабатывает SmartCaptcha. Если вы скрываете блок с уведомлением, сообщите пользователям иным способом о том, что SmartCaptcha обрабатывает их данные.
 
 ### data-show-reviews-modal
 
@@ -315,24 +417,32 @@ EventBus.subscribe('send-review:insales:ui_reviews', function (data) {
             <div data-reviews-form-field-error class="form__field-error"></div>
           </div>
         {% endif %}
+
         {% if review.captcha_enabled? %}
-          <div
-            data-reviews-form-field-area
-            class="form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"
-          >
+          {% if account.captcha_type == 'google' %}
+          <div data-reviews-form-field-area class="form-row form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}">
             <div
-              data-reviews-form-recaptcha='{
-                "isRequired": true,
-                "errorMessage": "{{ messages.recaptcha_error | escape }}"
-              }'
               data-recaptcha-type="invisible"
+              data-reviews-form-recaptcha='{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'
               id="captcha_challenge"
               class="captcha-recaptcha"
             ></div>
             <div data-reviews-form-field-error class="form__field-error"></div>
           </div>
+          {% elsif account.captcha_type == 'yandex' %}
+          <div data-reviews-form-field-area class="form-row form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}">
+            <div
+              data-yandex-captcha-type="invisible"
+              data-reviews-form-yandex-captcha='{"isRequired": true, "errorMessage": "{{ widget_messages.yandex_captcha_error | escape }}"}'
+              id="captcha_challenge"
+              class="captcha-recaptcha"
+            ></div>
+            <div data-reviews-form-field-error class="form__field-error"></div>
+          </div>
+          {% endif %}
         {% endif %}
-        <div class="form-field form-field_conctrols">
+
+        <div class="form-field form-field_controls">
           <button type="submit" class="button button_wide">{{ messages.give_feedback }}</button>
         </div>
       </div>

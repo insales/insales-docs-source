@@ -269,10 +269,12 @@ EventBus.subscribe('show-modal-feedback:insales:ui_feedback', (data) => {
 ## События
 
 | Событие                                 | Описание                                                                                   |
-|-----------------------------------------|--------------------------------------------------------------------------|
-| send-feedback:insales:ui_feedback       | Срабатывает при успешной отправке формы                                  |
-| error-feedback:insales:ui_feedback      | Срабатывает в случае ошибки при отправке формы                           |
-| show-modal-feedback:insales:ui_feedback | Срабатывает при нажатии на кнопку с атрибутом `data-show-feedback-modal` |
+|---------------------------------------------------|----------------------------------------------------------------|
+| before-feedback-message-build:insales:ui_feedback | Срабатывает перед сборкой значений полей                       |
+| before-send-feedback:insales:ui_feedback          | Срабатывает перед отправкой формы                              |
+| send-feedback:insales:ui_feedback                 | Срабатывает при успешной отправке формы                        |
+| error-feedback:insales:ui_feedback                | Срабатывает в случае ошибки при отправке формы                 |
+| show-modal-feedback:insales:ui_feedback           | Срабатывает при нажатии на кнопку с атрибутом `data-show-feedback-modal`|
 
 **Пример подписки на событие**
 

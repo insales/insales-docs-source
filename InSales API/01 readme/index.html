@@ -3360,19 +3360,20 @@
 <div class="highlight"><pre><span></span><code>GET https://SHOP/admin/account.json
 </code></pre></div>
 <p>Авторизация — HTTP Basic. Логин — идентификатор приложения, пароль — пароль этого приложения в конкретном магазине. Пароли разных магазинов не совпадают.</p>
-<p>В заголовке запроса нужен <code>Content-Type: application/json</code> или <code>Content-Type: application/xml</code>.</p>
+<p><code>GET</code>, <code>HEAD</code> и <code>DELETE</code> проходят без <code>Content-Type</code>. У <code>POST</code>, <code>PUT</code> и <code>PATCH</code> заголовок обязателен и должен совпадать с суффиксом адреса: <code>application/json</code> для <code>.json</code>, <code>application/xml</code> для <code>.xml</code>. Если тип другой, ответ <code>422</code>, в теле <code>{"message":"incorrect Content-Type, should be application/json"}</code> или то же сообщение для <code>application/xml</code>.</p>
 <p>Вопросы по приложениям: <a href="mailto:partners@insales.ru">partners@insales.ru</a>.</p>
 <h2 id="_1">Лимит запросов</h2>
-<p>На одно приложение в одном магазине — 500 запросов за 5 минут. Окно считается от первого запроса серии. Счётчик приходит в заголовке <code>API-Usage-Limit</code>, например <code>API-Usage-Limit: 1/500</code>.</p>
-<p>Запрос сверх лимита получает <code>429 Too Many Requests</code>. В заголовке <code>Retry-After</code> — число секунд до нового окна. Тело такого ответа пустое.</p>
+<p>На одно приложение в одном магазине — 500 запросов за 5 минут. Окно считается от первого запроса серии. В счётчик входит и запрос с неверным паролем. Счётчик приходит в заголовке <code>API-Usage-Limit</code>, например <code>API-Usage-Limit: 1/500</code>.</p>
+<p>Запрос сверх лимита получает <code>429 Too Many Requests</code>. В заголовке <code>Retry-After</code> — число секунд до конца текущего окна. Тело такого ответа пустое.</p>
 <h2 id="_2">Коды ответов</h2>
 <ul>
 <li><code>200</code> — операция выполнена.</li>
 <li><code>201</code> — объект создан.</li>
-<li><code>400</code> — запрос не разобран.</li>
+<li><code>400</code> — тело не разобрано, например в <code>.json</code> пришёл невалидный JSON.</li>
 <li><code>401</code> — не прошла Basic-авторизация.</li>
-<li><code>403</code> — у приложения нет права на операцию.</li>
+<li><code>403</code> — у приложения нет права на операцию. Тело: <code>{"status":"error","message":"..."}</code>.</li>
 <li><code>404</code> — объект не найден.</li>
+<li><code>422</code> — неверный <code>Content-Type</code> или поля не прошли проверку.</li>
 <li><code>429</code> — исчерпан лимит, см. <code>Retry-After</code>.</li>
 </ul>
 <h2 id="_3">Установка приложения</h2>
@@ -3389,7 +3390,7 @@
 <li><code>insales_id</code> — постоянный идентификатор магазина.</li>
 <li><code>token</code> — одноразовая строка для расчёта пароля.</li>
 </ul>
-<p>Пароль уже создан к моменту этого GET, поэтому в обработчике установки можно сразу вызывать API, например создать <a href="../07%20InSales%20API%20-%20Webhooks/">вебхуки</a>. Ответ обработчика — <code>200</code>. Любой другой статус отменяет установку, и пароль перестаёт действовать.</p>
+<p>Пароль уже создан к моменту этого GET, поэтому в обработчике установки можно сразу вызывать API, например создать <a href="../07%20InSales%20API%20-%20Webhooks/">вебхуки</a>. Ответ обработчика — ровно <code>200</code>, и он должен прийти в течение 10 секунд. Другой статус или таймаут отменяет установку, и пароль перестаёт действовать.</p>
 <h2 id="_4">Вход пользователя в приложение</h2>
 <p>Кнопка входа открывает URL входа из настроек приложения и добавляет параметры:</p>
 <div class="highlight"><pre><span></span><code>https://myapp.example/login?shop=SHOP&amp;insales_id=INSALES_ID&amp;user_id=USER_ID&amp;user_email=USER_EMAIL

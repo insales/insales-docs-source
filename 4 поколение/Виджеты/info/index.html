@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1381,6 +1381,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2153,6 +2161,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -3058,14 +3178,14 @@
 <p>Метаданные виджета, в которых прописывается: поколение виджета, тип виджета, уникальный артикул, доступность в шаблонах страницы магазина, виджет-лист (раздел виджетов), категории виджетов, используемый шаблон блоков, доступные зависимости (плагины).</p>
 <h4 id="_1">Поколение виджета</h4>
 <p>На данный момент используется только виджеты 4 поколения, пример:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
 </code></pre></div>
 <h4 id="_2">Типы виджетов: <a name="BlockListWidgetType"></a><a name="SimpleWidgetType"></a></h4>
 <p>Без привязки блоков
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SimpleWidgetType&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SimpleWidgetType"</span>
 </code></pre></div>
 С блоками (необходимо добавить файл <a href="/4%20поколение/Виджеты/setup/">setup.json</a> с указанием параметром блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blockListWidgetType&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockListWidgetType"</span>
 </code></pre></div>
 Шаблон блока это поля с разными типами настроек. Доступные шаблоны блоков описаны <a href="/4%20поколение/Виджеты/info/#_8">здесь</a></p>
 <h4 id="_3">Типы виджетов, примеры:</h4>
@@ -3081,15 +3201,15 @@
 </div>
 <h4 id="handle">handle виджета</h4>
 <p>Виджет лежит в определенной директории. handle виджета должен совпадать с названием папки в которой лежат все файлы виджета. Главное - чтобы имя папки было уникальным, при этом наименование может быть любым.
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="s2">&quot;v4_article_products_beauty_article_1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"handle"</span><span class="p">:</span><span class="s2">"v4_article_products_beauty_article_1"</span>
 </code></pre></div></p>
 <h4 id="_4">Уникальный артикул виджета</h4>
 <p>Наименование уникального артикула виджета состоит из заглавных латинских букв и цифр.
 Мы придумываем артикул на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить, что артикул виджета уникален. Вы можете посмотреть артикул виджета в редакторе шаблона при добавлении. При изменения кода виджета <a href="/4%20поколение/Виджеты/Примеры/SimpleWidgetType/#online">в редакторе шаблона</a> в его артикул добавляется точка (пример <code>FM1.1</code>). При добавлении виджета с одинаковым артикулом в наименование добавляется тире <code>-</code> (пример <code>FM1-1</code> и <code>FM1-2</code>).
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="s2">&quot;FM1&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"FM1"</span>
 </code></pre></div></p>
 <h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;page_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;product,collection&quot;</span><span class="p">]</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">"page_kinds"</span><span class="p">:[</span><span class="s2">"product,collection"</span><span class="p">]</span>
 </code></pre></div>
 Если указать, например, "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть посередине верхней панели. Там расположен выпадающий список со всеми страницами шаблона. <br>
 Доступный список страниц (то как мы прописываем page_kinds в файле info.json:</p>
@@ -3118,13 +3238,13 @@
 <li>Сайдбар - sidebar</li>
 </ul>
 <p>Нужен, чтобы виджет выводился в <a href="/4%20поколение/Виджеты/#ListWidgetInfo">виджет-листах</a> "Контент" и "Подвал".</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:[</span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;footer&quot;</span><span class="p">]</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">"widget_list_kinds"</span><span class="p">:[</span><span class="s2">"content"</span><span class="p">,</span><span class="w"> </span><span class="s2">"footer"</span><span class="p">]</span>
 </code></pre></div>
 Может содержать элементы из следующего списка:</p>
 <h4 id="_7">Категории виджетов <a name="widget_category_handle"></a></h4>
 <p>Категории виджетов нужны для сортировки виджетов по категориям при добавлении нового виджета. <br>
 Например, категория баннеры:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="s2">&quot;banner&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"widget_category_handle"</span><span class="p">:</span><span class="s2">"banner"</span>
 </code></pre></div>
 <ul>
 <li>Аналогичные товары | product-similar</li>
@@ -3167,7 +3287,7 @@
 Для каждого набора полей есть свой уникальный шаблон. Можно выбрать существующий, а можно создать свой в панели администратора. </p>
 <p>Нужно перейти в <code>Настройки -&gt; Настройки сайта -&gt; Шаблоны блоков</code>. Url - <code>Имя_вашего_магазина/admin2/block_templates</code>.
 В столбце поля перечислены типы используемых полей. Слева указан идентификатор, который прописывается в значении параметра <code>block_template_handle</code>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-2&quot;</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system-banner-2"</span>
 </code></pre></div>
 Чтобы создать свой шаблон блока, нужно нажать <code>добавить</code>, указать название и идентификатор. Затем нажать на иконку карандаша, чтобы добавить нужные поля. Далее нужно нажать <code>добавить</code> под заголовком поля. 
 Название на русском, идентификатор латинскими буквами. 
@@ -3195,7 +3315,7 @@
 </tbody>
 </table>
 <p>Чтобы использовать созданный шаблон блока необходимо указать индентификатор:
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner-image-link&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner-image-link"</span>
 </code></pre></div></p>
 <!-- 
 Доступные шаблоны блоков:
@@ -3276,47 +3396,47 @@
 
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BlockListWidgetType&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system_widget_v4_stories_3&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;page_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;all&quot;</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlockListWidgetType"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_widget_v4_stories_3"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES2"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"page_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"all"</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;content&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;after_content&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;footer&quot;</span>
+<span class="w">  </span><span class="nt">"widget_list_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"before_content"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"content"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"after_content"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"footer"</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Cuentos&quot;</span>
+<span class="w">  </span><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Истории"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stories"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cuentos"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Истории в виде изображений&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Stories as images&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Historias como imágenes&quot;</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Истории в виде изображений"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stories as images"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Historias como imágenes"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stories&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;fslightbox&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;splide3&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span>
+<span class="w">  </span><span class="nt">"widget_category_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stories"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"libraries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"fslightbox"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"jquery"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"splide3"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"my-layout"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"vanilla-lazyload"</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-image-link-text&quot;</span>
+<span class="w">  </span><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system-image-link-text"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <h3 id="_9">Зависимости <a name="libraries"></a></h3>
 <p>Библиотеки виджета</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="s2">&quot;commonjs_v2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;swiper&quot;</span>
+<p><div class="highlight"><pre><span></span><code><span class="nt">"libraries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s2">"commonjs_v2"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"jquery"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"my-layout"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"swiper"</span>
 <span class="p">]</span>
 </code></pre></div>
 Доступные зависимости (плагины). Зависимости используются только те, которые установлены на стороне платформы:</p>
@@ -3387,7 +3507,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../js/jquery.min.js"></script>
       

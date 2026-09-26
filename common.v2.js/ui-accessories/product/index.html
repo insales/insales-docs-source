@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2239,6 +2247,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3214,26 +3334,26 @@
 <h4 id="data-product-accessory-minmax-count"><code>data-product-accessory-minmax-count</code></h4>
 <p>Выводит минимальное и максимальное количество значений, которые должны быть выбраны пользователем. В качестве значения можно передать JSON с текстом который будет выводиться перед минимальным и максимальным количеством значеним, например: от 3 до 6.</p>
 <p>Пример кода:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-accessory-minmax-count</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">  &quot;minCountMessage&quot;: &quot;от&quot;,</span>
-<span class="s">  &quot;maxCountMessage&quot;: &quot;до&quot;</span>
-<span class="s">}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-accessory-minmax-count</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">  "minCountMessage": "от",</span>
+<span class="s">  "maxCountMessage": "до"</span>
+<span class="s">}'</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-accessory-error"><code>data-product-accessory-error</code></h4>
 <p>Атрибут <code>data-product-accessory-error</code> используется для отображения сообщения об ошибке, когда выбранное количество значений опции выходит за пределы заданных минимального и максимального. Вы можете передать JSON со следующими свойствами:</p>
 <ul>
-<li><code>lessThanMinCount</code>: Текст сообщения, отображаемого, когда выбранное количество меньше минимального.</li>
-<li><code>moreThanMaxCount</code>: Текст сообщения, отображаемого, когда выбранное количество больше максимального.</li>
+<li><code>lessThenMinCount</code>: Текст сообщения, отображаемого, когда выбранное количество меньше минимального.</li>
+<li><code>moreThenMaxCount</code>: Текст сообщения, отображаемого, когда выбранное количество больше максимального.</li>
 <li><code>scrollEnabled</code>: Установите в <code>true</code>, чтобы включить автоматическую прокрутку к сообщению об ошибке при его появлении.</li>
 </ul>
 <p>Пример кода:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
-  <span class="na">data-product-accessory-error</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;lessThanMinCount&quot;: &quot;Выбрано меньше, чем минимальное количество&quot;,</span>
-<span class="s">    &quot;moreThanMaxCount&quot;: &quot;Выбрано больше, чем максимальное количество&quot;,</span>
-<span class="s">    &quot;scrollEnabled&quot;: &quot;true&quot;</span>
-<span class="s">  }&#39;</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-item__error&quot;</span>
+  <span class="na">data-product-accessory-error</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "lessThenMinCount": "Выбрано меньше, чем минимальное количество",</span>
+<span class="s">    "moreThenMaxCount": "Выбрано больше, чем максимальное количество",</span>
+<span class="s">    "scrollEnabled": "true"</span>
+<span class="s">  }'</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"accessory-item__error"</span>
 <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-accessory-values"><code>data-product-accessory-values</code></h4>
@@ -3272,50 +3392,50 @@
 </tbody>
 </table>
 <p><strong>Пример подписки на событие</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;accessories-rendered:insales:ui_accessories&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Была выполнена инициализация компонента ui-accessories&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'accessories-rendered:insales:ui_accessories'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Была выполнена инициализация компонента ui-accessories'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="_4">Пример разметки</h2>
 <div class="highlight"><pre><span></span><code>{% unless product.is_bundle %}
     {% if product.accessories.size &gt; 0 %}
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;product__area-accessories&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label-accessories&quot;</span><span class="p">&gt;</span>{{ messages.options }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product__area-accessories"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"label-accessories"</span><span class="p">&gt;</span>{{ messages.options }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-product-accessories</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
       <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-product-accessories-template</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-item&quot;</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"accessory-item"</span>
           <span class="na">data-product-accessories-item</span>
         <span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-name&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"accessory-name"</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>
               <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-accessory-name</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
 
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-accessory-minmax-count</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">              &quot;minCountMessage&quot;: &quot;{{ messages.from }}&quot;,</span>
-<span class="s">              &quot;maxCountMessage&quot;: &quot;{{ messages.to }}&quot;</span>
-<span class="s">            }&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-accessory-minmax-count</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">              "minCountMessage": "{{ messages.from }}",</span>
+<span class="s">              "maxCountMessage": "{{ messages.to }}"</span>
+<span class="s">            }'</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-values&quot;</span> <span class="na">data-product-accessory-values</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"accessory-values"</span> <span class="na">data-product-accessory-values</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
           <span class="p">&lt;</span><span class="nt">div</span>
-            <span class="na">data-product-accessory-error</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">              &quot;lessThenMinCount&quot;: &quot;Выбрано меньше минимального количества&quot;,</span>
-<span class="s">              &quot;moreThenMaxCount&quot;: &quot;Выбрано больше максимального количества&quot;,</span>
-<span class="s">              &quot;scrollEnabled&quot;: &quot;true&quot;</span>
-<span class="s">            }&#39;</span>
-            <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-item__error&quot;</span>
+            <span class="na">data-product-accessory-error</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">              "lessThenMinCount": "Выбрано меньше минимального количества",</span>
+<span class="s">              "moreThenMaxCount": "Выбрано больше максимального количества",</span>
+<span class="s">              "scrollEnabled": "true"</span>
+<span class="s">            }'</span>
+            <span class="na">class</span><span class="o">=</span><span class="s">"accessory-item__error"</span>
           <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
       <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-product-accessory-values-template</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">label</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;accessory-values__item&quot;</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"accessory-values__item"</span>
           <span class="na">data-product-accessory-values-item</span>
           <span class="na">data-product-accessory-values-item-id</span>
         <span class="p">&gt;</span>
@@ -3377,7 +3497,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../js/jquery.min.js"></script>
       

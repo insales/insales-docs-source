@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2034,8 +2042,52 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        has
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTemplate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addcompiled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addCompiled
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Встроенные шаблоны
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2091,6 +2143,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2907,8 +3071,52 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        has
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gettemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getTemplate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addcompiled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addCompiled
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Встроенные шаблоны
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2936,10 +3144,10 @@
 <p>Компонент «Template» отвечает за хранение и получение шаблонов написанных на шаблонизаторе библиотеки Lodash.</p>
 <h2 id="_1">Разметка</h2>
 <p>Шаблоны записываются в тег script с обязательными атрибутами <code>type</code>, <code>data-template-id</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-select&quot;</span><span class="p">&gt;</span>
-<span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-select&quot;</span><span class="o">&gt;</span>
-<span class="w">   </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">   </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">&quot;&lt;%= option.id %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-select"</span><span class="p">&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-select"</span><span class="o">&gt;</span>
+<span class="w">   </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">   </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">"&lt;%= option.id %&gt;"</span><span class="o">&gt;</span>
 <span class="w">     </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">       </span><span class="o">&lt;</span><span class="nx">option</span>
 <span class="w">         </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -2962,16 +3170,48 @@
 <span class="cm">* @param {string} template_body - верстка шаблона</span>
 <span class="cm">* @param {string} template_id - название шаблона</span>
 <span class="cm"> */</span>
-<span class="nx">Template</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">&#39;&lt;button class=&quot;button button--click_me&quot;&gt;&lt;%= title %&gt;&lt;/button&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test-button&#39;</span><span class="p">)</span>
+<span class="nx">Template</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="s1">'&lt;button class="button button--click_me"&gt;&lt;%= title %&gt;&lt;/button&gt;'</span><span class="p">,</span><span class="w"> </span><span class="s1">'test-button'</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="render">render</h3>
-<p>Загрузка нового шаблона в список</p>
+<p>Собрать HTML по уже загруженному шаблону. Метод корректно работает после <code>DOMContentLoaded</code>: до этого момента шаблоны из разметки ещё не прочитаны. Если шаблона с таким id нет, метод возвращает пустую строку.</p>
+<p>Синтаксис тела шаблона — <code>&lt;%= %&gt;</code>, <code>&lt;% %&gt;</code> и функции lodash, например <code>_.forEach</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm">* @param {Object} templateData - информация для шаблонизатора</span>
 <span class="cm">* @param {string} template_id - название шаблона</span>
+<span class="cm">*</span>
+<span class="cm">* @return {string} html</span>
 <span class="cm"> */</span>
-<span class="nx">$</span><span class="p">(</span><span class="nx">targetNode</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">Template</span><span class="p">.</span><span class="nx">render</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Click me!&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s1">&#39;test-button&#39;</span><span class="w"> </span><span class="p">));</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">targetNode</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">Template</span><span class="p">.</span><span class="nx">render</span><span class="p">({</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">'Click me!'</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s1">'test-button'</span><span class="w"> </span><span class="p">));</span>
 </code></pre></div>
+<h3 id="has">has</h3>
+<p>Проверить, есть ли шаблон с указанным id.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">Template</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s1">'test-button'</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="gettemplate">getTemplate</h3>
+<p>Вернуть функцию шаблона по id. Если шаблон не загружен, результат пустой.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">compiled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Template</span><span class="p">.</span><span class="nx">getTemplate</span><span class="p">(</span><span class="s1">'test-button'</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="addcompiled">addCompiled</h3>
+<p>Положить в список уже собранную функцию шаблона.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm">* @param {function} compiledTemplate - функция шаблона</span>
+<span class="cm">* @param {string} template_id - название шаблона</span>
+<span class="cm"> */</span>
+<span class="nx">Template</span><span class="p">.</span><span class="nx">addCompiled</span><span class="p">(</span><span class="nx">compiledTemplate</span><span class="p">,</span><span class="w"> </span><span class="s1">'test-button'</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="_3">Встроенные шаблоны</h2>
+<p>Библиотека заранее содержит шаблоны:</p>
+<ul>
+<li><code>option-default</code></li>
+<li><code>option-select</code></li>
+<li><code>option-select-image</code></li>
+<li><code>option-radio</code></li>
+<li><code>option-span</code></li>
+<li><code>option-preview</code></li>
+<li><code>option-preview-text</code></li>
+<li><code>search-default</code></li>
+</ul>
+<p>Свой шаблон с тем же <code>data-template-id</code> заменяет встроенный.</p>
 
 
 
@@ -3024,7 +3264,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

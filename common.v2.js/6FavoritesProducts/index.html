@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2220,6 +2228,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3174,27 +3294,27 @@
 <h2 id="_2">Назначение атрибутов</h2>
 <h3 id="data-ui-favorites-add">data-ui-favorites-add</h3>
 <p>Кнопка для добавления товара. После добавления товара по умолчанию получает класс <code>favorites-added</code>. В качестве значения необходимо передать ID товара.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-add</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-add</span><span class="o">=</span><span class="s">"{{ product.id }}"</span><span class="p">&gt;</span>
   Добавить товар в избранное
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-ui-favorites-delete">data-ui-favorites-delete</h3>
 <p>Кнопка для удаления товара. После удаления товара по умолчанию получает класс <code>favorites-not-added</code>. В качестве значения необходимо передать ID товара.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-delete</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-delete</span><span class="o">=</span><span class="s">"{{ product.id }}"</span><span class="p">&gt;</span>
   Удалить из избранных
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-ui-favorites-trigger">data-ui-favorites-trigger</h3>
 <p>Кнопка-переключатель при нажатии на которую, товар добавляется/удаляется из избранного. В зависимости от состояния кнопка получает классы <code>favorites-added</code> или <code>favorites-not-added</code>. В качестве значения необходимо передать ID товара.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">"{{ product.id }}"</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Здесь может быть иконка или текст кнопки --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Если при добавлении/удалении необходимо менять текст кнопки, то внутри должен быть дочерний элемент с атрибутами <code>data-ui-favorites-trigger-added-text</code> и <code>data-ui-favorites-trigger-not-added-text</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-ui-favorites-trigger</span><span class="o">=</span><span class="s">"{{ product.id }}"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">span</span> 
-    <span class="na">data-ui-favorites-trigger-added-text</span><span class="o">=</span><span class="s">&quot;В избранном&quot;</span>
-    <span class="na">data-ui-favorites-trigger-not-added-text</span><span class="o">=</span><span class="s">&quot;Добавить в избранное&quot;</span>
+    <span class="na">data-ui-favorites-trigger-added-text</span><span class="o">=</span><span class="s">"В избранном"</span>
+    <span class="na">data-ui-favorites-trigger-not-added-text</span><span class="o">=</span><span class="s">"Добавить в избранное"</span>
   <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3206,7 +3326,7 @@
 </code></pre></div>
 <h3 id="data-ui-favorites-counter-btn">data-ui-favorites-counter-btn</h3>
 <p>Ссылка для перехода на страницу избранного. Если ни одного товара не добавлено, то получает класс <code>favorites-empty</code>. Это может быть удобно для того, чтобы красить ссылку после добавления товаров.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/favorites&quot;</span> <span class="na">data-ui-favorites-counter-btn</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"/favorites"</span> <span class="na">data-ui-favorites-counter-btn</span><span class="p">&gt;</span>
  Избранное
 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3240,7 +3360,7 @@
 </code></pre></div>
 <h3 id="clear">clear</h3>
 <p>Очистить избранное</p>
-<div class="highlight"><pre><span></span><code><span class="nx">FavoritesProducts</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="nx">FavoritesProducts</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
 </code></pre></div>
 <h3 id="update">update</h3>
 <p>Обновить состояние</p>
@@ -3282,8 +3402,8 @@
 </tbody>
 </table>
 <p><strong>Пример подписки на событие</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_item:insales:favorites_products&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен в избранное&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'add_item:insales:favorites_products'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Товар добавлен в избранное'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span><span class="w"> </span>
 </code></pre></div>
 
@@ -3338,7 +3458,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

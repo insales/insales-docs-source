@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1220,6 +1220,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1992,6 +2000,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -3094,7 +3214,7 @@
 <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">loadCapthca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">grecaptcha</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;gRecaptcha&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'gRecaptcha'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="nx">recaptchaVerify</span>
 <span class="w">      </span><span class="p">});</span>
@@ -3111,18 +3231,18 @@
 <span class="w">    </span><span class="nx">self</span><span class="p">.</span><span class="nx">unmark</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
 
-<span class="w">  </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">'[name="g-recaptcha-response"]'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">feedback_captcha_enabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'recaptcha:insales:loaded'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'recaptcha_key'</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.form-row #gRecaptcha&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;gRecaptcha&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
-<span class="w">      </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="s1">'.form-row #gRecaptcha'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'gRecaptcha'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
+<span class="w">      </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
 
 <span class="w">      </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span>
@@ -3136,9 +3256,9 @@
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">loadCapthca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">grecaptcha</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.form-row #gRecaptcha&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;gRecaptcha&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
-<span class="w">            </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
+<span class="w">          </span><span class="nx">$</span><span class="p">(</span><span class="s1">'.form-row #gRecaptcha'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'gRecaptcha'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
 <span class="w">            </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">randomId</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">              </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span>
 <span class="w">              </span><span class="nx">callback</span><span class="o">:</span><span class="w"> </span><span class="nx">recaptchaVerify</span>
@@ -3160,8 +3280,8 @@
 <p>В <code>_options</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">settings</span><span class="p">.</span><span class="nx">feedback_captcha_enabled</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;captcha&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_captcha }}'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'captcha'</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
@@ -3170,8 +3290,8 @@
 <p>В <code>_backcallForm</code> добавить (не забыть про зяпятые при добавлении нового элемента массива):</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
 {
-  title: &#39;{{ messages.field_captcha }}&#39;,
-  type: &#39;captcha&#39;,
+  title: '{{ messages.field_captcha }}',
+  type: 'captcha',
   required: true,
 }
 {% endif %}
@@ -3186,24 +3306,24 @@
 </code></pre></div>
 <h2 id="indexjs">index.js</h2>
 <p>Между этим кодом:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">'index'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>и этим:</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.js-widget-feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'submit'</span><span class="p">,</span><span class="w"> </span><span class="s1">'.js-widget-feedback'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </code></pre></div>
 <p>Вставить:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">recaptchaVerify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">jquery</span><span class="p">(</span><span class="s1">'[name="g-recaptcha-response"]'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;recaptcha:insales:loaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_key&#39;</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span>
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'recaptcha:insales:loaded'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'recaptcha_key'</span><span class="p">).</span><span class="nx">recaptcha_key</span><span class="p">;</span>
 
-<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.form-row .js-g-recaptcha&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;gRecaptcha&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s1">'.form-row .js-g-recaptcha'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'gRecaptcha'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">99999999</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="nx">randomId</span><span class="p">);</span>
 
 <span class="w">    </span><span class="nx">grecaptchaWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">grecaptcha</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">sitekey</span><span class="o">:</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span>
@@ -3218,9 +3338,9 @@
 <div class="highlight"><pre><span></span><code><span class="nx">Shop</span><span class="p">.</span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">alertify</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">notice</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">$widgetFeedback</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;reset&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">$widgetFeedback</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'reset'</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">val_send</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;send_success&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">val_send</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'send_success'</span><span class="p">,</span><span class="w"> </span><span class="nx">val_send</span><span class="p">);</span>
 <span class="w">  </span><span class="p">})</span>
 <span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3231,7 +3351,7 @@
 <p>Заменить <code>fail</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">errors</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">errorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">errorText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'string'</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">val</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
 <span class="w">      </span><span class="nx">alertify</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">errorText</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="w">  </span><span class="p">});</span>
@@ -3239,27 +3359,27 @@
 <h2 id="widget_feedbackliquid">widget_feedback.liquid</h2>
 <p>Добавить в код формы:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row recaptcha-wide&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-g-recaptcha&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-row recaptcha-wide"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"js-g-recaptcha"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
 <h2 id="scriptsliquid">scripts.liquid</h2>
 <p>Вставить в Site.messages строку:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_captcha }}'</span><span class="p">,</span>
 </code></pre></div>
 <p>Как должно получиться:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">field_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_name }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">field_email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_email }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">field_message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_message }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">label_product</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.label_product }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">label_variant</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.label_variant }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.field_captcha }}&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">field_name</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_name }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">field_email</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_email }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">field_message</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_message }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">label_product</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.label_product }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">label_variant</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.label_variant }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">field_captcha</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.field_captcha }}'</span><span class="p">,</span>
 
-<span class="w">      </span><span class="nx">preorder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.preorder }}&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">button_submit</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;{{ messages.button_submit }}&#39;</span>
+<span class="w">      </span><span class="nx">preorder</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.preorder }}'</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">button_submit</span><span class="o">:</span><span class="w"> </span><span class="s1">'{{ messages.button_submit }}'</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <h2 id="productjs">product.js</h2>
@@ -3267,7 +3387,7 @@
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">Shop</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">feedback_captcha_enabled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">preorderForm</span><span class="p">.</span><span class="nx">fields</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
 <span class="w">        </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">field_captcha</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;captcha&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'captcha'</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">      </span><span class="p">})</span>
 <span class="w">    </span><span class="p">}</span>
@@ -3283,19 +3403,19 @@
       <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_label }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;feedback_captcha_enabled&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="p">/&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"feedback_captcha_enabled"</span><span class="p">&gt;</span>{{ messages.s_feedback_captcha_label }}<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback_captcha_enabled"</span> <span class="na">id</span><span class="o">=</span><span class="s">"feedback_captcha_enabled"</span> <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span> <span class="p">/&gt;</span> <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="messagesjson">messages.json</h2>
 <p>Добавить название и описание настройки:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма обратной связи&quot;</span><span class="p">,</span>
-<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить проверку &#39;Я не робот&#39;&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"s_feedback_captcha_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Форма обратной связи"</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Включить проверку 'Я не робот'"</span><span class="p">,</span>
 
-<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Feedback form&quot;</span><span class="p">,</span>
-<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable check&quot;</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feedback form"</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable check"</span><span class="p">,</span>
 </code></pre></div>
 
 
@@ -3349,7 +3469,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

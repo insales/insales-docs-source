@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2091,6 +2099,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2987,8 +3107,9 @@
 <h2 id="_3">События</h2>
 <ul>
 <li>init-filter:ui-ajax-filter - срабатывает после инициализации фильтров</li>
+<li>filter-item-loaded:ui-ajax-filter - срабатывает после подгрузки значений одного фильтра. В данных есть узел фильтра <code>filterItem</code>, список его классов и отмеченные значения <code>checked</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;init-filter:ui-ajax-filter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'init-filter:ui-ajax-filter'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">})</span>
 </code></pre></div>
@@ -3021,68 +3142,68 @@
 <span class="err">{%</span> <span class="na">endif</span> <span class="err">%}</span>
 
 <span class="err">&lt;</span><span class="na">form</span>
-  <span class="na">data-ajax-filter</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;useImages&quot;: &quot;false&quot;,</span>
-<span class="s">    &quot;visibleItemsSize&quot;: &quot;5&quot;</span>
-<span class="s">    }&#39;</span>
-  <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ collection.url }}&quot;</span>
-  <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span>
+  <span class="na">data-ajax-filter</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "useImages": "false",</span>
+<span class="s">    "visibleItemsSize": "5"</span>
+<span class="s">    }'</span>
+  <span class="na">action</span><span class="o">=</span><span class="s">"{{ collection.url }}"</span>
+  <span class="na">method</span><span class="o">=</span><span class="s">"get"</span>
 <span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter__content&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter__head&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter__head-title&quot;</span><span class="p">&gt;</span>Фильтры<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter__items&quot;</span> <span class="na">data-ajax-filter-items</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter__content"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter__head"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter__head-title"</span><span class="p">&gt;</span>Фильтры<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter__items"</span> <span class="na">data-ajax-filter-items</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter__controls&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Применить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter__controls"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Применить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   {% if order %}
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;order&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ order }}&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"order"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ order }}"</span> <span class="p">/&gt;</span>
   {% endif %}
 
   {% if page_size %}
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;page_size&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ page_size }}&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"page_size"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ page_size }}"</span><span class="p">/&gt;</span>
   {% endif %}
 
   {% if language.not_default? %}
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;lang&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ language.locale }}&quot;</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"lang"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ language.locale }}"</span><span class="p">/&gt;</span>
   {% endif %}
 
-  {% if search.query != &#39;&#39; %}
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;q&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ search.query }}&quot;</span><span class="p">/&gt;</span>
+  {% if search.query != '' %}
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"q"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ search.query }}"</span><span class="p">/&gt;</span>
   {% endif %}
 
   <span class="cm">&lt;!-- Шаблон элемента фильтра по цене --&gt;</span>
   <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-template-price</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item filter-item_price&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__head&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__name&quot;</span><span class="p">&gt;</span>{{messages.filter_price_title}}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item filter-item_price"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__head"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__name"</span><span class="p">&gt;</span>{{messages.filter_price_title}}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__content&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__content"</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span>
           <span class="na">data-ajax-filter-range</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range&quot;</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"filter-range"</span>
         <span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-item&quot;</span><span class="p">&gt;</span>
-              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-label&quot;</span><span class="p">&gt;</span>От<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-item"</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-label"</span><span class="p">&gt;</span>От<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
               <span class="p">&lt;</span><span class="nt">input</span>
                 <span class="na">data-ajax-filter-range-field-min</span>
-                <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-                <span class="na">name</span><span class="o">=</span><span class="s">&quot;price_min&quot;</span>
-                <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ price_min }}&quot;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+                <span class="na">name</span><span class="o">=</span><span class="s">"price_min"</span>
+                <span class="na">value</span><span class="o">=</span><span class="s">"{{ price_min }}"</span>
                 <span class="err">{%</span> <span class="na">unless</span> <span class="na">price_min</span> <span class="err">%}</span> <span class="na">disabled</span> <span class="err">{%</span> <span class="na">endunless</span> <span class="err">%}</span>
               <span class="p">/&gt;</span>
             <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-item&quot;</span><span class="p">&gt;</span>
-              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-label&quot;</span><span class="p">&gt;</span>До<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-item"</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-label"</span><span class="p">&gt;</span>До<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
               <span class="p">&lt;</span><span class="nt">input</span>
                 <span class="na">data-ajax-filter-range-field-max</span>
-                <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-                <span class="na">name</span><span class="o">=</span><span class="s">&quot;price_max&quot;</span>
-                <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ price_max }}&quot;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+                <span class="na">name</span><span class="o">=</span><span class="s">"price_max"</span>
+                <span class="na">value</span><span class="o">=</span><span class="s">"{{ price_max }}"</span>
                 <span class="err">{%</span> <span class="na">unless</span> <span class="na">price_max</span> <span class="err">%}</span> <span class="na">disabled</span> <span class="err">{%</span> <span class="na">endunless</span> <span class="err">%}</span>
               <span class="p">/&gt;</span>
             <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3094,27 +3215,27 @@
 
   <span class="cm">&lt;!-- Шаблон элемента фильтра --&gt;</span>
   <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-template-item</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item&quot;</span> <span class="na">data-ajax-filter-item</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__head&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__name&quot;</span> <span class="na">data-ajax-filter-item-title</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item"</span> <span class="na">data-ajax-filter-item</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__head"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__name"</span> <span class="na">data-ajax-filter-item-title</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__content&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__list&quot;</span> <span class="na">data-ajax-filter-item-content</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__content"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__list"</span> <span class="na">data-ajax-filter-item-content</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
   <span class="cm">&lt;!-- Шаблон значений параметров и свойств --&gt;</span>
   <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-template-usual</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__list-item&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option _checkbox&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__list-item"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option _checkbox"</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">input</span>
-          <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__field&quot;</span>
-          <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span>
+          <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__field"</span>
+          <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span>
         <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__content&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__label&quot;</span> <span class="na">data-ajax-filter-option-label</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__content"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__label"</span> <span class="na">data-ajax-filter-option-label</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3122,16 +3243,16 @@
 
   <span class="cm">&lt;!-- Шаблон значений свойств в виде картинок --&gt;</span>
   <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-template-color</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-item__list-item &quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option _checkbox&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-item__list-item "</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option _checkbox"</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">input</span>
-          <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__field&quot;</span>
-          <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span>
-          <span class="na">name</span><span class="o">=</span><span class="s">&quot;options[][]&quot;</span>
+          <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__field"</span>
+          <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span>
+          <span class="na">name</span><span class="o">=</span><span class="s">"options[][]"</span>
         <span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__content&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-option__label&quot;</span> <span class="na">data-ajax-filter-option-image</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__content"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-option__label"</span> <span class="na">data-ajax-filter-option-image</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3141,21 +3262,21 @@
   <span class="p">&lt;</span><span class="nt">template</span> <span class="na">data-ajax-filter-template-numeric</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
       <span class="na">data-ajax-filter-range</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range&quot;</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"filter-range"</span>
     <span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-item&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-label&quot;</span><span class="p">&gt;</span>От<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-item"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-label"</span><span class="p">&gt;</span>От<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">input</span>
             <span class="na">data-ajax-filter-range-field-min</span>
-            <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+            <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
           <span class="p">/&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-item&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;filter-range__values-label&quot;</span><span class="p">&gt;</span>До<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-item"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"filter-range__values-label"</span><span class="p">&gt;</span>До<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">input</span>
             <span class="na">data-ajax-filter-range-field-max</span>
-            <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
+            <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
           <span class="p">/&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -3221,7 +3342,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

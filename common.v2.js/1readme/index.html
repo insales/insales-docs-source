@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2096,6 +2104,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -3015,26 +3135,70 @@
 <li>События</li>
 <li>Пример разметки</li>
 </ul>
+<p><strong><a href="/common.v2.js/ajax-products/">AJAX-товары:</a></strong></p>
+<ul>
+<li>Карточка товара</li>
+<li>Список товаров</li>
+</ul>
+<p><strong><a href="/common.v2.js/ui-quick-checkout/">Форма заказа в один клик:</a></strong></p>
+<ul>
+<li>Активация формы заказа и заявки</li>
+<li>События</li>
+</ul>
+<p><strong><a href="/common.v2.js/11ui-trigger-events/">События по клику:</a></strong></p>
+<ul>
+<li>Публикация произвольного события по клику</li>
+</ul>
 <p><strong><a href="/common.v2.js/12Template/">Lodash шаблоны:</a></strong></p>
 <ul>
 <li>Работа с динамическими данными через шаблонизатор библиотеки Lodash</li>
 </ul>
+<p><strong><a href="/common.v2.js/13InSalesUI/">Методы для работы с UI:</a></strong></p>
+<ul>
+<li>Динамическая корзина</li>
+<li>Обновление слушателей количества</li>
+<li>Открытие заказа в один клик</li>
+</ul>
+<p><strong><a href="/common.v2.js/14Shop/">Вспомогательные методы магазина:</a></strong></p>
+<ul>
+<li>Формат цены</li>
+<li>Конфигурация страницы</li>
+<li>Клиент, единицы измерения, сообщения и отзывы</li>
+</ul>
+<p><strong><a href="/common.v2.js/ui-menu/">Меню:</a></strong></p>
+<ul>
+<li>Подсветка текущего пункта</li>
+</ul>
+<p><strong><a href="/common.v2.js/ui-add-cart-counter/">Счётчик в корзине на карточке:</a></strong></p>
+<ul>
+<li>Кнопки количества на карточке товара</li>
+</ul>
+<p><strong><a href="/common.v2.js/ui-ajax-reviews/">AJAX-отзывы:</a></strong></p>
+<ul>
+<li>Список отзывов магазина</li>
+</ul>
+<p><strong><a href="/common.v2.js/15Tools/">Tools:</a></strong></p>
+<ul>
+<li>Разбор адреса страницы</li>
+<li>Язык в ссылках</li>
+<li>Человекочитаемые адреса фильтров</li>
+</ul>
 <h2 id="_3">Подключение</h2>
-<p>В шаблоны <code>layots.{layout,checkout2,client_account}.liquid</code> добавить тег <code>include_insales_scripts</code> с параметром <code>common-js@v2</code></p>
-<div class="highlight"><pre><span></span><code>{% include_insales_scripts &quot;common-js@v2&quot; %}
+<p>В шаблоны <code>layouts.{layout,checkout2,client_account}.liquid</code> добавить тег <code>include_insales_scripts</code> с параметром <code>common-js@v2</code></p>
+<div class="highlight"><pre><span></span><code>{% include_insales_scripts "common-js@v2" %}
 </code></pre></div>
 <p>Так же можно подключить через settings_data.json, прописав там поле - "common_js_version": "v2".</p>
 <p>Файл settings_data.json недоступен через админ-панель, поэтому новое свойство нужно добавлять вручную путём скачивания шаблона и последующей установки с новыми параметрами. Также файл можно поправить, если для разработки используется <a href="https://insales.github.io/insales-uploader/" target="_blank">InSales-uploader</a>.</p>
 <p>Пример <code>settings_data.json</code>:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;common_js_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;presets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;custom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;color_text_primary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#222222&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;font_size_primary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16px&quot;</span>
+<span class="w">  </span><span class="nt">"common_js_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"color_text_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#222222"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"font_size_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16px"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;theme_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Базовый шаблон&quot;</span>
+<span class="w">  </span><span class="nt">"theme_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Базовый шаблон"</span>
 <span class="p">}</span>
 </code></pre></div></p>
 <div class="admonition info">
@@ -3043,14 +3207,16 @@
 </div>
 <h2 id="commonjs">Библиотеки используемые в Common.js</h2>
 <ul>
-<li><a href="https://lodash.com/docs/" target="_blank">Lodash</a></li>
+<li><a href="https://lodash.com/docs/4.17.21.html" target="_blank">Lodash</a> 4.17.21</li>
 <li><a href="http://jquery.com/" target="_blank">jQuery</a></li>
 </ul>
-<p>Lodash доступен глобально, можно и нужно пользоваться возможностями этой библиотеки при разработке.</p>
+<p>jQuery обязателен: обработчики отдают jQuery-объекты кнопок и форм, а методы <code>ajaxAPI</code> и <code>Products</code> возвращают jQuery Deferred. У такого объекта есть методы <code>.done()</code> и <code>.fail()</code>.</p>
+<p>Lodash доступен глобально как <code>_</code>. В проекте должна быть версия 4.17.21: другая версия на странице приводит к предупреждению о второй копии библиотеки.</p>
 <h2 id="_4">Зарезервированные переменные</h2>
 <p>Имена переменных которые Common.js присваивает в глобальную область видимости:</p>
 <ul>
 <li>Cart</li>
+<li>InsalesCommonCart</li>
 <li>Shop</li>
 <li>Products</li>
 <li>Compare</li>
@@ -3060,7 +3226,14 @@
 <li>ajaxAPI</li>
 <li>Template</li>
 <li>EventBus</li>
+<li>Tools</li>
+<li>reCaptchaCommon</li>
+<li>yandexCaptchaCommon</li>
+<li>localforage</li>
 </ul>
+<p><code>Cart</code> и <code>InsalesCommonCart</code> — один и тот же объект корзины.</p>
+<p><code>Site</code> зарезервирован и остаётся пустым объектом: у него нет методов. Его нельзя переопределять своим кодом.</p>
+<p><code>reCaptchaCommon</code> и <code>yandexCaptchaCommon</code> описаны в разделе про капчу. <code>localforage</code> — хранилище в браузере, которое библиотека использует для кэша.</p>
 <p>В проектах, где используется Common.js, нельзя переопределять данные переменные. Также при подключении Common.js к работающему сайту нужно проверять переменные на переопределение и особенно обратить внимание на переменные <code>Cart</code> и <code>Site</code>.</p>
 <h2 id="_5">Логика работы</h2>
 <p>Готовые решения Common.js для компонентов магазина работают по следующей логике:</p>
@@ -3124,7 +3297,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

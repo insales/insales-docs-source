@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1306,6 +1306,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2078,6 +2086,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2908,16 +3028,16 @@
 <p>Необходимо добавить в файл snippet.js этот фрагмент кода:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentWidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">widget</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">copyButtons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.js-copy-url&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cartItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.item-title&#39;</span><span class="p">));</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;[data-shop-title]&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;[data-shop-host]&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;[data-items-in-cart]&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;[data-share-items]&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopTitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-shop-title&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-shop-host&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemsInCart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-items-in-cart&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dataShareItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-share-items&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">copyButtons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.js-copy-url'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cartItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.item-title'</span><span class="p">));</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-shop-title]'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-shop-host]'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-items-in-cart]'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentWidget</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-share-items]'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopTitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">shopTitleNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-shop-title'</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">shopHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">shopHostNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-shop-host'</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemsInCart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">itemsInCartNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-items-in-cart'</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dataShareItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">dataShareItemsNode</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-share-items'</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
 
 <span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">isMobileDevice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">mobileWidthThreshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">768</span><span class="p">;</span>
@@ -2926,10 +3046,10 @@
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">allProductName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">allProductName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">allProductName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
 <span class="w">    </span><span class="nx">cartItems</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">cartItem</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">productName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cartItem</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">productLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cartItem</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">productLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cartItem</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">productName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <span class="w">      </span><span class="p">}</span>
@@ -2939,16 +3059,16 @@
 <span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">copyLink</span><span class="p">(</span><span class="nx">link</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">inputElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.shared-cart-link&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">inputElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.shared-cart-link'</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">inputElement</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">link</span><span class="p">;</span>
 <span class="w">    </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">clipboard</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="nx">inputElement</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="w">  </span><span class="nx">copyButtons</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">button</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-<span class="w">          </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/front_api/cart/share.json&#39;</span><span class="p">,</span>
-<span class="w">          </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span>
+<span class="w">          </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'/front_api/cart/share.json'</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">'POST'</span>
 <span class="w">        </span><span class="p">});</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">urlToCopy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">shared_cart_link</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">shareData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -2956,10 +3076,10 @@
 <span class="w">          </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">urlToCopy</span>
 <span class="w">        </span><span class="p">};</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isMobileDevice</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">share</span><span class="p">(</span><span class="nx">shareData</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;copy:link:insales&#39;</span><span class="p">));</span>
+<span class="w">          </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">share</span><span class="p">(</span><span class="nx">shareData</span><span class="p">).</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'copy:link:insales'</span><span class="p">));</span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nx">copyLink</span><span class="p">(</span><span class="nx">urlToCopy</span><span class="p">);</span>
-<span class="w">          </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;copy:link:insales&#39;</span><span class="p">);</span>
+<span class="w">          </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'copy:link:insales'</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
@@ -2971,20 +3091,20 @@
 <h4 id="2-html-snippetliquid">Шаг 2. HTML (snippet.liquid)</h4>
 <p>Редактируем snippet.liquid.</p>
 <p>В основной тег form, добавляем необходимые атрибуты:
-<div class="highlight"><pre><span></span><code>    data-shop-title=&quot;{{ account.title }}&quot;
-    data-shop-host=&quot;{{ account.main_host }}&quot;
-    data-items-in-cart=&quot;{{- widget_messages.items_in_cart -}}&quot;
-    data-share-items=&quot;{{- widget_messages.shared_cart -}}&quot;
+<div class="highlight"><pre><span></span><code>    data-shop-title="{{ account.title }}"
+    data-shop-host="{{ account.main_host }}"
+    data-items-in-cart="{{- widget_messages.items_in_cart -}}"
+    data-share-items="{{- widget_messages.shared_cart -}}"
 </code></pre></div></p>
 <p>Сразу после тега form, добавляем эту строку:
 <div class="highlight"><pre><span></span><code> <span class="p">&lt;</span><span class="nt">input</span>
-      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;shared-cart-link&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;shared-cart-link hidden&quot;</span> <span class="p">/&gt;</span>
+      <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"shared-cart-link"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"shared-cart-link hidden"</span> <span class="p">/&gt;</span>
 </code></pre></div></p>
 <p>В любое необходимое вам место виджета нужно добавить кнопку для копирования ссылки на корзину:
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_size-l button_wide social-button js-copy-url button_second&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="p">&gt;</span>{{ widget_messages.share }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">class</span><span class="o">=</span><span class="s">"button button_size-l button_wide social-button js-copy-url button_second"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text"</span><span class="p">&gt;</span>{{ widget_messages.share }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 Дизайн самой кнопки можно изменить с помощью редактирования файла стилей виджета snippet.scss.</p>
@@ -2992,29 +3112,29 @@
 <p>Добавляем необходимые переводы:</p>
 <p>Текст переводов можно менять на любой нужный вам.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;share&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Поделиться&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;enable_shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить &#39;Поделиться корзиной&#39;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items_in_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Товаров в корзине:&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;С вами поделились корзиной в интернет-магазине&quot;</span>
+<span class="w">  </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Поделиться"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enable_shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Включить 'Поделиться корзиной'"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items_in_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Товаров в корзине:"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"С вами поделились корзиной в интернет-магазине"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;share&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Поділитися&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;enable_shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включити &#39;поділитися кошиком&#39;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items_in_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Товарів у кошику:&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;З вами поділилися кошиком в інтернет-магазині&quot;</span>
+<span class="w">  </span><span class="nt">"ua"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Поділитися"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enable_shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Включити 'поділитися кошиком'"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items_in_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Товарів у кошику:"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"З вами поділилися кошиком в інтернет-магазині"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;share&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Share&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;enable_shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable &#39;Share Shopping Cart&#39;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items_in_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Items in cart:&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A cart was shared with you in an online store&quot;</span>
+<span class="w">  </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Share"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enable_shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable 'Share Shopping Cart'"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items_in_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Items in cart:"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A cart was shared with you in an online store"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;share&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compartir&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;enable_shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Habilitar &#39;compartir carrito&#39;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items_in_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Artículos en el carrito:&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;shared_cart&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Se compartió un carrito contigo en una tienda en línea&quot;</span>
+<span class="w">  </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"share"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Compartir"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"enable_shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Habilitar 'compartir carrito'"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items_in_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Artículos en el carrito:"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shared_cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Se compartió un carrito contigo en una tienda en línea"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3070,7 +3190,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

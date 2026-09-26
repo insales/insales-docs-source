@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2282,6 +2290,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3294,8 +3414,8 @@
 <h3 id="data-feedback-form-wrapper">data-feedback-form-wrapper</h3>
 <p>Обязательный атрибут для обёртки формы обратной связи</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span>
-  <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span>
-  <span class="na">action</span><span class="o">=</span><span class="s">&quot;/client_account/feedback&quot;</span>
+  <span class="na">method</span><span class="o">=</span><span class="s">"post"</span>
+  <span class="na">action</span><span class="o">=</span><span class="s">"/client_account/feedback"</span>
   <span class="na">data-feedback-form-wrapper</span>
 <span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
@@ -3307,20 +3427,20 @@
 <p class="admonition-title">Info</p>
 <p>По умолчанию элемент не скрыт</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-success</span><span class="o">=</span><span class="s">&#39;{&quot;showTime&quot;: 10000}&#39;</span><span class="p">&gt;</span>Успешно отправлено<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-success</span><span class="o">=</span><span class="s">'{"showTime": 10000}'</span><span class="p">&gt;</span>Успешно отправлено<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-feedback-form-field-area">data-feedback-form-field-area</h3>
 <p>Атрибут для блока каждого отдельного поля. Нужен для валидации поля и вывода ошибок в элементе с атрибутом <code>data-feedback-form-field-error</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Имя<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span>
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-      <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"name"</span>
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "Неправильно заполнено поле Имя"</span>
+<span class="s">      }'</span>
+      <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+      <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3337,26 +3457,26 @@
 </ul>
 <p>Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом <code>data-feedback-form-field-error</code>, а также указать обязательность заполнения поля. По умолчанию обязательными являются только поле from (можно отключить) и чекбокс согласия на обработку персональных данных (нельзя отключить).</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span>
-  <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span>
-  <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;isRequired&quot;: true,</span>
-<span class="s">    &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
-<span class="s">  }&#39;</span>
-  <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-  <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+  <span class="na">name</span><span class="o">=</span><span class="s">"name"</span>
+  <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "isRequired": true,</span>
+<span class="s">    "errorMessage": "Неправильно заполнено поле Имя"</span>
+<span class="s">  }'</span>
+  <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+  <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <p>Для поля ввода номера в свойствах <code>phoneNumberLength</code> и <code>secondPhoneNumberLength</code> можно указать ожидаемое количество цифр.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span>
-  <span class="na">name</span><span class="o">=</span><span class="s">&quot;phone&quot;</span>
-  <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;isRequired&quot;: true,</span>
-<span class="s">    &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Телефон&quot;,</span>
-<span class="s">    &quot;phoneNumberLength&quot;: 11,</span>
-<span class="s">    &quot;secondPhoneNumberLength&quot;: 12</span>
-<span class="s">  }&#39;</span>
-  <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-  <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
-  <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+  <span class="na">name</span><span class="o">=</span><span class="s">"phone"</span>
+  <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "isRequired": true,</span>
+<span class="s">    "errorMessage": "Неправильно заполнено поле Телефон",</span>
+<span class="s">    "phoneNumberLength": 11,</span>
+<span class="s">    "secondPhoneNumberLength": 12</span>
+<span class="s">  }'</span>
+  <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+  <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span>
+  <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -3370,16 +3490,16 @@
 <p>Для использования необходимо, чтобы в панели администратора вашего магазина в разделе "Настройки" &gt; "Карточка магазина" в разделе "Тип капчи" была выбрана "Google reCAPTCHA".</p>
 </div>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{messages.recaptcha_error | escape }}&quot;</span>
-<span class="s">        }&#39;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__recaptcha&quot;</span>
+      <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{messages.recaptcha_error | escape }}"</span>
+<span class="s">        }'</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"feedback__recaptcha"</span>
     <span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3397,18 +3517,18 @@
 </ul>
 <p>Пример:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-      <span class="na">data-badge</span><span class="o">=</span><span class="s">&quot;bottomleft&quot;</span>
-      <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{messages.recaptcha_error | escape }}&quot;</span>
-<span class="s">        }&#39;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__recaptcha&quot;</span>
+      <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+      <span class="na">data-badge</span><span class="o">=</span><span class="s">"bottomleft"</span>
+      <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{messages.recaptcha_error | escape }}"</span>
+<span class="s">        }'</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"feedback__recaptcha"</span>
     <span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3420,15 +3540,15 @@
 </div>
 <p>Пример:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{messages.yandex_captcha_error | escape }}&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__yandex-captcha&quot;</span>
+      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{messages.yandex_captcha_error | escape }}"</span>
+<span class="s">      }'</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"feedback__yandex-captcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3436,16 +3556,16 @@
 <p>Если атрибут имеет значение <code>true</code>, то рендерит капчу в тестовом режиме. В этом случае при попытке отправки формы всегда будет показываться окно с заданием.</p>
 <p>Пример:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{messages.yandex_captcha_error | escape }}&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">data-yandex-captcha-test</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__yandex-captcha&quot;</span>
+      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{messages.yandex_captcha_error | escape }}"</span>
+<span class="s">      }'</span>
+      <span class="na">data-yandex-captcha-test</span><span class="o">=</span><span class="s">"true"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"feedback__yandex-captcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3469,17 +3589,17 @@
 <p>Если атрибут имеет значение <code>true</code>, то скрывает бейдж с уведомлением об обработке данных для невидимой капчи. По умолчанию бейдж отображается.</p>
 <p>Пример:</p>
 <div class="highlight"><pre><span></span><code>{% if settings.feedback_captcha_enabled %}
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{messages.yandex_captcha_error | escape }}&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-      <span class="na">data-yandex-captcha-shield-position</span><span class="o">=</span><span class="s">&quot;bottom-left&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__yandex-captcha&quot;</span>
+      <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{messages.yandex_captcha_error | escape }}"</span>
+<span class="s">      }'</span>
+      <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+      <span class="na">data-yandex-captcha-shield-position</span><span class="o">=</span><span class="s">"bottom-left"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"feedback__yandex-captcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3489,10 +3609,10 @@
 </div>
 <h3 id="data-show-feedback-modal">data-show-feedback-modal</h3>
 <p>Атрибут для кнопки вызова модального окна. При нажатии происходит публикация события EventBus <code>show-modal-feedback:insales:ui_feedback</code>.</p>
-<p>В качестве значения можно передать ID модального окна. Это может быть удобно, если у вас несколько форм в модальных окнах.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-show-feedback-modal</span><span class="o">=</span><span class="s">&#39;{&quot;modal_id&quot;: &quot;123456&quot;}&#39;</span><span class="p">&gt;</span>Обратная связь<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<p>В качестве значения можно передать ID модального окна и свои данные в <code>payload</code>. Это удобно, если на странице несколько форм. Оба поля приходят в событии <code>show-modal-feedback:insales:ui_feedback</code>. Если <code>payload</code> не задан, в событии будет пустой объект.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-show-feedback-modal</span><span class="o">=</span><span class="s">'{"modal_id": "123456", "payload": {"product_id": 70513124}}'</span><span class="p">&gt;</span>Обратная связь<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;show-modal-feedback:insales:ui_feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'show-modal-feedback:insales:ui_feedback'</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -3528,96 +3648,96 @@
 </tbody>
 </table>
 <p><strong>Пример подписки на событие</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;send-feedback:insales:ui_feedback&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Форма успешно отправлена&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'send-feedback:insales:ui_feedback'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Форма успешно отправлена'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="_4">Пример разметки</h2>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span>
-  <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span>
-  <span class="na">action</span><span class="o">=</span><span class="s">&quot;/client_account/feedback&quot;</span>
+  <span class="na">method</span><span class="o">=</span><span class="s">"post"</span>
+  <span class="na">action</span><span class="o">=</span><span class="s">"/client_account/feedback"</span>
   <span class="na">data-feedback-form-wrapper</span>
 <span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span>
-    <span class="na">data-feedback-form-success</span><span class="o">=</span><span class="s">&#39;{&quot;showTime&quot;: 10000}&#39;</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;success-message&quot;</span>
+    <span class="na">data-feedback-form-success</span><span class="o">=</span><span class="s">'{"showTime": 10000}'</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"success-message"</span>
   <span class="p">&gt;</span>Успешно отправлено<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Телефон<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;phone&quot;</span>
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Телефон&quot;,</span>
-<span class="s">        &quot;phoneNumberLength&quot;: 11</span>
-<span class="s">      }&#39;</span>
-      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-      <span class="na">autocomplete</span><span class="o">=</span><span class="s">&quot;off&quot;</span>
-      <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"phone"</span>
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "Неправильно заполнено поле Телефон",</span>
+<span class="s">        "phoneNumberLength": 11</span>
+<span class="s">      }'</span>
+      <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+      <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span>
+      <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Имя<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span>
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;Неправильно заполнено поле Имя&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-      <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"name"</span>
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "Неправильно заполнено поле Имя"</span>
+<span class="s">      }'</span>
+      <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+      <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>Текст<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">textarea</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;content&quot;</span>
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Неправильно заполнено поле Текст&quot;}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"content"</span>
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{"errorMessage": "Неправильно заполнено поле Текст"}'</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>email<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">input</span>
-      <span class="na">name</span><span class="o">=</span><span class="s">&quot;from&quot;</span>
-      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Неправильно заполнено поле email&quot;}&#39;</span>
-      <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-      <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+      <span class="na">name</span><span class="o">=</span><span class="s">"from"</span>
+      <span class="na">data-feedback-form-field</span><span class="o">=</span><span class="s">'{"errorMessage": "Неправильно заполнено поле email"}'</span>
+      <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+      <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">input</span>
-        <span class="na">data-feedback-form-agree</span><span class="o">=</span><span class="s">&#39;{&quot;errorMessage&quot;: &quot;Необходимо подтвердить согласие&quot;}&#39;</span>
-        <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span>
-        <span class="na">name</span><span class="o">=</span><span class="s">&quot;agree&quot;</span>
-        <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+        <span class="na">data-feedback-form-agree</span><span class="o">=</span><span class="s">'{"errorMessage": "Необходимо подтвердить согласие"}'</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">"checkbox"</span>
+        <span class="na">name</span><span class="o">=</span><span class="s">"agree"</span>
+        <span class="na">value</span><span class="o">=</span><span class="s">""</span> <span class="p">/&gt;</span>
         Согласен на обработку данных
     <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   {% if settings.feedback_captcha_enabled %}
-    {% if account.captcha_type == &#39;google&#39; %}
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span> <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{messages.recaptcha_error | escape }}&quot;}&#39;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__recaptcha&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    {% if account.captcha_type == 'google' %}
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">"invisible"</span> <span class="na">data-feedback-form-recaptcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{messages.recaptcha_error | escape }}"}'</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__recaptcha"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    {% elsif account.captcha_type == &#39;yandex&#39; %}
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-area&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span> <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{widget_messages.yandex_captcha_error | escape }}&quot;}&#39;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__yandex-captcha&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;feedback__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    {% elsif account.captcha_type == 'yandex' %}
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-area"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">"invisible"</span> <span class="na">data-feedback-form-yandex-captcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{widget_messages.yandex_captcha_error | escape }}"}'</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__yandex-captcha"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-feedback-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"feedback__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     {% endif %}
   {% endif %}
 
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Форма обратной связи&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;subject&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">value</span><span class="o">=</span><span class="s">"Форма обратной связи"</span> <span class="na">name</span><span class="o">=</span><span class="s">"subject"</span> <span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">"button"</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3673,7 +3793,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

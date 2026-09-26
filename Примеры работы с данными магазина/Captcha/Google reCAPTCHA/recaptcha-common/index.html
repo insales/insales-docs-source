@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1220,6 +1220,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2005,6 +2013,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2515,6 +2635,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        События
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executeinvisible-recaptcha-v3-invisible" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2527,7 +2658,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Пример кода
@@ -2901,6 +3032,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        События
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#executeinvisible-recaptcha-v3-invisible" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2913,7 +3055,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Пример кода
@@ -2976,78 +3118,109 @@
 </div>
 <p>Пример вызова:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.js-captcha-block&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;feedback&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.js-captcha-block'</span><span class="p">),</span><span class="w"> </span><span class="s1">'feedback'</span><span class="p">);</span>
 <span class="p">})</span>
 </code></pre></div>
 <h3 id="_1">Пример кода</h3>
 <p>Допустим, у вас есть форма:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;myCustomForm&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"myCustomForm"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>Имя:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[name]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Имя&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>Имя:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"name"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[name]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Имя"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[from]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Email&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"email"</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"email"</span> <span class="na">id</span><span class="o">=</span><span class="s">"email"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[from]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Email"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;phone&quot;</span><span class="p">&gt;</span>Телефон:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;tel&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;phone&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[phone]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Номер телефона&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"phone"</span><span class="p">&gt;</span>Телефон:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"tel"</span> <span class="na">id</span><span class="o">=</span><span class="s">"phone"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[phone]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Номер телефона"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;subject&quot;</span><span class="p">&gt;</span>Тема:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;subject&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[subject]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Обратная связь&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"subject"</span><span class="p">&gt;</span>Тема:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"subject"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[subject]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Обратная связь"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>Сообщение:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[content]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Сообщение&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>Сообщение:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">"content"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[content]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Сообщение"</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="cm">&lt;!-- Контейнер для ReCaptcha --&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recaptchaBlock&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"recaptchaBlock"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Пример JS-обработки при отправке формы:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// После загрузки страницы выполняем рендер виджета ReCaptcha</span>
-<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#recaptchaBlock&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;feedback&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#recaptchaBlock'</span><span class="p">),</span><span class="w"> </span><span class="s1">'feedback'</span><span class="p">)</span>
 
 <span class="w">  </span><span class="c1">// Вешаем обработчик на событие отправки формы</span>
-<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#myCustomForm&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'submit'</span><span class="p">,</span><span class="w"> </span><span class="s1">'#myCustomForm'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">formData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormData</span><span class="p">(</span><span class="nx">$form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
 
 <span class="w">    </span><span class="c1">// Собираем значения полей</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ language.locale }}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;feedback[name]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[name]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[from]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[from]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[phone]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[phone]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[subject]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[subject]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[content]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[content]&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;Без сообщения&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="c1">// Если пользователь прошёл верификацю, то ReCaptcha сама создаст поле с атрибутом name=&quot;g-recaptcha-response&quot;, нам нужно лишь получить значение этого поля</span>
-<span class="w">      </span><span class="s1">&#39;g-recaptcha-response&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;g-recaptcha-response&#39;</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">"{{ language.locale }}"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"feedback[name]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[name]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[from]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[from]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[phone]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[phone]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[subject]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[subject]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[content]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[content]'</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'Без сообщения'</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// Если пользователь прошёл верификацю, то ReCaptcha сама создаст поле с атрибутом name="g-recaptcha-response", нам нужно лишь получить значение этого поля</span>
+<span class="w">      </span><span class="s1">'g-recaptcha-response'</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'g-recaptcha-response'</span><span class="p">),</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Не забываем про CSRF-токен</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;meta[name=&#39;csrf-token&#39;]&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"meta[name='csrf-token']"</span><span class="p">);</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">csrfTokenElement</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="p">.</span><span class="nx">content</span><span class="p">;</span>
 
-<span class="w">      </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;X-CSRF-Token&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'X-CSRF-Token'</span><span class="o">:</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;CSRF token meta tag not found. AJAX requests may fail.&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'CSRF token meta tag not found. AJAX requests may fail.'</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/client_account/feedback.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">feedback</span><span class="p">).</span>
+<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/client_account/feedback.json'</span><span class="p">,</span><span class="w"> </span><span class="nx">feedback</span><span class="p">).</span>
 <span class="w">      </span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">done</span><span class="p">);</span>
 <span class="w">      </span><span class="p">});</span>
 <span class="w">  </span><span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="_2">События</h2>
+<table>
+<thead>
+<tr>
+<th>Событие</th>
+<th>Когда приходит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>recaptcha:insales:loaded</td>
+<td>Блоки капчи в формах common.js инициализированы</td>
+</tr>
+<tr>
+<td>recaptcha-api:insales:loaded</td>
+<td>Скрипт reCAPTCHA загружен, виджет можно рисовать</td>
+</tr>
+<tr>
+<td>google-recaptcha:insales:response</td>
+<td>Получен ответ виджета. В данных есть контейнер, ответ и тип формы</td>
+</tr>
+<tr>
+<td>recaptcha:insales:response</td>
+<td>Тот же ответ строкой токена</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'recaptcha:insales:response'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="executeinvisible-recaptcha-v3-invisible">Метод executeInvisible (ReCaptcha v3 Invisible)</h2>
@@ -3065,7 +3238,7 @@
 <span class="cm"> */</span>
 </code></pre></div>
 <p>В отличие от предыдущих версий ReCaptcha, которые требовали от пользователя нажатия на чекбокс 'Я не робот' перед отправкой формы, новая версия ReCaptcha v3 Invisible выполняет эту проверку автоматически. В этом случае, необходимо самостоятельно запросить и получить верификационный ответ от ReCaptcha до того, как форма будет отправлена.</p>
-<h3 id="_2">Пример кода</h3>
+<h3 id="_3">Пример кода</h3>
 <p>В методе render есть проверка на атрибут <code>data-recaptcha-type="invisible"</code>. Если он задан, то будет выполнен рендер виджета ReCaptcha третьей версии. Также, для использования третьей версии вам необходимо создать скрытое поле с атрибутами <code>name="recaptcha_type"</code> и <code>value="invisible"</code>. Это необходимо для того чтобы при отправке формы сервер понял, что вы используете третью версию ReCaptcha, так как у разных версий существуют разные ключи для проверки токена.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -3079,42 +3252,42 @@
 </ul>
 </div>
 <p>Допустим, у вас есть всё та же форма, но уже с ReCaptcha v3 Invisible:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;myCustomForm&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">"myCustomForm"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">&gt;</span>Имя:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[name]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Имя&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"name"</span><span class="p">&gt;</span>Имя:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"name"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[name]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Имя"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[from]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Email&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"email"</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"email"</span> <span class="na">id</span><span class="o">=</span><span class="s">"email"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[from]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Email"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;phone&quot;</span><span class="p">&gt;</span>Телефон:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;tel&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;phone&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[phone]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Номер телефона&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"phone"</span><span class="p">&gt;</span>Телефон:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"tel"</span> <span class="na">id</span><span class="o">=</span><span class="s">"phone"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[phone]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Номер телефона"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;subject&quot;</span><span class="p">&gt;</span>Тема:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;subject&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[subject]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Обратная связь&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"subject"</span><span class="p">&gt;</span>Тема:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">id</span><span class="o">=</span><span class="s">"subject"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[subject]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Обратная связь"</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>Сообщение:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;feedback[content]&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Сообщение&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>Сообщение:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">id</span><span class="o">=</span><span class="s">"content"</span> <span class="na">name</span><span class="o">=</span><span class="s">"feedback[content]"</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"Сообщение"</span><span class="p">&gt;&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="cm">&lt;!-- Контейнер для ReCaptcha Invisible со скрытым полем, где указан тип капчи --&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;recaptchaBlock&quot;</span> <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;recaptcha_type&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"recaptchaBlock"</span> <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">"invisible"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"recaptcha_type"</span> <span class="na">value</span><span class="o">=</span><span class="s">"invisible"</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span>Отправить<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Пример JS-обработки при отправке формы:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// После загрузки страницы выполняем рендер виджета ReCaptcha</span>
-<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#recaptchaBlock&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;feedback&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#recaptchaBlock'</span><span class="p">),</span><span class="w"> </span><span class="s1">'feedback'</span><span class="p">)</span>
 
 <span class="w">  </span><span class="c1">// Вешаем обработчик на событие отправки формы</span>
-<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#myCustomForm&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'submit'</span><span class="p">,</span><span class="w"> </span><span class="s1">'#myCustomForm'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">sendFeedbackForm</span><span class="p">(</span><span class="nx">$form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
@@ -3123,37 +3296,37 @@
 <span class="w">  </span><span class="c1">// Функция для отправки формы</span>
 <span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">sendFeedbackForm</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Выполняем отправку и все остальные действия только после того как получили ответ от ReCaptcha. После верификации ReCaptcha будет выполнен обратный вызов функции sendFeedbackForm, куда в качестве аргументов будет передана форма и токен.</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">recaptchaResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">executeInvisible</span><span class="p">(</span><span class="nx">form</span><span class="p">,</span><span class="w"> </span><span class="nx">sendFeedbackForm</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;feedback&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">recaptchaResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reCaptchaCommon</span><span class="p">.</span><span class="nx">executeInvisible</span><span class="p">(</span><span class="nx">form</span><span class="p">,</span><span class="w"> </span><span class="nx">sendFeedbackForm</span><span class="p">,</span><span class="w"> </span><span class="s1">'feedback'</span><span class="p">);</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">recaptchaResponse</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">formData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormData</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// Собираем все поля в один объект</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">feedback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ language.locale }}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;feedback[name]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[name]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[from]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[from]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[phone]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[phone]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[subject]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[subject]&#39;</span><span class="p">),</span>
-<span class="w">      </span><span class="s2">&quot;feedback[content]&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;feedback[content]&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;Без сообщения&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="c1">// После успешной верификации ReCaptcha сама создаст поле с атрибутом name=&quot;g-recaptcha-response&quot;, нам нужно лишь получить значение этого поля</span>
-<span class="w">      </span><span class="s1">&#39;g-recaptcha-response&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;g-recaptcha-response&#39;</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">lang</span><span class="o">:</span><span class="w"> </span><span class="s2">"{{ language.locale }}"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"feedback[name]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[name]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[from]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[from]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[phone]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[phone]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[subject]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[subject]'</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"feedback[content]"</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'feedback[content]'</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">'Без сообщения'</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// После успешной верификации ReCaptcha сама создаст поле с атрибутом name="g-recaptcha-response", нам нужно лишь получить значение этого поля</span>
+<span class="w">      </span><span class="s1">'g-recaptcha-response'</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'g-recaptcha-response'</span><span class="p">),</span>
 <span class="w">      </span><span class="c1">// Достаём значение поля recaptcha_type</span>
-<span class="w">      </span><span class="s1">&#39;recaptcha_type&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recaptcha_type&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="s1">'recaptcha_type'</span><span class="o">:</span><span class="w"> </span><span class="nx">formData</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'recaptcha_type'</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Не забываем про CSRF-токен</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;meta[name=&#39;csrf-token&#39;]&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"meta[name='csrf-token']"</span><span class="p">);</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">csrfTokenElement</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">csrfTokenElement</span><span class="p">.</span><span class="nx">content</span><span class="p">;</span>
 
-<span class="w">      </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;X-CSRF-Token&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'X-CSRF-Token'</span><span class="o">:</span><span class="w"> </span><span class="nx">csrfToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;CSRF token meta tag not found. AJAX requests may fail.&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'CSRF token meta tag not found. AJAX requests may fail.'</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/client_account/feedback.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">feedback</span><span class="p">).</span>
+<span class="w">    </span><span class="nx">$</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/client_account/feedback.json'</span><span class="p">,</span><span class="w"> </span><span class="nx">feedback</span><span class="p">).</span>
 <span class="w">      </span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">done</span><span class="p">);</span>
 <span class="w">      </span><span class="p">});</span>
@@ -3212,7 +3385,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

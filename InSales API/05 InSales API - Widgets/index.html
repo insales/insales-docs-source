@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1216,6 +1216,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1988,6 +1996,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2872,19 +2992,19 @@
 <p>Запрос: <code>GET /admin/application\_widgets.xml</code></p>
 <p>Ответ:</p>
 <div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="err">&lt;?xml</span> <span class="l">version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="err">&lt;application-widgets</span> <span class="l">type=&quot;array&quot;&gt;</span>
+<span class="err">&lt;?xml</span> <span class="l">version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="err">&lt;application-widgets</span> <span class="l">type="array"&gt;</span>
   <span class="l">&lt;application-widget&gt;</span>
-    <span class="l">&lt;created-at type=&quot;datetime&quot;&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;</span>
-    <span class="l">&lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;</span>
+    <span class="l">&lt;created-at type="datetime"&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;</span>
+    <span class="l">&lt;id type="integer"&gt;1&lt;/id&gt;</span>
     <span class="l">&lt;code&gt;&amp;amp;lt;script&amp;amp;gt;alert(order_info.referer);&amp;amp;lt;/script&amp;amp;gt;&lt;/code&gt;</span>
-    <span class="l">&lt;height type=&quot;integer&quot;&gt;60&lt;/height&gt;</span>
+    <span class="l">&lt;height type="integer"&gt;60&lt;/height&gt;</span>
   <span class="l">&lt;/application-widget&gt;</span>
   <span class="l">&lt;application-widget&gt;</span>
-    <span class="l">&lt;created-at type=&quot;datetime&quot;&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;</span>
-    <span class="l">&lt;id type=&quot;integer&quot;&gt;2&lt;/id&gt;</span>
+    <span class="l">&lt;created-at type="datetime"&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;</span>
+    <span class="l">&lt;id type="integer"&gt;2&lt;/id&gt;</span>
     <span class="l">&lt;code&gt;some widget code here&lt;/code&gt;</span>
-    <span class="l">&lt;height type=&quot;integer&quot;&gt;60&lt;/height&gt;</span>
+    <span class="l">&lt;height type="integer"&gt;60&lt;/height&gt;</span>
   <span class="l">&lt;/application-widget&gt;</span>
 <span class="err">&lt;/application-widgets&gt;</span>
 </code></pre></div>
@@ -2893,12 +3013,12 @@
 <p>Запрос: <code>GET /admin/application\_widgets/\#{id}.xml</code></p>
 <p>Ответ:</p>
 <div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="err">&lt;?xml</span> <span class="l">version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="err">&lt;?xml</span> <span class="l">version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="err">&lt;application-widget&gt;</span>
-  &lt;created-at type=&quot;datetime&quot;&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;
-  &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+  &lt;created-at type="datetime"&gt;2012-08-09T00:36:54+04:00&lt;/created-at&gt;
+  &lt;id type="integer"&gt;1&lt;/id&gt;
   &lt;code&gt;some html or javascript code here&lt;/code&gt;
-  &lt;height type=&quot;integer&quot;&gt;60&lt;/height&gt;
+  &lt;height type="integer"&gt;60&lt;/height&gt;
 &lt;/application-widget&gt;
 </code></pre></div>
 
@@ -2912,11 +3032,11 @@
 
 <p>Ответ:</p>
 <div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="err">&lt;?xml</span> <span class="l">version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="err">&lt;?xml</span> <span class="l">version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="err">&lt;application-widget&gt;</span>
-  &lt;created-at type=&quot;datetime&quot;&gt;2012-08-09T17:26:48+04:00&lt;/created-at&gt;
-  &lt;height type=&quot;integer&quot;&gt;60&lt;/height&gt;
-  &lt;id type=&quot;integer&quot;&gt;6&lt;/id&gt;
+  &lt;created-at type="datetime"&gt;2012-08-09T17:26:48+04:00&lt;/created-at&gt;
+  &lt;height type="integer"&gt;60&lt;/height&gt;
+  &lt;id type="integer"&gt;6&lt;/id&gt;
   &lt;code&gt;some html or javascript code&lt;/code&gt;
 &lt;/application-widget&gt;
 </code></pre></div>
@@ -2943,10 +3063,10 @@
 <p>====================================================================================================================================================================================================</p>
 <p><strong>Задача:</strong> добавить виджет, запрашиваеющий данные о статусе заказа с сервера приложения и выводящий результат.</p>
 <p><strong>1. HTML код виджета</strong>:</p>
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s2">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">html</span><span class="w"> </span><span class="n">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="o">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;!</span><span class="n">DOCTYPE</span><span class="w"> </span><span class="n">html</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s2">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span><span class="w"> </span><span class="s2">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="w"> </span><span class="n">xmlns</span><span class="o">=</span><span class="s2">"http://www.w3.org/1999/xhtml"</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="n">meta</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Type&quot;</span><span class="w"> </span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;text/html; charset=utf-8&quot;</span><span class="o">/&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">meta</span><span class="w"> </span><span class="n">http</span><span class="o">-</span><span class="n">equiv</span><span class="o">=</span><span class="s2">"Content-Type"</span><span class="w"> </span><span class="n">content</span><span class="o">=</span><span class="s2">"text/html; charset=utf-8"</span><span class="o">/&gt;</span>
 <span class="w">  </span><span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">table</span><span class="c1">#statuses {</span>
 <span class="w">      </span><span class="n">border</span><span class="o">-</span><span class="n">collapse</span><span class="p">:</span><span class="w"> </span><span class="n">collapse</span><span class="p">;</span>
@@ -2959,8 +3079,8 @@
 <span class="w">  </span><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">Номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">&#39;order_number&#39;</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="n">table</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">&#39;statuses&#39;</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;border: 1px solid black;&#39;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="err">Номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">'order_number'</span><span class="o">&gt;&lt;</span><span class="n">span</span><span class="o">&gt;&lt;/</span><span class="n">b</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="n">table</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">'statuses'</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="s1">'border: 1px solid black;'</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="n">tr</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="err">Дата</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;</span><span class="n">th</span><span class="o">&gt;</span><span class="err">Статус</span><span class="o">&lt;/</span><span class="n">th</span><span class="o">&gt;</span>
@@ -2972,19 +3092,19 @@
 <span class="w">    </span><span class="n">function</span><span class="w"> </span><span class="n">set_data</span><span class="p">(</span><span class="n">input_object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input_object</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;statuses&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">'statuses'</span><span class="p">);</span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">устанавливаем</span><span class="w"> </span><span class="err">номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">,</span><span class="w"> </span><span class="err">используя</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="err">из</span><span class="w"> </span><span class="err">переменной</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">order_info</span>
-<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">order_number_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;order_number&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">order_number_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">'order_number'</span><span class="p">);</span>
 <span class="w">    </span><span class="n">order_number_field</span><span class="o">.</span><span class="n">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">order_info</span><span class="o">.</span><span class="n">id</span><span class="p">;</span><span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">подключаем</span><span class="w"> </span><span class="err">скрипт</span><span class="w"> </span><span class="err">который</span><span class="w"> </span><span class="err">передаёт</span><span class="w"> </span><span class="err">нам</span><span class="w"> </span><span class="err">данные</span><span class="w"> </span><span class="err">через</span><span class="w"> </span><span class="n">JSONP</span>
-<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="n">script</span><span class="o">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;http://www.insales.ru/assets/js/widget_example_jsonp_data.js&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+<span class="w">    </span><span class="n">script</span><span class="o">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'http://www.insales.ru/assets/js/widget_example_jsonp_data.js'</span><span class="p">;</span>
 <span class="w">    </span><span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">script</span><span class="p">);</span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">после</span><span class="w"> </span><span class="err">отработки</span><span class="w"> </span><span class="err">внешнего</span><span class="w"> </span><span class="err">скрипта</span><span class="p">,</span><span class="w"> </span><span class="err">заполняем</span><span class="w"> </span><span class="err">таблицу</span><span class="w"> </span><span class="err">пришедшими</span><span class="w"> </span><span class="err">данными</span>
 <span class="w">    </span><span class="n">script</span><span class="o">.</span><span class="n">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">new_tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">new_tr</span><span class="o">.</span><span class="n">innerHTML</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;td&gt;&#39;</span><span class="o">+</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;&lt;/td&gt;&lt;td&gt;&#39;</span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;&lt;/td&gt;&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">var</span><span class="w"> </span><span class="n">new_tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">'tr'</span><span class="p">);</span>
+<span class="w">        </span><span class="n">new_tr</span><span class="o">.</span><span class="n">innerHTML</span><span class="o">=</span><span class="w"> </span><span class="s1">'&lt;td&gt;'</span><span class="o">+</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="s1">'&lt;/td&gt;&lt;td&gt;'</span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="s1">'&lt;/td&gt;'</span><span class="p">;</span>
 <span class="w">        </span><span class="n">table</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">new_tr</span><span class="p">);</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -3014,8 +3134,8 @@
 <span class="w">    </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">style</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
 <span class="w">  </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">head</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
 <span class="w">  </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">body</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-<span class="w">    </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">p</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="err">Номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">b</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">span</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">&#39;order_number&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">span</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">b</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">p</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-<span class="w">    </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">table</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">&#39;statuses&#39;</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;border: 1px solid black;&#39;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="w">    </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">p</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="err">Номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">b</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">span</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">'order_number'</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">span</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">b</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">p</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="w">    </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">table</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="s1">'statuses'</span><span class="w"> </span><span class="n">style</span><span class="o">=</span><span class="s1">'border: 1px solid black;'</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
 <span class="w">      </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">tr</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
 <span class="w">        </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">th</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="err">Дата</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">th</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
 <span class="w">        </span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">th</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="err">Статус</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">th</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
@@ -3028,22 +3148,22 @@
 <span class="w">      </span><span class="n">function</span><span class="w"> </span><span class="n">set_data</span><span class="p">(</span><span class="n">input_object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input_object</span><span class="p">;</span>
 <span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;statuses&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">'statuses'</span><span class="p">);</span>
 
 <span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="err">устанавливаем</span><span class="w"> </span><span class="err">номер</span><span class="w"> </span><span class="err">заказа</span><span class="p">,</span><span class="w"> </span><span class="err">используя</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="err">из</span><span class="w"> </span><span class="err">переменной</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">order_info</span>
-<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">order_number_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;order_number&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">order_number_field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">'order_number'</span><span class="p">);</span>
 <span class="w">      </span><span class="n">order_number_field</span><span class="o">.</span><span class="n">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">window</span><span class="o">.</span><span class="n">order_info</span><span class="o">.</span><span class="n">id</span><span class="p">;</span>
 
 <span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="err">подключаем</span><span class="w"> </span><span class="err">скрипт</span><span class="w"> </span><span class="err">который</span><span class="w"> </span><span class="err">передаёт</span><span class="w"> </span><span class="err">нам</span><span class="w"> </span><span class="err">данные</span><span class="w"> </span><span class="err">через</span><span class="w"> </span><span class="n">JSONP</span>
-<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
-<span class="w">      </span><span class="n">script</span><span class="o">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;http://www.insales.ru/assets/js/widget_example_jsonp_data.js&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">var</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+<span class="w">      </span><span class="n">script</span><span class="o">.</span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'http://www.insales.ru/assets/js/widget_example_jsonp_data.js'</span><span class="p">;</span>
 <span class="w">      </span><span class="n">document</span><span class="o">.</span><span class="n">documentElement</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">script</span><span class="p">);</span>
 
 <span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="err">после</span><span class="w"> </span><span class="err">отработки</span><span class="w"> </span><span class="err">внешнего</span><span class="w"> </span><span class="err">скрипта</span><span class="p">,</span><span class="w"> </span><span class="err">заполняем</span><span class="w"> </span><span class="err">таблицу</span><span class="w"> </span><span class="err">пришедшими</span><span class="w"> </span><span class="err">данными</span>
 <span class="w">      </span><span class="n">script</span><span class="o">.</span><span class="n">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">var</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="k">var</span><span class="w"> </span><span class="n">new_tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">);</span>
-<span class="w">          </span><span class="n">new_tr</span><span class="o">.</span><span class="n">innerHTML</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&amp;lt;td&amp;gt;&#39;</span><span class="o">+</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;&#39;</span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;&amp;lt;/td&amp;gt;&#39;</span><span class="p">;</span>
+<span class="w">          </span><span class="k">var</span><span class="w"> </span><span class="n">new_tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="o">.</span><span class="n">createElement</span><span class="p">(</span><span class="s1">'tr'</span><span class="p">);</span>
+<span class="w">          </span><span class="n">new_tr</span><span class="o">.</span><span class="n">innerHTML</span><span class="o">=</span><span class="w"> </span><span class="s1">'&amp;lt;td&amp;gt;'</span><span class="o">+</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">+</span><span class="s1">'&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;'</span><span class="o">+</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="s1">'&amp;lt;/td&amp;gt;'</span><span class="p">;</span>
 <span class="w">          </span><span class="n">table</span><span class="o">.</span><span class="n">appendChild</span><span class="p">(</span><span class="n">new_tr</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
@@ -3109,7 +3229,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

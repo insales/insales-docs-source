@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2282,6 +2290,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3294,14 +3414,14 @@
 <h3 id="data-reviews-form-wrapper">data-reviews-form-wrapper</h3>
 <p>Обязательный атрибут для обёртки формы отзыва к товару</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span>
-  <span class="na">data-reviews-form-wrapper</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;reviews_moderated&quot;: {{ account.reviews_moderated? }},</span>
-<span class="s">    &quot;url&quot;: &quot;{{ product.url }}&quot;</span>
-<span class="s">  }&#39;</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;review-form&quot;</span>
-  <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span>
-  <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ product.url }}/reviews#review_form&quot;</span>
-  <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span>
+  <span class="na">data-reviews-form-wrapper</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "reviews_moderated": {{ account.reviews_moderated? }},</span>
+<span class="s">    "url": "{{ product.url }}"</span>
+<span class="s">  }'</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"review-form"</span>
+  <span class="na">method</span><span class="o">=</span><span class="s">"post"</span>
+  <span class="na">action</span><span class="o">=</span><span class="s">"{{ product.url }}/reviews#review_form"</span>
+  <span class="na">enctype</span><span class="o">=</span><span class="s">"multipart/form-data"</span>
 <span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -3313,31 +3433,31 @@
 <p>По умолчанию элемент не скрыт</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
-  <span class="na">data-reviews-form-success</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;showTime&quot;: 10000,</span>
-<span class="s">    &quot;message&quot;: &quot;{{ success_message }}&quot;,</span>
-<span class="s">    &quot;reloadPage&quot;: false</span>
-<span class="s">  }&#39;</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;notice-success&quot;</span>
+  <span class="na">data-reviews-form-success</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "showTime": 10000,</span>
+<span class="s">    "message": "{{ success_message }}",</span>
+<span class="s">    "reloadPage": false</span>
+<span class="s">  }'</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"notice-success"</span>
 <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-reviews-form-field-area">data-reviews-form-field-area</h3>
 <p>Атрибут для блока каждого отдельного поля. Нужен для валидации поля и вывода ошибок в элементе с атрибутом <code>data-reviews-form-field-error</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
   <span class="na">data-reviews-form-field-area</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field is-required {% if review.errors contains &#39;author&#39; %}is-error{% endif %}&quot;</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"form-field is-required {% if review.errors contains 'author' %}is-error{% endif %}"</span>
 <span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field__label&quot;</span><span class="p">&gt;</span>{{ messages.name }}
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-error&quot;</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field__label"</span><span class="p">&gt;</span>{{ messages.name }}
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-error"</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">input</span>
-    <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.name_error | escape }}&quot;}&#39;</span>
-    <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[author]&quot;</span>
-    <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;{{ messages.name }}&quot;</span>
-    <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ review.author }}&quot;</span>
-    <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-m&quot;</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.name_error | escape }}"}'</span>
+    <span class="na">name</span><span class="o">=</span><span class="s">"review[author]"</span>
+    <span class="na">placeholder</span><span class="o">=</span><span class="s">"{{ messages.name }}"</span>
+    <span class="na">value</span><span class="o">=</span><span class="s">"{{ review.author }}"</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-control form-control_size-m"</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-reviews-form-field">data-reviews-form-field</h3>
@@ -3351,14 +3471,14 @@
 </ul>
 <p>Для всех полей можно передать текст, который будет выводиться в случае ошибки в элементе с атрибутом <code>data-reviews-form-field-error</code>, а также указать обязательность заполнения поля. Обязательными являются все поля кроме <code>review[image_attributes][image]</code></p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span>
-  <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.name_error | escape }}&quot;}&#39;</span>
-  <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[author]&quot;</span>
-  <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;{{ messages.name }}&quot;</span>
-  <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ review.author }}&quot;</span>
-  <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-m&quot;</span>
+  <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.name_error | escape }}"}'</span>
+  <span class="na">name</span><span class="o">=</span><span class="s">"review[author]"</span>
+  <span class="na">placeholder</span><span class="o">=</span><span class="s">"{{ messages.name }}"</span>
+  <span class="na">value</span><span class="o">=</span><span class="s">"{{ review.author }}"</span>
+  <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"form-control form-control_size-m"</span>
 <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="data-reviews-form-recaptcha">data-reviews-form-recaptcha</h3>
 <p>Элемент для вывода кнопки "Я не робот" от Google reCAPTCHA.</p>
@@ -3369,17 +3489,17 @@
 <div class="highlight"><pre><span></span><code>{% if review.captcha_enabled? %}
   <span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-reviews-form-field-area</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-field form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span>
   <span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;isRequired&quot;: true,</span>
-<span class="s">        &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;</span>
-<span class="s">      }&#39;</span>
-      <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+      <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "isRequired": true,</span>
+<span class="s">        "errorMessage": "{{ messages.recaptcha_error | escape }}"</span>
+<span class="s">      }'</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3399,16 +3519,16 @@
 <div class="highlight"><pre><span></span><code>{% if review.captcha_enabled? %}
   <span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-reviews-form-field-area</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-field form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span>
   <span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;}&#39;</span>
-      <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-      <span class="na">data-badge</span><span class="o">=</span><span class="s">&quot;bottomleft&quot;</span>
-      <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+      <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'</span>
+      <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+      <span class="na">data-badge</span><span class="o">=</span><span class="s">"bottomleft"</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3422,14 +3542,14 @@
 <div class="highlight"><pre><span></span><code>{% if review.captcha_enabled? %}
   <span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-reviews-form-field-area</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-field form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span>
   <span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;}&#39;</span>
-      <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3439,15 +3559,15 @@
 <div class="highlight"><pre><span></span><code>{% if review.captcha_enabled? %}
   <span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-reviews-form-field-area</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-field form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span>
   <span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;}&#39;</span>
-      <span class="na">data-yandex-captcha-test</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-      <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'</span>
+      <span class="na">data-yandex-captcha-test</span><span class="o">=</span><span class="s">"true"</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3473,16 +3593,16 @@
 <div class="highlight"><pre><span></span><code>{% if review.captcha_enabled? %}
   <span class="p">&lt;</span><span class="nt">div</span>
     <span class="na">data-reviews-form-field-area</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-field form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-field form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span>
   <span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span>
-      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;}&#39;</span>
-      <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-      <span class="na">data-yandex-captcha-shield-position</span><span class="o">=</span><span class="s">&quot;bottom-left&quot;</span>
-      <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-      <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+      <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'</span>
+      <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+      <span class="na">data-yandex-captcha-shield-position</span><span class="o">=</span><span class="s">"bottom-left"</span>
+      <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+      <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
     <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 {% endif %}
 </code></pre></div>
@@ -3492,10 +3612,10 @@
 </div>
 <h3 id="data-show-reviews-modal">data-show-reviews-modal</h3>
 <p>Атрибут для кнопки вызова модального окна. При нажатии происходит публикация события EventBus <code>show-modal-reviews:insales:ui_reviews</code>.</p>
-<p>В качестве значения можно передать ID модального окна. Это может быть удобно, если у вас несколько форм в модальных окнах.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-show-reviews-modal</span><span class="o">=</span><span class="s">&#39;{&quot;modal_id&quot;: &quot;123456&quot;}&#39;</span><span class="p">&gt;</span>Форма отзыва<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<p>В значение можно передать <code>modal_id</code> и <code>payload</code>. Оба поля приходят в событии <code>show-modal-reviews:insales:ui_reviews</code>. Если <code>payload</code> не задан, в событии будет пустой объект.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-show-reviews-modal</span><span class="o">=</span><span class="s">'{"modal_id": "123456", "payload": {"product_id": 70513124}}'</span><span class="p">&gt;</span>Форма отзыва<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;show-modal-reviews:insales:ui_reviews&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'show-modal-reviews:insales:ui_reviews'</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -3523,21 +3643,21 @@
 </tbody>
 </table>
 <p><strong>Пример подписки на событие</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;send-review:insales:ui_reviews&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Форма успешно отправлена&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'send-review:insales:ui_reviews'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Форма успешно отправлена'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="_4">Пример разметки</h2>
 <div class="highlight"><pre><span></span><code>{% if account.reviews_enabled? %}
 <span class="p">&lt;</span><span class="nt">form</span>
-  <span class="na">data-reviews-form-wrapper</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">    &quot;reviews_moderated&quot;: {{ account.reviews_moderated? }},</span>
-<span class="s">    &quot;url&quot;: &quot;{{ product.url }}&quot;</span>
-<span class="s">  }&#39;</span>
-  <span class="na">class</span><span class="o">=</span><span class="s">&quot;review-form&quot;</span>
-  <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span>
-  <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ product.url }}/reviews#review_form&quot;</span>
-  <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span>
+  <span class="na">data-reviews-form-wrapper</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">    "reviews_moderated": {{ account.reviews_moderated? }},</span>
+<span class="s">    "url": "{{ product.url }}"</span>
+<span class="s">  }'</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"review-form"</span>
+  <span class="na">method</span><span class="o">=</span><span class="s">"post"</span>
+  <span class="na">action</span><span class="o">=</span><span class="s">"{{ product.url }}/reviews#review_form"</span>
+  <span class="na">enctype</span><span class="o">=</span><span class="s">"multipart/form-data"</span>
 <span class="p">&gt;</span>
   {% assign success_message = messages.review_is_added %}
   {% if account.reviews_moderated? %}
@@ -3545,152 +3665,152 @@
   {% endif %}
 
   <span class="p">&lt;</span><span class="nt">div</span>
-    <span class="na">data-reviews-form-success</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">      &quot;showTime&quot;: 10000,</span>
-<span class="s">      &quot;message&quot;: &quot;{{ success_message }}&quot;,</span>
-<span class="s">      &quot;reloadPage&quot;: false</span>
-<span class="s">    }&#39;</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;notice-success&quot;</span>
+    <span class="na">data-reviews-form-success</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">      "showTime": 10000,</span>
+<span class="s">      "message": "{{ success_message }}",</span>
+<span class="s">      "reloadPage": false</span>
+<span class="s">    }'</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"notice-success"</span>
   <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   <span class="p">&lt;</span><span class="nt">div</span>
-    <span class="na">id</span><span class="o">=</span><span class="s">&quot;review_form&quot;</span>
-    <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-wrapper {% unless review.errors.size &gt; 0 %}is-hide{% endunless%}&quot;</span>
+    <span class="na">id</span><span class="o">=</span><span class="s">"review_form"</span>
+    <span class="na">class</span><span class="o">=</span><span class="s">"reviews-wrapper {% unless review.errors.size &gt; 0 %}is-hide{% endunless%}"</span>
   <span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-form&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-form__header&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-form__title&quot;</span><span class="p">&gt;</span>{{ messages.give_feedback }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"reviews-form"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"reviews-form__header"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"reviews-form__title"</span><span class="p">&gt;</span>{{ messages.give_feedback }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-form__content&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field reviews-form__rating&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field__label&quot;</span><span class="p">&gt;</span>{{ messages.field_rating }}
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-error&quot;</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"reviews-form__content"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field reviews-form__rating"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field__label"</span><span class="p">&gt;</span>{{ messages.field_rating }}
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-error"</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;star-rating-wrapper&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;star-rating&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"star-rating-wrapper"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"star-rating"</span><span class="p">&gt;</span>
               {% assign r = 5 %}
               {% for i in (1..5) %}
                 <span class="p">&lt;</span><span class="nt">input</span>
                   <span class="na">data-reviews-form-field</span>
-                  <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[rating]&quot;</span>
-                  <span class="na">id</span><span class="o">=</span><span class="s">&quot;star{{ r }}-{{ product.id }}&quot;</span>
-                  <span class="na">type</span><span class="o">=</span><span class="s">&quot;radio&quot;</span>
-                  <span class="na">name</span><span class="o">=</span><span class="s">&quot;reviewStars&quot;</span>
-                  <span class="na">class</span><span class="o">=</span><span class="s">&quot;star-radio&quot;</span>
-                  <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ r }}&quot;</span> <span class="p">/&gt;</span>
+                  <span class="na">name</span><span class="o">=</span><span class="s">"review[rating]"</span>
+                  <span class="na">id</span><span class="o">=</span><span class="s">"star{{ r }}-{{ product.id }}"</span>
+                  <span class="na">type</span><span class="o">=</span><span class="s">"radio"</span>
+                  <span class="na">name</span><span class="o">=</span><span class="s">"reviewStars"</span>
+                  <span class="na">class</span><span class="o">=</span><span class="s">"star-radio"</span>
+                  <span class="na">value</span><span class="o">=</span><span class="s">"{{ r }}"</span> <span class="p">/&gt;</span>
                 <span class="p">&lt;</span><span class="nt">label</span>
-                  <span class="na">title</span><span class="o">=</span><span class="s">&quot;{{ r }}&quot;</span>
-                  <span class="na">for</span><span class="o">=</span><span class="s">&quot;star{{ r }}-{{ product.id }}&quot;</span>
-                  <span class="na">class</span><span class="o">=</span><span class="s">&quot;star-label icon icon-star&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                  <span class="na">title</span><span class="o">=</span><span class="s">"{{ r }}"</span>
+                  <span class="na">for</span><span class="o">=</span><span class="s">"star{{ r }}-{{ product.id }}"</span>
+                  <span class="na">class</span><span class="o">=</span><span class="s">"star-label icon icon-star"</span><span class="p">&gt;&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
                 {% assign r = r | minus: 1 %}
               {% endfor %}
             <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;grid-list grid-list_wide&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"grid-list grid-list_wide"</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">div</span>
             <span class="na">data-reviews-form-field-area</span>
-            <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field is-required {% if review.errors contains &#39;author&#39; %}is-error{% endif %}&quot;</span>
+            <span class="na">class</span><span class="o">=</span><span class="s">"form-field is-required {% if review.errors contains 'author' %}is-error{% endif %}"</span>
           <span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field__label&quot;</span><span class="p">&gt;</span>{{ messages.name }}
-              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-error&quot;</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field__label"</span><span class="p">&gt;</span>{{ messages.name }}
+              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-error"</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">input</span>
-              <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">                &quot;isRequired&quot;: true,</span>
-<span class="s">                &quot;errorMessage&quot;: &quot;{{ messages.name_error | escape }}&quot;</span>
-<span class="s">              }&#39;</span>
-              <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[author]&quot;</span>
-              <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;{{ messages.name }}&quot;</span>
-              <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ review.author }}&quot;</span>
-              <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-              <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-m&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">                "isRequired": true,</span>
+<span class="s">                "errorMessage": "{{ messages.name_error | escape }}"</span>
+<span class="s">              }'</span>
+              <span class="na">name</span><span class="o">=</span><span class="s">"review[author]"</span>
+              <span class="na">placeholder</span><span class="o">=</span><span class="s">"{{ messages.name }}"</span>
+              <span class="na">value</span><span class="o">=</span><span class="s">"{{ review.author }}"</span>
+              <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+              <span class="na">class</span><span class="o">=</span><span class="s">"form-control form-control_size-m"</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field is-required {% if review.errors contains &#39;email&#39; %}is-error{% endif %}&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field__label&quot;</span><span class="p">&gt;</span>{{ messages.field_email }}
-              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-error&quot;</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field is-required {% if review.errors contains 'email' %}is-error{% endif %}"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field__label"</span><span class="p">&gt;</span>{{ messages.field_email }}
+              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-error"</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">input</span>
-              <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">                &quot;isRequired&quot;: true,</span>
-<span class="s">                &quot;errorMessage&quot;: &quot;{{ messages.email_error | escape}}&quot;</span>
-<span class="s">              }&#39;</span>
-              <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[email]&quot;</span>
-              <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;{{ messages.field_email }}&quot;</span>
-              <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ review.email }}&quot;</span>
-              <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span>
-              <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-m&quot;</span>
+              <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">                "isRequired": true,</span>
+<span class="s">                "errorMessage": "{{ messages.email_error | escape}}"</span>
+<span class="s">              }'</span>
+              <span class="na">name</span><span class="o">=</span><span class="s">"review[email]"</span>
+              <span class="na">placeholder</span><span class="o">=</span><span class="s">"{{ messages.field_email }}"</span>
+              <span class="na">value</span><span class="o">=</span><span class="s">"{{ review.email }}"</span>
+              <span class="na">type</span><span class="o">=</span><span class="s">"text"</span>
+              <span class="na">class</span><span class="o">=</span><span class="s">"form-control form-control_size-m"</span>
             <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span>
           <span class="na">data-reviews-form-field-area</span>
-          <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field form-comment is-required {% if review.errors contains &#39;content&#39; %}is-error{% endif %}&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field__label&quot;</span><span class="p">&gt;</span>{{ messages.review }}
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-error&quot;</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">"form-field form-comment is-required {% if review.errors contains 'content' %}is-error{% endif %}"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field__label"</span><span class="p">&gt;</span>{{ messages.review }}
+            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-error"</span><span class="p">&gt;</span>*<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">textarea</span>
-            <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">              &quot;isRequired&quot;: true,</span>
-<span class="s">              &quot;errorMessage&quot;: &quot;{{ messages.please_enter_message | escape }}&quot;</span>
-<span class="s">            }&#39;</span>
-            <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[content]&quot;</span>
-            <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;{{ messages.review }}&quot;</span>
-            <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control form-control_size-m is-textarea&quot;</span>
+            <span class="na">data-reviews-form-field</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">              "isRequired": true,</span>
+<span class="s">              "errorMessage": "{{ messages.please_enter_message | escape }}"</span>
+<span class="s">            }'</span>
+            <span class="na">name</span><span class="o">=</span><span class="s">"review[content]"</span>
+            <span class="na">placeholder</span><span class="o">=</span><span class="s">"{{ messages.review }}"</span>
+            <span class="na">class</span><span class="o">=</span><span class="s">"form-control form-control_size-m is-textarea"</span>
           <span class="p">&gt;</span>{{ review.content }}<span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         {% if account.reviews_images_enabled? %}
           <span class="p">&lt;</span><span class="nt">div</span>
             <span class="na">data-reviews-form-field-area</span>
-            <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field form-file is-required {% if review.errors contains &#39;image.image&#39; %} input--error{% endif %}&quot;</span>
+            <span class="na">class</span><span class="o">=</span><span class="s">"form-field form-file is-required {% if review.errors contains 'image.image' %} input--error{% endif %}"</span>
           <span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label icon icon-camera&quot;</span><span class="p">&gt;</span>
-              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;load-review-image-name&quot;</span><span class="p">&gt;</span>{{ messages.add_photo }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-label icon icon-camera"</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"load-review-image-name"</span><span class="p">&gt;</span>{{ messages.add_photo }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
               <span class="p">&lt;</span><span class="nt">input</span>
                 <span class="na">data-reviews-form-image</span>
-                <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span>
-                <span class="na">class</span><span class="o">=</span><span class="s">&quot;js-load-review-image hidden&quot;</span>
-                <span class="na">name</span><span class="o">=</span><span class="s">&quot;review[image_attributes][image]&quot;</span> <span class="p">/&gt;</span>
+                <span class="na">type</span><span class="o">=</span><span class="s">"file"</span>
+                <span class="na">class</span><span class="o">=</span><span class="s">"js-load-review-image hidden"</span>
+                <span class="na">name</span><span class="o">=</span><span class="s">"review[image_attributes][image]"</span> <span class="p">/&gt;</span>
             <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         {% endif %}
 
         {% if review.captcha_enabled? %}
-          {% if account.captcha_type == &#39;google&#39; %}
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span><span class="p">&gt;</span>
+          {% if account.captcha_type == 'google' %}
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">div</span>
-              <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-              <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ messages.recaptcha_error | escape }}&quot;}&#39;</span>
-              <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-              <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+              <span class="na">data-recaptcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+              <span class="na">data-reviews-form-recaptcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ messages.recaptcha_error | escape }}"}'</span>
+              <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+              <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
             <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-          {% elsif account.captcha_type == &#39;yandex&#39; %}
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-row form-captcha {% if review.errors contains &#39;captcha_solution&#39; %}is-error{% endif %}&quot;</span><span class="p">&gt;</span>
+          {% elsif account.captcha_type == 'yandex' %}
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-area</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-row form-captcha {% if review.errors contains 'captcha_solution' %}is-error{% endif %}"</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">div</span>
-              <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">&quot;invisible&quot;</span>
-              <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">&#39;{&quot;isRequired&quot;: true, &quot;errorMessage&quot;: &quot;{{ widget_messages.yandex_captcha_error | escape }}&quot;}&#39;</span>
-              <span class="na">id</span><span class="o">=</span><span class="s">&quot;captcha_challenge&quot;</span>
-              <span class="na">class</span><span class="o">=</span><span class="s">&quot;captcha-recaptcha&quot;</span>
+              <span class="na">data-yandex-captcha-type</span><span class="o">=</span><span class="s">"invisible"</span>
+              <span class="na">data-reviews-form-yandex-captcha</span><span class="o">=</span><span class="s">'{"isRequired": true, "errorMessage": "{{ widget_messages.yandex_captcha_error | escape }}"}'</span>
+              <span class="na">id</span><span class="o">=</span><span class="s">"captcha_challenge"</span>
+              <span class="na">class</span><span class="o">=</span><span class="s">"captcha-recaptcha"</span>
             <span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form__field-error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-reviews-form-field-error</span> <span class="na">class</span><span class="o">=</span><span class="s">"form__field-error"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
           {% endif %}
         {% endif %}
 
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-field form-field_controls&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button_wide&quot;</span><span class="p">&gt;</span>{{ messages.give_feedback }}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-field form-field_controls"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">class</span><span class="o">=</span><span class="s">"button button_wide"</span><span class="p">&gt;</span>{{ messages.give_feedback }}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       {% if account.reviews_moderated? %}
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;reviews-form__moderation-info&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"reviews-form__moderation-info"</span><span class="p">&gt;</span>
           {{ messages.reviews_are_moderated }}
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       {% endif %}
@@ -3751,7 +3871,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

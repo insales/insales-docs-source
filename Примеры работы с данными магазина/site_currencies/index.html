@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1220,6 +1220,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1992,6 +2000,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2812,15 +2932,15 @@
 <h1 id="_1">Мультивалютность</h1>
 <p>Валюта изменяется на всех страницах кроме личного кабинета и чекаута, по этой причине стоит использовать проверку на доступность смены валюты (<code>allow_change_site_currency</code>).</p>
 <div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">allow_change_site_currency</span><span class="w"> </span><span class="p">%}</span>
-&lt;form action=&quot;/site_currencies/update_current&quot; method=&quot;post&quot;&gt;
-  &lt;select name=&quot;site_currency_code&quot; onchange=&quot;this.parentNode.submit()&quot;&gt;
+&lt;form action="/site_currencies/update_current" method="post"&gt;
+  &lt;select name="site_currency_code" onchange="this.parentNode.submit()"&gt;
     <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>currency<span class="w"> </span>in<span class="w"> </span>account.site_currencies<span class="w"> </span><span class="p">%}</span>
-      <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">%}</span>
+      <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">%}</span>
       <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">current</span><span class="w"> </span><span class="p">%}</span>
-        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;selected&quot;</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"selected"</span><span class="w"> </span><span class="p">%}</span>
       <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 
-      &lt;option <span class="p">{{</span><span class="w"> </span><span class="nv">selected</span><span class="w"> </span><span class="p">}}</span> value=&quot;<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">}}</span>&quot;&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">unit</span><span class="w"> </span><span class="p">}}</span>&amp;nbsp;<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">}}</span>&lt;/option&gt;
+      &lt;option <span class="p">{{</span><span class="w"> </span><span class="nv">selected</span><span class="w"> </span><span class="p">}}</span> value="<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">unit</span><span class="w"> </span><span class="p">}}</span>&amp;nbsp;<span class="p">{{</span><span class="w"> </span><span class="nv">currency</span><span class="p">.</span><span class="nv">code</span><span class="w"> </span><span class="p">}}</span>&lt;/option&gt;
     <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
   &lt;/select&gt;
 &lt;/form&gt;
@@ -2833,12 +2953,12 @@
 <p><code>currency.unit</code> - символ валюты. Например, <strong>$</strong></p>
 <h2 id="ajax">Пример ajax смены валюты</h2>
 <div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/site_currencies/update_current&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s2">"/site_currencies/update_current"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">site_currency_code</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RUR&quot;</span>
+<span class="w">    </span><span class="nx">site_currency_code</span><span class="o">:</span><span class="w"> </span><span class="s2">"RUR"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">dataType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dataType&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">dataType</span><span class="o">:</span><span class="w"> </span><span class="s2">"dataType"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">()</span>
 <span class="w">  </span><span class="p">},</span>
@@ -2899,7 +3019,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

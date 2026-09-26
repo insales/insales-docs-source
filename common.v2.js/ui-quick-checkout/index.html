@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1966,6 +1974,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дополнительные атрибуты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        События
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2074,6 +2104,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2878,6 +3020,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Дополнительные атрибуты
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        События
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2902,13 +3066,13 @@
 <p>Форма заказа в один клик и форма заявки по сути являются аналогичными. Они позволяют пользователю оставить заявку на товар, минуя процесс заполнения всех полей стандартной формы заказа. Обе формы по умолчанию отдаются сервером вместе с HTML-кодом страницы и реализованы как модальные окна, поэтому здесь будут описаны только способы их активации.</p>
 <h2 id="_2">Активация формы заказа в один клик</h2>
 <p>Для вызова формы заказа в один клик используется кнопка с data-атрибутом <code>data-quick-checkout</code>. В качестве значения этого атрибута указывается селектор формы товара, для которого будет вызвана форма. Пример:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&#39;[data-product-id=&quot;12345678&quot;]&#39;</span><span class="p">&gt;</span>Купить в один клик<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">'[data-product-id="12345678"]'</span><span class="p">&gt;</span>Купить в один клик<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="_3">Активация формы заявки</h2>
 <p>Форма заявки активируется аналогично форме заказа в один клик, через кнопку с атрибутом <code>data-quick-checkout</code> и указанием селектора формы товара. Отличие состоит в том, что необходимо добавить дополнительный атрибут <code>data-quick-checkout-modal-handle</code> со значением <code>service</code>. Пример:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span>
-  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&#39;[data-product-id=&quot;12345678&quot;]&#39;</span>
-  <span class="na">data-quick-checkout-modal-handle</span><span class="o">=</span><span class="s">&quot;service&quot;</span>
+  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">'[data-product-id="12345678"]'</span>
+  <span class="na">data-quick-checkout-modal-handle</span><span class="o">=</span><span class="s">"service"</span>
 <span class="p">&gt;</span>
   Оформить заявку
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -2917,20 +3081,66 @@
 <p>Если требуется вызов формы без привязки к конкретному товару, то в атрибуте кнопки <code>data-quick-checkout</code> вместо селектора формы товара нужно указать значение <code>fake_order</code>. Это приведет к созданию заказа с заглушкой вместо наименования товара. Для задания собственного наименования заглушки используйте атрибут <code>data-quick-checkout-fake-order-name</code>.</p>
 <p>Пример для формы заказа в один клик:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span>
-  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&#39;fake_order&#39;</span>
-  <span class="na">data-quick-checkout-fake-order-name</span><span class="o">=</span><span class="s">&quot;имя товара&quot;</span>
+  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">'fake_order'</span>
+  <span class="na">data-quick-checkout-fake-order-name</span><span class="o">=</span><span class="s">"имя товара"</span>
 <span class="p">&gt;</span>
   Купить в один клик
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Пример для формы заявки:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span>
-  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&#39;fake_order&#39;</span>
-  <span class="na">data-quick-checkout-modal-handle</span><span class="o">=</span><span class="s">&quot;service&quot;</span>
-  <span class="na">data-quick-checkout-fake-order-name</span><span class="o">=</span><span class="s">&quot;имя товара&quot;</span>
+  <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">'fake_order'</span>
+  <span class="na">data-quick-checkout-modal-handle</span><span class="o">=</span><span class="s">"service"</span>
+  <span class="na">data-quick-checkout-fake-order-name</span><span class="o">=</span><span class="s">"имя товара"</span>
 <span class="p">&gt;</span>
   Оформить заявку
 <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="_5">Дополнительные атрибуты</h2>
+<p><code>data-quick-checkout-handle</code> задаёт имя модального окна на самой форме. Если атрибута нет, окно называется <code>default</code>. Кнопка открывает окно с тем же именем через <code>data-quick-checkout-modal-handle</code>.</p>
+<p><code>data-quick-checkout-use-common-cart</code> на модальном окне означает, что в быстрый заказ попадут и товары, которые уже лежат в корзине.</p>
+<h2 id="_6">События</h2>
+<table>
+<thead>
+<tr>
+<th>Событие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before:insales:quick_checkout</td>
+<td>Перед отправкой формы. В данных параметры запроса</td>
+</tr>
+<tr>
+<td>success:insales:quick_checkout</td>
+<td>Заказ создан. В данных есть <code>task</code> и снимок корзины <code>cart</code></td>
+</tr>
+<tr>
+<td>errors:insales:quick_checkout</td>
+<td>Сервер вернул ошибки формы</td>
+</tr>
+<tr>
+<td>always:insales:quick_checkout</td>
+<td>После успеха или ошибки</td>
+</tr>
+<tr>
+<td>before_submit:insales:quick_checkout</td>
+<td>Перед переходом на страницу успешного заказа</td>
+</tr>
+<tr>
+<td>add_disabled:insales:quick_checkout</td>
+<td>Нажата заблокированная кнопка. В данных есть <code>button</code></td>
+</tr>
+<tr>
+<td>add_checkout:insales:cart</td>
+<td>Форма собрана и передана в оформление</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'errors:insales:quick_checkout'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">task</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
 
 
@@ -2984,7 +3194,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

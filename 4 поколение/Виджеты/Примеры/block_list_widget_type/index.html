@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1372,6 +1372,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2144,6 +2152,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -3051,25 +3171,25 @@
 <h4 id="2-html-snippetliquid">Шаг 2. HTML (snippet.liquid)</h4>
 <p>Редактируем snippet.liquid. <br></p>
 <p>Пример кода:</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list grid-list&quot;</span><span class="p">&gt;</span>
+<p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner-list grid-list"</span><span class="p">&gt;</span>
   {% for slide in data.blocks %}
-  {% if slide.link != &quot;&quot; %}
-  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ slide.link }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
+  {% if slide.link != "" %}
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ slide.link }}"</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner-list__item"</span><span class="p">&gt;</span>
     {% else %}
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner-list__item"</span><span class="p">&gt;</span>
       {% endif %}
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio img-fit banner-list__item-photo&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-ratio__inner&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"img-ratio img-fit banner-list__item-photo"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"img-ratio__inner"</span><span class="p">&gt;</span>
           {% assign image_title = slide.name | escape %}
           {% if slide.image %}
               {% assign img_width = 686 %}
               <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ slide.image | image_url: img_width, resizing_type: &#39;fill-down&#39;, quality:100 }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;{{ image_title }}&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">"{{ slide.image | image_url: img_width, resizing_type: 'fill-down', quality:100 }}"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span> <span class="na">alt</span><span class="o">=</span><span class="s">"{{ image_title }}"</span><span class="p">&gt;</span>
               <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
             {% endif %}
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      {% if slide.link != &quot;&quot; %}
+      {% if slide.link != "" %}
   <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
   {% else %}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>{% endif %}
   {% endfor %}
@@ -3087,29 +3207,29 @@
 <p>В файле setup мы прописываем блоки с параметрами <code>image</code> и <code>link</code>, в примере ниже 6 блоков с пустыми ссылками и одинаковыми изображениями. </p>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">  </span><span class="nt">"blocks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;23802459&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;link&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span>
+<span class="w">      </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23802459"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
@@ -3118,57 +3238,57 @@
 <p>Редактируем settings_form.json. <br></p>
 <p>Пример кода:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;{{ messages.banner }}&quot;</span><span class="p">:[</span>
+<span class="w">  </span><span class="nt">"{{ messages.banner }}"</span><span class="p">:[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.indentation }}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"{{ messages.indentation }}"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;range&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;grid-list-row-gap&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;rem&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.vertical_padding_between_blocks }}&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;with_btns&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">          </span><span class="nt">"class"</span><span class="p">:</span><span class="s2">"range"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"grid-list-row-gap"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"min"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"step"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"unit"</span><span class="p">:</span><span class="s2">"rem"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.vertical_padding_between_blocks }}"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"number"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"with_btns"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;range&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;grid-list-column-gap&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;rem&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.horizontal_padding_between_blocks }}&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;with_btns&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">          </span><span class="nt">"class"</span><span class="p">:</span><span class="s2">"range"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"grid-list-column-gap"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"min"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"step"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"unit"</span><span class="p">:</span><span class="s2">"rem"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.horizontal_padding_between_blocks }}"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"number"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"with_btns"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;{{ messages.label_widget }}&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"{{ messages.label_widget }}"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.background }}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"{{ messages.background }}"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;bg&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.widget_background_color }}&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;color&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;clearable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"bg"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.widget_background_color }}"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"color"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"clearable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.adaptive }}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"{{ messages.adaptive }}"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hide-desktop&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ messages.hide_desktop }}&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;checkbox&quot;</span>
+<span class="w">          </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkbox"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hide-desktop"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.hide_desktop }}"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkbox"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
@@ -3185,17 +3305,17 @@
 <p>В файле messages мы прописываем перевод ключа <code>hide_desktop</code> из settings_form.json на 4 языках. Более подробно можно почитать <a href="/4%20поколение/Виджеты/messages/">здесь</a>.</p>
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;hide_desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Скрыть на десктопе&quot;</span>
+<span class="w">  </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"hide_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Скрыть на десктопе"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;hide_desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Сховати на робочому столі&quot;</span>
+<span class="w">  </span><span class="nt">"ua"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"hide_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Сховати на робочому столі"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;hide_desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hide on Desktop&quot;</span>
+<span class="w">  </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"hide_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hide on Desktop"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;hide_desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Para Mostrar u ocultar favoritos, vaya a la configuración de la plantilla y Active favoritos&quot;</span>
+<span class="w">  </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"hide_desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Para Mostrar u ocultar favoritos, vaya a la configuración de la plantilla y Active favoritos"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></p>
@@ -3203,10 +3323,10 @@
 <p>Редактируем settings_data.json. <br>
 Пример:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hide-desktop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;grid-list-row-gap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;grid-list-column-gap&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ddd9d6&quot;</span>
+<span class="w">  </span><span class="nt">"hide-desktop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"grid-list-row-gap"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"grid-list-column-gap"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"bg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#ddd9d6"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><code>hide-desktop</code> - скрыть на детскопе, по умолчанию <code>false</code>, что означает что мы не скрываем на детскопе виджет. <br>
@@ -3219,30 +3339,30 @@
 Пример:
 
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blockListWidgetType&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner_with_button_1&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;sku&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BG10&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Группа баннеров в 2 ряда&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Group of banners in two rows&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Група банерів в два ряди&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Grupo de pancartas en dos filas&quot;</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockListWidgetType"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner_with_button_1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BG10"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Группа баннеров в 2 ряда"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group of banners in two rows"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ua"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Група банерів в два ряди"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grupo de pancartas en dos filas"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ru&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Плитка из баннеров&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Banner tile&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ua&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Плитка з банерів&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;es&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Azulejo de banner&quot;</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Плитка из баннеров"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banner tile"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ua"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Плитка з банерів"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"es"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Azulejo de banner"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;page_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;widget_list_kinds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;before_content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;after_content&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;generation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;block_template_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system-banner-7&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;widget_category_handle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;banner&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;libraries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;jquery&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;my-layout&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;vanilla-lazyload&quot;</span>
+<span class="w">  </span><span class="nt">"page_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"all"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"widget_list_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"before_content"</span><span class="p">,</span><span class="w"> </span><span class="s2">"content"</span><span class="p">,</span><span class="w"> </span><span class="s2">"after_content"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system-banner-7"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"widget_category_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"libraries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"jquery"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"my-layout"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"vanilla-lazyload"</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3271,7 +3391,7 @@
 <p><div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span>
-<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;.lazyload&#39;</span>
+<span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'.lazyload'</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
@@ -3280,7 +3400,7 @@
 <p>Пропишем стили виджета и не забудем прописать стили для разных значений настроек. Интегрируем миксин <code>@include background-color(--bg)</code> и посмотрим как он работает на практике: </p>
 <div class="highlight"><pre><span></span><code><span class="p">@</span><span class="k">include</span><span class="w"> </span><span class="nt">background-color</span><span class="o">(</span><span class="nt">--bg</span><span class="o">)</span><span class="p">;</span>
 
-<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">&quot;--img-fit:contain&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<span class="o">&amp;[</span><span class="nt">style</span><span class="o">*=</span><span class="s2">"--img-fit:contain"</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="err">.banner-list__item</span><span class="w"> </span><span class="err">.img-ratio</span><span class="w"> </span><span class="err">img</span><span class="w"> </span><span class="err">{</span>
 <span class="w">    </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="kc">contain</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
@@ -3385,7 +3505,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

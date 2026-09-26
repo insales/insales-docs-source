@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1220,6 +1220,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1992,6 +2000,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2905,16 +3025,16 @@
 <h1 id="3">Для шаблонов 3 поколения</h1>
 <h2 id="settingsjson">settings.json</h2>
 <p>Добавить настройку:</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;{{ messages.s_feedback_captcha_title }}&quot;</span><span class="p">:[</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">"{{ messages.s_feedback_captcha_title }}"</span><span class="p">:[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;group_name&quot;</span><span class="p">:</span><span class="s2">&quot;ReCAPTCHA&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;items&quot;</span><span class="p">:[</span>
+<span class="w">    </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"ReCAPTCHA"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"items"</span><span class="p">:[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;feedback_captcha_enabled&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;checkbox&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="s2">&quot;{{ messages.s_feedback_captcha_label }}&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;help&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span>
+<span class="w">                </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"feedback_captcha_enabled"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"checkbox"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.s_feedback_captcha_label }}"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span>
 <span class="w">              </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
@@ -2922,14 +3042,14 @@
 </code></pre></div>
 <h2 id="messagesjson">messages.json</h2>
 <p>Добавить название и описание настройки:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Форма обратной связи&quot;</span><span class="p">,</span>
-<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Включить проверку &#39;Я не робот&#39;&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"s_feedback_captcha_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Форма обратной связи"</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Включить проверку 'Я не робот'"</span><span class="p">,</span>
 
-<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Feedback form&quot;</span><span class="p">,</span>
-<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable check&quot;</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feedback form"</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable check"</span><span class="p">,</span>
 
-<span class="nt">&quot;s_feedback_captcha_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Formulario de comentarios&quot;</span><span class="p">,</span>
-<span class="nt">&quot;s_feedback_captcha_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active la casilla de verificación &#39;No soy un robot&#39;&quot;</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Formulario de comentarios"</span><span class="p">,</span>
+<span class="nt">"s_feedback_captcha_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active la casilla de verificación 'No soy un robot'"</span><span class="p">,</span>
 </code></pre></div>
 <h2 id="_1">Если не заработало</h2>
 <p>Проверьте компонент <code>ui-form</code>.</p>
@@ -2990,7 +3110,7 @@ use-recaptcha
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

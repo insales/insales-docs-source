@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2087,6 +2095,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2910,11 +3030,11 @@
 <h3 id="subscribe">subscribe</h3>
 <p>В работе с API необходимо привязываться к подписчикам, так как издатели объявлены внутри API.
 Например, при добавлении товара в корзину внутри API публикуется событие <code>add_items:insales:cart</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 </code></pre></div>
 <p>Данные, которые переданы через EventBus.publish, доступны в подписчике.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'add_items:insales:cart:'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <p><strong>Параметры</strong></p>
@@ -2931,12 +3051,12 @@
 <span class="cm"> */</span>
 </code></pre></div>
 <p><strong>Пример</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;event_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'event_id'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 <span class="p">});</span>
 
-<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;add_items:insales:cart&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Товар добавлен&#39;</span><span class="p">);</span>
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Товар добавлен'</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <h3 id="publish">publish</h3>
@@ -2948,32 +3068,40 @@
 <span class="cm"> */</span>
 </code></pre></div>
 <p><strong>Пример</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;event_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'event_id'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">isTest</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Test&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ok&#39;</span>
+<span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">'Test'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s1">'ok'</span>
 <span class="p">});</span>
 </code></pre></div>
 <h3 id="loggeradd">logger.add</h3>
 <p>Добавление логера для компонента</p>
 <p><strong>Параметры</strong></p>
+<p>Имя компонента — последняя часть имени события после двоеточия. Например, для <code>add_items:insales:cart</code> это <code>cart</code>.</p>
 <p>Список компонентов:</p>
 <ul>
 <li>cart</li>
 <li>product</li>
+<li>item</li>
 <li>search</li>
 <li>compares</li>
 <li>favorites_products</li>
 <li>quick_checkout</li>
+<li>ui_product</li>
+<li>ui_feedback</li>
+<li>ui_comments</li>
+<li>ui_reviews</li>
+<li>ui_accessories</li>
+<li>ui_add-cart-counter</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {String} componentTitle название компонента</span>
 <span class="cm"> */</span>
-<span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span>
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'cart'</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Пример</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span>
-<span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;product&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'cart'</span><span class="p">)</span>
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">logger</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'product'</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -3027,7 +3155,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

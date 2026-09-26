@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1216,6 +1216,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1988,6 +1996,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2904,26 +3024,26 @@
 <li>Создаем счет</li>
 </ol>
 <p><code>POST /admin/application\_charges.xml</code></p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Купи<span class="w"> </span>слона<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://applicaiton.my/check_payment_url/%id_in_my_application%<span class="nt">&lt;/return-url&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
 
 <p>Получаем:</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/id&gt;</span>
+<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/id&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Купи<span class="w"> </span>слона<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://applicaiton.my/check_payment_url/%id_in_my_application%<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">   </span><span class="nt">&lt;status&gt;</span>pending<span class="nt">&lt;/status&gt;</span>
-<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
 <span class="w">   </span><span class="nt">&lt;confirmation-url&gt;</span>http://some-shop.myinsales.ru/admin/invoices/6539<span class="nt">&lt;/confirmation-url&gt;</span>
-<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
 
@@ -2940,15 +3060,15 @@
 <p><code>GET /admin/application\_charges/2.xml</code></p>
 <p>Получаем:</p>
 <div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>2<span class="nt">&lt;/id&gt;</span>
+<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/id&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Купи<span class="w"> </span>слона<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://applicaiton.my/check_payment_url/%id_in_my_application%<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">   </span><span class="nt">&lt;status&gt;</span>accepted<span class="nt">&lt;/status&gt;</span>
-<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
 <span class="w">   </span><span class="nt">&lt;confirmation-url&gt;</span>http://some-shop.myinsales.ru/admin/invoices/6539<span class="nt">&lt;/confirmation-url&gt;</span>
-<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-12-02T22:40:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-12-02T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-12-02T22:40:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
 
@@ -2956,42 +3076,42 @@
 <h2 id="_5">Выставление</h2>
 <p>Создать счёт можно, отправив POST-запрос по адресу <code>/admin/application_charges.xml</code>.</p>
 <p>Пример запроса:</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Sms<span class="w"> </span>200<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://host/url<span class="nt">&lt;/return-url&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
 
 <p>Пример ответа:</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Sms<span class="w"> </span>200<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;status&gt;</span>pending<span class="nt">&lt;/status&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://host/url<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">   </span><span class="nt">&lt;confirmation-url&gt;</span>http://host.myinsales.ru/admin/invoices/6539<span class="nt">&lt;/confirmation-url&gt;</span>
-<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
-<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
 
 <h2 id="_6">Проверка состояния</h2>
 <p>GET запрос по адресу <code>/admin/application_charges/%id%.xml</code></p>
 <p>Пример ответа:</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="w"> </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+<span class="w">   </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
 <span class="w">   </span><span class="nt">&lt;name&gt;</span>Sms<span class="w"> </span>200<span class="nt">&lt;/name&gt;</span>
-<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">   </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">   </span><span class="nt">&lt;return-url&gt;</span>http://host/url<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">   </span><span class="nt">&lt;status&gt;</span>pending<span class="nt">&lt;/status&gt;</span>
-<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
-<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">   </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">   </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w">   </span><span class="nt">&lt;confirmation-url&gt;</span>http://host.myinsales.ru/admin/invoices/2<span class="nt">&lt;/confirmation-url&gt;</span>
 <span class="w"> </span><span class="nt">&lt;/application-charge&gt;</span>
 </code></pre></div>
@@ -3002,28 +3122,28 @@
 <h2 id="_8">Получение списка счетов</h2>
 <p>Отправиа GET-запрос по адресу <code>/admin/application_charges.xml</code>, можно получить информацию о счетах, выставленных приложением. Поддерживаемые форматы: xml, json.</p>
 <p>Пример xml документа:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;application-charges</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;array&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;application-charges</span><span class="w"> </span><span class="na">type=</span><span class="s">"array"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">    </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">    </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">    </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/id&gt;</span>
 <span class="w">    </span><span class="nt">&lt;name&gt;</span>Sms<span class="w"> </span>200<span class="nt">&lt;/name&gt;</span>
-<span class="w">    </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">    </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">    </span><span class="nt">&lt;return-url&gt;</span>http://host/url<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">    </span><span class="nt">&lt;status&gt;</span>pending<span class="nt">&lt;/status&gt;</span>
-<span class="w">    </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
-<span class="w">    </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">    </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">    </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-07-18T22:34:59+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w">    </span><span class="nt">&lt;confirmation-url&gt;</span>http://host.myinsales.ru/admin/invoices/2<span class="nt">&lt;/confirmation-url&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/application-charge&gt;</span>
 <span class="w">  </span><span class="nt">&lt;application-charge&gt;</span>
-<span class="w">    </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-05-23T18:46:51+04:00<span class="nt">&lt;/created-at&gt;</span>
-<span class="w">    </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;integer&quot;</span><span class="nt">&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+<span class="w">    </span><span class="nt">&lt;created-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-05-23T18:46:51+04:00<span class="nt">&lt;/created-at&gt;</span>
+<span class="w">    </span><span class="nt">&lt;id</span><span class="w"> </span><span class="na">type=</span><span class="s">"integer"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/id&gt;</span>
 <span class="w">    </span><span class="nt">&lt;name&gt;</span>Sms<span class="w"> </span>200<span class="nt">&lt;/name&gt;</span>
-<span class="w">    </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;decimal&quot;</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
+<span class="w">    </span><span class="nt">&lt;price</span><span class="w"> </span><span class="na">type=</span><span class="s">"decimal"</span><span class="nt">&gt;</span>180.0<span class="nt">&lt;/price&gt;</span>
 <span class="w">    </span><span class="nt">&lt;return-url&gt;</span>http://host/url<span class="nt">&lt;/return-url&gt;</span>
 <span class="w">    </span><span class="nt">&lt;status&gt;</span>accepted<span class="nt">&lt;/status&gt;</span>
-<span class="w">    </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;boolean&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
-<span class="w">    </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;datetime&quot;</span><span class="nt">&gt;</span>2013-05-27T11:27:37+04:00<span class="nt">&lt;/updated-at&gt;</span>
+<span class="w">    </span><span class="nt">&lt;test</span><span class="w"> </span><span class="na">type=</span><span class="s">"boolean"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/test&gt;</span>
+<span class="w">    </span><span class="nt">&lt;updated-at</span><span class="w"> </span><span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>2013-05-27T11:27:37+04:00<span class="nt">&lt;/updated-at&gt;</span>
 <span class="w">    </span><span class="nt">&lt;confirmation-url&gt;</span>http://host.myinsales.ru/admin/invoices/4<span class="nt">&lt;/confirmation-url&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/application-charge&gt;</span>
 <span class="nt">&lt;/application-charges&gt;</span>
@@ -3080,7 +3200,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

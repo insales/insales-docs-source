@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1304,6 +1304,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2076,6 +2084,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2923,42 +3043,42 @@
 {% assign img_width = 1920 %}
 {% endif %}
 
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__item {% unless widget_settings.banner-img-m %}show-mobile{% endunless %}&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner-list__item {% unless widget_settings.banner-img-m %}show-mobile{% endunless %}"</span><span class="p">&gt;</span>
   {% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}
     {% if widget_settings.layout-wide-content %}
     {% assign img_width = 1920 %}
     {% endif %}
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4 heading&quot;</span><span class="p">&gt;</span>{{ widget_settings.title_text-default }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;gallery-contanier&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide gallery-splide&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slider&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__track&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__list&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"h4 heading"</span><span class="p">&gt;</span>{{ widget_settings.title_text-default }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"gallery-contanier"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide gallery-splide"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__slider"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__track"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__list"</span><span class="p">&gt;</span>
               {% assign slide_index = 0 %}
               {% for video in data.blocks %}
-              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slide&quot;</span> <span class="na">data-slide-index</span><span class="o">=</span><span class="s">&quot;{{ slide_index }}&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__slide"</span> <span class="na">data-slide-index</span><span class="o">=</span><span class="s">"{{ slide_index }}"</span><span class="p">&gt;</span>
                 {% if video.link != blank %}
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;iframe_wrapper&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"iframe_wrapper"</span><span class="p">&gt;</span>
                   {{ video.link | video_iframe_by_url: id: video_id }}
                 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 {% else %}
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;banner-list__empty-video&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"banner-list__empty-video"</span><span class="p">&gt;</span>
                   {{widget_settings.video-empty}}
                 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 {% endif %}
 
                 {% if video.image %}
-                  <span class="p">&lt;</span><span class="nt">picture</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">picture</span> <span class="na">class</span><span class="o">=</span><span class="s">"picture"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(min-width:769px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: img_width, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(max-width:480px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 500, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(max-width:768px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 768, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 940, resizing_type: 'fit_width' }}"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
                   <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
                 {% else %}
-                  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ video.link | video_preview_by_url }}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="p">/&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"picture"</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ video.link | video_preview_by_url }}"</span> <span class="na">style</span><span class="o">=</span><span class="s">"max-width: 100%"</span> <span class="p">/&gt;</span>
                 {% endif %}
-                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button banner-preview__play-btn&quot;</span><span class="p">&gt;</span>
-                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;triangle right&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">""</span> <span class="na">class</span><span class="o">=</span><span class="s">"button banner-preview__play-btn"</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"triangle right"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
                 <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
               <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
               {% assign slide_index = slide_index | plus: 1 %}
@@ -2968,21 +3088,21 @@
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;thumbnails-contanier js-init&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide thumbnails-splide&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__track&quot;</span><span class="p">&gt;</span>
-          <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__list&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"thumbnails-contanier js-init"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide thumbnails-splide"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__track"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__list"</span><span class="p">&gt;</span>
             {% for video in data.blocks %}
-              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;splide__slide&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">"splide__slide"</span><span class="p">&gt;</span>
                 {% if video.image %}
                   <span class="p">&lt;</span><span class="nt">picture</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(min-width:769px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: img_width, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:480px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 500, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;(max-width:768px)&quot;</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 768, format: &#39;webp&#39;, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/webp&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">&quot;{{ video.image | image_url: 940, resizing_type: &#39;fit_width&#39; }}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;lazyload&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(min-width:769px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: img_width, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(max-width:480px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 500, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">source</span> <span class="na">media</span><span class="o">=</span><span class="s">"(max-width:768px)"</span> <span class="na">data-srcset</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 768, format: 'webp', resizing_type: 'fit_width' }}"</span> <span class="na">type</span><span class="o">=</span><span class="s">"image/webp"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">data-src</span><span class="o">=</span><span class="s">"{{ video.image | image_url: 940, resizing_type: 'fit_width' }}"</span> <span class="na">class</span><span class="o">=</span><span class="s">"lazyload"</span><span class="p">&gt;</span>
                   <span class="p">&lt;/</span><span class="nt">picture</span><span class="p">&gt;</span>
                   {% else %}
-                   <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;picture&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ video.link | video_preview_by_url }}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width: 100%&quot;</span> <span class="p">/&gt;</span>
+                   <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">"picture"</span> <span class="na">src</span><span class="o">=</span><span class="s">"{{ video.link | video_preview_by_url }}"</span> <span class="na">style</span><span class="o">=</span><span class="s">"max-width: 100%"</span> <span class="p">/&gt;</span>
                 {% endif %}
               <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
             {% endfor %}
@@ -3049,7 +3169,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../js/jquery.min.js"></script>
       

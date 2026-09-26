@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1222,6 +1222,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2039,6 +2047,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#insalesuiopenquickcheckoutmodal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InSalesUI.openQuickCheckoutModal
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2063,6 +2082,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2856,6 +2987,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#insalesuiopenquickcheckoutmodal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        InSalesUI.openQuickCheckoutModal
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2884,66 +3026,66 @@
 <span class="cm">* @param {jquery} jquery объект</span>
 <span class="cm">*/</span>
 
-<span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">initAjaxInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.js-dynamic_basket&quot;</span><span class="p">));</span>
+<span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">initAjaxInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">".js-dynamic_basket"</span><span class="p">));</span>
 </code></pre></div>
 <p><strong>Пример</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;update_items:insales:cart&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">cart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.js-dynamic_basket&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">Template</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">cart</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;dynamic_basket&quot;</span><span class="p">));</span>
-<span class="w">  </span><span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">initAjaxInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.js-dynamic_basket&quot;</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">"update_items:insales:cart"</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">cart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">$</span><span class="p">(</span><span class="s2">".js-dynamic_basket"</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">Template</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">cart</span><span class="p">,</span><span class="w"> </span><span class="s2">"dynamic_basket"</span><span class="p">));</span>
+<span class="w">  </span><span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">initAjaxInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">".js-dynamic_basket"</span><span class="p">));</span>
 <span class="p">});</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dynamic_basket js-dynamic_basket&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dynamic_basket js-dynamic_basket"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;dynamic_basket&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_basket-header&quot;</span><span class="o">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"dynamic_basket"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_basket-header"</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="nx">ваши</span><span class="w"> </span><span class="nx">покупки</span>
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">action</span><span class="o">=</span><span class="s2">&quot;/cart_items&quot;</span><span class="w"> </span><span class="nx">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">ajax</span><span class="o">-</span><span class="nx">cart</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;_method&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;put&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;make_order&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">form</span><span class="w"> </span><span class="nx">action</span><span class="o">=</span><span class="s2">"/cart_items"</span><span class="w"> </span><span class="nx">method</span><span class="o">=</span><span class="s2">"post"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">ajax</span><span class="o">-</span><span class="nx">cart</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"hidden"</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"_method"</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">"put"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"hidden"</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"make_order"</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">""</span><span class="o">&gt;</span>
 
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_basket-list&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_basket-list"</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">order_lines</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_basket-empty text-center&quot;</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_basket-empty text-center"</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="nx">Корзина</span><span class="w"> </span><span class="nx">пуста</span>
 <span class="w">      </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="w">    </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">    </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">order_lines</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w">  </span><span class="o">%&gt;</span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_item&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">item</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.id %&gt;&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">product</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.product_id %&gt;&quot;</span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-4&quot;</span><span class="o">&gt;</span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">a</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_item-image&quot;</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;image-container is-square&quot;</span><span class="o">&gt;</span>
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.first_image.medium_url %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_item"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">item</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">"&lt;%= value.id %&gt;"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">product</span><span class="o">-</span><span class="nx">id</span><span class="o">=</span><span class="s2">"&lt;%= value.product_id %&gt;"</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"row"</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"cell-4"</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">a</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">""</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_item-image"</span><span class="o">&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"image-container is-square"</span><span class="o">&gt;</span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">"&lt;%= value.first_image.medium_url %&gt;"</span><span class="o">&gt;</span>
 <span class="w">              </span><span class="o">&lt;</span><span class="err">/span&gt;</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="err">/a&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-6&quot;</span><span class="o">&gt;</span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_item-title&quot;</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"cell-6"</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_item-title"</span><span class="o">&gt;</span>
 <span class="w">              </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w">  </span><span class="o">%&gt;</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_item-quantity&quot;</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_item-quantity"</span><span class="o">&gt;</span>
 <span class="w">              </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">money</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">sale_price</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;</span><span class="w"> </span><span class="nx">х</span><span class="w"> </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">quantity</span><span class="w">  </span><span class="o">%&gt;</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;quantity is-basket&quot;</span><span class="o">&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;quantity-controls&quot;</span><span class="o">&gt;</span>
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="o">-</span><span class="nx">change</span><span class="o">=</span><span class="s2">&quot;-1&quot;</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;quantity-control bttn-count&quot;</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"quantity is-basket"</span><span class="o">&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"quantity-controls"</span><span class="o">&gt;</span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="o">-</span><span class="nx">change</span><span class="o">=</span><span class="s2">"-1"</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"quantity-control bttn-count"</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"button"</span><span class="o">&gt;</span>
 <span class="w">                  </span><span class="o">-</span>
 <span class="w">                </span><span class="o">&lt;</span><span class="err">/button&gt;</span>
 
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;quantity-input&quot;</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;cart[quantity][&lt;%= value.id %&gt;]&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.quantity %&gt;&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"quantity-input"</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"cart[quantity][&lt;%= value.id %&gt;]"</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">"&lt;%= value.quantity %&gt;"</span><span class="w"> </span><span class="o">/&gt;</span>
 
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="o">-</span><span class="nx">change</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;quantity-control bttn-count&quot;</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;button&quot;</span><span class="o">&gt;</span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">quantity</span><span class="o">-</span><span class="nx">change</span><span class="o">=</span><span class="s2">"1"</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"quantity-control bttn-count"</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"button"</span><span class="o">&gt;</span>
 <span class="w">                  </span><span class="o">+</span>
 <span class="w">                </span><span class="o">&lt;</span><span class="err">/button&gt;</span>
 <span class="w">              </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-2 text-right&quot;</span><span class="o">&gt;</span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_item-del&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">item</span><span class="o">-</span><span class="ow">delete</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.id %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"cell-2 text-right"</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_item-del"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">item</span><span class="o">-</span><span class="ow">delete</span><span class="o">=</span><span class="s2">"&lt;%= value.id %&gt;"</span><span class="o">&gt;</span>
 <span class="w">              </span><span class="o">&amp;</span><span class="nx">times</span><span class="p">;</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="err">/button&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
@@ -2954,22 +3096,34 @@
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 
 <span class="w">  </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">order_lines</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_basket-total row flex-middle&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-6 row flex-center&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_basket-total row flex-middle"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"cell-6 row flex-center"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="nx">итого</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;cell-6 row flex-center&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"cell-6 row flex-center"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">Shop</span><span class="p">.</span><span class="nx">money</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">total_price</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">&quot;оформить покупки&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">cart</span><span class="o">-</span><span class="nx">submit</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;dynamic_basket-submit bttn-prim&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="s2">"оформить покупки"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">cart</span><span class="o">-</span><span class="nx">submit</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"dynamic_basket-submit bttn-prim"</span><span class="o">&gt;</span>
 <span class="w">  </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/form&gt;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="insalesuibindupdatecart">InSalesUI.bindUpdateCart</h3>
-<p>Обновление слушателей quantity в форме корзины</p>
+<p>Повесить слушатели изменения количества на позиции корзины. Если jQuery-набор не передан, слушатели ставятся на все элементы с <code>data-item-id</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * @param {jQuery} [$items] позиции корзины</span>
+<span class="cm"> */</span>
+<span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">bindUpdateCart</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'[data-item-id]'</span><span class="p">));</span>
+</code></pre></div>
+<h3 id="insalesuiopenquickcheckoutmodal">InSalesUI.openQuickCheckoutModal</h3>
+<p>Открыть модальное окно заказа в один клик для переданной формы товара.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * @param {HTMLElement|jQuery} target форма товара</span>
+<span class="cm"> */</span>
+<span class="nx">InSalesUI</span><span class="p">.</span><span class="nx">openQuickCheckoutModal</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-product-id]'</span><span class="p">));</span>
+</code></pre></div>
 
 
 
@@ -3022,7 +3176,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

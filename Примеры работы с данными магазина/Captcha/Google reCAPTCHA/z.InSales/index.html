@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1220,6 +1220,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1992,6 +2000,118 @@
     
   
     Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
   
 
     
@@ -2862,46 +2982,46 @@
 <h2 id="uijs">ui.js</h2>
 <p>Заменить эту часть кода:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">// улучшайзинг стандартной обратной связи</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;page&#39;</span><span class="w"> </span><span class="p">){</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'page'</span><span class="w"> </span><span class="p">){</span>
 <span class="w">    </span><span class="kd">var</span>
-<span class="w">      </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;#feedback_form&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="w"> </span><span class="s1">'#feedback_form'</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;form&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="w"> </span><span class="s1">'form'</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
 <span class="w">      </span><span class="kd">var</span>
-<span class="w">        </span><span class="nx">table</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">notice</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;small&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">button</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;#feedback_commit&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">textarea</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;textarea&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">email</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;input[name=&quot;feedback[from]&quot;]&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="nx">table</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'table'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">notice</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'small'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">button</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'#feedback_commit'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">textarea</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'textarea'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">email</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'input[name="feedback[from]"]'</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>На эту:</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1">// улучшайзинг стандартной обратной связи</span>
-<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;page&#39;</span><span class="w"> </span><span class="p">){</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">Site</span><span class="p">.</span><span class="nx">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'page'</span><span class="w"> </span><span class="p">){</span>
 <span class="w">    </span><span class="kd">var</span>
-<span class="w">      </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;#feedback_form&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">$form</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="w"> </span><span class="s1">'#feedback_form'</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;form&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="w"> </span><span class="s1">'form'</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
 <span class="w">      </span><span class="kd">var</span>
-<span class="w">        </span><span class="nx">table</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;table&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">notice</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;small&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">button</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;#feedback_commit&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">textarea</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;textarea&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">phone</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;input[name=&quot;feedback[phone]&quot;]&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">recaptcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;[name=&quot;g-recaptcha-response&quot;]&#39;</span><span class="w"> </span><span class="p">),</span>
-<span class="w">        </span><span class="nx">email</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">&#39;input[name=&quot;feedback[from]&quot;]&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="nx">table</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">$form</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'table'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">notice</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'small'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">button</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'#feedback_commit'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">textarea</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'textarea'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">phone</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'input[name="feedback[phone]"]'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">recaptcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'[name="g-recaptcha-response"]'</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nx">email</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="w"> </span><span class="s1">'input[name="feedback[from]"]'</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>Заменить эту часть кода:</p>
-<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;feedback[content]&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">textarea</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
-<span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;feedback[from]&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">email</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'feedback[content]'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">textarea</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'feedback[from]'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">email</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
 </code></pre></div>
 <p>На эту:</p>
-<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;feedback[content]&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">textarea</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
-<span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;feedback[from]&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">email</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'feedback[content]'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">textarea</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<span class="w">          </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'feedback[from]'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">email</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">phone</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;feedback[phone]&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">phone</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'feedback[phone]'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">phone</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">recaptcha</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">&#39;g-recaptcha-response&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">recaptcha</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
+<span class="w">            </span><span class="nx">$message</span><span class="p">[</span><span class="w"> </span><span class="s1">'g-recaptcha-response'</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">recaptcha</span><span class="p">.</span><span class="nx">val</span><span class="p">();</span>
 <span class="w">          </span><span class="p">}</span>
 </code></pre></div>
 
@@ -2956,7 +3076,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../js/jquery.min.js"></script>
       

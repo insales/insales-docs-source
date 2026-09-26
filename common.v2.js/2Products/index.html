@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -1183,6 +1183,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2469,6 +2477,118 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3666,18 +3786,18 @@
 <h2 id="_2">Назначение атрибутов</h2>
 <p><img alt="" src="/img/product-sheme.jpg" /></p>
 <h3 id="_3">Пример разметки товара</h3>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;product__sku&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-sku</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">        &quot;skuLabel&quot;: &quot;Артикул.&quot;</span>
-<span class="s">      }&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"product__sku"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-sku</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">        "skuLabel": "Артикул."</span>
+<span class="s">      }'</span>
     <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-available</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">      &quot;availableText&quot;: &quot;Товар в наличии&quot;,</span>
-<span class="s">      &quot;notAvailableText&quot;: &quot;Нет в наличии&quot;</span>
-<span class="s">    }&#39;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-available</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">      "availableText": "Товар в наличии",</span>
+<span class="s">      "notAvailableText": "Нет в наличии"</span>
+<span class="s">    }'</span>
   <span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 
@@ -3685,29 +3805,29 @@
   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-product-card-price</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
   {% if product.show_variants? %}
-    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">&#39;{&quot;default&quot;: &quot;option-radio&quot;}&#39;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">'{"default": "option-radio"}'</span><span class="p">&gt;</span>
       {% for variant in product.variants %}
-        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ variant.id }}&quot;</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ variant.id }}"</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
       {% endfor %}
     <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
   {% else %}
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{product.variants.first.id}}&quot;</span> <span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{product.variants.first.id}}"</span> <span class="p">&gt;</span>
   {% endif %}
 
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"comment"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-quantity</span> <span class="na">data-min</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;quantity&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;-1&quot;</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-quantity</span> <span class="na">data-min</span><span class="o">=</span><span class="s">"1"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"quantity"</span> <span class="na">value</span><span class="o">=</span><span class="s">"1"</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">"-1"</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">"1"</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">data-item-add</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">data-item-add</span><span class="p">&gt;</span>
     Добавить в корзину
   <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
   {% if account.quick_checkout.enabled %}
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&quot;[data-product-id=&#39;{{ product.id }}&#39;]&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">"[data-product-id='{{ product.id }}']"</span><span class="p">&gt;</span>
       Купить в 1 клик
     <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   {% endif %}
@@ -3716,19 +3836,19 @@
 <h3 id="_4">Атрибуты корневого элемента</h3>
 <h4 id="data-product-id">data-product-id</h4>
 <p>Обязательный атрибут для инициализации товара, принимает ID товара</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-without-cache">data-product-without-cache</h4>
 <p>Отключить кэширование информации о товаре</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-without-cache</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-without-cache</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span> <span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-json">data-product-json</h4>
 <p>Позволяет передать данные о товаре через Liquid. Это может ускорить отображение селектора вариантов.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">data-product-json</span><span class="o">=</span><span class="s">&quot;{{ product|json|escape }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span> <span class="na">data-product-json</span><span class="o">=</span><span class="s">"{{ product|json|escape }}"</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3738,13 +3858,13 @@
 <p class="admonition-title">Info</p>
 <p>Если задан атрибут <code>data-product-json</code>, то все данные о товаре, включая варианты, будут получены в виде JSON вместе с HTML-кодом страницы, а не запросом к серверу.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">data-product-without-many-variants</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span> <span class="na">data-product-without-many-variants</span><span class="o">=</span><span class="s">"true"</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-set-config">data-set-config</h4>
 <p>Передать настройки товара через data-атрибут</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-set-config</span><span class="o">=</span><span class="s">&#39;{&quot;decimal&quot;: {&quot;kgm&quot;: 1}}&#39;</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">&quot;{{ product.id }}&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ cart_url }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">data-set-config</span><span class="o">=</span><span class="s">'{"decimal": {"kgm": 1}}'</span> <span class="na">data-product-id</span><span class="o">=</span><span class="s">"{{ product.id }}"</span> <span class="na">action</span><span class="o">=</span><span class="s">"{{ cart_url }}"</span> <span class="na">method</span><span class="o">=</span><span class="s">"post"</span><span class="p">&gt;</span>
   <span class="cm">&lt;!-- Код формы --&gt;</span>
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3765,27 +3885,27 @@
 <p>Разметка каждого вида хранится внутри библиотеки в виде lodash-шаблонов. Посмотреть код шаблонов можно <a href="/common.v2.js/2Products/#_9">здесь</a></p>
 <p>В следующем примере в качестве вида по умолчанию установлен <code>option-select</code>: для свойства "Цвет" - <code>option-preview</code>, для свойства "Размер" - <code>option-span</code>.</p>
 <div class="highlight"><pre><span></span><code>  {% if product.show_variants? %}
-    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">      &quot;default&quot;: &quot;option-select&quot;,</span>
-<span class="s">      &quot;Цвет&quot;: &quot;option-preview&quot;,</span>
-<span class="s">      &quot;Размер&quot;: &quot;option-span&quot;</span>
-<span class="s">    }&#39;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">      "default": "option-select",</span>
+<span class="s">      "Цвет": "option-preview",</span>
+<span class="s">      "Размер": "option-span"</span>
+<span class="s">    }'</span><span class="p">&gt;</span>
       {% for variant in product.variants %}
-        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ variant.id }}&quot;</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ variant.id }}"</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
       {% endfor %}
     <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
   {% else %}
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{product.variants.first.id}}&quot;</span> <span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{product.variants.first.id}}"</span> <span class="p">&gt;</span>
   {% endif %}
 </code></pre></div>
 <p><strong>Можно ли написать свой шаблон для отображения свойств?</strong></p>
 <p>Можно. Для этого в разметку нужно добавить тег script с data-атрибутом <code>data-template-id</code>, в качестве значения которого должен быть указан ID шаблона.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;custom-span&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-span&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"custom-span"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-span"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-span&quot;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-span"</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">        </span><span class="o">&gt;</span>
@@ -3798,24 +3918,24 @@
 </code></pre></div>
 <p>После чего можно указать свой шаблон по умолчанию.
 <div class="highlight"><pre><span></span><code>  {% if product.show_variants? %}
-    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">&#39;{</span>
-<span class="s">      &quot;default&quot;: &quot;custom-span&quot;</span>
-<span class="s">    }&#39;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">data-product-variants</span><span class="o">=</span><span class="s">'{</span>
+<span class="s">      "default": "custom-span"</span>
+<span class="s">    }'</span><span class="p">&gt;</span>
       {% for variant in product.variants %}
-        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{ variant.id }}&quot;</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{ variant.id }}"</span><span class="p">&gt;</span>{{ variant.title | escape }}<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
       {% endfor %}
     <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
   {% else %}
-    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;variant_id&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;{{product.variants.first.id}}&quot;</span> <span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"hidden"</span> <span class="na">name</span><span class="o">=</span><span class="s">"variant_id"</span> <span class="na">value</span><span class="o">=</span><span class="s">"{{product.variants.first.id}}"</span> <span class="p">&gt;</span>
   {% endif %}
 </code></pre></div></p>
 <h4 id="data-quantity">data-quantity</h4>
 <p>Обязательный атрибут для обёртки кнопок изменения количества и инпута quantity</p>
 <p>Для установки минимального значения в input количества товара передайте атрибут data-min с нужным значением</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">data-quantity</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;-1&quot;</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;quantity&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">"-1"</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">value</span><span class="o">=</span><span class="s">"1"</span> <span class="na">name</span><span class="o">=</span><span class="s">"quantity"</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">data-quantity-change</span><span class="o">=</span><span class="s">"1"</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-quantity-change">data-quantity-change</h4>
@@ -3834,22 +3954,22 @@
 </ul>
 <p><strong>События:</strong></p>
 <p>unchange_quantity:insales:ui_add-cart-counter - срабатывает если достигнуто максимальное количество товара в корзине</p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;unchange_quantity:insales:ui_add-cart-counter&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'unchange_quantity:insales:ui_add-cart-counter'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 <span class="p">})</span>
 </code></pre></div>
 <p><strong>Пример кода:</strong></p>
 <p>Всё что вам необходимо сделать для использования — это задать стили для элементов и скрывать/показывать нужные кнопки, если у корневого элемента есть класс <code>is-add-cart</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter&quot;</span> <span class="na">data-add-cart-counter</span><span class="o">=</span><span class="s">&#39;{&quot;step&quot;: &quot;1&quot;}&#39;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__btn&quot;</span> <span class="na">data-add-cart-counter-btn</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter"</span> <span class="na">data-add-cart-counter</span><span class="o">=</span><span class="s">'{"step": "1"}'</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__btn"</span> <span class="na">data-add-cart-counter-btn</span><span class="p">&gt;</span>
     Add to cart
   <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__controls&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-add-cart-counter-minus</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__controls-btn&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{cart_url}}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__detail&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__detail-text&quot;</span><span class="p">&gt;</span>{{messages.btn_buy_active_text}} <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-add-cart-counter-count</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{ product.unit }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__controls"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-add-cart-counter-minus</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__controls-btn"</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span><span class="p">&gt;</span>-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{cart_url}}"</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__detail"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__detail-text"</span><span class="p">&gt;</span>{{messages.btn_buy_active_text}} <span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-add-cart-counter-count</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{ product.unit }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-add-cart-counter-plus</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;add-cart-counter__controls-btn&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-add-cart-counter-plus</span> <span class="na">class</span><span class="o">=</span><span class="s">"add-cart-counter__controls-btn"</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span><span class="p">&gt;</span>+<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3857,14 +3977,14 @@
 <p>Атрибут предназначен для кнопки вызова формы предзаказа. При загрузке страницы кнопка получает атрибуты <code>data-preorder-product-name</code> и <code>data-preorder-variant</code>, которые содержат название товара и название выбранного варианта.</p>
 <p>Значение атрибута <code>data-preorder-variant</code> обновляется при выборе варианта товара.</p>
 <p>Если подписаться на EventBus-событие <code>show-preorder:insales:ui_product</code>, то при нажатии на кнопку вы сможете получать название товара и выбранного варианта, чтобы использовать их в форме предзаказа.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-product-card-preorder</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>{{messages.pre_order}}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-product-card-preorder</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span><span class="p">&gt;</span>{{messages.pre_order}}<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-quick-checkout">data-quick-checkout</h4>
 <p>Форма заказа в один клик</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>В качестве значения можно передать ID конкретного товара. Однако, если в корзину уже добавлены другие товары, то они тоже попадут в заказ.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">&quot;[data-product-id=&#39;{{ product.id }}&#39;]&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-quick-checkout</span><span class="o">=</span><span class="s">"[data-product-id='{{ product.id }}']"</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-card-price">data-product-card-price</h4>
 <p>Цена продажи варианта товара</p>
@@ -3878,7 +3998,7 @@
 <p>Текст, который будет отображаться, если цена товара равна нулю. По умолчанию текст "Цена по запросу". Данный атрибут добавляется к элементу, в котором отображается цена товара (<code>data-product-card-price</code> или <code>data-product-card-price-from-cart</code>).</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span>
   <span class="na">data-product-card-price-from-cart</span>
-  <span class="na">data-product-card-zero-price-text</span><span class="o">=</span><span class="s">&quot;Цена по запросу&quot;</span>
+  <span class="na">data-product-card-zero-price-text</span><span class="o">=</span><span class="s">"Цена по запросу"</span>
 <span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-card-old-price">data-product-card-old-price</h4>
@@ -3887,16 +4007,16 @@
 </code></pre></div>
 <h4 id="data-product-card-sku">data-product-card-sku</h4>
 <p>Получение артикула варианта товара. В качестве значения можно передать label.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-sku</span><span class="o">=</span><span class="s">&#39;{&quot;skuLabel&quot;: &quot;{{messages.sku_label}}&quot;}&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-sku</span><span class="o">=</span><span class="s">'{"skuLabel": "{{messages.sku_label}}"}'</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="data-product-card-available">data-product-card-available</h4>
 <p>Наличие варианта товара.</p>
 <p>В качестве значения можно передать объект со статусами.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-available</span><span class="o">=</span><span class="s">&#39;{&quot;availableText&quot;: &quot;Available&quot;, &quot;notAvailableText&quot;: &quot;Not available&quot;}&#39;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">span</span> <span class="na">data-product-card-available</span><span class="o">=</span><span class="s">'{"availableText": "Available", "notAvailableText": "Not available"}'</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="namecomment">name="comment"</h4>
 <p>Комментарий к позиции заказа. Для корректной работы необходимо, чтобы комментарии к заказам были включены в админ-панели, в разделе "Настройки" &gt; "Оформление заказа"</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;comment&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"comment"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="_6">Селектор модификаций</h2>
 <h3 id="_7">Привязка шаблона модификации к опции</h3>
@@ -3905,20 +4025,20 @@
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="nx">Products</span><span class="p">.</span><span class="nx">setConfig</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s1">&#39;Цвет&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;option-image&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Размер&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;option-radio&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Материал&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;option-select&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Жесткий диск&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;option-span&#39;</span>
+<span class="w">    </span><span class="s1">'Цвет'</span><span class="o">:</span><span class="w"> </span><span class="s1">'option-select-image'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Размер'</span><span class="o">:</span><span class="w"> </span><span class="s1">'option-radio'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Материал'</span><span class="o">:</span><span class="w"> </span><span class="s1">'option-select'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Жесткий диск'</span><span class="o">:</span><span class="w"> </span><span class="s1">'option-span'</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
 <p>Пример шаблона</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-span&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-span&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-span"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-span"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-span&quot;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-span"</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">        </span><span class="o">&gt;</span>
@@ -3940,16 +4060,16 @@
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fileUrl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">option_title</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Цвет&#39;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">collection_handle</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;all&#39;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">image_format</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;.png&#39;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">option_title</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'Цвет'</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">collection_handle</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'all'</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">image_format</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'.png'</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">option_name</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">collections</span><span class="p">[</span><span class="nx">collection_handle</span><span class="p">].</span><span class="nx">options</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">option_name</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">option_title</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">      </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">option_value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">option_name</span><span class="p">.</span><span class="nx">values</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">        </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">capture</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">%</span><span class="p">}{{</span><span class="nx">option_value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">replace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;_&#39;</span><span class="w"> </span><span class="p">}}{{</span><span class="nx">image_format</span><span class="p">}}{</span><span class="o">%</span><span class="w"> </span><span class="nx">endcapture</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">        </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">capture</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">%</span><span class="p">}{{</span><span class="nx">option_value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">replace</span><span class="o">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w">  </span><span class="s1">'_'</span><span class="w"> </span><span class="p">}}{{</span><span class="nx">image_format</span><span class="p">}}{</span><span class="o">%</span><span class="w"> </span><span class="nx">endcapture</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">        </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">fileURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">file_url</span><span class="w">  </span><span class="o">%</span><span class="p">}</span>
 <span class="w">        </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">fileURL</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">          </span><span class="nx">fileUrl</span><span class="p">[</span><span class="s1">&#39;{{ option_value.title | downcase }}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;{{ fileURL }}&#39;</span><span class="p">;</span>
+<span class="w">          </span><span class="nx">fileUrl</span><span class="p">[</span><span class="s1">'{{ option_value.title | downcase }}'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'{{ fileURL }}'</span><span class="p">;</span>
 <span class="w">        </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">      </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endfor</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
@@ -3963,16 +4083,16 @@
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fileUrl</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
 <span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">option_title</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;цвет&#39;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">image_format</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;.png&#39;</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">option_title</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'цвет'</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">image_format</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">'.png'</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">  </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">option</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">product</span><span class="p">.</span><span class="nx">options</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">option</span><span class="o">-</span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">option</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">downcase</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">option</span><span class="o">-</span><span class="nx">title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">option_title</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">     </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">option</span><span class="p">.</span><span class="nx">values</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">       </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">capture</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">%</span><span class="p">}{{</span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">replace</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;_&#39;</span><span class="p">}}{{</span><span class="nx">image_format</span><span class="p">}}{</span><span class="o">%</span><span class="w"> </span><span class="nx">endcapture</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
+<span class="w">       </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">capture</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">%</span><span class="p">}{{</span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">replace</span><span class="o">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w">  </span><span class="s1">'_'</span><span class="p">}}{{</span><span class="nx">image_format</span><span class="p">}}{</span><span class="o">%</span><span class="w"> </span><span class="nx">endcapture</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">       </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">assign</span><span class="w"> </span><span class="nx">fileURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">downcase</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">file_url</span><span class="w">  </span><span class="o">%</span><span class="p">}</span>
 <span class="w">       </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">fileURL</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
-<span class="w">        </span><span class="nx">fileUrl</span><span class="p">[</span><span class="s1">&#39;{{ value.title | downcase }}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">&#39;{{ fileURL }}&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">fileUrl</span><span class="p">[</span><span class="s1">'{{ value.title | downcase }}'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">encodeURI</span><span class="p">(</span><span class="s1">'{{ fileURL }}'</span><span class="p">);</span>
 <span class="w">       </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">     </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endfor</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
 <span class="w">    </span><span class="p">{</span><span class="o">%</span><span class="w"> </span><span class="nx">endif</span><span class="w"> </span><span class="o">%</span><span class="p">}</span>
@@ -3981,7 +4101,7 @@
 
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="w">  </span><span class="nx">Products</span><span class="p">.</span><span class="nx">setConfig</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">fileUrl</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">fileUrl</span>
+<span class="w">    </span><span class="nx">fileUrl</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'undefined'</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">fileUrl</span>
 <span class="w">  </span><span class="p">});</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -3989,10 +4109,10 @@
 <details>
 <summary>select</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-select&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-select&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">&quot;&lt;%= option.id %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-select"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-select"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">"&lt;%= option.id %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">        </span><span class="o">&lt;</span><span class="nx">option</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4010,22 +4130,22 @@
 <details>
 <summary>select-image</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-select-image&quot;</span><span class="p">&gt;</span>
-<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; &lt;%= _.find(values, &#39;image_url&#39;) ? &#39;is-system-color&#39; : &#39;&#39; %&gt; is-select&quot;</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;image_url&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-select-image"</span><span class="p">&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; &lt;%= _.find(values, 'image_url') ? 'is-system-color' : '' %&gt; is-select"</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="s1">'image_url'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="err">/label&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-radio&quot;</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.state %&gt;&quot;</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;&lt;%= handle %&gt;&quot;</span><span class="w"> </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-radio"</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.state %&gt;"</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">"radio"</span><span class="w"> </span><span class="nx">name</span><span class="o">=</span><span class="s2">"&lt;%= handle %&gt;"</span><span class="w"> </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">            </span><span class="o">&gt;</span>
-<span class="w">            </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;option-value-system-color &lt;%= value.image_url ? &#39;with-image-color&#39; : &#39;without-image-color&#39; %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">span</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"option-value-system-color &lt;%= value.image_url ? 'with-image-color' : 'without-image-color' %&gt;"</span><span class="o">&gt;</span>
 <span class="w">              </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">image_url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">                </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">&quot;40px&quot;</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.image_url %&gt;&quot;</span><span class="w"> </span><span class="nx">alt</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.titleWithoutQuotes %&gt;&quot;</span>
-<span class="w">                  </span><span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.titleWithoutQuotes %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">                </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">"40px"</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">"&lt;%= value.image_url %&gt;"</span><span class="w"> </span><span class="nx">alt</span><span class="o">=</span><span class="s2">"&lt;%= value.titleWithoutQuotes %&gt;"</span>
+<span class="w">                  </span><span class="nx">title</span><span class="o">=</span><span class="s2">"&lt;%= value.titleWithoutQuotes %&gt;"</span><span class="o">&gt;</span>
 <span class="w">                </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">                  </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">                </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4034,8 +4154,8 @@
 <span class="w">        </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
 <span class="w">  </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">&quot;&lt;%= option.id %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">select</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="w"> </span><span class="nx">data</span><span class="o">-</span><span class="nx">option</span><span class="o">-</span><span class="nx">bind</span><span class="o">=</span><span class="s2">"&lt;%= option.id %&gt;"</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="nx">option</span>
 <span class="w">            </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4054,12 +4174,12 @@
 <details>
 <summary>span</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-span&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-span&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-span"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-span"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-span&quot;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-span"</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">        </span><span class="o">&gt;</span>
@@ -4075,17 +4195,17 @@
 <details>
 <summary>radio</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-radio&quot;</span><span class="p">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-radio&quot;</span><span class="o">&gt;</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-radio"</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-radio"</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/label&gt;</span>
 
-<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">      </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-radio&quot;</span><span class="o">&gt;</span>
-<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.state %&gt;&quot;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-radio"</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">input</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.state %&gt;"</span>
 
-<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span>
-<span class="w">            </span><span class="nx">name</span><span class="o">=</span><span class="s2">&quot;&lt;%= handle %&gt;&quot;</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">=</span><span class="s2">"radio"</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">=</span><span class="s2">"&lt;%= handle %&gt;"</span>
 
 <span class="w">            </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">            </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4102,17 +4222,17 @@
 <details>
 <summary>preview</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-preview&quot;</span><span class="p">&gt;</span>
-<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; option-&lt;%= option.handle %&gt;&quot;</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">span</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">preview</span><span class="s2">&quot;&gt;</span>
-<span class="s2">  &lt;label class=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">&quot;&gt;&lt;%= title %&gt;&lt;/label&gt;</span>
-<span class="s2">  &lt;div class=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="nx">values</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">&quot;&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-preview"</span><span class="p">&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; option-&lt;%= option.handle %&gt;"</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">span</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">preview</span><span class="s2">"&gt;</span>
+<span class="s2">  &lt;label class="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="nx">label</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">"&gt;&lt;%= title %&gt;&lt;/label&gt;</span>
+<span class="s2">  &lt;div class="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="nx">values</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">"&gt;</span>
 <span class="s2">    &lt;% _.forEach(values, function (value){ %&gt;</span>
-<span class="s2">      &lt;button class=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">classes</span><span class="p">.</span><span class="nx">all</span><span class="w"> </span><span class="o">%&gt;</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">span</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">preview</span><span class="s2">&quot;</span>
+<span class="s2">      &lt;button class="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">classes</span><span class="p">.</span><span class="nx">all</span><span class="w"> </span><span class="o">%&gt;</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">span</span><span class="w"> </span><span class="nx">is</span><span class="o">-</span><span class="nx">preview</span><span class="s2">"</span>
 <span class="s2">        &lt;%= value.controls %&gt;</span>
 <span class="s2">        &lt;%= value.state %&gt;</span>
 <span class="s2">      &gt;</span>
 <span class="s2">        &lt;% if(value.imageFromVariant){ %&gt;</span>
-<span class="s2">          &lt;img width=&quot;</span><span class="mf">40</span><span class="nx">px</span><span class="s2">&quot; src=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">imageFromVariant</span><span class="p">.</span><span class="nx">medium_url</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">&quot; alt=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">titleWithoutQuotes</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">&quot; title=&quot;</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">titleWithoutQuotes</span><span class="w"> </span><span class="o">%&gt;</span><span class="err">&quot;</span><span class="o">&gt;</span>
+<span class="s2">          &lt;img width="</span><span class="mf">40</span><span class="nx">px</span><span class="s2">" src="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">imageFromVariant</span><span class="p">.</span><span class="nx">medium_url</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">" alt="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">titleWithoutQuotes</span><span class="w"> </span><span class="o">%&gt;</span><span class="s2">" title="</span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">titleWithoutQuotes</span><span class="w"> </span><span class="o">%&gt;</span><span class="err">"</span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;&lt;</span><span class="err">/span&gt;</span>
 <span class="w">        </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4127,19 +4247,19 @@
 <details>
 <summary>preview-text</summary>
 
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/template&quot;</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">&quot;option-preview-text&quot;</span><span class="p">&gt;</span>
-<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.option %&gt; is-span is-preview-text&quot;</span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.label %&gt;&quot;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/template"</span> <span class="na">data-template-id</span><span class="o">=</span><span class="s">"option-preview-text"</span><span class="p">&gt;</span>
+<span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.option %&gt; is-span is-preview-text"</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">label</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.label %&gt;"</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">  </span><span class="o">&lt;</span><span class="err">/label&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= classes.values %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= classes.values %&gt;"</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="o">&lt;%</span><span class="w"> </span><span class="nx">_</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">      </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.classes.all %&gt; is-span is-preview-text &lt;%= (value.variant.image_id ? &#39;is-img&#39; : &#39;is-text&#39;) %&gt;&quot;</span><span class="w"> </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="kd">class</span><span class="o">=</span><span class="s2">"&lt;%= value.classes.all %&gt; is-span is-preview-text &lt;%= (value.variant.image_id ? 'is-img' : 'is-text') %&gt;"</span><span class="w"> </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">controls</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">        </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">          </span><span class="o">&gt;</span>
 <span class="w">            </span><span class="o">&lt;%</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">imageFromVariant</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">variant</span><span class="p">.</span><span class="nx">image_id</span><span class="p">){</span><span class="w"> </span><span class="o">%&gt;</span>
-<span class="w">              </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">&quot;40px&quot;</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.imageFromVariant.medium_url %&gt;&quot;</span><span class="w"> </span><span class="nx">alt</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.titleWithoutQuotes %&gt;&quot;</span>
-<span class="w">                </span><span class="nx">title</span><span class="o">=</span><span class="s2">&quot;&lt;%= value.titleWithoutQuotes %&gt;&quot;</span><span class="o">&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">img</span><span class="w"> </span><span class="nx">width</span><span class="o">=</span><span class="s2">"40px"</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">"&lt;%= value.imageFromVariant.medium_url %&gt;"</span><span class="w"> </span><span class="nx">alt</span><span class="o">=</span><span class="s2">"&lt;%= value.titleWithoutQuotes %&gt;"</span>
+<span class="w">                </span><span class="nx">title</span><span class="o">=</span><span class="s2">"&lt;%= value.titleWithoutQuotes %&gt;"</span><span class="o">&gt;</span>
 <span class="w">            </span><span class="o">&lt;%</span><span class="w"> </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w"> </span><span class="o">%&gt;</span>
 <span class="w">              </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span>
 <span class="w">                </span><span class="o">&lt;%=</span><span class="w"> </span><span class="nx">value</span><span class="p">.</span><span class="nx">title</span><span class="w"> </span><span class="o">%&gt;</span>
@@ -4161,8 +4281,8 @@
 <span class="cm"> * @return {Deferred}</span>
 <span class="cm"> */</span>
 <span class="nx">Products</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mf">123456</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onDone'</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onFail'</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h3 id="getlist">getList</h3>
 <p>Получение списка товаров</p>
@@ -4171,8 +4291,8 @@
 <span class="cm"> * @return {Deferred}</span>
 <span class="cm"> */</span>
 <span class="nx">Products</span><span class="p">.</span><span class="nx">getList</span><span class="p">([</span><span class="mf">123456</span><span class="p">,</span><span class="w"> </span><span class="mf">123455</span><span class="p">,</span><span class="w"> </span><span class="mf">1234454</span><span class="p">,</span><span class="w"> </span><span class="mf">123458</span><span class="p">])</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onDone'</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onFail'</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -4254,7 +4374,7 @@
 <span class="w">  </span><span class="nx">showVariants</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">hideSelect</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">initOption</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">fileUrl</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">fileUrl</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">fileUrl</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">fileUrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'undefined'</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">fileUrl</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">filtered</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">selectUnavailable</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="p">})</span>
@@ -4262,26 +4382,26 @@
 <h3 id="getinstance">getInstance</h3>
 <p>Получаем экземпляр класса ProductInstance из jQuery DOM element</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {jQuery DOM element} $node jQuery DOM element например $(&#39;.product-cart-control&#39;)</span>
+<span class="cm"> * @param {jQuery DOM element} $node jQuery DOM element например $('.product-cart-control')</span>
 <span class="cm"> */</span>
-<span class="w"> </span><span class="nx">Products</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.product-cart-control&#39;</span><span class="p">))</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="w"> </span><span class="nx">Products</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.product-cart-control'</span><span class="p">))</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onDone'</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onFail'</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h3 id="initinstance">initInstance</h3>
 <p>Инициализация формы товара</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {jQuery DOM element} $node jQuery DOM element например $(&#39;.product-cart-control&#39;)</span>
+<span class="cm"> * @param {jQuery DOM element} $node jQuery DOM element например $('.product-cart-control')</span>
 <span class="cm"> */</span>
-<span class="nx">Products</span><span class="p">.</span><span class="nx">initInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.product-cart-control&#39;</span><span class="p">))</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">Products</span><span class="p">.</span><span class="nx">initInstance</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.product-cart-control'</span><span class="p">))</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onDone'</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onFail'</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h3 id="getrecentlyviewed">getRecentlyViewed</h3>
 <p>Возвращает массив с ID просмотренных товаров</p>
 <div class="highlight"><pre><span></span><code><span class="nx">Products</span><span class="p">.</span><span class="nx">getRecentlyViewed</span><span class="p">()</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onDone&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
-<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onFail&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onDone'</span><span class="p">,</span><span class="w"> </span><span class="nx">onDone</span><span class="p">)</span><span class="w"> </span><span class="p">})</span>
+<span class="w">   </span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onFail'</span><span class="p">,</span><span class="w"> </span><span class="nx">onFail</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h2 id="_10">События</h2>
 <table>
@@ -4309,8 +4429,12 @@
 <td>Обновление количества товара в инпуте quantity</td>
 </tr>
 <tr>
-<td>unchange_quantity:insales:product</td>
-<td>Если введено кол-во больше доступного</td>
+<td>unchange_quantity:insalesproduct</td>
+<td>Количество на карточке не изменилось: введённое значение больше доступного или меньше минимального. В имени события нет двоеточия перед <code>product</code></td>
+</tr>
+<tr>
+<td>unchange_quantity:insalesitem</td>
+<td>То же для позиции корзины с <code>data-item-id</code>. В имени события нет двоеточия перед <code>item</code></td>
 </tr>
 <tr>
 <td>overload:quantity:insales:product</td>
@@ -4330,9 +4454,41 @@
 </tr>
 </tbody>
 </table>
+<p>Для позиции корзины с атрибутом <code>data-item-id</code> те же действия публикуют события с суффиксом <code>item</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Событие</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before:insales:item</td>
+<td>Перед изменением позиции корзины</td>
+</tr>
+<tr>
+<td>change_quantity:insales:item</td>
+<td>Изменилось количество позиции</td>
+</tr>
+<tr>
+<td>change_variant:insales:item</td>
+<td>Сменился вариант позиции</td>
+</tr>
+<tr>
+<td>update_variant:insales:item</td>
+<td>Позиция обновлена</td>
+</tr>
+<tr>
+<td>always:insales:item</td>
+<td>После любого изменения позиции</td>
+</tr>
+</tbody>
+</table>
+<p>Встроенные идентификаторы шаблонов селектора: <code>option-default</code>, <code>option-select</code>, <code>option-radio</code>, <code>option-span</code>, <code>option-preview</code>, <code>option-preview-text</code>, <code>option-select-image</code>. Шаблон с картинками значений — <code>option-select-image</code>.</p>
 <p><strong>Пример подписки на событие</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;change_quantity:insales:product&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Изменено количество товара в счётчике&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'change_quantity:insales:product'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Изменено количество товара в счётчике'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 
@@ -4387,7 +4543,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

@@ -1,30 +1,39 @@
 # Вводная
 
 !!! info
-    Шаблон - редактируемый набор виджетов со своими настройками. 
-    С помощью json файлов мы можем прописывать блоки виджетов, настройки виджетов и настройки шаблонов.
+    Шаблон — редактируемый набор виджетов со своими настройками.
+    В json-файлах задают виджет-листы, виджеты, их блоки и настройки шаблона.
 
 
-#### Структура шаблона
+#### Структура архива
 
-- <a href="/4%20поколение/Шаблон/setup.json/">Setup</a>  `setup.json`. В сетапе прописываются виджет-листы с перечеслением виджетов их настроек и <a href="/4%20поколение/Виджеты/info/#SimpleWidgetType">блоков</a>.
-- <a href="/4%20поколение/Шаблон/settings.json/">Settings</a>  `settings.json`. В данном файле прописываются настройки шаблона.
+- `templates/` — liquid-файлы страниц. Общая оболочка и шаблоны страниц описаны в <a href="/4%20поколение/Шаблон/layout.liquid/">layout</a>.
+- `snippets/` — общие фрагменты Liquid. Из шаблона их подключают тегом `{% include 'имя' %}`: файл `snippets/имя.liquid`.
+- `media/` — файлы темы: изображения, стили, скрипты. В старых архивах эта папка называется `assets/`. При загрузке архива нужна одна из них.
+- `config/settings.json` — <a href="/4%20поколение/Шаблон/settings.json/">форма настроек</a> шаблона в редакторе.
+- `config/settings_data.json` — <a href="/4%20поколение/Шаблон/settings_data.json/">значения настроек</a>.
+- `config/messages.json` — <a href="/4%20поколение/Шаблон/messages.json/">переводы</a> шаблона.
+- `config/setup.json` — <a href="/4%20поколение/Шаблон/setup.json/">состав шаблона</a> при установке: виджет-листы, виджеты, блоки, страницы, меню и другие сущности магазина.
+- `widget_types/` — свои виджеты шаблона. Состав папки виджета описан в разделе <a href="/4%20поколение/Виджеты/">виджеты</a>.
+
+При загрузке архива обязательны шаблоны общей оболочки, главной, категории, товара, корзины и страницы: `layout.liquid`, `index.liquid`, `collection.liquid`, `product.liquid`, `cart.liquid`, `page.liquid`.
 
 
 #### Создание
 
-Создать шаблон можно 2 способами:
+Поставить магазин на шаблон 4 поколения можно двумя способами:
 
-1. Использовать имеющиеся шаблоны 4 поколения через панель администратора, в разделе «Дизайн»
-2. Изменить имеющиеся шаблоны 4 поколения через панель администратора, в разделе `«Дизайн» -> Действия -> Редактировать код -> Настройки шаблона`
+1. Установить готовый шаблон в панели администратора, раздел «Дизайн».
+2. Изменить файлы уже установленного шаблона: «Дизайн» → Действия → Редактировать код.
 
 
 #### setup.json
 
-Фрагмент, в котором мы добавили виджет с пермалинком `system_widget_v4_promo_slider_4` к <a href="/4%20поколение/Виджеты/#ListWidgetInfo">виджет-листу</a> `index-list`.
+Фрагмент, в котором виджет с пермалинком `system_widget_v4_promo_slider_4` добавлен в <a href="/4%20поколение/Виджеты/#ListWidgetInfo">виджет-лист</a> `index-list`.
 
 ```json
 "theme_widgets":{
+  "widget_types":[],
   "widget_lists":[
     {
       "name":"index",
@@ -48,66 +57,28 @@
 }
 ```
 
+Полное описание файла — на странице <a href="/4%20поколение/Шаблон/setup.json/">setup.json</a>.
 
 
+#### settings.json и settings_data.json
 
-#### settings.json
+`settings.json` описывает поля в редакторе: группы, подписи и типы. `settings_data.json` хранит выбранные значения.
 
-Настройки шаблона, где мы прописали:
-
-- шрифт шаблона `"font-family": "PT Root UI"`
-- общий фон шаблона `"bg": "#FFFFFF"`
-- цвет кнопок шаблона `"color-btn-bg": "#76BC21"`
-- скругление углов шаблона `"controls-btn-border-radius": "0px"`
+Фрагмент значений: шрифт, фон, цвет кнопок и скругление.
 
 ```json
 {
   "current": "custom",
   "generation": 4,
-  "not_need_shop_bundle": true,
   "presets": {
     "custom": {
       "bg": "#FFFFFF",
       "color-btn-bg": "#76BC21",
-      "color-accent-text": "#76BC21",
-      "color-text-dark": "#333333",
-      "color-text-light": "#ffffff",
-      "icons_pack": "insales-default",
       "controls-btn-border-radius": "0px",
-      "color-notice-warning": "#fff3cd",
-      "color-notice-success": "#d4edda",
-      "color-notice-error": "#f8d7da",
-      "color-notice-info": "#cce5ff",
-      "font-family": "PT Root UI",
-      "font-size": "16px",
-      "font-family-heading": "PT Root UI",
-      "collection_count": 12,
-      "search_count": 12,
-      "blog_size": "8",
-      "product_not_available": "shown",
-      "layout-content-max-width": "1240",
-      "delta_sidebar": "1",
-      "type_sidebar": "sticky",
-      "sidebar_index_position": "left",
-      "sidebar_collection_position": "left",
-      "sidebar_collection_show": true,
-      "sidebar_cart_position": "left",
-      "sidebar_product_position": "left",
-      "sidebar_blog_position": "left",
-      "sidebar_article_position": "left",
-      "sidebar_page_position": "left",
-      "sidebar_compare_position": "left",
-      "sidebar_search_position": "left",
-      "feedback_captcha_enabled": "1",
-      "favorite_enabled": "1",
-      "heading-ratio": 1.5,
-      "heading-weight": 600,
-      "color-preset": "custom"
+      "font-family": "PT Root UI"
     }
-  },
-  "remote_theme_id": 653,
-  "source_account_id": null,
-  "system_widgets": true,
-  "theme_title": "Base"
+  }
 }
 ```
+
+Форма — на странице <a href="/4%20поколение/Шаблон/settings.json/">settings.json</a>, значения — на странице <a href="/4%20поколение/Шаблон/settings_data.json/">settings_data.json</a>.

@@ -16,6 +16,7 @@ hide:
                             <li><a href="/4%20поколение/Шаблон/layout.liquid/">Layout для страниц <span class="bg-gray">layout.liquid</span></a></li>
                                 <li><a href="/4%20поколение/Шаблон/setup.json/">Setup </a><span class="bg-gray">setup.json</span></a></li>
                                 <li><a href="/4%20поколение/Шаблон/settings.json/">Settings <span class="bg-gray">settings.json</span></a></li>
+                                <li><a href="/4%20поколение/Шаблон/settings_data.json/">Значения настроек <span class="bg-gray">settings_data.json</span></a></li>
                                 <li><a href="/4%20поколение/Шаблон/messages.json/">Messages <span class="bg-gray">messages.json</span></a></li>
                             </ul>
                         </dd>

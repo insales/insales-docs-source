@@ -331,6 +331,8 @@
       
         
       
+        
+      
     
     
     
@@ -452,7 +454,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Список:
+        Файлы страниц
       
     </span>
   </a>
@@ -463,7 +465,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример файла
+        Свои шаблоны
       
     </span>
   </a>
@@ -522,6 +524,34 @@
     
   
     settings.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings_data.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_data.json
   
 
     
@@ -2990,7 +3020,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Список:
+        Файлы страниц
       
     </span>
   </a>
@@ -3001,7 +3031,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Пример файла
+        Свои шаблоны
       
     </span>
   </a>
@@ -3029,26 +3059,155 @@
 
 
 <h1 id="layout">Layout страниц</h1>
-<p>Для каждого типа страниц есть свой файл (layout) в котором прописано отображение нужных виджет листов для конкретной страницы.</p>
-<h4 id="_1">Список:</h4>
-<ul>
-<li>Для всех типов (layout)   layout.liquid</li>
-<li>Главная   index.liquid</li>
-<li>Категория collection.liquid</li>
-<li>Товар product.liquid</li>
-<li>Корзина   cart.iquid</li>
-<li>Страница  page.liquid</li>
-<li>Поиск search.liquid</li>
-<li>Блог  blog.liquid</li>
-<li>Статья    article.liquid </li>
-<li>Сравнение compare.liquid </li>
-<li>Избранное favorite.liquid </li>
-</ul>
-<h4 id="_2">Пример файла</h4>
-<p>В данном примере показан выводи содержимого виджет листа страницы <code>Корзина</code></p>
-<div class="highlight"><pre><span></span><code>{% for widgetDrop in widget_lists.cart-list.widgets %}
-  {% widget widgetDrop %}
-{% endfor %}
+<p>Файлы лежат в папке <code>templates/</code>. <code>layout.liquid</code> — общая оболочка всех страниц. В редакторе кода и в скачанном архиве тот же файл называется <code>layouts.layout.liquid</code>. Внутрь оболочки подставляется шаблон текущей страницы.</p>
+<div class="highlight"><pre><span></span><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    <span class="p">{{</span><span class="w"> </span><span class="nv">content_for_layout</span><span class="w"> </span><span class="p">}}</span>
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p>Шаблон страницы выводит нужные виджет-листы. Список появляется на странице там, где его вызывает Liquid. Поле <code>kind</code> задаёт зону этого списка в редакторе.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>widgetDrop<span class="w"> </span>in<span class="w"> </span>widget_lists.header-list.widgets<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">widget</span><span class="w"> </span>widgetDrop<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>widgetDrop<span class="w"> </span>in<span class="w"> </span>widget_lists.index-list.widgets<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="nt">widget</span><span class="w"> </span>widgetDrop<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<p>Зоны <code>kind</code>:</p>
+<table>
+<thead>
+<tr>
+<th><code>kind</code></th>
+<th>Зона в редакторе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>top_panel</code></td>
+<td>Верхняя панель</td>
+</tr>
+<tr>
+<td><code>header</code></td>
+<td>Шапка</td>
+</tr>
+<tr>
+<td><code>before_content</code></td>
+<td>Перед контентом</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>Контент</td>
+</tr>
+<tr>
+<td><code>sidebar</code></td>
+<td>Сайдбар</td>
+</tr>
+<tr>
+<td><code>after_content</code></td>
+<td>После контента</td>
+</tr>
+<tr>
+<td><code>footer</code></td>
+<td>Подвал</td>
+</tr>
+<tr>
+<td><code>bottom_panel</code></td>
+<td>Нижняя панель</td>
+</tr>
+<tr>
+<td><code>outside</code></td>
+<td>Вне основного потока</td>
+</tr>
+</tbody>
+</table>
+<p>Состав виджет-листов задаётся в <a href="/4%20поколение/Шаблон/setup.json/">setup.json</a>.</p>
+<h4 id="_1">Файлы страниц</h4>
+<p>Обязательные при загрузке архива:</p>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Файл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Общая оболочка</td>
+<td><code>layout.liquid</code></td>
+</tr>
+<tr>
+<td>Главная</td>
+<td><code>index.liquid</code></td>
+</tr>
+<tr>
+<td>Категория</td>
+<td><code>collection.liquid</code></td>
+</tr>
+<tr>
+<td>Товар</td>
+<td><code>product.liquid</code></td>
+</tr>
+<tr>
+<td>Корзина</td>
+<td><code>cart.liquid</code></td>
+</tr>
+<tr>
+<td>Страница</td>
+<td><code>page.liquid</code></td>
+</tr>
+</tbody>
+</table>
+<p>Дополнительные:</p>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th>Файл</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Поиск</td>
+<td><code>search.liquid</code></td>
+</tr>
+<tr>
+<td>Блог</td>
+<td><code>blog.liquid</code></td>
+</tr>
+<tr>
+<td>Статья</td>
+<td><code>article.liquid</code></td>
+</tr>
+<tr>
+<td>Страница 404</td>
+<td><code>page_404.liquid</code></td>
+</tr>
+<tr>
+<td>Сравнение</td>
+<td><code>compare.liquid</code></td>
+</tr>
+<tr>
+<td>Избранное</td>
+<td><code>favorite.liquid</code></td>
+</tr>
+</tbody>
+</table>
+<p>Страница избранного появляется в редакторе, если в шаблоне есть <code>favorite.liquid</code>. Страница сравнения — если есть <code>compare.liquid</code>.</p>
+<h4 id="_2">Свои шаблоны</h4>
+<p>Для категории, товара, страницы, блога и статьи можно добавить отдельный liquid. Имя файла: <code>collection.sale.liquid</code>, <code>product.lookbook.liquid</code>, <code>page.landing.liquid</code>, <code>blog.news.liquid</code>, <code>article.promo.liquid</code>. Шаблон выбирают у конкретной категории, товара или другой сущности.</p>
+<p>Виджет-листы такого шаблона в <a href="/4%20поколение/Шаблон/setup.json/">setup.json</a> привязывают полем <code>custom_template</code>. Для файла <code>collection.sale.liquid</code> значение — <code>collection.sale</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection-sale-list"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"content"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"custom_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection.sale"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Распродажа"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"widgets"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
 </code></pre></div>
 
 

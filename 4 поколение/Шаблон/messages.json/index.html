@@ -331,6 +331,8 @@
       
         
       
+        
+      
     
     
     
@@ -477,10 +479,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Приоритеты файлов и примеры вывода messages
+        Приоритет
       
     </span>
   </a>
@@ -499,7 +501,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Таблица глобальных переводов магазина
@@ -533,6 +535,34 @@
     
   
     settings.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings_data.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_data.json
   
 
     
@@ -2998,10 +3028,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#messages" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Приоритеты файлов и примеры вывода messages
+        Приоритет
       
     </span>
   </a>
@@ -3020,7 +3050,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Таблица глобальных переводов магазина
@@ -3051,16 +3081,15 @@
 
 
 <h1 id="messagesjson">messages.json</h1>
-<p>Существует три вида <code>messages</code> которые используются в теме - глобальные, переводы в теме и переводы в виджете. Все эти переводы имеют разный приоритет и в случае если ключи совпадают то переводы берутся из более приоритетного.</p>
-<h4 id="messages">Приоритеты файлов и примеры вывода messages</h4>
-<ul>
-<li><code>{{ widget_messages.youtube_link }}</code> - перевод указанный в файле переводов виджета имеет самый высокий приоритет</li>
-<li><code>{{ messages.youtube_link }}</code> - Перевод указанный в файле темы</li>
-<li><code>{{ messages.youtube_link }}</code> - Перевод указанный в глобальных месседжах</li>
-</ul>
-<p>Из этого следует что файл глобальных месседжей имеет самый низкий приоритет, поэтому что бы изменить переводы в каких то отдельных местах достаточно добавить перевод с таким же ключом в файл с переводами в самой теме или виджете. При этом обратите внимание что перевод указанный в файле переводов виджета будет работать только в этом виджете.</p>
-<p>В 4 поколении тем файл с переводами в теме пуст, т.к используются глобальные переводы и переводы в виджетах, но если вам нужно изменить какой то перевод из глобальных тем то можно его перезаписать в этом файле <code>messages.json</code>.</p>
-<p>В messages.json темы можно добавлять не только переводы настроек, но ещё какие-то переводы для кастомных элементов, какие-то тексты внутри темы или виджетов. Обращаться к ним внутри темы или виджетов можно через <code>messages</code>. Например: <code>{{ messages.youtube_link }}</code></p>
+<p>Файл <code>config/messages.json</code> хранит переводы шаблона. Рядом с ним работают глобальные переводы магазина и переводы виджета. Если ключ есть в нескольких местах, берётся перевод с более высоким приоритетом.</p>
+<h4 id="_1">Приоритет</h4>
+<ol>
+<li><code>{{ widget_messages.youtube_link }}</code> — перевод из <code>messages.json</code> виджета. Он действует только внутри этого виджета.</li>
+<li><code>{{ messages.youtube_link }}</code> — перевод из <code>messages.json</code> шаблона. Если такого ключа в файле шаблона нет, подставляется глобальный перевод с тем же ключом.</li>
+</ol>
+<p>Чтобы заменить глобальный текст в шаблоне, добавьте тот же ключ в <code>messages.json</code> шаблона. Чтобы заменить его в одном виджете, добавьте ключ в <code>messages.json</code> виджета и читайте его через <code>widget_messages</code>.</p>
+<p>В шаблонах 4 поколения файл переводов часто пустой: тексты уже заданы глобальными переводами и переводами виджетов. Файл шаблона нужен, чтобы переопределить глобальный текст или добавить свой.</p>
+<p>В <code>messages.json</code> шаблона хранят подписи настроек и любые тексты шаблона. В Liquid они доступны как <code>{{ messages.youtube_link }}</code>.</p>
 <h4 id="json">Пример json формата:</h4>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"ru"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3085,7 +3114,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_1">Таблица глобальных переводов магазина</h2>
+<h2 id="_2">Таблица глобальных переводов магазина</h2>
 <div class="global-messages-table">
     <table width="100%">
         <thead>

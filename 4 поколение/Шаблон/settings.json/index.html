@@ -12,7 +12,7 @@
         <link rel="prev" href="../messages.json/">
       
       
-        <link rel="next" href="../setup.json/">
+        <link rel="next" href="../settings_data.json/">
       
       
         
@@ -331,6 +331,8 @@
       
         
       
+        
+      
     
     
     
@@ -530,7 +532,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Варианты полей настроек
+        Общие параметры поля
       
     </span>
   </a>
@@ -593,10 +595,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#range-slider" class="md-nav__link">
+  <a href="#range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ползунок (Range slider)
+        Ползунок (range)
       
     </span>
   </a>
@@ -604,10 +606,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#button-group" class="md-nav__link">
+  <a href="#button-switch-button-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Кнопки (button-group)
+        Кнопки (button-switch, button-list)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Файл (file)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Цвет (color)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonts_select" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шрифт (fonts_select)
       
     </span>
   </a>
@@ -616,28 +651,6 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Цвет
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шрифты
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Использование настроек
@@ -651,6 +664,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings_data.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_data.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3133,7 +3174,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Варианты полей настроек
+        Общие параметры поля
       
     </span>
   </a>
@@ -3196,10 +3237,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#range-slider" class="md-nav__link">
+  <a href="#range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ползунок (Range slider)
+        Ползунок (range)
       
     </span>
   </a>
@@ -3207,10 +3248,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#button-group" class="md-nav__link">
+  <a href="#button-switch-button-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Кнопки (button-group)
+        Кнопки (button-switch, button-list)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Файл (file)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Цвет (color)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonts_select" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шрифт (fonts_select)
       
     </span>
   </a>
@@ -3219,28 +3293,6 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Цвет
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шрифты
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         Использование настроек
@@ -3271,488 +3323,159 @@
 
 
 <h1 id="settingsjson">settings.json</h1>
-<p>Этот файл отвечает за вывод настроек темы. </p>
+<p>Файл <code>config/settings.json</code> задаёт поля настроек шаблона в редакторе. Выбранные значения хранятся в <a href="/4%20поколение/Шаблон/settings_data.json/">settings_data.json</a> и читаются в Liquid как <code>{{ settings.имя }}</code>.</p>
+<p>Общие параметры полей совпадают с <a href="/4%20поколение/Виджеты/settings_form/">формой настроек виджета</a>. Ниже — то, что относится к шаблону, с верными значениями <code>type</code>.</p>
 <h4 id="_1">Группы настроек</h4>
-<p>Имеется возможность группировки настроек, которые будут отображаться в виде подменю с заголовком.
-В случае если в настройках будет всего одна группа, то заголовок группы отображаться не будет и дроп будет всегда раскрыт. При добавлении параметра <code>general</code> эти настройки темы выводятся в первую очередь. Остальные настройки можно будет посмотреть включив <code>Расширенный режим настроек</code>.</p>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="_2">Подгруппы настроек</h4>
-<p>Каждую группу можно разделить на подгруппы, которые будут визуально разделять настройки для более удобного их использования.</p>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[]</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 2"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[]</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 3"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<p>Если вы не хотите разделять настройки на подгруппы, то можно использовать такой формат.</p>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="_3">Варианты полей настроек</h4>
-<p>В настройках можно использовать несколько видов полей настроек: </p>
-<ul>
-<li><code>Текст</code></li>
-<li><code>Число</code></li>
-<li><code>Чекбокс</code> </li>
-<li><code>Селект</code> </li>
-<li><code>Ползунок</code> </li>
-<li><code>Кнопки</code> </li>
-<li><code>Файл</code> </li>
-<li><code>Цвет</code></li>
-<li><code>Шрифт</code></li>
-</ul>
-<p><a name="setting_form_text"></a></p>
-<h4 id="text">Текст (text)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным)</li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>text</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"main_text"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Текст"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"text"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
+<p>Настройки группируются. Группа отображается в редакторе подменю с заголовком. Если группа одна, заголовок скрыт и список всегда раскрыт.</p>
+<p>Поле с <code>"general": true</code> показывается в основных настройках редактора. Остальные видны в расширенном режиме.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"Группа 1"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">"Группа 2"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">"Группа 3"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
 </code></pre></div>
-<a name="setting_form_rich_texts"></a></p>
-<h4 id="rich-text">Основной текст (rich-text)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным)</li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>text</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"main_text"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Текст"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"text"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="number">Число (number)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным) </li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>number</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основвных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-<li><code>with_btns</code> - Изменение отображения Range slider на поле с кнопками '+' и '-'</li>
-<li><code>min</code> - Значение <code>2</code> - тип number | Число. Минимальное значение настройки</li>
-<li><code>max</code> - Значение <code>2</code> - тип number | Число. Максимальное значение настройки</li>
-<li><code>step</code> - Значение <code>2</code> - тип number | Число. Шаг(интервал) на которое увеличиться число </li>
-</ul>
-<p>Пример<a id="translate_example"></a>:
+<h4 id="_2">Подгруппы настроек</h4>
+<p>Группу можно разделить на подгруппы. Подгруппа визуально отделяет поля друг от друга.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"class"</span><span class="p">:</span><span class="s2">"range"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"img-ratio"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.image_ratio }}"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"min"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"max"</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"number"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"with_btns"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"Группа 1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"group_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"group_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Подгруппа 2"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
-</code></pre></div></p>
-<h4 id="checkbox">Чекбокс (checkbox)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным)</li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>checkbox</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"hide_caption"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Скрыть заголовок"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"checkbox"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="select">Селект (select)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным)</li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>select</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"font_family"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"options"</span><span class="p">:[</span>
-<span class="w">                </span><span class="p">[</span>
-<span class="w">                  </span><span class="s2">"OpenSans"</span><span class="p">,</span>
-<span class="w">                  </span><span class="s2">"google:Open+Sans"</span>
-<span class="w">                </span><span class="p">],</span>
-<span class="w">                </span><span class="p">[</span>
-<span class="w">                  </span><span class="s2">"Roboto"</span><span class="p">,</span>
-<span class="w">                  </span><span class="s2">"google:Roboto"</span>
-<span class="w">                </span><span class="p">]</span>
-<span class="w">              </span><span class="p">],</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Шрифт"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"select"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="range-slider">Ползунок (Range slider)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным)</li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>range</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-<li><code>min</code> - Значение <code>2</code> - тип number | Число. Минимальное значение</li>
-<li><code>max</code> - Значение <code>2</code> - тип number | Число. Максимальное значение</li>
-<li><code>step</code> - Значение <code>2</code> - тип number | Число. Шаг значений</li>
-<li><code>unit</code> Значение <code>"vw"</code> - тип string | Строка. Единица измерения (vw, px и т.п)</li>
-<li><code>with_btns</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Изменение отображения Range slider на поле с кнопками '+' и '-'</li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"class"</span><span class="p">:</span><span class="s2">"range"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"layout-pt"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"min"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"max"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"step"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.indentation_height }}"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"range"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"unit"</span><span class="p">:</span><span class="s2">"vw"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="button-group">Кнопки (button-group)</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). </li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>button-group</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-<li><code>min</code> - Значение <code>2</code> - тип number | Число. Минимальное значение</li>
-<li><code>max</code> - Значение <code>2</code> - тип number | Число. Максимальное значение</li>
-<li><code>step</code> - Значение <code>2</code> - тип number | Число. Шаг значений</li>
-<li>
-<p><code>unit</code> - Значение <code>"vw"</code> - тип string | Строка. Единица измерения (vw, px и т.п)</p>
-</li>
-<li>
-<p><code>with_btns</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Изменение отображения Range slider на поле с кнопками '+' и '-'</p>
-</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-<li><code>title</code> - Значение - {{ messages.align_left }}. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе </li>
-<li><code>icon</code>Значение <code>"vw"</code> - тип string | Строка. Пример: mdi-text-align-left</li>
-</ul>
-<p>Пример:
+</code></pre></div>
+<p>Если подзаголовок не нужен, <code>group_name</code> можно не указывать. В <code>items</code> сразу лежат поля.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"widget-align"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"options"</span><span class="p">:[</span>
+<span class="w">  </span><span class="nt">"Группа 1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.align_left }}"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mdi-text-align-left"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"center"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.align_center }}"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mdi-text-align-center"</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"right"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.align_right }}"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mdi-text-align-right"</span>
+<span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_3">Общие параметры поля</h4>
+<ul>
+<li><code>name</code> — идентификатор. Он уникален и совпадает с ключом в <a href="/4%20поколение/Шаблон/settings_data.json/">settings_data.json</a>.</li>
+<li><code>label</code> — подпись в редакторе. Можно передать перевод: <code>"{{ messages.title }}"</code>.</li>
+<li><code>value</code> — значение по умолчанию.</li>
+<li><code>help</code> — подсказка рядом с полем.</li>
+<li><code>type</code> — тип поля.</li>
+<li><code>general</code> — <code>true</code> или <code>false</code>. Вывод в основные настройки редактора.</li>
+<li><code>general_position</code> — число, порядок в основных настройках.</li>
+<li><code>general_label</code> — заголовок блока в основных настройках, например <code>"{{ messages.title }}"</code>.</li>
+<li><code>enable_server_reload</code> — <code>true</code> или <code>false</code>. При изменении шаблон перезагружается.</li>
+<li><code>hide_mobile</code> — <code>true</code> или <code>false</code>. Скрыть поле в мобильной версии редактора.</li>
+</ul>
+<h4 id="text">Текст (<code>text</code>)</h4>
+<p>Однострочный текст. Подробный пример поля — в <a href="/4%20поколение/Виджеты/settings_form/#setting_form_text">форме виджета</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main_text"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Текст"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="rich-text">Основной текст (<code>rich-text</code>)</h4>
+<p>Текст с разметкой. Тип поля — <code>rich-text</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"about"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"О магазине"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rich-text"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="number">Число (<code>number</code>)</h4>
+<p>Целое или дробное число. Дополнительно: <code>min</code>, <code>max</code>, <code>step</code>. <code>with_btns: true</code> показывает кнопки «+» и «−».</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_count"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Товаров в категории"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="checkbox">Чекбокс (<code>checkbox</code>)</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite_enabled"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Включить избранное"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkbox"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="select">Селект (<code>select</code>)</h4>
+<p>Варианты — массив пар <code>[подпись, значение]</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product_not_available"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Если нулевой остаток"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"Показывать"</span><span class="p">,</span><span class="w"> </span><span class="s2">"shown"</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="s2">"Скрывать"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">]</span>
 <span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"{{ messages.alignment }}"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"button-group"</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shown"</span>
 <span class="p">}</span>
-</code></pre></div></p>
-<h4 id="_4">Цвет</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). </li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>color</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-<li><code>clearable</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Возможность очистить цвет фона в редакторе. </li>
-<li><code>fallback</code> - Значение - <code>color-btn-bg</code> или <code>bg</code>. Переменные можно посмотреть  <a href="https://insales.github.io/my-layout/#">здесь</a>. Возвращает заданный цвет если он не указан пользователем.</li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"color_text"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Цвет текста"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"#ffffff"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"color"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="_5">Шрифты</h4>
-<p>Данный вид имеет следующие параметры:</p>
-<ul>
-<li><code>name</code> - <a name="setting_form_name"></a>Идентификатор настройки (должен быть уникальным). </li>
-<li><code>label</code> - Заголовок настройки</li>
-<li><code>value</code> - Значение по умолчанию</li>
-<li><code>help</code> - Подсказка (будет отображаться рядом с полем)</li>
-<li><code>type</code> - Тип <code>color</code></li>
-<li><code>general</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Вывод настройки в основные в редакторе </li>
-<li><code>general_position</code> - Значение <code>2</code> - тип number | Число. Порядок вывода настройки в основные в редакторе</li>
-<li><code>general_label</code> - Значение - <code>"{{ messages.title }}"</code>. Добавляет заголовок с переводом из messages в основных настройках темы в редакторе</li>
-<li><code>enable_server_reload</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Перезагрузка шаблона при изменении значения настройки</li>
-<li><code>hide_mobile</code> - Значение <code>true</code> или <code>false</code> - Boolean | булевый тип. Скрыть настройку в мобильной версии редактора </li>
-</ul>
-<p>Пример:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Подгруппа 1"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"font"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.font_choice }}"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fonts_select"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"general"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<h4 id="_6">Использование настроек</h4>
-<p>Пример файла <code>settings.json</code>:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"Группа 1"</span><span class="p">:[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Цвета"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"color-background"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Цвет фона"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"#ffffff"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"color"</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"color-text"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Цвет текста"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"#ffffff"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"color"</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"color-link"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Цвет ссылок"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"#ffffff"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"color"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Шрифт"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"font_family"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"options"</span><span class="p">:[</span>
-<span class="w">                </span><span class="p">[</span>
-<span class="w">                  </span><span class="s2">"OpenSans"</span><span class="p">,</span>
-<span class="w">                  </span><span class="s2">"google:Open+Sans"</span>
-<span class="w">                </span><span class="p">],</span>
-<span class="w">                </span><span class="p">[</span>
-<span class="w">                  </span><span class="s2">"Roboto"</span><span class="p">,</span>
-<span class="w">                  </span><span class="s2">"google:Roboto"</span>
-<span class="w">                </span><span class="p">]</span>
-<span class="w">              </span><span class="p">],</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Шрифт"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"select"</span>
-<span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"font_weight"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Начертание шрифта"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"range"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">"group_name"</span><span class="p">:</span><span class="s2">"Логотип"</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">"items"</span><span class="p">:[</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"logotype.png"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"Логотип"</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"value"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"help"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span>
-<span class="w">              </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"file"</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">]</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">],</span>
-<span class="w">      </span><span class="nt">"Группа 2"</span><span class="p">:[],</span>
-<span class="w">      </span><span class="nt">"Группа 3"</span><span class="p">:[]</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></p>
-<p>Пример получения значений настроек:</p>
-<p>Вызов значения какого-либо параметра задается переменной  <code>{{ settings.необходимый_метод }}</code></p>
-<p>Пример liquid:
-<div class="highlight"><pre><span></span><code><span class="x">Шрифт: </span><span class="cp">{{</span> <span class="nv">settings</span><span class="o">:</span><span class="nv">font_family</span> <span class="cp">}}</span>
-<span class="x">Цвет текста: </span><span class="cp">{{</span> <span class="nv">settings</span><span class="o">:</span><span class="nv">color_text</span> <span class="cp">}}</span>
-</code></pre></div></p>
+</code></pre></div>
+<h4 id="range">Ползунок (<code>range</code>)</h4>
+<p>Дополнительно: <code>min</code>, <code>max</code>, <code>step</code>, <code>unit</code> (например <code>"px"</code> или <code>"vw"</code>), <code>with_btns</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"layout-content-max-width"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Максимальная ширина сайта"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"range"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">960</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"step"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"px"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="button-switch-button-list">Кнопки (<code>button-switch</code>, <code>button-list</code>)</h4>
+<p>Один выбранный вариант из <code>options</code>. У варианта есть <code>value</code> и <code>title</code>, у кнопки с иконкой — ещё <code>icon</code>. Тип <code>button-list</code> показывает те же варианты списком. Группа иконок задаётся типом <code>icon-group</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sidebar_index_position"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Позиция сайдбара"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button-switch"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Слева"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"right"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Справа"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="file">Файл (<code>file</code>)</h4>
+<p>Загрузка файла темы. <code>name</code> — имя файла, например <code>logotype.png</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logotype.png"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Логотип"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="color">Цвет (<code>color</code>)</h4>
+<p><code>clearable: true</code> позволяет очистить цвет. <code>fallback</code> — имя другой цветовой настройки, например <code>color-btn-bg</code>: этот цвет используется, если значение не задано.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color-btn-bg"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Цвет кнопок"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#76BC21"</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="fonts_select">Шрифт (<code>fonts_select</code>)</h4>
+<p>Выбор шрифта. Тип поля — <code>fonts_select</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"font-family"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{ messages.font_main_text }}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fonts_select"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"general"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_4">Использование настроек</h4>
+<p>Значение из активного пресета:</p>
+<div class="highlight"><pre><span></span><code>Шрифт: <span class="p">{{</span><span class="w"> </span><span class="nv">settings</span><span class="p">.</span><span class="nv">font</span><span class="err">-</span><span class="nv">family</span><span class="w"> </span><span class="p">}}</span>
+Цвет текста: <span class="p">{{</span><span class="w"> </span><span class="nv">settings</span><span class="p">.</span><span class="nv">color</span><span class="err">-</span><span class="nv">text</span><span class="err">-</span><span class="nv">dark</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div>
+<p>Как значения попадают в CSS, описано в <a href="/4%20поколение/Шаблон/settings_data.json/">settings_data.json</a>.</p>
 
 
 

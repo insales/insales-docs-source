@@ -98,11 +98,13 @@ nav:
         - Примеры работы с данными магазина/site_currencies/index.md
   - InSales API:
     - InSales API/01 readme.md
-    # - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
-    # - InSales API/03 Получение только изменившихся данных.md
-    # - InSales API/04 API для работы с частичными скидками.md
-    # - InSales API/05 InSales API - Widgets.md
-    # - InSales API/06 InSales API - Счета приложения.md
+    - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
+    - InSales API/03 Получение только изменившихся данных.md
+    - InSales API/04 API для работы с частичными скидками.md
+    - InSales API/05 InSales API - Widgets.md
+    - InSales API/06 InSales API - Счета приложения.md
+    - InSales API/07 InSales API - Webhooks.md
+    - InSales API/08 InSales API - Периодические счета.md
 
 
 

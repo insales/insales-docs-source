@@ -1,171 +1,63 @@
-# InSales API - Счета приложения
+# Счета приложения
 
-## Зачем это нужно
+Разовый счёт нужен, чтобы взять оплату с владельца магазина через InSales, а не напрямую. Комиссия согласуется при публикации приложения.
 
-Однократно выставляемые счета нужны для получения денег от пользователя приложения через систему InSales. Это позволяет владельцу приложения взаимодействовать с одним контрагентом, а не с целой толпой. InSales в свою очередь за это берет комиссию, которая согласуется и устанавливается при публикации приложения.
+Пользователь соглашается на действие с ценой. Приложение создаёт счёт и отправляет его на `confirmation_url` из ответа. Там счёт оплачивают или отклоняют. После этого InSales один раз вызывает `return_url`. Повторной доставки нет, поэтому счета без уведомления стоит перечитывать, например раз в сутки.
 
-## Как это использовать
+Методы — `ApplicationCharge` в [справочнике](https://api.insales.ru/). Периодическая оплата — отдельный ресурс, см. [периодические счета](08%20InSales%20API%20-%20Периодические%20счета.md).
 
-Когда пользователь собирается выполнить действие, в приложении ему говорят что это будет стоить столько-то. Пользователь соглашается, приложение ему выставляет счет и перенаправляет его на страницу оплаты. Там пользователь видит, что такое-то приложение выставило ему счет за такое-то действие. Ему предлагается этот счет оплатить или отклонить. После того как пользователь выполнить одно из этих действий, InSales уведомляет приложение, отправляя запрос на URL указанный при выставлении счета. Приложение после получения уведомления проверяет состояние счета, оплачен он или отклонен, и в зависимости от этого делает что-то или нет.
+## Поля
 
-Надо отметить, что уведомление на данный момент шлется только один раз, не зависимо от ответа приложения или каких либо других ошибок. Поэтому мы рекомендуем раз в день поверять состояние выставленных счетов от которых не поступило уведомлений.
+* `name` — назначение платежа
+* `price` — сумма
+* `return_url` — адрес уведомления
+* `test` — тестовый счёт, оплату можно подтвердить без реального платежа
+* `confirmation_url` — страница оплаты, её отдаёт создание счёта
+* `status` — `pending`, `accepted` или `declined`
 
-## Описание полей
+## Создание
 
-*   _name_ - назначение платежа
+`POST /admin/application_charges.json`
 
-*   _price_ - сумма счета.
+```json
+{
+  "application_charge": {
+    "name": "Sms 200",
+    "price": 180.0,
+    "return_url": "https://myapp.example/charges/15",
+    "test": true
+  }
+}
+```
 
-*   _return-url_ - URL по которому будут уведомлять об оплате.
+Ответ `201`:
 
-*   _confirmation-url_ - URL страницы оплаты / отклонения счета (генерируется автоматически при создании).
+```json
+{
+  "id": 1,
+  "name": "Sms 200",
+  "price": "180.0",
+  "return_url": "https://myapp.example/charges/15",
+  "test": true,
+  "status": "pending",
+  "confirmation_url": "http://SHOP/admin/application_charges/1",
+  "created_at": "2026-09-26T13:21:27.639+03:00",
+  "updated_at": "2026-09-26T13:21:27.639+03:00"
+}
+```
 
-*   _test_ - флаг для отладки, если установлен, то для подтверждения платежа не надо его оплачивать. По умолчанию не установлен.
+Дальше браузер пользователя открывает `confirmation_url` из этого ответа. Путь страницы берите из поля, не из примера: в ответе приходит готовый адрес.
 
-*   _status_ - статус счета. Возможные значения:
+На `return_url` приходит уведомление. По своему id на этом URL найдите id счёта InSales и прочитайте его.
 
-    1.  pending - пользователь еще ничего сделал
-    2.  accepted - оплатил счет
-    3.  declined - отклонил счет
+## Чтение и список
 
-## Пример по шагам
+`GET /admin/application_charges/:id.json`
 
-1.  Создаем счет
-
-`POST /admin/application\_charges.xml`
-
-     <?xml version="1.0" encoding="UTF-8"?>
-     <application-charge>
-       <name>Купи слона</name>
-       <price type="decimal">180.0</price>
-       <return-url>http://applicaiton.my/check_payment_url/%id_in_my_application%</return-url>
-     </application-charge>
-
-Получаем:
-
-     <?xml version="1.0" encoding="UTF-8"?>
-     <application-charge>
-       <id type="integer">2</id>
-       <name>Купи слона</name>
-       <price type="decimal">180.0</price>
-       <return-url>http://applicaiton.my/check_payment_url/%id_in_my_application%</return-url>
-       <status>pending</status>
-       <test type="boolean">false</test>
-       <confirmation-url>http://some-shop.myinsales.ru/admin/invoices/6539</confirmation-url>
-       <created-at type="datetime">2013-12-02T22:34:59+04:00</created-at>
-       <updated-at type="datetime">2013-12-02T22:34:59+04:00</updated-at>
-     </application-charge>
-
-Запоминаем соответствие между id\_in\_my\_application и id (2 в данном случае)
-
-2.  Перенаправляем клиента на confirmation-url, в данном случае: [http://some-shop.myinsales.ru/admin/invoices/6539](http://some-shop.myinsales.ru/admin/invoices/6539)
-
-3.  Получаем уведомление на [http://applicaiton.my/check\_payment\_url/id\_in\_my\_application](http://applicaiton.my/check_payment_url/id_in_my_application)
-
-    по id\_in\_my\_application определяем id и проверяем статус application\_charge
-
-
-`GET /admin/application\_charges/2.xml`
-
-Получаем:
-
-     <application-charge>
-       <id type="integer">2</id>
-       <name>Купи слона</name>
-       <price type="decimal">180.0</price>
-       <return-url>http://applicaiton.my/check_payment_url/%id_in_my_application%</return-url>
-       <status>accepted</status>
-       <test type="boolean">false</test>
-       <confirmation-url>http://some-shop.myinsales.ru/admin/invoices/6539</confirmation-url>
-       <created-at type="datetime">2013-12-02T22:34:59+04:00</created-at>
-       <updated-at type="datetime">2013-12-02T22:40:59+04:00</updated-at>
-     </application-charge>
-
-Ура! Слона купили! Оформляем его доставку))
-
-## Выставление
-
-Создать счёт можно, отправив POST-запрос по адресу `/admin/application_charges.xml`.
-
-Пример запроса:
-
-     <?xml version="1.0" encoding="UTF-8"?>
-     <application-charge>
-       <name>Sms 200</name>
-       <price type="decimal">180.0</price>
-       <return-url>http://host/url</return-url>
-     </application-charge>
-
-Пример ответа:
-
-     <?xml version="1.0" encoding="UTF-8"?>
-     <application-charge>
-       <id type="integer">1</id>
-       <name>Sms 200</name>
-       <price type="decimal">180.0</price>
-       <status>pending</status>
-       <return-url>http://host/url</return-url>
-       <confirmation-url>http://host.myinsales.ru/admin/invoices/6539</confirmation-url>
-       <test type="boolean">false</test>
-       <created-at type="datetime">2013-07-18T22:34:59+04:00</created-at>
-       <updated-at type="datetime">2013-07-18T22:34:59+04:00</updated-at>
-     </application-charge>
-
-## Проверка состояния
-
-GET запрос по адресу `/admin/application_charges/%id%.xml`
-
-Пример ответа:
-
-     <?xml version="1.0" encoding="UTF-8"?>
-     <application-charge>
-       <created-at type="datetime">2013-07-18T22:34:59+04:00</created-at>
-       <id type="integer">1</id>
-       <name>Sms 200</name>
-       <price type="decimal">180.0</price>
-       <return-url>http://host/url</return-url>
-       <status>pending</status>
-       <test type="boolean">false</test>
-       <updated-at type="datetime">2013-07-18T22:34:59+04:00</updated-at>
-       <confirmation-url>http://host.myinsales.ru/admin/invoices/2</confirmation-url>
-     </application-charge>
+`GET /admin/application_charges.json` — счета этого приложения.
 
 ## Отклонение
 
-Для отклонения счёта нужно отправить POST-запрос по адресу `/admin/application_charges/%id%/decline.xml`.
+`POST /admin/application_charges/:id/decline.json` с заголовком `Content-Type: application/json`.
 
-В ответ возвращается информация о состоянии счета. Отклонить можно только еще не оплаченный счет.
-
-## Получение списка счетов
-
-Отправиа GET-запрос по адресу `/admin/application_charges.xml`, можно получить информацию о счетах, выставленных приложением. Поддерживаемые форматы: xml, json.
-
-Пример xml документа:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<application-charges type="array">
-  <application-charge>
-    <created-at type="datetime">2013-07-18T22:34:59+04:00</created-at>
-    <id type="integer">1</id>
-    <name>Sms 200</name>
-    <price type="decimal">180.0</price>
-    <return-url>http://host/url</return-url>
-    <status>pending</status>
-    <test type="boolean">false</test>
-    <updated-at type="datetime">2013-07-18T22:34:59+04:00</updated-at>
-    <confirmation-url>http://host.myinsales.ru/admin/invoices/2</confirmation-url>
-  </application-charge>
-  <application-charge>
-    <created-at type="datetime">2013-05-23T18:46:51+04:00</created-at>
-    <id type="integer">3</id>
-    <name>Sms 200</name>
-    <price type="decimal">180.0</price>
-    <return-url>http://host/url</return-url>
-    <status>accepted</status>
-    <test type="boolean">false</test>
-    <updated-at type="datetime">2013-05-27T11:27:37+04:00</updated-at>
-    <confirmation-url>http://host.myinsales.ru/admin/invoices/4</confirmation-url>
-  </application-charge>
-</application-charges>
-```
+Отклоняется неоплаченный счёт. В ответе тот же объект со `status: declined`.

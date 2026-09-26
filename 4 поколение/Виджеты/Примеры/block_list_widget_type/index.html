@@ -530,6 +530,8 @@
         
       
         
+      
+        
           
         
       
@@ -787,6 +789,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../block_settings_presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    block_settings_presets.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../preview/" class="md-nav__link">
         
   
@@ -865,10 +895,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_2_11" id="__nav_2_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
             
   
   
@@ -886,8 +916,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_11_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_2_11">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3155,7 +3185,7 @@
 
 
 <h1 id="_1">Виджет с блоками</h1>
-<p>В данном уроке мы создадим виджет с блоками (<a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">blockListWidgetType</a>), который будет содержать несколько блоков, внутри которых будут картинка и ссылка, и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков - <a href="/4%20поколение/Виджеты/info/#systembanner7">system-banner-7</a>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link)</p>
+<p>В данном уроке мы создадим виджет с блоками (<a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">BlockListWidgetType</a>), который будет содержать несколько блоков, внутри которых будут картинка и ссылка, и несколько настроек виджета. В данном виджете мы будем использовать шаблон привязанных блоков <code>system-banner-7</code>. Поля: Картинка (Файл - image), Ссылка (Универсальная ссылка - link). Список шаблонов смотрите в админке: <a href="/4%20поколение/Виджеты/info/#block_templates">Шаблоны блоков</a>.</p>
 <h4 id="1">Шаг 1 (создание виджета)</h4>
 <p>Создаем виджет в панели администратора:</p>
 <ul>
@@ -3198,11 +3228,11 @@
 </code></pre></div>
 <code>{% for slide in data.blocks %}</code> - цикл для перебора блоков <code>slide</code>. <br> 
 <code>{% if slide.link != "" %}</code> - проверка передачи пустого строкового значения в ссылке блока <code>slide</code>. <br> 
-<code>{{ slide.link }}</code> - внутри атрибута <code>href</code> мы указываем поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>link</code></a> блока <code>slide</code>. В редакторе будет отображаться пустое поле для ссылки.
+<code>{{ slide.link }}</code> - внутри атрибута <code>href</code> мы указываем поле <code>link</code> блока <code>slide</code>. В редакторе будет отображаться пустое поле для ссылки.
 <br> 
 <code>{% if slide.image %}</code> - проверка передачи пустого значения в поле с изображением блока <code>slide</code>.
 <br> 
-<code>data-src="{{ slide.image }}</code> - поле <a href="/4%20поколение/Виджеты/info/#systembanner7"><code>image</code></a> блока <code>slide</code>. В редакторе будет отображаться поле с загрузкой изображения.</p>
+<code>data-src="{{ slide.image }}</code> - поле <code>image</code> блока <code>slide</code>. В редакторе будет отображаться поле с загрузкой изображения.</p>
 <h4 id="3-json-setupjson">Шаг 3. Настройки блоков JSON (setup.json)</h4>
 <p>В файле setup мы прописываем блоки с параметрами <code>image</code> и <code>link</code>, в примере ниже 6 блоков с пустыми ссылками и одинаковыми изображениями. </p>
 <p>Пример:
@@ -3339,7 +3369,7 @@
 Пример:
 
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockListWidgetType"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlockListWidgetType"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner_with_button_1"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BG10"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3368,11 +3398,11 @@
 </code></pre></div>
 
 - `"generation": 4` - Поколение виджета. Всегда указывается 4, более старые поколения виджетов больше не поддерживаются
-- `"type":"blockListWidgetType"` - Тип виджета с привязкой блоков
+- `"type":"BlockListWidgetType"` - Тип виджета с привязкой блоков
 - `"handle":"banner_with_button_1"` - Папка с виджетом. Главное чтобы имя папки было уникальным, наименование может быть любым, но не начинаться на `system_widget_`
 - `"sku":"BG10"` - уникальный ID виджета
 - `"page_kinds":["all"]` - виджет будет доступен на всех страницах шаблона, еще варианты страниц можно посмотреть по <a href="/4%20поколение/Виджеты/info/#page_kinds">ссылке</a>
-- `"widget_list_kinds":["before_content", "content", "after_content"]` - виджет будет доступен на всех страницах шаблона
+- `"widget_list_kinds":["before_content", "content", "after_content"]` - виджет будет доступен в областях перед контентом, в контенте и после контента
 - `"widget_category_handle":"banner"` - сортировка виджетов по категориям, в данном случае - Баннеры. Доступные категории можно посмотреть по <a href="/4%20поколение/Виджеты/info/#widget_category_handle">ссылке</a>
 - `"name"` - имя виджета
 - `"description"` - описание виджета

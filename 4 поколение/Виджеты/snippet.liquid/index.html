@@ -530,6 +530,8 @@
         
       
         
+      
+        
           
         
       
@@ -867,6 +869,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../block_settings_presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    block_settings_presets.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../preview/" class="md-nav__link">
         
   
@@ -943,10 +973,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_11" id="__nav_2_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
             
   
   
@@ -964,8 +994,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_11">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3021,7 +3051,19 @@
 
 
 <h1 id="snippetliquid">snippet.liquid</h1>
-<p>Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>. Код виджета будет обернут в блок с классом <code>layout</code> и автоматически генерируемом уникальным классом виджета. У родительского класса <a href="/4%20поколение/core.css/">layout</a> при изменении настроек в редакторе меняется значение css переменных в атрибуте <code>style</code>.</p>
+<p>Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>.</p>
+<p>Для виджета 4 поколения платформа оборачивает код сниппета так:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span>
+  <span class="na">class</span><span class="o">=</span><span class="s">"layout widget-type_{handle}"</span>
+  <span class="na">style</span><span class="o">=</span><span class="s">"--layout-wide-bg:true; --hide-mobile:false;"</span>
+  <span class="na">data-widget-drop-item-id</span><span class="o">=</span><span class="s">"123456"</span>
+<span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"layout__content"</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- snippet.liquid --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><code>{handle}</code> — значение <code>handle</code> из <a href="/4%20поколение/Виджеты/info/">info.json</a>. В <code>style</code> попадают не все настройки, а только те, которые платформа превращает в CSS-переменные. Подробнее — в <a href="/4%20поколение/Виджеты/snippet.scss/#css-variables">snippet.scss</a>. Значение любой настройки в Liquid доступно через <code>widget_settings</code>, даже если его нет в <code>style</code>.</p>
 <h4 id="_1">В примере ниже:</h4>
 <ul>
 <li>Получить значения настроек виджета из файла <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> можно с помощью liquid-переменной <code>widget_settings</code>. Например, значение настройки ширины контента можно так:
@@ -3035,7 +3077,7 @@
 
 {% endfor %}
 </code></pre></div></li>
-<li><code>block.name</code> - название указанное в блоке. Доступные поля можно посмотреть <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a></li>
+<li><code>block.name</code> - название, указанное в блоке. Набор полей зависит от <a href="/4%20поколение/Виджеты/info/#block_templates">шаблона блока</a>.</li>
 </ul>
 <h4 id="_2">Пример:</h4>
 <div class="highlight"><pre><span></span><code>{% assign img_width = widget_settings.layout-content-max-width | default: settings.layout-content-max-width  %}

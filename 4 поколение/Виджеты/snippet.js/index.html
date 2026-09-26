@@ -530,6 +530,8 @@
         
       
         
+      
+        
           
         
       
@@ -710,6 +712,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        События редактора
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:
       
     </span>
@@ -845,6 +858,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../block_settings_presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    block_settings_presets.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../preview/" class="md-nav__link">
         
   
@@ -921,10 +962,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_11" id="__nav_2_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
             
   
   
@@ -942,8 +983,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_11">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2949,6 +2990,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        События редактора
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:
       
     </span>
@@ -2977,25 +3029,57 @@
 
 
 <h1 id="snippetjs">snippet.js</h1>
-<p>Сниппет нужен для написания javascript кода, относящегося к данному виджету. 
-В сниппете доступна библиотека jquery.
-Внутри доступна переменная <code>$widget</code> в которой лежат все копии данного виджета на странице, поэтому во избежание багов при использовании более одного виджета на странице, их нужно перебирать через метод <code>each</code>:</p>
+<p>Сниппет нужен для написания javascript кода, относящегося к данному виджету.
+В сниппете доступна библиотека jquery.</p>
+<p>Платформа оборачивает код сниппета так:</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'.widget-type_{handle}'</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">$widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="s1">'.widget-type_{handle}'</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// snippet.js</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Widget "widget-type_{handle}"'</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>widget</code> — строка-селектор, <code>$widget</code> — jQuery-коллекция всех копий этого виджета на странице. Копии нужно перебирать через <code>each</code>, иначе обработчик затронет соседние экземпляры:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="ow">new</span><span class="w"> </span><span class="nx">LazyLoad</span><span class="p">({</span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span>
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'.lazyload'</span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>Можно использовать встроенные события EventBus, подробнее можно ознокомиться <a href="/common.v2.js/EventBus/" target="_blank">здесь</a></p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'change_variant:insales:product'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<p>Можно использовать встроенные события EventBus, подробнее можно ознакомиться <a href="/common.v2.js/EventBus/" target="_blank">здесь</a></p>
+<p>Подписку, которая меняет разметку, размещайте внутри <code>$widget.each</code> и проверяйте, что событие относится к текущему экземпляру:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'change_variant:insales:product'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]).</span><span class="nx">parents</span><span class="p">(</span><span class="s2">".modal-product-preview.is-open"</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">product_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
 <span class="w">      </span><span class="nx">product_node</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">".product-preview__photo img"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"src"</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">medium_url</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
 </code></pre></div>
-<h4 id="_1">Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:</h4>
+<h4 id="_1">События редактора</h4>
+<p>Пока открыт редактор шаблона, изменение настройки виджета публикует событие без перезагрузки страницы. Подписка на витрине:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">'widget-drop-item-id'</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">([</span>
+<span class="w">    </span><span class="s1">'widget:input-setting:insales:system:editor'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'widget:change-setting:insales:system:editor'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'widget:input-color:insales:system:editor'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'widget:change-color:insales:system:editor'</span>
+<span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">widget_item_id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// data.setting_name, data.value, data.unit, data.type, data.widget_id</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><code>widget_item_id</code> совпадает с атрибутом <code>data-widget-drop-item-id</code> обёртки виджета. <code>widget_id</code> — идентификатор виджета в редакторе.</p>
+<h4 id="_2">Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:</h4>
 <p>Можно посмотреть <a href="/4%20поколение/Виджеты/info/#libraries">здесь</a>.</p>
 
 

@@ -530,6 +530,8 @@
         
       
         
+      
+        
           
         
       
@@ -787,6 +789,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../block_settings_presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    block_settings_presets.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../preview/" class="md-nav__link">
         
   
@@ -1020,10 +1050,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_12" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_11" id="__nav_2_2_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2_12" id="__nav_2_2_12_label" tabindex="0">
             
   
   
@@ -1041,8 +1071,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_11">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_12">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3184,12 +3214,12 @@
 <p>Без привязки блоков
 <div class="highlight"><pre><span></span><code><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SimpleWidgetType"</span>
 </code></pre></div>
-С блоками (необходимо добавить файл <a href="/4%20поколение/Виджеты/setup/">setup.json</a> с указанием параметром блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
-<div class="highlight"><pre><span></span><code><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blockListWidgetType"</span>
+С блоками (необходимо добавить файл <a href="/4%20поколение/Виджеты/setup/">setup.json</a> с указанием параметров блоков). Виджет с блоками позволяет пользователю добавлять блоки и менять их местами через редактор:
+<div class="highlight"><pre><span></span><code><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlockListWidgetType"</span>
 </code></pre></div>
-Шаблон блока это поля с разными типами настроек. Доступные шаблоны блоков описаны <a href="/4%20поколение/Виджеты/info/#_8">здесь</a></p>
+Шаблон блока — это набор полей с разными типами настроек. Как выбрать или создать шаблон, описано <a href="/4%20поколение/Виджеты/info/#block_templates">ниже</a>.</p>
 <h4 id="_3">Типы виджетов, примеры:</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">blockListWidgetType (виджет с блоками)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">SimpleWidgetType (виджет без блоков)</label><label for="__tabbed_1_2">BlockListWidgetType (виджет с блоками)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><img alt="" src="/img/widget-w-blocks.jpg" /></p>
@@ -3204,43 +3234,46 @@
 <div class="highlight"><pre><span></span><code><span class="nt">"handle"</span><span class="p">:</span><span class="s2">"v4_article_products_beauty_article_1"</span>
 </code></pre></div></p>
 <h4 id="_4">Уникальный артикул виджета</h4>
-<p>Наименование уникального артикула виджета состоит из заглавных латинских букв и цифр.
-Мы придумываем артикул на основе сокращений его названия, <code>F</code> - footer, <code>M</code> - medium, <code>1</code> - первый в группе. Важно проверить, что артикул виджета уникален. Вы можете посмотреть артикул виджета в редакторе шаблона при добавлении. При изменения кода виджета <a href="/4%20поколение/Виджеты/Примеры/SimpleWidgetType/#online">в редакторе шаблона</a> в его артикул добавляется точка (пример <code>FM1.1</code>). При добавлении виджета с одинаковым артикулом в наименование добавляется тире <code>-</code> (пример <code>FM1-1</code> и <code>FM1-2</code>).
-<div class="highlight"><pre><span></span><code><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"FM1"</span>
-</code></pre></div></p>
-<h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="nt">"page_kinds"</span><span class="p">:[</span><span class="s2">"product,collection"</span><span class="p">]</span>
+<p>У системного виджета (<code>handle</code> начинается с <code>system_</code>) поле <code>sku</code> обязательно. Артикул состоит из заглавных латинских букв и цифр, например <code>FM1</code>.</p>
+<p>У своего виджета <code>sku</code> в <code>info.json</code> не указывают. Платформа сама выдаёт артикул в виде <code>БУКВЫ.число</code>, например <code>FM1.1</code>.</p>
+<p>Артикул виден в редакторе шаблона при добавлении виджета.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FM1"</span>
 </code></pre></div>
-Если указать, например, "collection", то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть посередине верхней панели. Там расположен выпадающий список со всеми страницами шаблона. <br>
-Доступный список страниц (то как мы прописываем page_kinds в файле info.json:</p>
+<h4 id="_5">Привязка к типу страницы <a name="page_kinds"></a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="nt">"page_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"product"</span><span class="p">,</span><span class="w"> </span><span class="s2">"collection"</span><span class="p">]</span>
+</code></pre></div>
+Если указать, например, <code>"collection"</code>, то виджет будет доступен только на странице каталога. Как они выглядят, можно увидеть посередине верхней панели. Там расположен выпадающий список со всеми страницами шаблона. <br>
+Доступный список страниц (так мы прописываем <code>page_kinds</code> в файле info.json):</p>
 <ul>
 <li>all - все страницы</li>
 <li>index - главная страница</li>
-<li>collection - каталог </li>
+<li>collection - каталог</li>
 <li>product - карточка товара</li>
 <li>cart - страницы корзины</li>
-<li>page</li>
-<li>search  - страницы поиска</li>
+<li>page - текстовая страница</li>
+<li>search - страницы поиска</li>
 <li>blog - страницы блога</li>
 <li>compare - страница сравнения</li>
 <li>article - страница статьи</li>
 <li>favorite - страница избранного</li>
+<li>shared_cart - страница общей корзины</li>
 </ul>
 <h4 id="_6">Области страницы</h4>
 <p>Привязка к типу <a href="/4%20поколение/Виджеты/#ListWidgetInfo">виджет-листа</a>. Доступные области страницы:</p>
 <ul>
 <li>Верхняя панель - top_panel</li>
 <li>Шапка - header</li>
+<li>Перед контентом - before_content</li>
 <li>Контент - content</li>
+<li>После контента - after_content</li>
 <li>Подвал - footer</li>
 <li>Нижняя панель - bottom_panel</li>
 <li>Вне контента - outside</li>
 <li>Сайдбар - sidebar</li>
 </ul>
 <p>Нужен, чтобы виджет выводился в <a href="/4%20поколение/Виджеты/#ListWidgetInfo">виджет-листах</a> "Контент" и "Подвал".</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">"widget_list_kinds"</span><span class="p">:[</span><span class="s2">"content"</span><span class="p">,</span><span class="w"> </span><span class="s2">"footer"</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="nt">"widget_list_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"content"</span><span class="p">,</span><span class="w"> </span><span class="s2">"footer"</span><span class="p">]</span>
 </code></pre></div>
-Может содержать элементы из следующего списка:</p>
 <h4 id="_7">Категории виджетов <a name="widget_category_handle"></a></h4>
 <p>Категории виджетов нужны для сортировки виджетов по категориям при добавлении нового виджета. <br>
 Например, категория баннеры:</p>
@@ -3282,7 +3315,7 @@
 <li>Видео | video</li>
 <li>Истории | stories</li>
 </ul>
-<h4 id="_8">Шаблон привязанных блоков</h4>
+<h4 id="_8">Шаблон привязанных блоков <a name="block_templates"></a></h4>
 <p>Внутри блока есть поля настройки, которые можно поменять в редакторе. 
 Для каждого набора полей есть свой уникальный шаблон. Можно выбрать существующий, а можно создать свой в панели администратора. </p>
 <p>Нужно перейти в <code>Настройки -&gt; Настройки сайта -&gt; Шаблоны блоков</code>. Url - <code>Имя_вашего_магазина/admin2/block_templates</code>.
@@ -3314,86 +3347,9 @@
 </tr>
 </tbody>
 </table>
-<p>Чтобы использовать созданный шаблон блока необходимо указать индентификатор:
+<p>Чтобы использовать созданный шаблон блока необходимо указать идентификатор:
 <div class="highlight"><pre><span></span><code><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner-image-link"</span>
 </code></pre></div></p>
-<!-- 
-Доступные шаблоны блоков:
-
-- `system-banner` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Пропорции - `ratio` (тип поля в редакторе - Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-banner-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-banner-3` | Поля:  Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-banner-4` | Поля: Изображение - `image` (тип поля в редакторе - Файл)
-- `system-banner-5` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение на мобильном - `image-mobile` (тип поля в редакторе - Файл), Заголовок - `caption` (тип поля в редакторе - (Текст), Название - `name` (тип поля в редакторе - Текст), Текст на кнопке - `link-text` (тип поля в редакторе - Текст), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-banner-6` | Поля:  Изображение - `image` (тип поля в редакторе - Файл), Заголовок - `caption` (тип поля в редакторе - (Текст), Подзаголовок - `subtitle` (тип поля в редакторе - (Текст), Описание - `description` (тип поля в редакторе - HTML), Текст ссылки - `link-text` (тип поля в редакторе - Текст), Ссылка - `link` (тип поля в редакторе - Текст), Выравнивание - `text-align` (тип поля в редакторе - Выпадающий список)
-<a name="systembanner7"></a>
-- `system-banner-7` | Поля: Изображение - `image` (тип поля в редакторе - Файл),  Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-banner-8` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст)
-
-- `system-banner-block-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Универсальная ссылка), Текст ссылки - `button_text` (Текст)
-- `system-banner-block-3` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Карта - `map` (Текст)
-- `system-banner-image-text` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Положение изображения - `image_position` (Выпадающий список), Ссылка на изображение - `link_image` (Текст), Текст - `content` (HTML)
-- `system-banner-mansonry` | Поля: Название - `name` (тип поля в редакторе - Текст), Контент - `content` (HTML), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл), Соотношение сторон - `ratio` (Высота / Ширина) (Выпадающий список)
-- `system-banner-video` <a name="blocks_example"></a> | Поля: Ссылка - `link` (тип поля в редакторе - Текст), Заставка - `image` (Файл)
-- `system-banner-video-2` | Поля: Ссылка - `link` (Универсальная ссылка), Заставка - `image` (Файл)
-- `system-benefit` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл)
-- `system-benefit-2` | Поля: Заголовок - `name` (Текст), Описание - `description` (HTML), Изображение - `image` (тип поля в редакторе - Файл)
-- `system-collection` | Поля: Категория - `name` (Категория)
-- `system-collection-2` | Поля: Название вкладки - `name` (Текст), Категория - `collection` (Категория)
-- `system-collection-3` | Поля: Категория - `collection` (Категория), Заголовок - `name` (Текст), Изображение - `image` (тип поля в редакторе - Файл)
-- `system-collection-4` | Поля: Категория - `collection` (Категория), Изображение - `image` (тип поля в редакторе - Файл)
-- `system-collection-5` | Поля: Товар - `product` (Товар), Расположение по горизонтали - `  raspolozhenie-po-gorizontali` (Число из диапазона с полем ввода), Расположение по вертикали - `raspolozhenie-po-vertikali` (Число из диапазона с полем ввода), Скрывать цену - `skryvat-tsenu` (Чекбокс), Скрывать название - `skryvat-nazvanie` (Чекбокс), Скрывать изображение - `skryvat-kartinku` (Чекбокс)
-- `system-collection-with-description` | Поля: Коллекция - `collection` (Категория), Описание - `description` (HTML)
-
-- `system-custom-block` | Поля: Контент - `content` (HTML), Фон - `theme` (Выпадающий список), Ширина блока - `cells` (Выпадающий список), Ширина блока на планшете - `cells_sm` (Выпадающий список), Ширина блока на телефоне - `cells_xs` (Выпадающий список), Вертикальное выравнивание внутри блока - `align_self` (Выпадающий список), Вертикальный отступ блока - `padding_y` (Выпадающий список), Горизонтальный отступ блока - `padding_x` (Выпадающий список), Скругление углов - `border_radius` (Выпадающий список)  
-
-- `system-element-header` | Поля: Элемент - `element` (Выпадающий список), Ширина блока [десктоп] - `   cell_desktop` (Выпадающий список), Выравнивание - `align_desktop` [десктоп] (Выпадающий список), Скрыть - `hide_desktop` [десктоп] (Чекбокс), Ширина блока - `cell_tablet` [планшет] (Выпадающий список), Выравнивание - `align_tablet` [планшет] (Выпадающий список), Скрыть - `hide_tablet` [планшет] (Чекбокс), Ширина блока - `cell_phone` [телефон] (Выпадающий список), Выравнивание - `align_phone` [телефон] (Выпадающий список), Скрыть - `hide_phone` [телефон] (Чекбокс), Контент для элемента "Текст" - `content` (HTML)
-
-- `system-faq` | Поля: Вопрос - `question` (Текст), Ответ - `answer` (HTML)
-
-- `system-faq-2` | Поля:    Вопрос - `question` (Текст), Ответ - `answer` (HTML)
-- `system-form-constructor` | Поля: Название - `name` (тип поля в редакторе - Текст), Тип поля - `type` (Выпадающий список), Значения - `type` (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - `required` (Чекбокс)
-
-- `system-form-constructor-2` | Поля: Тип поля- `type` (Выпадающий список), Ширина поля- `cells`(Выпадающий список), Название - `label` (тип поля в редакторе - Текст), Подсказка - `placeholder` (только для текста и текстовая область) (Текст), Значения - `values` (через запятую) (Только для групп чекбоксов, радио и списка) (Текст), Обязательное поле - `required` (Чекбокс)
-
-- `system-form-constructor-3` | Поля: Тип поля - `type` (Выпадающий список), Название - `label` (тип поля в редакторе - Текст), Обязательное поле - `required` (Чекбокс)
-
-- `system-image` | Поля: Название - `name` (тип поля в редакторе - Текст), Изображение - `image` (Файл)
-
-- `system-image-and-content` | Поля: Вертикальная позиция изображения - `vertical_position` (Выпадающий список), Скрыть изображение? - `hide_image` (Чекбокс), Текст - `content` (HTML), Горизонтальная позиция изображения - `horizontal_position` (Выпадающий список), Изображение - `image` (тип поля в редакторе - Файл)
-
-- `system-image-link-text` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Кнопка - `link` (Текст), Текст кнопки - `link_text` (Текст)
-- `system-image_text` | Поля: Текст - `text` (HTML), Изображение - `image` (Файл)
-- `system-image-text-button-icon` | Поля: Название - `name` (тип поля в редакторе - Текст), Описание - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст), Текст кнопки - `button_text` (Текст), Иконка - `icon` (Файл)
-- `system-messenger` | Поля: Заголовок - `caption` (Текст), Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст), Цвет - `color` (Текст)
-- `system-messengers` | Поля: Заголовок - `caption` (Текст), Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст), Цвет- `color` (Цвет)
-- `system-payments` | Поля: Ссылка - `link` (Текст)
-- `system-payments-prime` | Поля: Иконка - `image` (Файл), Название - `name` (title) (Текст)
-- `system-payments-social` | Поля: Название - `name` (тип поля в редакторе - Текст), Иконка - `image` (Файл), Тип - `type` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-personal` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Описание - `description` (HTML), Подзаголовок - `subtitle` (Текст), Заголовок - `name` (Текст)
-- `system-promo-slide` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Текст)
-- `system-promo-slide-2` | Поля: Описание - `description` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (Универсальная ссылка)
-- `system-promo-slider-2` | Поля: Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл), Надпись на кнопке - `button_title` (Текст)
-- `system-promo-slider-3` | Поля: Надпись на кнопке - `button_title` (Текст), Изображение для мобильных устройств - `image_mobile` (Файл), Изображение - `image` (тип поля в редакторе - Файл), Ссылка - `link` (тип поля в редакторе - Текст), Описание - `description` (Текст), Заголовок - `name` (Текст)
-- `system-promo-slider-4` | Поля: Описание - `description` (Текст), Заголовок - `name` (Текст), Ссылка - `link` (тип поля в редакторе - Текст), Изображение - `image` (Файл)
-- `system-promo-slider-5` | Поля: Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка), Изображение - `image` (Файл), Надпись на кнопке - `button_title` (Текст)
-- `system-promo-slider-6` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение для мобильных устройств - `image_mobile` (Файл), Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка), Надпись на кнопке - `button_title` (Текст)
-- `system-promo-slider-7` | Поля: Описание - `description` (Текст), Заголовок - `name` (Текст), Ссылка - `link` (Универсальная ссылка), Изображение - `image` (Файл)
-- `system-promo-slider-8` | Поля: Изображение - `image` (тип поля в редакторе - Файл), Изображение для мобильных устройств - `image_mobile` (Файл), Заголовок - `name` (Текст), Описание - `description` (Текст), Ссылка - `link` (Универсальная ссылка)
-- `system-review` | Поля: Скрыть изображение? - `hide_image` (Чекбокс), Текст - `content` (HTML), Имя - `name` (Текст), Позиция изображения - `image_position` (Выпадающий список), Изображение - `image` (тип поля в редакторе - Файл)
-- `system-review-2` | Поля: Скрыть изображение? - `hide_image` (Чекбокс), Имя - `name` (Текст), Текст - `content` (HTML), Изображение - `image` (Файл)
-- `system-review-4` | Поля: Заголовок - `name` (Текст), Подзаголовок - `company` (Текст), Текст - `content` (HTML), Изображение - `image` (тип поля в редакторе - Файл), Скрыть изображение? - `hide_image` (Чекбокс)
-- `system-review-shop` | Поля: Имя  - `name`(Текст), Текст - `content` (HTML), Рейтинг - `rating` (Число из диапазона со слайдером), Дата - `date` (Текст), Изображение - `image` (тип поля в редакторе - Файл), Скрыть изображение? - `hide_image` (Чекбокс)
-- `system-review-social` | Поля: Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-social-2` | Поля: Иконка - `icons` (Выпадающий список), Ссылка - `link` (тип поля в редакторе - Текст)
-- `system-special_products` | Поля: Заголовок - `name` (Текст), Категория - `collection` (Категория)
-- `system-text-column` | Поля: Контент - `content` (HTML)
-- `system-text-hex` | Поля: Название - `name` (тип поля в редакторе - Текст), Цвет - `hex` (hex формат) (Текст)
-- `system-text-hex-2` | Поля: Название - `name` (тип поля в редакторе - Текст), Цвет - `hex` (Цвет)
-- `system-text-link` | Поля: Текст - `text` (Текст), Ссылка - `link` (Универсальная ссылка)
-- `system-title-and-content` | Поля: Содержание - `content` (HTML)
-- `system-widget-feedback` | Поля: Текст на кнопке - `submit-text` (Текст) -->
-
 <p>Пример:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlockListWidgetType"</span><span class="p">,</span>
@@ -3452,9 +3408,16 @@
 <li>micromodal | <a href="https://micromodal.vercel.app/" target="_blank">Документация</a></li>
 <li>body-scroll-lock | <a href="https://www.npmjs.com/package/body-scroll-lock" target="_blank">Документация</a></li>
 <li>js-cookie | <a href="https://github.com/js-cookie/js-cookie/releases" target="_blank">Документация</a></li>
-<li>cut-list | <a href=" https://github.com/insales/jquery.cut-list" target="_blank">Документация</a></li>
-<li>nouislider | <a href=" https://refreshless.com/nouislider/" target="_blank">Документация</a></li>
+<li>cut-list | <a href="https://github.com/insales/jquery.cut-list" target="_blank">Документация</a></li>
+<li>nouislider | <a href="https://refreshless.com/nouislider/" target="_blank">Документация</a></li>
+<li>tvist-v1 - слайдер</li>
+<li>splide-grid - сетка для Splide</li>
+<li>gsap3 | <a href="https://gsap.com/" target="_blank">Документация</a></li>
+<li>swiper | <a href="https://swiperjs.com/" target="_blank">Документация</a></li>
+<li>sweetalert2 | <a href="https://sweetalert2.github.io/" target="_blank">Документация</a></li>
+<li>tingle | <a href="https://tingle.robinparisi.com/" target="_blank">Документация</a></li>
 </ul>
+<p>Версии библиотек задаёт каталог платформы, в <code>info.json</code> указывают только handle.</p>
 
 
 

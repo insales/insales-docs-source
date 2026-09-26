@@ -1,7 +1,7 @@
 # messages.json
 
 Переводы настроек и подсказок в виджетах.
-В примере ниже `"youtube_link"` - это используемое значение (ключ) в файлах a href="/4%20поколение/Виджеты/snippet.liquid/#translate_example">*snippet.liquid</a>, <a href="/4%20поколение/Виджеты/settings_form/#translate_example">*settings_form.json</a>
+В примере ниже `"youtube_link"` - это используемое значение (ключ) в файлах <a href="/4%20поколение/Виджеты/snippet.liquid/#translate_example">snippet.liquid</a>, <a href="/4%20поколение/Виджеты/settings_form/#translate_example">settings_form.json</a>
 
 ####Переводы для языков: 
 * "ru" - Русский `"Ссылка youtube, vimeo"`

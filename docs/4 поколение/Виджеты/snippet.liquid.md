@@ -1,6 +1,22 @@
 # snippet.liquid
 
-Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>. Код виджета будет обернут в блок с классом `layout` и автоматически генерируемом уникальным классом виджета. У родительского класса <a href="/4%20поколение/core.css/">layout</a> при изменении настроек в редакторе меняется значение css переменных в атрибуте `style`.
+Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>.
+
+Для виджета 4 поколения платформа оборачивает код сниппета так:
+
+```html
+<div
+  class="layout widget-type_{handle}"
+  style="--layout-wide-bg:true; --hide-mobile:false;"
+  data-widget-drop-item-id="123456"
+>
+  <div class="layout__content">
+    <!-- snippet.liquid -->
+  </div>
+</div>
+```
+
+`{handle}` — значение `handle` из <a href="/4%20поколение/Виджеты/info/">info.json</a>. В `style` попадают не все настройки, а только те, которые платформа превращает в CSS-переменные. Подробнее — в <a href="/4%20поколение/Виджеты/snippet.scss/#css-variables">snippet.scss</a>. Значение любой настройки в Liquid доступно через `widget_settings`, даже если его нет в `style`.
 
 
 #### В примере ниже:
@@ -17,7 +33,7 @@
 
 {% endfor %}
 ```
-- `block.name` - название указанное в блоке. Доступные поля можно посмотреть <a href="/4%20поколение/Виджеты/info/#blocks_example">здесь</a>
+- `block.name` - название, указанное в блоке. Набор полей зависит от <a href="/4%20поколение/Виджеты/info/#block_templates">шаблона блока</a>.
 
 
 #### Пример:

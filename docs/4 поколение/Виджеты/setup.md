@@ -1,6 +1,6 @@
 # setup.json
-Этот файл нужно заполнять если вы в <a href="/4%20поколение/Виджеты/info/">info.json</a> указали <a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">blockListWidgetType</a> и задан `block_template_handle`. 
-Доступные шаблоны блоков и описание доступных полей можно найти <a href="/4%20поколение/Виджеты/info/#_8">здесь</a>.
+Этот файл нужно заполнять, если вы в <a href="/4%20поколение/Виджеты/info/">info.json</a> указали <a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">BlockListWidgetType</a> и задан `block_template_handle`.
+Готовые шаблоны блоков и их поля смотрите в админке: `Настройки -> Настройки сайта -> Шаблоны блоков`. Как привязать шаблон, описано <a href="/4%20поколение/Виджеты/info/#block_templates">здесь</a>.
 
 
 ```JSON

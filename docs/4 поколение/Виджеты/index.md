@@ -14,6 +14,7 @@
 - <a href="/4%20поколение/Виджеты/settings_form/">Форма настроек</a>  `settings_form.json`
 - <a href="/4%20поколение/Виджеты/settings_data/">Настройки по умолчанию</a>  `settings_data.json`
 - <a href="/4%20поколение/Виджеты/setup/">Блоки по умолчанию</a>  `setup.json`
+- <a href="/4%20поколение/Виджеты/block_settings_presets/">Пресеты блоков</a>  `block_settings_presets.json`
 - <a href="/4%20поколение/Виджеты/preview/">Превью</a>  `preview.jpg` и `mobile_preview.jpg`
 - <a href="/4%20поколение/Виджеты/info/">Метаданные</a>  `info.json`
 

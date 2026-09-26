@@ -72,6 +72,13 @@
 - `Файл` 
 - `Цвет`
 - `Блог`
+- `Ссылка`
+- `Меню`
+- `Информация`
+- `Переключатель`
+- `Группа иконок`
+- `Ссылка на виджет`
+- `Описание текущей страницы`
 
 <a name="setting_form_text"></a>
 #### Текст (text)
@@ -444,7 +451,7 @@ Options:
 * `label` - Заголовок настройки
 * `value` - Значение по умолчанию
 * `help` - Подсказка (будет отображаться рядом с полем)
-* `type` - Тип `color`
+* `type` - Тип `blog`
 * `general` - Значение `true` или `false` - Boolean | булевый тип. Вывод настройки в основные в редакторе 
 * `general_position` - Значение `2` - тип number | Число. Порядок вывода настройки в основные в редакторе
 * `general_label` - Значение - `"{{ messages.title }}"`. Добавляет заголовок с переводом из messages в основных настройках виджета в редакторе
@@ -474,6 +481,107 @@ Options:
       "Группа 3":[]
     }
 ````
+
+#### Ссылка (link)
+
+Поле выбора ссылки: страница, товар, категория или произвольный адрес.
+
+```json
+{
+  "name": "banner_link",
+  "label": "{{ messages.btn_link }}",
+  "type": "link",
+  "help": "{{ messages.btn_link_help }}"
+}
+```
+
+#### Меню (navigation)
+
+Выбор меню магазина. В Liquid значение — handle меню.
+
+```json
+{
+  "name": "menu-1",
+  "label": "{{ messages.menu }}",
+  "type": "navigation"
+}
+```
+
+#### Информация (info)
+
+Текст в редакторе без сохраняемого значения. Покупатель его не видит.
+
+```json
+{
+  "name": "mark-info",
+  "label": "Маркировка рекламы",
+  "type": "info",
+  "text": "{{ messages.mark_info }}"
+}
+```
+
+#### Переключатель (button_switch)
+
+Кнопки с одним выбранным значением. Варианты задаются в `options`.
+
+```json
+{
+  "name": "product-desc-limit",
+  "label": "{{ messages.product_desc_limit }}",
+  "type": "button_switch",
+  "options": [
+    { "value": "10", "title": "10" },
+    { "value": "20", "title": "20" }
+  ]
+}
+```
+
+Допустимы также типы `button-switch` и `button-list`: редактор показывает их тем же полем.
+
+#### Группа иконок (icon_group)
+
+Тот же выбор одного значения, но у каждого варианта есть иконка редактора.
+
+```json
+{
+  "name": "widget-align",
+  "label": "{{ messages.align_content }}",
+  "type": "icon_group",
+  "options": [
+    { "value": "left", "title": "{{ messages.align_left }}", "icon": "mdi-text-align-left" },
+    { "value": "center", "title": "{{ messages.align_center }}", "icon": "mdi-text-align-center" },
+    { "value": "right", "title": "{{ messages.align_right }}", "icon": "mdi-text-align-right" }
+  ]
+}
+```
+
+Тип `icon-group` работает так же.
+
+#### Ссылка на виджет (link-to-widget)
+
+Кнопка в редакторе, которая открывает виджеты указанной категории. На витрину не выводится.
+
+```json
+{
+  "name": "link-to-widget-stickers",
+  "label": "{{ messages.sticker_colors }}",
+  "type": "link-to-widget",
+  "category_handle": "stiker_hex_color",
+  "icon": "mdi-cat-drugie"
+}
+```
+
+#### Описание текущей страницы (current-page-description)
+
+Поле редактора с описанием текущей страницы. Отдельное значение в `settings_data.json` не хранится.
+
+```json
+{
+  "name": "current-page-description",
+  "label": "{{ messages.product_description }}",
+  "type": "current-page-description"
+}
+```
 
 #### Использование настроек
 

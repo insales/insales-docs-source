@@ -3,8 +3,8 @@ repo_url: https://github.com/insales/insales-docs-source/
 
 theme:
   name: 'material'
+  custom_dir: overrides
   features:
-    - navigation.sections
     - navigation.indexes
 
 
@@ -96,6 +96,17 @@ nav:
         - Примеры работы с данными магазина/Captcha/README.md
       - site_currencies:
         - Примеры работы с данными магазина/site_currencies/index.md
+  - API сайта:
+    - API сайта/index.md
+    - API сайта/корзина.md
+    - API сайта/товары.md
+    - API сайта/коллекции.md
+    - API сайта/поиск.md
+    - API сайта/сравнение-и-избранное.md
+    - API сайта/отзывы.md
+    - API сайта/покупатель.md
+    - API сайта/заказ.md
+    - API сайта/доставка.md
   - InSales API:
     - InSales API/01 readme.md
     - InSales API/02 Подключение внешнего способа оплаты (для разработчиков интеграций).md
@@ -105,6 +116,8 @@ nav:
     - InSales API/06 InSales API - Счета приложения.md
     - InSales API/07 InSales API - Webhooks.md
     - InSales API/08 InSales API - Периодические счета.md
+    - InSales API/09 Внешние скидки.md
+    - InSales API/10 Товары.md
 
 
 

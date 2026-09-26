@@ -48,6 +48,7 @@
 ## События
 
 * init-filter:ui-ajax-filter - срабатывает после инициализации фильтров
+* filter-item-loaded:ui-ajax-filter - срабатывает после подгрузки значений одного фильтра. В данных есть узел фильтра `filterItem`, список его классов и отмеченные значения `checked`
 
 ```js
 EventBus.subscribe('init-filter:ui-ajax-filter', data => {

@@ -107,4 +107,22 @@ EventBus.subscribe("update_items:insales:cart", function(cart) {
 
 ### InSalesUI.bindUpdateCart
 
-Обновление слушателей quantity в форме корзины
+Повесить слушатели изменения количества на позиции корзины. Если jQuery-набор не передан, слушатели ставятся на все элементы с `data-item-id`.
+
+```js
+/**
+ * @param {jQuery} [$items] позиции корзины
+ */
+InSalesUI.bindUpdateCart($('[data-item-id]'));
+```
+
+### InSalesUI.openQuickCheckoutModal
+
+Открыть модальное окно заказа в один клик для переданной формы товара.
+
+```js
+/**
+ * @param {HTMLElement|jQuery} target форма товара
+ */
+InSalesUI.openQuickCheckoutModal(document.querySelector('[data-product-id]'));
+```

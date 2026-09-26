@@ -344,7 +344,7 @@ EventBus.subscribe('unchange_quantity:insales:ui_add-cart-counter', data => {
 ```js
 Products.setConfig({
   options: {
-    'Цвет': 'option-image',
+    'Цвет': 'option-select-image',
     'Размер': 'option-radio',
     'Материал': 'option-select',
     'Жесткий диск': 'option-span'
@@ -720,11 +720,24 @@ Products.getRecentlyViewed()
 | before:insales:product            | Срабатывает перед любым взаимодействием с компонентом товара                                       |
 | always:insales:product            | Срабатывает после любого взаимодействия с компонентом товара                                       |
 | change_quantity:insales:product   | Обновление количества товара в инпуте quantity                                                     |
-| unchange_quantity:insales:product | Если введено кол-во больше доступного                                                              |
+| unchange_quantity:insalesproduct   | Количество на карточке не изменилось: введённое значение больше доступного или меньше минимального. В имени события нет двоеточия перед `product` |
+| unchange_quantity:insalesitem     | То же для позиции корзины с `data-item-id`. В имени события нет двоеточия перед `item`            |
 | overload:quantity:insales:product | Событие срабатывает, когда с помощью +/- накликали до максимального значения  quantity (Работает, если вы используете параметр useMax) |
 | max:quantity:insales:product      | Срабатывает всегда, когда в инпуте установлено максимальное кол-во, даже при загрузке страницы (Работает, если вы используете параметр useMax) |
 | change_variant:insales:product    | Срабатывает при выборе варианта товара                                                             |
 | update_variant:insales:product    | Обновление варианта товара                                                                         |
+
+Для позиции корзины с атрибутом `data-item-id` те же действия публикуют события с суффиксом `item`:
+
+| Событие                        | Описание                                              |
+|--------------------------------|-------------------------------------------------------|
+| before:insales:item            | Перед изменением позиции корзины                      |
+| change_quantity:insales:item   | Изменилось количество позиции                         |
+| change_variant:insales:item    | Сменился вариант позиции                              |
+| update_variant:insales:item    | Позиция обновлена                                     |
+| always:insales:item            | После любого изменения позиции                        |
+
+Встроенные идентификаторы шаблонов селектора: `option-default`, `option-select`, `option-radio`, `option-span`, `option-preview`, `option-preview-text`, `option-select-image`. Шаблон с картинками значений — `option-select-image`.
 
 
 **Пример подписки на событие**

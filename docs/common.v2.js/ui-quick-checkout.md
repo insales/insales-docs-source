@@ -49,3 +49,27 @@
   Оформить заявку
 </button>
 ```
+
+## Дополнительные атрибуты
+
+`data-quick-checkout-handle` задаёт имя модального окна на самой форме. Если атрибута нет, окно называется `default`. Кнопка открывает окно с тем же именем через `data-quick-checkout-modal-handle`.
+
+`data-quick-checkout-use-common-cart` на модальном окне означает, что в быстрый заказ попадут и товары, которые уже лежат в корзине.
+
+## События
+
+| Событие | Описание |
+|---|---|
+| before:insales:quick_checkout | Перед отправкой формы. В данных параметры запроса |
+| success:insales:quick_checkout | Заказ создан. В данных есть `task` и снимок корзины `cart` |
+| errors:insales:quick_checkout | Сервер вернул ошибки формы |
+| always:insales:quick_checkout | После успеха или ошибки |
+| before_submit:insales:quick_checkout | Перед переходом на страницу успешного заказа |
+| add_disabled:insales:quick_checkout | Нажата заблокированная кнопка. В данных есть `button` |
+| add_checkout:insales:cart | Форма собрана и передана в оформление |
+
+```js
+EventBus.subscribe('errors:insales:quick_checkout', function (task) {
+  console.log(task);
+});
+```

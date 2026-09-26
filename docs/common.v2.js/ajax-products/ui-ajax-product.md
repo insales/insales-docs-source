@@ -68,7 +68,7 @@ function initAjaxProductCallback(data) {
 // Получаем массив с элементами с атрибутом data-ajax-product
 const ajaxProductNodes = Array.from(document.querySelectorAll('[data-ajax-product]'));
 
-// Если элементы есть, то проходим по массиву и для каждого элемента записываем настройки в значении атрибута data-ajax-product и публикуем событие ui-ajax-products:load-products-list
+// Если элементы есть, то проходим по массиву и для каждого элемента записываем настройки в значении атрибута data-ajax-product и публикуем событие ui-ajax-product:load-product
 if (ajaxProductNodes && ajaxProductNodes.length) {
   ajaxProductNodes.forEach(ajaxProductNode => {
 	ajaxProductNode.dataset.ajaxProduct = JSON.stringify({
@@ -173,7 +173,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Для отображения стикеров необходимо передать параметры товара (`properties`) и их значения (`characteristics`) в настройке `productsData`.
+		Для отображения стикеров необходимо передать параметры товара (`properties`) и их значения (`characteristics`) в настройке `productData`.
 		Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ##### data-ajax-product-sizes-table-btn
@@ -241,7 +241,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Для отображения вариантов необходимо передать варианты товара (`variants`) в настройке `productsData`.
+		Для отображения вариантов необходимо передать варианты товара (`variants`) в настройке `productData`.
 		Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ##### data-ajax-product-short-description
@@ -413,7 +413,7 @@ function initAjaxProductCallback(data) {
 		Шаблон будет использован, если у товара имеется более одного изображения или видео.
 
 !!! warning
-		Обратите внимание: чтобы шаблон был отрисован, в `productsData` необходимо передать изображения товара (`images`) и ссылки на видео товара (`video_links`).
+		Обратите внимание: чтобы шаблон был отрисован, в `productData` необходимо передать изображения товара (`images`) и ссылки на видео товара (`video_links`).
 		Полный список доступных данных можно найти по [ссылке](#productdata).
 
 В шаблоне могут быть размещены до 6 блоков для отображения изображений и видео каждого типа.
@@ -633,7 +633,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке `productsData` были переданы изображения товара (`images`). Полный список доступных данных можно найти по [ссылке](#productdata).
+		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке `productData` были переданы изображения товара (`images`). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ### Шаблон для отрисовки краткого описания товара: `data-ajax-product-short-description-template`
 
@@ -651,7 +651,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке `productsData` было передано краткое описание товара (`short_description`). Полный список доступных данных можно найти по [ссылке](#productdata).
+		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке `productData` было передано краткое описание товара (`short_description`). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ### Шаблон для отрисовки полного описания товара: `data-ajax-product-full-description-template`
 
@@ -669,7 +669,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке productsData было передано полное описание товара (description). Полный список доступных данных можно найти по [ссылке](#productdata).
+		Обратите внимание: для отображения этого шаблона необходимо, чтобы в настройке productData было передано полное описание товара (description). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ### Шаблон для отрисовки параметров товара: `data-ajax-product-properties-template`
 
@@ -714,7 +714,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productsData` были переданы параметры товара (`properties`) и их значения (`characteristics`). Полный список доступных данных можно найти по [ссылке](#productdata).
+		Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productData` были переданы параметры товара (`properties`) и их значения (`characteristics`). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ### Шаблон компонента комплекта: `data-ajax-product-bundle-components-item-template`
 
@@ -798,7 +798,7 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-	Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productsData` была передана информация о комплекте (`bundle_info`). Полный список доступных данных можно найти по [ссылке](#productdata).
+	Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productData` была передана информация о комплекте (`bundle_info`). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 ### Шаблон для отрисовки названий и значений свойств компонента комплекта: `data-ajax-product-bundle-components-item-options-template`
 
@@ -821,13 +821,14 @@ function initAjaxProductCallback(data) {
 ```
 
 !!! warning
-		Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productsData` была передана информация о комплекте (`bundle_info`). Полный список доступных данных можно найти по [ссылке](#productdata).
+		Обратите внимание: для отрисовки этого шаблона необходимо, чтобы в настройке `productData` была передана информация о комплекте (`bundle_info`). Полный список доступных данных можно найти по [ссылке](#productdata).
 
 
 ## События
 
 - `ui-ajax-product:load-product` — событие, которое необходимо инициализировать в JavaScript.
 - `init-product:ui-ajax-product` — срабатывает после успешной загрузки и отрисовки товара.
+- `bundle-items-loaded:ui-ajax-product` — срабатывает после загрузки компонентов комплекта. В данных есть `bundleComponentsNode`.
 
 Подробнее о событиях компонента можно узнать по следующей [ссылке](#_3).
 

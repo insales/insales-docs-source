@@ -115,6 +115,21 @@ $(function() {
 });
 ```
 
+## События
+
+| Событие | Когда приходит |
+|---|---|
+| recaptcha:insales:loaded | Блоки капчи в формах common.js инициализированы |
+| recaptcha-api:insales:loaded | Скрипт reCAPTCHA загружен, виджет можно рисовать |
+| google-recaptcha:insales:response | Получен ответ виджета. В данных есть контейнер, ответ и тип формы |
+| recaptcha:insales:response | Тот же ответ строкой токена |
+
+```javascript
+EventBus.subscribe('recaptcha:insales:response', function (token) {
+  console.log(token);
+});
+```
+
 ## Метод executeInvisible (ReCaptcha v3 Invisible)
 
 ```js

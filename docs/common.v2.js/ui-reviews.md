@@ -254,10 +254,10 @@
 
 Атрибут для кнопки вызова модального окна. При нажатии происходит публикация события EventBus `show-modal-reviews:insales:ui_reviews`.
 
-В качестве значения можно передать ID модального окна. Это может быть удобно, если у вас несколько форм в модальных окнах.
+В значение можно передать `modal_id` и `payload`. Оба поля приходят в событии `show-modal-reviews:insales:ui_reviews`. Если `payload` не задан, в событии будет пустой объект.
 
 ```html
-<button data-show-reviews-modal='{"modal_id": "123456"}'>Форма отзыва</button>
+<button data-show-reviews-modal='{"modal_id": "123456", "payload": {"product_id": 70513124}}'>Форма отзыва</button>
 ```
 
 ```js

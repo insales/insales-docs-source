@@ -88,14 +88,23 @@ EventBus.publish('event_id', {
 
 **Параметры**
 
+Имя компонента — последняя часть имени события после двоеточия. Например, для `add_items:insales:cart` это `cart`.
+
 Список компонентов:
 
 - cart
 - product
+- item
 - search
 - compares
 - favorites_products
 - quick_checkout
+- ui_product
+- ui_feedback
+- ui_comments
+- ui_reviews
+- ui_accessories
+- ui_add-cart-counter
 
 ```js
 /**

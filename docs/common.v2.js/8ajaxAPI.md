@@ -79,7 +79,7 @@ var options = {
   coupon: 'test'
 }
 
-ajaxAPI.cart.update(items, optins)
+ajaxAPI.cart.update(items, options)
   .done(function (onDone) { console.log('onDone: ', onDone) })
   .fail(function (onFail) { console.log('onFail: ', onFail) });
 ```
@@ -104,6 +104,28 @@ ajaxAPI.shop.client.get()
   .done(function (onDone) { console.log('onDone: ', onDone) })
   .fail(function (onFail) { console.log('onFail: ', onFail) })
 
+```
+
+### login
+
+Вход покупателя. В случае ошибки в `fail` приходит объект ошибок.
+
+```js
+ajaxAPI.shop.client.login({
+  email: 'user@mail.ru',
+  password: 'secret'
+})
+  .done(function (client) { console.log(client) })
+  .fail(function (errors) { console.log(errors) });
+```
+
+### logout
+
+Выход покупателя.
+
+```js
+ajaxAPI.shop.client.logout()
+  .done(function (result) { console.log(result) });
 ```
 
 
@@ -159,14 +181,48 @@ var commentOption = {
   content: 'Текст'
 }
 if ($('#recaptcha-token').length) {
-    reviewOption['g-recaptcha-response'] = $('#recaptcha-token').val();
+    commentOption['g-recaptcha-response'] = $('#recaptcha-token').val();
 }else{
-  reviewOption['captcha_solution'] = $('[name="review[captcha_solution]"]').val();
+  commentOption['captcha_solution'] = $('[name="comment[captcha_solution]"]').val();
 }
 
 ajaxAPI.shop.comment(commentOption, '/blogs/blog/aktsiya')
   .done(function (onDone) { console.log('onDone: ', onDone) })
   .fail(function (onFail) { console.log('onFail: ', onFail) });
+```
+
+### Комментарии статьи через shop.article
+
+Получить список комментариев и отправить новый комментарий по адресу статьи.
+
+```js
+ajaxAPI.shop.article.getComments(123456)
+  .done(function (comments) { console.log(comments) });
+
+ajaxAPI.shop.article.sendComment(commentOption, '/blogs/blog/aktsiya')
+  .done(function (onDone) { console.log(onDone) })
+  .fail(function (onFail) { console.log(onFail) });
+```
+
+### Отзывы товара
+
+```js
+ajaxAPI.shop.product.getReviews(123456)
+  .done(function (reviews) { console.log(reviews) });
+```
+
+Отзыв с изображением отправляется объектом `FormData` через `ajaxAPI.shop.reviewImage`. Адрес товара передаётся вторым аргументом, как у `ajaxAPI.shop.review`.
+
+```js
+var formData = new FormData();
+formData.append('review[author]', 'Пользователь');
+formData.append('review[email]', 'user@mail.ru');
+formData.append('review[content]', 'Текст отзыва');
+formData.append('review[image_attributes][image]', fileInput.files[0]);
+
+ajaxAPI.shop.reviewImage(formData, '/collection/shop/product/main')
+  .done(function (onDone) { console.log(onDone) })
+  .fail(function (onFail) { console.log(onFail) });
 ```
 
 
@@ -272,6 +328,15 @@ ajaxAPI.collection.get('collection_handle', filter, pager)
   .fail(function (onFail) { console.log('onFail: ', onFail) });
 ```
 
+### selectedFilter
+
+Текущий фильтр коллекции: значения из адреса страницы, дополненные SEO-фильтром, если он есть.
+
+```js
+ajaxAPI.collection.selectedFilter()
+  .then(function (filter) { console.log(filter) });
+```
+
 ## Оформление заказа
 
 Оформление заказа с указанием способа оплаты и доставки.
@@ -301,6 +366,18 @@ ajaxAPI.checkout.order({
   .done(function (onDone) { console.log('onDone: ', onDone) })
   .fail(function (onFail) { console.log('onFail: ', onFail) });
 ```
+
+### quick
+
+Быстрый заказ. Аргумент — объект параметров ajax-запроса, который получается из формы заказа в один клик.
+
+```js
+ajaxAPI.checkout.quick(formData)
+  .done(function (onDone) { console.log(onDone) })
+  .fail(function (onFail) { console.log(onFail) });
+```
+
+Перед переходом на страницу успешного заказа публикуется `before_submit:insales:quick_checkout`.
 
 
 ## Сравнение
@@ -333,4 +410,32 @@ ajaxAPI.compare.remove(123456)
 ajaxAPI.compare.get()
   .done(function (onDone) { console.log('onDone: ', onDone) })
   .fail(function (onFail) { console.log('onFail: ', onFail) });
+```
+
+### clear
+
+Очистить список сравнения.
+
+```js
+ajaxAPI.compare.clear()
+  .done(function (onDone) { console.log(onDone) });
+```
+
+## Избранное
+
+Методы принимают id товара и возвращают jQuery Deferred.
+
+```js
+ajaxAPI.favorites.add(123456);
+ajaxAPI.favorites.remove(123456);
+ajaxAPI.favorites.get();
+ajaxAPI.favorites.clear();
+```
+
+## Восстановление пароля
+
+```js
+ajaxAPI.shop.password.reset({ email: 'user@mail.ru' })
+  .done(function (response) { console.log(response) })
+  .fail(function (response) { console.log(response.errors) });
 ```

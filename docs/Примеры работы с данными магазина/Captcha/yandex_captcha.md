@@ -177,6 +177,32 @@ window.EventBus.subscribe('yandex-captcha:insales:response', (data) => {
 });
 ```
 
+### `yandex-captcha-api:insales:loaded`
+
+Срабатывает, когда скрипт SmartCaptcha загружен и виджет можно рисовать вручную.
+
+```javascript
+window.EventBus.subscribe('yandex-captcha-api:insales:loaded', () => {
+  console.log('Скрипт SmartCaptcha загружен');
+});
+```
+
+## `reinitCaptchaIfSafari`
+
+В Safari после успешного прохождения невидимой капчи виджет рисуется заново: иначе страница может прокрутиться вверх. Капча с чекбоксом повторно не рисуется, форму после неё отправляет посетитель.
+
+Метод срабатывает только в Safari и только пока активный элемент — iframe капчи. На других браузерах он ничего не делает.
+
+```javascript
+window.yandexCaptchaCommon.reinitCaptchaIfSafari({
+  context: formController,
+  captchaBlock: document.querySelector('[data-yandex-captcha]'),
+  formType: 'feedback'
+});
+```
+
+`formType` — `feedback`, `comment` или `review`.
+
 ## Примеры использования
 
 ### Простая видимая капча

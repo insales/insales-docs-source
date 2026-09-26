@@ -115,6 +115,30 @@
 <button data-cart-clear>Очистить</button>
 ```
 
+#### data-cart-update
+
+Кнопка обновления состава корзины без перехода на другую страницу. По клику на сервер уходят текущие количества, комментарии и купон из формы.
+
+```html
+<button type="button" data-cart-update>Обновить</button>
+```
+
+#### data-cart-submit
+
+Кнопка оформления заказа внутри формы корзины.
+
+```html
+<input type="submit" value="Оформить" data-cart-submit>
+```
+
+#### data-ajax-cart
+
+Форма мини-корзины. При изменении количества позиция обновляется без перезагрузки страницы. Такую форму инициализируют через `InSalesUI.initAjaxInstance`.
+
+```html
+<form action="/cart_items" method="post" data-ajax-cart>
+```
+
 #### data-coupon-submit
 
 Кнопка отправки купона
@@ -478,9 +502,23 @@ var item = Cart.order.getItemByID(138231315);
 console.log(item);
 ```
 
+## Общие события корзины
+
+Пока состав корзины не получен, изменения не отправляются на сервер. После загрузки состава ожидающие изменения уходят по очереди. Если состав получить не удалось, ожидающие изменения не применяются, приходит событие `always:insales:cart`.
+
+Когда состав корзины получен в первый раз, публикуется `order_ready:insales:cart`. В callback приходит объект заказа.
+
+Если в ответе корзины есть ошибки, публикуется `error_discount:insales:cart`. Если ошибка относится к опции товара, дополнительно публикуется `accessories-errors:insales:cart`.
+
+У событий изменения состава есть облегчённый вариант с суффиксом `:light`, например `update_items:insales:cart:light` и `add_items:insales:cart:light`. В `order_lines` такого события нет объекта товара.
+
 ### События изменения позиции товара
 
 * before:insales:item
 * change_quantity:insales:item
+* change_variant:insales:item
 * update_variant:insales:item
 * always:insales:item
+* unchange_quantity:insalesitem
+
+`unchange_quantity:insalesitem` приходит, когда количество позиции не изменилось. В имени события нет двоеточия перед `item`.

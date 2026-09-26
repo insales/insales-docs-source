@@ -71,6 +71,10 @@ nav:
     - common.v2.js/12Template.md
     - common.v2.js/13InSalesUI.md
     - common.v2.js/14Shop.md
+    - common.v2.js/ui-menu.md
+    - common.v2.js/ui-add-cart-counter.md
+    - common.v2.js/ui-ajax-reviews.md
+    - common.v2.js/15Tools.md
 
   - Примеры работы с данными магазина:
       - images_for_options:

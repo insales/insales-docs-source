@@ -123,7 +123,7 @@ FavoritesProducts.remove({
 Очистить избранное
 
 ```js
-FavoritesProducts.remove();
+FavoritesProducts.clear();
 ```
 
 ### update

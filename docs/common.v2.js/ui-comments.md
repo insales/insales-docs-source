@@ -13,7 +13,6 @@
   class="comment-form"
   method="post"
   data-comments-form-wrapper='{
-    "reviews_moderated": {{ account.reviews_moderated? }},
     "url": "{{ article.url }}"
   }'
   action="/blogs/blog/333/comments#comment_form"
@@ -47,13 +46,13 @@
 ```html
 <div
   data-comments-form-field-area
-  class="form-row form-author is-required {% if review.errors contains 'author' %}is-error{% endif %}"
+  class="form-row form-author is-required {% if comment.errors contains 'author' %}is-error{% endif %}"
 >
   <label class="form-label">{{ widget_messages.field_name }} <span class="text-error">*</span></label>
   <input
     name="comment[author]"
     placeholder="{{ widget_messages.field_name }}"
-    value="{{ review.author }}"
+    value="{{ comment.author }}"
     type="text"
     class="form-control form-control_size-m"
     data-comments-form-field='{"isRequired": true, "errorMessage": "ошибка"}'
@@ -81,7 +80,7 @@
 <input
   name="comment[author]"
   placeholder="{{ widget_messages.field_name }}"
-  value="{{ review.author }}"
+  value="{{ comment.author }}"
   type="text"
   class="form-control form-control_size-m"
   data-comments-form-field='{"isRequired": true, "errorMessage": "ошибка"}'
@@ -267,10 +266,10 @@
 
 Атрибут для кнопки вызова модального окна. При нажатии происходит публикация события EventBus `show-modal-comments:insales:ui_comments`.
 
-В качестве значения можно передать ID модального окна. Это может быть удобно, если у вас несколько форм в модальных окнах.
+В значение можно передать `modal_id` и `payload`. Оба поля приходят в событии `show-modal-comments:insales:ui_comments`. Если `payload` не задан, в событии будет пустой объект.
 
 ```html
-<button data-show-comments-modal='{"modal_id": "123456"}'>Форма комментария к статье</button>
+<button data-show-comments-modal='{"modal_id": "123456", "payload": {"article_id": 333}}'>Форма комментария к статье</button>
 ```
 
 ```js
@@ -303,7 +302,6 @@ EventBus.subscribe('send-comment:insales:ui_comments', function (data) {
   class="comment-form"
   method="post"
   data-comments-form-wrapper='{
-    "reviews_moderated": {{ account.reviews_moderated? }},
     "url": "{{ article.url }}"
   }'
   action="{{ article.url }}/comments#comment_form"
@@ -325,13 +323,13 @@ EventBus.subscribe('send-comment:insales:ui_comments', function (data) {
       <div id="comment_form" class="js-review-wrapper">
         <div
           data-comments-form-field-area
-          class="form-row form-author is-required {% if review.errors contains 'author' %}is-error{% endif %}"
+          class="form-row form-author is-required {% if comment.errors contains 'author' %}is-error{% endif %}"
         >
           <label class="form-label">{{ widget_messages.field_name }} <span class="text-error">*</span></label>
           <input
             name="comment[author]"
             placeholder="{{ widget_messages.field_name }}"
-            value="{{ review.author }}"
+            value="{{ comment.author }}"
             type="text"
             class="form-control form-control_size-m"
             data-comments-form-field='{"isRequired": true, "errorMessage": "ошибка"}'
@@ -340,13 +338,13 @@ EventBus.subscribe('send-comment:insales:ui_comments', function (data) {
         </div>
         <div
           data-comments-form-field-area
-          class="form-row form-email is-required {% if review.errors contains 'email' %}is-error{% endif %}"
+          class="form-row form-email is-required {% if comment.errors contains 'email' %}is-error{% endif %}"
         >
           <label class="form-label">{{ widget_messages.field_email }} <span class="text-error">*</span></label>
           <input
             name="comment[email]"
             placeholder="{{ widget_messages.field_email }}"
-            value="{{ review.email }}"
+            value="{{ comment.email }}"
             type="text"
             class="form-control form-control_size-m"
             data-comments-form-field='{
@@ -358,7 +356,7 @@ EventBus.subscribe('send-comment:insales:ui_comments', function (data) {
         </div>
         <div
           data-comments-form-field-area
-          class="form-row form-comment is-required {% if review.errors contains 'content' %}is-error{% endif %}"
+          class="form-row form-comment is-required {% if comment.errors contains 'content' %}is-error{% endif %}"
         >
           <label class="form-label">{{ widget_messages.field_message }} <span class="text-error">*</span></label>
           <textarea

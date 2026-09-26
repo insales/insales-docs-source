@@ -44,13 +44,60 @@ Template.load('<button class="button button--click_me"><%= title %></button>', '
 
 ### render
 
-Загрузка нового шаблона в список
+Собрать HTML по уже загруженному шаблону. Метод корректно работает после `DOMContentLoaded`: до этого момента шаблоны из разметки ещё не прочитаны. Если шаблона с таким id нет, метод возвращает пустую строку.
+
+Синтаксис тела шаблона — `<%= %>`, `<% %>` и функции lodash, например `_.forEach`.
 
 
 ```js
 /**
 * @param {Object} templateData - информация для шаблонизатора
 * @param {string} template_id - название шаблона
+*
+* @return {string} html
  */
 $(targetNode).html(Template.render({ title: 'Click me!' }, 'test-button' ));
 ```
+
+### has
+
+Проверить, есть ли шаблон с указанным id.
+
+```js
+Template.has('test-button');
+```
+
+### getTemplate
+
+Вернуть функцию шаблона по id. Если шаблон не загружен, результат пустой.
+
+```js
+var compiled = Template.getTemplate('test-button');
+```
+
+### addCompiled
+
+Положить в список уже собранную функцию шаблона.
+
+```js
+/**
+* @param {function} compiledTemplate - функция шаблона
+* @param {string} template_id - название шаблона
+ */
+Template.addCompiled(compiledTemplate, 'test-button');
+```
+
+## Встроенные шаблоны
+
+Библиотека заранее содержит шаблоны:
+
+- `option-default`
+- `option-select`
+- `option-select-image`
+- `option-radio`
+- `option-span`
+- `option-preview`
+- `option-preview-text`
+- `search-default`
+
+Свой шаблон с тем же `data-template-id` заменяет встроенный.

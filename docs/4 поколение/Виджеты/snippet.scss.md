@@ -1,3 +1,8 @@
+---
+seo_title: "snippet.scss — стили виджета InSales"
+description: "Как писать SCSS для виджета InSales в snippet.scss: родительский класс layout, селектор &, CSS-переменные и примеры оформления."
+---
+
 # snippet.scss
 Файл предназначен для написания CSS стилей. Мы используем SCSS и методологию <a href="https://ru.bem.info/" target="_blank">БЭМ</a>.
 

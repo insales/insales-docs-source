@@ -1,3 +1,8 @@
+---
+seo_title: "InSalesUI — методы интерфейса common.v2.js"
+description: "Методы InSalesUI в common.v2.js для инициализации компонентов интерфейса магазина InSales, включая формы корзины после AJAX-загрузки."
+---
+
 # Методы для работы с UI
 
 ### InSalesUI.initAjaxInstance

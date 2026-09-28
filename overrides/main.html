@@ -1,8 +1,37 @@
 {% extends "base.html" %}
 
+{% block htmltitle %}
+  {% if page %}
+    {% set title = page.meta.seo_title or page.meta.title or page.title %}
+    <title>{{ title | striptags | e }} - {{ config.site_name | e }}</title>
+  {% else %}
+    <title>Страница не найдена - {{ config.site_name | e }}</title>
+  {% endif %}
+{% endblock %}
+
 {% block extrahead %}
   {{ super() }}
-  {% if page and page.meta and page.meta.noindex %}
+  <link rel="icon" type="image/png" sizes="180x180" href="{{ 'img/liquidhub-logo.png' | url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'img/liquidhub-logo.png' | url }}">
+  {% if not page or page.meta.noindex %}
     <meta name="robots" content="noindex, follow">
+  {% endif %}
+  {% if page %}
+    {% set title = page.meta.seo_title or page.meta.title or page.title %}
+    {% set description = page.meta.description or config.site_description %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ config.site_name | e }}">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="{{ title | striptags | e }} - {{ config.site_name | e }}">
+    <meta property="og:description" content="{{ description | e }}">
+    <meta property="og:url" content="{{ page.canonical_url | e }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title | striptags | e }} - {{ config.site_name | e }}">
+    <meta name="twitter:description" content="{{ description | e }}">
+    {% if page.is_homepage %}
+      <script type="application/ld+json">
+        {{ {"@context": "https://schema.org", "@type": "WebSite", "name": config.site_name, "url": config.site_url, "description": description, "inLanguage": config.theme.language} | tojson }}
+      </script>
+    {% endif %}
   {% endif %}
 {% endblock %}

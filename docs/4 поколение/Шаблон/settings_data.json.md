@@ -1,3 +1,8 @@
+---
+seo_title: "settings_data.json — значения настроек шаблона InSales"
+description: "Файл config/settings_data.json в шаблоне InSales: значения настроек, пресеты, выбор текущего пресета и связь с полями settings.json."
+---
+
 # settings_data.json
 
 Файл `config/settings_data.json` хранит значения настроек шаблона. Поля редактора задаются в <a href="/4%20поколение/Шаблон/settings.json/">settings.json</a>: ключ в пресете совпадает с `name` поля.

@@ -1,3 +1,8 @@
+---
+seo_title: "block_settings_presets.json — блоки виджета InSales"
+description: "Настройка block_settings_presets.json для виджета с блоками: фиксированный состав, пресет по умолчанию и ограничения содержимого полей."
+---
+
 # block_settings_presets.json
 
 Необязательный файл для виджета типа <a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">BlockListWidgetType</a>. В нём задают, можно ли менять состав блоков в редакторе, и ограничения для генерации содержимого блоков.

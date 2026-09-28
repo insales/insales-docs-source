@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /img/fallback/
 Disallow: /data/fallback_registry.json
+
+Sitemap: https://docs.liquidhub.ru/sitemap.xml

@@ -1,3 +1,8 @@
+---
+seo_title: "layout.liquid — структура страниц шаблона InSales"
+description: "Как устроены layout.liquid и шаблоны страниц InSales: папка templates, общая оболочка, content_for_layout и подключение виджет-листов."
+---
+
 # Layout страниц
 
 Файлы лежат в папке `templates/`. `layout.liquid` — общая оболочка всех страниц. В редакторе кода и в скачанном архиве тот же файл называется `layouts.layout.liquid`. Внутрь оболочки подставляется шаблон текущей страницы.

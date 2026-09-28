@@ -1,3 +1,8 @@
+---
+seo_title: "settings.json — поля настроек шаблона InSales"
+description: "Как описать поля редактора шаблона InSales в config/settings.json: группы, типы настроек и связь со значениями settings_data.json."
+---
+
 # settings.json
 
 Файл `config/settings.json` задаёт поля настроек шаблона в редакторе. Выбранные значения хранятся в <a href="/4%20поколение/Шаблон/settings_data.json/">settings_data.json</a> и читаются в Liquid как `{{ settings.имя }}`.

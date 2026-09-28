@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для шаблона DotStore в InSales"
+description: "Подключение Google reCAPTCHA к формам шаблона DotStore в InSales: JavaScript-код и обработка событий загрузки капчи."
+---
+
 # DotStore
 
 ## JS

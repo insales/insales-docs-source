@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для Аромат2, Фантазия2 и Чистота"
+description: "Подключение Google reCAPTCHA в шаблонах InSales Аромат2, Фантазия2 и Чистота: изменения insales.ui.forms.js и примеры кода."
+---
+
 # Аромат2, Фантазия2, Чистота
 
 ## insales.ui.forms.js

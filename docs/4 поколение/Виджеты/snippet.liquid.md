@@ -1,3 +1,8 @@
+---
+seo_title: "snippet.liquid — разметка виджета InSales"
+description: "HTML-разметка виджета InSales в snippet.liquid: шаблонизатор Liquid, обёртка виджета, настройки, переводы и примеры кода."
+---
+
 # snippet.liquid
 
 Данный сниппет предназначен для написания html разметки. Осуществляется с помощью шаблонизатора <a href="https://liquidhub.ru/collection/shpargalka-liquid" target="_blank">liquidhub</a>.

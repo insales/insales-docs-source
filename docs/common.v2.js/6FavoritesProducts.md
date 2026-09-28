@@ -1,3 +1,8 @@
+---
+seo_title: "Избранные товары — common.v2.js InSales"
+description: "Страница избранного в InSales: шаблон favorite.liquid, массив products и настройка компонентов common.v2.js для избранных товаров."
+---
+
 # Избранное
 
 Страница избранного доступна во всех магазинах по адресу `/favorites`.

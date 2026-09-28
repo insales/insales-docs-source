@@ -1,3 +1,8 @@
+---
+seo_title: "settings_data.json — значения настроек виджета InSales"
+description: "Значения настроек виджета InSales по умолчанию в settings_data.json: связь с settings_form.json, допустимые типы данных и примеры."
+---
+
 # settings_data.json
 
 Значения по умолчанию для настроек, указанных в <a href="/4%20поколение/Виджеты/settings_form/">settings_form.json</a> 

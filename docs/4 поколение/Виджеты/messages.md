@@ -1,3 +1,8 @@
+---
+seo_title: "messages.json — переводы виджета InSales"
+description: "Как задать переводы настроек и подсказок виджета InSales в messages.json и использовать ключи в snippet.liquid и settings_form.json."
+---
+
 # messages.json
 
 Переводы настроек и подсказок в виджетах.

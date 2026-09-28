@@ -1,3 +1,8 @@
+---
+seo_title: "settings_form.json — настройки виджета InSales"
+description: "Описание полей settings_form.json для редактора виджетов InSales: группы настроек, типы полей, параметры и примеры конфигурации."
+---
+
 # settings_form.json
 
 Настройки виджета в json формате, которые отображаются в редакторе. Дефолтные значения прописываются в файле <a href="/4%20поколение/Виджеты/settings_data/">settings_data.json</a>

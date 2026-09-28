@@ -1,3 +1,8 @@
+---
+seo_title: "setup.json — блоки виджета InSales"
+description: "Как заполнить setup.json виджета InSales типа BlockListWidgetType: привязка шаблона блоков, значения полей и изображения через fallback_id."
+---
+
 # setup.json
 Этот файл нужно заполнять, если вы в <a href="/4%20поколение/Виджеты/info/">info.json</a> указали <a href="/4%20поколение/Виджеты/info/#BlockListWidgetType">BlockListWidgetType</a> и задан `block_template_handle`.
 Готовые шаблоны блоков и их поля смотрите в админке: `Настройки -> Настройки сайта -> Шаблоны блоков`. Как привязать шаблон, описано <a href="/4%20поколение/Виджеты/info/#block_templates">здесь</a>.

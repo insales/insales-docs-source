@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для шаблонов с z.InSales"
+description: "Подключение Google reCAPTCHA в шаблонах с файлами z.InSales: изменения ui.js, обработка форм и примеры JavaScript-кода."
+---
+
 # Шаблоны с файлами z.InSales
 
 ## ui.js

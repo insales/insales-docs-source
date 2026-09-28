@@ -1,3 +1,8 @@
+---
+seo_title: "snippet.js — JavaScript виджета InSales"
+description: "JavaScript виджета InSales в snippet.js: доступ к jQuery, обёртка кода платформой и работа скрипта внутри виджета."
+---
+
 # snippet.js
 
 Сниппет нужен для написания javascript кода, относящегося к данному виджету.
@@ -24,7 +29,7 @@ $widget.each(function(index, el) {
 });
 ```
 
-Можно использовать встроенные события EventBus, подробнее можно ознакомиться <a href="/common.v2.js/EventBus/" target="_blank">здесь</a>
+Можно использовать встроенные события EventBus, подробнее можно ознакомиться <a href="/common.v2.js/7EventBus/" target="_blank">здесь</a>
 
 Подписку, которая меняет разметку, размещайте внутри `$widget.each` и проверяйте, что событие относится к текущему экземпляру:
 

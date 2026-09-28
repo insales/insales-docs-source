@@ -1,3 +1,8 @@
+---
+seo_title: "Виджеты приложения в бэк-офисе — InSales API"
+description: "Встраивание приложения в карточку заказа или товара InSales: iframe-виджеты ApplicationWidget, поля, HTML-код и методы API."
+---
+
 # Виджеты приложения
 
 Виджет приложения — iframe в карточке заказа или товара в бэк-офисе. В него попадает HTML из поля `code`. Методы — `ApplicationWidget` в [справочнике](https://api.insales.ru/).

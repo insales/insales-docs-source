@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA в InSales без commonjs.v2"
+description: "Как подключить Google reCAPTCHA к формам шаблона InSales без commonjs.v2: callback загрузки, JavaScript и примеры интеграции."
+---
+
 # Для шаблонов без commonjs.v2
 
 ## JS

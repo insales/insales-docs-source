@@ -1,3 +1,8 @@
+---
+seo_title: "Yandex SmartCaptcha — API для форм InSales"
+description: "Подключение Yandex SmartCaptcha к формам InSales: инициализация и рендер виджетов, невидимая капча и методы JavaScript API."
+---
+
 # Yandex Captcha
 
 Небольшое API, которое должно помочь разработчикам в подключении модуля Yandex Captcha для кастомных форм на сайте. Модуль представляет из себя набор функций для инициализации и рендера виджетов Yandex Captcha, а также для работы с невидимой капчей.

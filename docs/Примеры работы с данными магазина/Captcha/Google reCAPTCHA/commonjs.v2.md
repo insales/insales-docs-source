@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для шаблонов InSales с commonjs.v2"
+description: "Как подключить Google reCAPTCHA к формам шаблона InSales с commonjs.v2: JavaScript, события EventBus и настройки капчи."
+---
+
 # Для любых шаблонов с commonjs.v2
 
 ## JS

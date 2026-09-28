@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для Флёр, Инсташоп и Cross"
+description: "Как добавить Google reCAPTCHA в шаблоны InSales Флёр, Инсташоп и Cross: изменения theme.js и код подключения защиты форм."
+---
+
 # Флёр, Инсташоп, Cross
 
 ## theme.js

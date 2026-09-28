@@ -1,3 +1,8 @@
+---
+seo_title: "reCaptchaCommon API — Google reCAPTCHA в InSales"
+description: "API reCaptchaCommon для подключения Google reCAPTCHA к собственным формам InSales: рендер капчи, параметры и примеры JavaScript."
+---
+
 # reCaptchaCommon API
 
 Небольшое API, которое должно помочь разработчикам в подключении модуля ReCaptcha для кастомных форм.

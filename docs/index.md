@@ -1,4 +1,6 @@
 ---
+seo_title: "Документация InSales: шаблоны, виджеты и API"
+description: "Документация LiquidHub для разработчиков InSales: шаблоны 4 поколения, виджеты, Liquid, common.v2.js, API сайта и интеграции с примерами кода."
 title: Главная
 hide:
   - toc

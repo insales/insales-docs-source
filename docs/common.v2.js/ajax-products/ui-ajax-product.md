@@ -1,3 +1,8 @@
+---
+seo_title: "ui-ajax-product — AJAX-загрузка товара InSales"
+description: "Как загрузить товар InSales по идентификатору через ui-ajax-product: data-атрибуты, разметка, JavaScript и примеры применения."
+---
+
 # ui-ajax-product
 
 Компонент для упрощения реализации AJAX-подгрузки определенного товара интернет-магазина по его идентификатору в InSales.

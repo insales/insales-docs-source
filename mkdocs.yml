@@ -1,8 +1,13 @@
 site_name: LiquidHub
+site_url: https://docs.liquidhub.ru/
+site_description: Документация для разработчиков InSales — шаблоны 4 поколения, виджеты, Liquid, common.v2.js и API магазина с примерами кода.
 repo_url: https://github.com/insales/insales-docs-source/
 
 theme:
   name: 'material'
+  language: ru
+  logo: img/liquidhub-logo.png
+  favicon: img/favicon-32x32.png
   custom_dir: overrides
   features:
     - navigation.indexes
@@ -125,15 +130,17 @@ nav:
 
 
 
-extra:
-  search:
-    language: 'en, ru'
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
 
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - admonition
   - pymdownx.details
   - pymdownx.superfences

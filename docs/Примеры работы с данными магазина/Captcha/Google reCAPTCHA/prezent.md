@@ -1,3 +1,8 @@
+---
+seo_title: "Google reCAPTCHA для Презент, Монпансье и Плэнер"
+description: "Подключение Google reCAPTCHA в шаблонах InSales Презент, Монпансье и Плэнер: изменения скриптов обработки и отправки форм."
+---
+
 # Презент, Монпансье, Плэнер
 
 ## jquery.serialize-object.js

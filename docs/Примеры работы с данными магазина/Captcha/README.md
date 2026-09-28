@@ -1,4 +1,10 @@
-# Общие сведения
+---
+title: Общие сведения
+seo_title: "Капча в InSales: Google reCAPTCHA и Yandex SmartCaptcha"
+description: "Защита форм InSales от спама: подключение Google reCAPTCHA и Yandex SmartCaptcha, настройка feedback_captcha_enabled и примеры для шаблонов."
+---
+
+# Капча в формах InSales {#_1}
 
 В шаблонах есть возможность защитить формы обратной связи от спама c помощью добавления модуля Google reCAPTCHA или Yandex SmartCaptcha.
 

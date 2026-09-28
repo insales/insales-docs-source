@@ -162,3 +162,60 @@ function initApiExamples() {
     });
   });
 }
+
+$(function () {
+  var search = document.getElementById("fallback-search");
+  if (!search) return;
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".fallback-card"));
+  var sections = Array.prototype.slice.call(document.querySelectorAll(".fallback-section"));
+  var count = document.getElementById("fallback-count");
+  var orientation = document.getElementById("fallback-orientation");
+
+  function filterCards() {
+    var query = search.value.trim().toLocaleLowerCase();
+    var idQuery = /^\d+$/.test(query);
+    var visible = 0;
+    cards.forEach(function (card) {
+      var haystack = [card.dataset.id, card.dataset.name, card.dataset.series].join(" ").toLocaleLowerCase();
+      var matches = (!query || (idQuery ? card.dataset.id === query : haystack.indexOf(query) !== -1)) &&
+        (!orientation.value || card.dataset.orientation === orientation.value);
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    sections.forEach(function (section) {
+      section.hidden = !section.querySelector(".fallback-card:not([hidden])");
+    });
+    count.textContent = "Показано: " + visible + " из " + cards.length;
+  }
+
+  search.addEventListener("input", filterCards);
+  orientation.addEventListener("change", filterCards);
+  filterCards();
+
+  document.addEventListener("click", function (event) {
+    var button = event.target.closest(".fallback-copy");
+    if (!button) return;
+    var value = button.dataset.copyId;
+    var fallback = function () {
+      var input = document.createElement("textarea");
+      input.value = value;
+      document.body.appendChild(input);
+      input.select();
+      var copied = document.execCommand("copy");
+      input.remove();
+      return copied;
+    };
+    var done = function () {
+      button.textContent = "Скопировано";
+      setTimeout(function () { button.textContent = "Скопировать ID"; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(done).catch(function () {
+        if (fallback()) done();
+      });
+    } else if (fallback()) {
+      done();
+    }
+  });
+});

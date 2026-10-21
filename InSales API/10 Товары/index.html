@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Создание и изменение товаров через API бэк-офиса InSales: HTTP Basic, JSON-запросы, параметры товаров и синхронизация списков.">
+        <meta name="description" content="Создание и изменение товаров через API бэк-офиса InSales: варианты, свойства вариантов, типы цен, единицы измерения и параметры.">
       
       
       
@@ -15,6 +15,8 @@
       
         <link rel="prev" href="../09%20%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8/">
       
+      
+        <link rel="next" href="../14%20%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3/">
       
       
         
@@ -68,11 +70,11 @@
     <meta property="og:site_name" content="LiquidHub">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="Управление товарами — InSales API бэк-офиса - LiquidHub">
-    <meta property="og:description" content="Создание и изменение товаров через API бэк-офиса InSales: HTTP Basic, JSON-запросы, параметры товаров и синхронизация списков.">
+    <meta property="og:description" content="Создание и изменение товаров через API бэк-офиса InSales: варианты, свойства вариантов, типы цен, единицы измерения и параметры.">
     <meta property="og:url" content="https://docs.liquidhub.ru/InSales%20API/10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Управление товарами — InSales API бэк-офиса - LiquidHub">
-    <meta name="twitter:description" content="Создание и изменение товаров через API бэк-офиса InSales: HTTP Basic, JSON-запросы, параметры товаров и синхронизация списков.">
+    <meta name="twitter:description" content="Создание и изменение товаров через API бэк-офиса InSales: варианты, свойства вариантов, типы цен, единицы измерения и параметры.">
     
   
 
@@ -3200,6 +3202,28 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
@@ -3686,7 +3710,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#свойства-вариантов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свойства вариантов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Свойства вариантов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Значения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#варианты" class="md-nav__link">
     <span class="md-ellipsis">
       
         Варианты
@@ -3742,7 +3794,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#остаток" class="md-nav__link">
     <span class="md-ellipsis">
       
         Остаток
@@ -3753,7 +3805,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         Групповое обновление
@@ -3764,7 +3816,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         Удаление варианта
@@ -3775,7 +3827,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         Дополнительное поле варианта
@@ -3791,7 +3843,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#типы-цен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы цен
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#единицы-измерения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Единицы измерения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         Изображения
@@ -3803,7 +3877,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         Адрес изображения
@@ -3814,7 +3888,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         Файл в теле
@@ -3825,7 +3899,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         Привязка к варианту и порядок
@@ -3841,7 +3915,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         Аналоги
@@ -3852,7 +3926,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сопутствующие
@@ -3863,7 +3937,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       
         Опция покупки
@@ -3874,7 +3948,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       
         Комплект
@@ -3888,6 +3962,314 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14%20%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Каталог
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Склады
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16%20%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Темы, ассеты и файлы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Заказы и клиенты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13%20%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Магазин
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17%20%D0%94%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доставка и точки самовывоза
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Способы оплаты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложения и диалоги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20%20%D0%92%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выгрузки товаров
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15%20%D0%92%D0%B8%D1%82%D1%80%D0%B8%D0%BD%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Витрина
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4055,7 +4437,35 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#свойства-вариантов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свойства вариантов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Свойства вариантов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Значения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#варианты" class="md-nav__link">
     <span class="md-ellipsis">
       
         Варианты
@@ -4111,7 +4521,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#остаток" class="md-nav__link">
     <span class="md-ellipsis">
       
         Остаток
@@ -4122,7 +4532,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         Групповое обновление
@@ -4133,7 +4543,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       
         Удаление варианта
@@ -4144,7 +4554,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       
         Дополнительное поле варианта
@@ -4160,7 +4570,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#типы-цен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Типы цен
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#единицы-измерения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Единицы измерения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       
         Изображения
@@ -4172,7 +4604,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       
         Адрес изображения
@@ -4183,7 +4615,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       
         Файл в теле
@@ -4194,7 +4626,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       
         Привязка к варианту и порядок
@@ -4210,7 +4642,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       
         Аналоги
@@ -4221,7 +4653,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сопутствующие
@@ -4232,7 +4664,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       
         Опция покупки
@@ -4243,7 +4675,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
       
         Комплект
@@ -4274,8 +4706,6 @@
 
 
 <h1 id="_1">Товары</h1>
-<p>API бэк-офиса создаёт и меняет товары магазина. Запрос идёт на <code>https://SHOP/admin/...json</code>, авторизация — HTTP Basic, логин и пароль приложения. Правила лимита и <code>Content-Type</code> — в <a href="../01%20readme/">общем описании</a>. Сверка списков по <code>updated_since</code> и <code>from_id</code> — в <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">изменившихся данных</a>.</p>
-<p>В запросе логин и пароль — <code>API_KEY</code> и <code>API_PASSWORD</code>. Путь без адреса магазина: его подставляют перед <code>/admin</code>.</p>
 <h2 id="_2">Список</h2>
 <p><code>GET /admin/products.json</code> отдаёт массив товаров. <code>GET /admin/products/count.json</code> отдаёт число записей в том же отборе.</p>
 <p><code>per_page</code> меньше 10 поднимается до 10. Вторая страница читается параметром <code>page</code>.</p>
@@ -4863,7 +5293,7 @@
 <p>Размер и цвет задаются свойствами варианта, раздел «Варианты». Гравировка и подарочная упаковка — опция покупки, раздел «Опция покупки»: у значения своя цена.</p>
 <p>Параметры товара читаются из <code>GET /admin/products/:id.json</code>. Названия свойств лежат в <code>properties</code>, значения — в <code>characteristics</code>. Пара связывается по <code>property_id</code>: у значения тот же <code>property_id</code>, что <code>id</code> у свойства. Название значения — поле <code>title</code>.</p>
 <h3 id="_9">Запись по названиям</h3>
-<p>Свойство и значение создаются, если таких названий в магазине ещё нет. Одинаковый <code>title</code> в нескольких элементах <code>properties_attributes</code> — одно свойство с несколькими значениями. В примере ниже «Состав» передан дважды, с разными <code>value</code>. В ответе свойство одно, значения два, у обоих один и тот же <code>property_id</code>.</p>
+<p>Свойство и значение создаются, если таких названий в магазине ещё нет. Одинаковый <code>title</code> в нескольких элементах <code>properties_attributes</code> — одно свойство с несколькими значениями. В ответе свойство одно, у значений один и тот же <code>property_id</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products.json</code></div>
 <table>
@@ -4948,7 +5378,7 @@
 </div>
 </div>
 <h3 id="_10">Полный список при обновлении</h3>
-<p><code>properties_attributes</code> заменяет весь набор пар товара. Пары, которых нет в теле, отвязываются. В примере ниже в теле одна пара «Материал / Лён»: состав из карточки уходит, у материала записывается новое значение.</p>
+<p><code>properties_attributes</code> заменяет весь набор пар товара. Пары, которых нет в теле, отвязываются.</p>
 <p>Чтобы добавить параметр и сохранить старые, в тело нужно положить и старые пары, и новую.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/929.json</code></div>
@@ -5158,8 +5588,242 @@
 </div>
 </div>
 <p>Список значений — <code>GET /admin/properties/:id/characteristics.json</code>. У значения есть <code>id</code>, <code>property_id</code>, <code>title</code>, <code>permalink</code>, <code>position</code>.</p>
-<h2 id="_12">Варианты</h2>
-<p>Вариант — это сочетание значений свойств вроде размера и цвета, со своей ценой, остатком, артикулом и штрихкодом. Свойство варианта (<code>option_name</code>) и параметр карточки (<code>property</code>) из раздела «Параметры» — разные справочники. Цена и остаток меняются у варианта, отдельного поля цены у товара в этих запросах нет.</p>
+<h2 id="свойства-вариантов">Свойства вариантов</h2>
+<p>Свойство варианта — справочник вроде «Размер» или «Цвет». Назначение свойства конкретному товару разобрано в <a href="#варианты">вариантах</a>: в <code>product.options</code> передаются <code>title</code> и <code>value</code>. Ключ <code>option_name_id</code> внутри <code>variants_attributes</code> этот запрос отклоняет.</p>
+<p><code>GET /admin/option_names.json</code> отдаёт свойства без вложенных значений. В объекте есть <code>api_permalink</code>: префикс <code>o-</code> и <code>permalink</code>. <code>sorting_type</code> (<code>manual</code> или <code>auto</code>) принимается в запросе и в ответ не входит.</p>
+<p><code>POST /admin/option_names.json</code> отвечает <code>201</code> объектом свойства. <code>option_values_attributes</code> в этом теле значения создают, в ответ создания они не входят. Значения читаются отдельным <code>GET</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/option_names.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>option_name[title]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Название свойства.</td>
+</tr>
+<tr>
+<td><code>option_name[permalink]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Адрес свойства. Пустое значение строится из названия.</td>
+</tr>
+<tr>
+<td><code>option_name[navigational]</code> <span class="api-opt">необязательный</span><br>логический</td>
+<td>Навигационное свойство.</td>
+</tr>
+<tr>
+<td><code>option_name[position]</code> <span class="api-opt">необязательный</span><br>число</td>
+<td>Позиция свойства.</td>
+</tr>
+<tr>
+<td><code>option_name[sorting_type]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>manual или auto. В ответе поля нет.</td>
+</tr>
+<tr>
+<td><code>option_name[option_values_attributes]</code> <span class="api-opt">необязательный</span><br>массив</td>
+<td>Значения: title, position, id, _destroy.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/option_names.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "option_name": {</span>
+<span class="err">    "title": "docs-api Посадка",</span>
+<span class="err">    "navigational": false,</span>
+<span class="err">    "sorting_type": "manual",</span>
+<span class="err">    "option_values_attributes": [</span>
+<span class="err">      {</span>
+<span class="err">        "title": "свободная",</span>
+<span class="err">        "position": 1</span>
+<span class="err">      },</span>
+<span class="err">      {</span>
+<span class="err">        "title": "приталенная",</span>
+<span class="err">        "position": 2</span>
+<span class="err">      }</span>
+<span class="err">    ]</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2517842</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"navigational"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api-posadka"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api Посадка"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"api_permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"o-docs-api-posadka"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>PUT /admin/option_names/:id.json</code> меняет название и <code>navigational</code> и отвечает <code>200</code> объектом свойства. <code>DELETE /admin/option_names/:id.json</code> отвечает <code>{"status":"ok"}</code>. Сразу после удаления чтение свойства ещё возвращает его.</p>
+<p>Товар с одним вариантом удаление свойства не блокирует: ответ тот же <code>{"status":"ok"}</code>.</p>
+<h3 id="_12">Значения</h3>
+<p><code>GET /admin/option_names/:option_name_id/option_values.json</code> — значения одного свойства. <code>GET /admin/option_values.json</code> — значения магазина, <code>option_name_id</code> в query оставляет одно свойство.</p>
+<p><code>from_id</code> оставляет значения с id больше переданного. <code>limit</code> режет выборку: значение меньше 25 поднимается до 25, больше 1000 опускается до 1000. Без <code>limit</code> этот параметр выборку не режет.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/option_names/2517842/option_values.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>option_name_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id свойства в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/option_names/2517842/option_values.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21063155</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"option_name_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2517842</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"свободная"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"svobodnaya"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21063156</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"option_name_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2517842</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"приталенная"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pritalennaya"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>POST /admin/option_names/:option_name_id/option_values.json</code> создаёт значение и отвечает <code>201</code>. Картинка записывается <code>PUT</code> с <code>option_value.image.src</code>. В ответе <code>image_url</code> — адрес миниатюры.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/option_names/2517842/option_values/21063155.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>option_name_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id свойства.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id значения.</td>
+</tr>
+<tr>
+<td><code>option_value[image][src]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Публичный адрес файла.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/option_names/2517842/option_values/21063155.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "option_value": {</span>
+<span class="err">    "image": {</span>
+<span class="err">      "src": "https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png"</span>
+<span class="err">    }</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21063155</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"option_name_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2517842</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"свободная"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://…/images/option_values/1/1523/21063155/thumb/1x1.png"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"svobodnaya"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>image_url</code> — адрес миниатюры.</p>
+<p><code>DELETE /admin/option_names/:option_name_id/option_values/:id.json</code> сразу отвечает id и номером задачи. Пока удаление идёт, <code>GET /admin/option_names/:option_name_id/option_values/:id/destroy_status.json?jid=</code> отвечает <code>{"status":"wait"}</code>. Когда значения уже нет, тот же адрес отвечает <code>{"status":"ok"}</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/option_names/2517842/option_values/21063157.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>option_name_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id свойства.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id значения.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">DELETE /admin/option_names/2517842/option_values/21063157.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21063157</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"jid"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="варианты">Варианты</h2>
+<p>Вариант — это сочетание значений свойств вроде размера и цвета, со своей ценой, остатком, артикулом и штрихкодом. Справочник свойств (<code>option_name</code>) — в <a href="#свойства-вариантов">свойствах вариантов</a>. Параметр карточки (<code>property</code>) из раздела «Параметры» — другой справочник. Цена и остаток меняются у варианта, отдельного поля цены у товара в этих запросах нет.</p>
 <p>У товара всегда остаётся хотя бы один вариант.</p>
 <h3 id="_13">Товар с одним свойством</h3>
 <p>При создании <code>options</code> задаёт свойство и значение первого варианта. У варианта в ответе появляется <code>option_values</code>.</p>
@@ -5330,7 +5994,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Вариант с такими значениями свойств уже существует"</span><span class="p">]}}</span>
 </code></pre></div>
 <h3 id="_14">Новое свойство</h3>
-<p>Вариант не создаётся, если в <code>options</code> передано свойство, которого у товара ещё нет. В примере у товара есть только «Размер», а в теле — только «Цвет». Ответ <code>422</code>: список свойств изменился.</p>
+<p>Вариант не создаётся, если в <code>options</code> передано свойство, которого у товара ещё нет. Ответ <code>422</code>: список свойств изменился.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/945/variants.json</code></div>
 <table>
@@ -5540,7 +6204,7 @@
 </div>
 </div>
 <h3 id="_15">Цена, артикул, вес, габариты</h3>
-<p><code>PUT /admin/products/:product_id/variants/:id.json</code> меняет цену, старую цену, артикул, штрихкод, вес и габариты одного варианта. Свойства варианта в этом запросе передавать не нужно.</p>
+<p><code>PUT /admin/products/:product_id/variants/:id.json</code> меняет цену, старую цену, артикул, штрихкод, вес и габариты одного варианта. Свойства варианта в этом запросе передавать не нужно. Дополнительные цены — в <a href="#типы-цен">типах цен</a>.</p>
 <p>Одна цена на все варианты товара задаётся тем же запросом по каждому id из <code>variants</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/913/variants/2176487279.json</code></div>
@@ -5623,15 +6287,15 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"variants_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"undefined keys [\"external_id\"]"</span><span class="p">]}</span>
 </code></pre></div>
 <p><code>PUT</code> варианта с <code>"external_id": "1c-200"</code> отвечает <code>200</code>. В JSON варианта этого поля нет, значение хранится у варианта.</p>
-<h3 id="_17">Остаток</h3>
+<h3 id="остаток">Остаток</h3>
 <p><code>quantity</code> — остаток варианта. Остаток на складе передаётся полем <code>quantity_at_warehouseN</code>. Число <code>N</code> — это <code>array_index</code> склада из <code>GET /admin/warehouses.json</code>. У единственного склада индекс <code>0</code>, поле называется <code>quantity_at_warehouse0</code>.</p>
-<p>На магазине с одним складом это один и тот же остаток: запись в любое из двух полей меняет оба. В ответе остаток склада приходит строкой, например <code>"7.0"</code>.</p>
-<h3 id="_18">Групповое обновление</h3>
+<p>На магазине с одним складом это один и тот же остаток: запись в любое из двух полей меняет оба. В ответе остаток склада приходит строкой, например <code>"7.0"</code>. Несколько складов и сумма остатков — в <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#склады">складах</a>.</p>
+<h3 id="_17">Групповое обновление</h3>
 <p><code>PUT /admin/products/variants_group_update.json</code> меняет цены и остатки сразу у нескольких вариантов. В теле — массив <code>variants</code>, у каждого элемента обязателен <code>id</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2176487279</span><span class="p">,</span><span class="w"> </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">}]}</span>
 </code></pre></div>
 <p>Запрос ставит обновление в очередь и сразу отвечает <code>200</code> и пустым массивом <code>[]</code>. Новые цены и остатки читают запросом варианта после обработки очереди.</p>
-<h3 id="_19">Удаление варианта</h3>
+<h3 id="_18">Удаление варианта</h3>
 <p>Последний вариант удалить нельзя.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/products/953/variants/2176487285.json</code></div>
@@ -5666,7 +6330,7 @@
 </div>
 </div>
 <p>Если вариантов больше одного, <code>DELETE /admin/products/945/variants/2176487284.json</code> отвечает <code>200</code> и <code>{"status":"ok"}</code>.</p>
-<h3 id="_20">Дополнительное поле варианта</h3>
+<h3 id="_19">Дополнительное поле варианта</h3>
 <p>Поле создаётся с типом <code>VariantField::TextField</code>. Значение пишется в вариант и возвращается в <code>variant_field_values</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/variant_fields.json</code></div>
@@ -5775,9 +6439,196 @@
 </div>
 </div>
 </div>
-<h2 id="_21">Изображения</h2>
+<h2 id="типы-цен">Типы цен</h2>
+<p>Тип цены добавляет варианту ещё одну цену. Методы доступны, когда типы цен есть в тарифе. На обычном тарифе типов не больше 20.</p>
+<p><code>POST /admin/price_kinds.json</code> отвечает <code>201</code>. <code>price_index</code> начинается с 1. <code>variant_price_method_name</code> для первого типа — <code>price2</code>: в варианте это поле <code>price2</code>. Следующий тип получает следующий индекс и поле <code>price3</code>. Повтор названия отвечает <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"title"</span><span class="p">:[</span><span class="s2">"уже существует"</span><span class="p">]}</span>
+</code></pre></div>
+<p><code>PUT /admin/price_kinds/:id.json</code> меняет <code>title</code> и <code>show_in_lists</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/price_kinds.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>price_kind[title]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Название типа цены. Уникально в магазине.</td>
+</tr>
+<tr>
+<td><code>price_kind[show_in_lists]</code> <span class="api-opt">необязательный</span><br>логический</td>
+<td>Показывать цену в списках.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/price_kinds.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "price_kind": {</span>
+<span class="err">    "title": "docs-api Опт",</span>
+<span class="err">    "show_in_lists": false</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"price_index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api Опт"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"show_in_lists"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"variant_price_method_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price2"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Цена пишется в вариант полем из <code>variant_price_method_name</code>. Базовая <code>price</code> остаётся строкой. Дополнительная цена в ответе — число, массив <code>prices</code> содержит эти цены по порядку типов.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/673/variants/2176487181.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id товара.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id варианта.</td>
+</tr>
+<tr>
+<td><code>variant[price2]</code> <span class="api-req">обязательный</span><br>число</td>
+<td>Цена типа с variant_price_method_name price2.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/products/673/variants/2176487181.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "variant": {</span>
+<span class="err">    "price2": 77.5</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2176487181</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">673</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"price2"</span><span class="p">:</span><span class="w"> </span><span class="mf">77.5</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">77.5</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>DELETE /admin/price_kinds/:id.json</code> отвечает <code>{"status":"ok"}</code>. Следующее чтение варианта уже без ключа <code>price2</code>, в <code>prices</code> на этом месте <code>null</code>.</p>
+<h2 id="единицы-измерения">Единицы измерения</h2>
+<p>Список можно прочитать, если у приложения есть право на настройки магазина.</p>
+<p><code>GET /admin/units.json</code> без <code>lang</code> отвечает <code>422</code>. Тело — строка, не JSON-объект: <code>Отсутствует параметр lang, либо данный язык недоступен на платформе</code>. Заголовок при этом <code>Content-Type: application/json</code>. То же тело у <code>lang=xx</code>.</p>
+<p><code>lang=ru</code> и <code>lang=en</code> отвечают <code>200</code>. Ключ — код единицы, значение — короткая подпись. Этот код приходит в строке заказа как <code>unit</code>, например <code>pce</code>. Создать свою единицу этим ресурсом нельзя: у него есть только список.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/units.json?lang=ru</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lang</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Язык подписей. ru или en.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/units.json?lang=ru</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"mmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"мм"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"см"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"dmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"дм"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mtr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"м"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"kmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"км"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"дюйм"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"fot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"фут"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"yrd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ярд"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mtk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"м2"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"dmk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"дм2"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mlt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"мл"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cmq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"см3"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ltr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"л"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"dmq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"дм3"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mtq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"м3"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mgm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"мг"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"grm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"г"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"kgm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"кг"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tne"</span><span class="p">:</span><span class="w"> </span><span class="s2">"т"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hur"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ч"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"nbb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"боб"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"lef"</span><span class="p">:</span><span class="w"> </span><span class="s2">"л."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"set"</span><span class="p">:</span><span class="w"> </span><span class="s2">"набор"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"npr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"пар"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"npl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"рул"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"nmp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"упак"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"dzp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"дюжина упак"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cnp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 упак"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"pce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"шт"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100 шт"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"тыс. шт"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ящ"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"секц"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"btl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"флак"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"lmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"пог. м"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"com"</span><span class="p">:</span><span class="w"> </span><span class="s2">"компл"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"pct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"кор"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"day"</span><span class="p">:</span><span class="w"> </span><span class="s2">"сут"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"мес"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_20">Изображения</h2>
 <p>Изображение создаётся у конкретного товара: <code>POST /admin/products/:product_id/images.json</code>. Пока файл обрабатывается, в ответе <code>image_processing: true</code>, а адреса указывают на <code>/images/loading.gif</code>. Имя файла при этом уже настоящее.</p>
-<h3 id="_22">Адрес изображения</h3>
+<h3 id="_21">Адрес изображения</h3>
 <p><code>src</code> — публичный адрес файла. Магазин скачивает изображение по этому адресу, поэтому адрес должен открываться из интернета. Если файл по адресу скачать нельзя, ответ <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Не заполнены обязательные поля"</span><span class="p">],</span><span class="w"> </span><span class="nt">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Недопустимый URL"</span><span class="p">]}</span>
 </code></pre></div>
@@ -5828,7 +6679,7 @@
 </div>
 </div>
 </div>
-<h3 id="_23">Файл в теле</h3>
+<h3 id="_22">Файл в теле</h3>
 <p>Файл передаётся в теле того же запроса <code>POST /admin/products/:product_id/images.json</code>: содержимое — в <code>attachment</code> кодировкой base64, имя файла — в <code>filename</code>. Пока файл обрабатывается, в ответе <code>image_processing: true</code>, адреса указывают на <code>/images/loading.gif</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/913/images.json</code></div>
@@ -5881,7 +6732,7 @@
 </div>
 </div>
 </div>
-<h3 id="_24">Привязка к варианту и порядок</h3>
+<h3 id="_23">Привязка к варианту и порядок</h3>
 <p><code>image_id</code> в <code>PUT</code> варианта записывает изображение и в <code>image_id</code>, и в <code>image_ids</code>. Подпись и позиция меняются запросом к самому изображению.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/913/variants/2176487279.json</code></div>
@@ -5977,7 +6828,7 @@
 </div>
 </div>
 </div>
-<h2 id="_25">Аналоги</h2>
+<h2 id="_24">Аналоги</h2>
 <p>Запрос принимает массив id других товаров. Ответ создания — <code>{"status":"ok"}</code>. Список возвращает эти id.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/913/similars.json</code></div>
@@ -6036,9 +6887,9 @@
 </div>
 </div>
 </div>
-<h2 id="_26">Сопутствующие</h2>
+<h2 id="_25">Сопутствующие</h2>
 <p>Сопутствующие товары назначаются тем же запросом на <code>/admin/products/:id/supplementaries.json</code> с полем <code>supplementary_ids</code>. Ответ создания — <code>{"status":"ok"}</code>. Список — массив объектов с <code>id</code>.</p>
-<h2 id="_27">Опция покупки</h2>
+<h2 id="_26">Опция покупки</h2>
 <p>Опция покупки (аксессуар) — отдельный объект магазина со своими значениями и ценой. К товару она крепится ссылкой <code>product_accessory_link</code>. У значения своя цена, покупатель выбирает его при покупке. Размер задаётся в разделе «Варианты», параметр карточки — в разделе «Параметры».</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/accessories.json</code></div>
@@ -6193,7 +7044,7 @@
 </div>
 </div>
 <p>В карточке товара ссылка приходит так: <code>"product_accessory_links": [{"id": 2, "accessory_id": 2}]</code>.</p>
-<h2 id="_28">Комплект</h2>
+<h2 id="_27">Комплект</h2>
 <p>Комплект создаётся вместе с товаром: в теле <code>"bundle": true</code> и состав <code>product_bundle_components_attributes</code>. В составе — <code>variant_id</code> других товаров и количество. Цена комплекта задаётся его собственным вариантом в <code>variants_attributes</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products.json</code></div>

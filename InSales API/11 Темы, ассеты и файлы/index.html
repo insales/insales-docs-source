@@ -1,0 +1,5697 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Публичное API бэк-офиса InSales: темы магазина, файлы темы, файлы раздела «Контент — Файлы», свои шаблоны, типы виджетов и панели блоков.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.liquidhub.ru/InSales%20API/11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/">
+      
+      
+        <link rel="prev" href="../16%20%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/">
+      
+      
+        <link rel="next" href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+  
+    
+    <title>Темы, ассеты и файлы — InSales API бэк-офиса - LiquidHub</title>
+  
+
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <link rel="icon" type="image/png" sizes="180x180" href="../../img/liquidhub-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../img/liquidhub-logo.png">
+  
+  
+    
+    
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LiquidHub">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Темы, ассеты и файлы — InSales API бэк-офиса - LiquidHub">
+    <meta property="og:description" content="Публичное API бэк-офиса InSales: темы магазина, файлы темы, файлы раздела «Контент — Файлы», свои шаблоны, типы виджетов и панели блоков.">
+    <meta property="og:url" content="https://docs.liquidhub.ru/InSales%20API/11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Темы, ассеты и файлы — InSales API бэк-офиса - LiquidHub">
+    <meta name="twitter:description" content="Публичное API бэк-офиса InSales: темы магазина, файлы темы, файлы раздела «Контент — Файлы», свои шаблоны, типы виджетов и панели блоков.">
+    
+  
+
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="LiquidHub" class="md-header__button md-logo" aria-label="LiquidHub" data-md-component="logo">
+      
+  <img src="../../img/liquidhub-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LiquidHub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Темы, ассеты и файлы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/insales/insales-docs-source/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LiquidHub" class="md-nav__button md-logo" aria-label="LiquidHub" data-md-component="logo">
+      
+  <img src="../../img/liquidhub-logo.png" alt="logo">
+
+    </a>
+    
+      <a href="../.." class="md-nav__home">
+        Главная
+      </a>
+    
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/insales/insales-docs-source/" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 поколение
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4 поколение
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шаблон
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Шаблон
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/layout.liquid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout страниц
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/messages.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    messages.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/settings.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/settings_data.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_data.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/setup.json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    setup.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Виджеты
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Виджеты
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.liquid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    snippet.liquid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.scss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    snippet.scss
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.js/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    snippet.js
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    messages.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/settings_form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_form.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/settings_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    settings_data.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    setup.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/fallback_registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Реестр файлов для виджетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/block_settings_presets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    block_settings_presets.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/preview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    preview.jpg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    info.json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_13" id="__nav_2_2_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Примеры
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Примеры
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/SimpleWidgetType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Простой виджет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/block_list_widget_type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Виджет с блоками
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/ShareCart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пример добавления функционала "Поделиться корзиной" в виджет корзины
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Иконки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Иконки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8/icons_editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Иконки редактора
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8/icons_theme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Иконки шаблонов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%BE%D0%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Системные шаблоны блоков
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/core.css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core.css
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    common.v2.js
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    common.v2.js
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/1readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Вводная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/2Products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Товар
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../common.v2.js/ui-accessories/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Опции
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Опции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-accessories/product/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Опции в карточке товара
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-accessories/cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Опции в корзине
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/3Cart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корзина
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/4AjaxSearch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Живой поиск по сайту
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/5Compare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сравнение
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/6FavoritesProducts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Избранное
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/7EventBus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EventBus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/8ajaxAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модуль для работы с API магазина
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../common.v2.js/ajax-products/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-товары
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AJAX-товары
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ajax-products/ui-ajax-product/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ui-ajax-product
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ajax-products/ui-ajax-products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ui-ajax-products
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/9ui-ajax-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-фильтры
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/10ui-feedback/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Форма обратной связи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Форма отзыва к товару
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Форма комментария к статье
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-quick-checkout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Формы заявки и заказа в один клик
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/11ui-trigger-events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trigger Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/12Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lodash шаблоны
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/13InSalesUI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Методы для работы с UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/14Shop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Вспомогательные методы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Меню
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-add-cart-counter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счётчик в корзине на карточке
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/ui-ajax-reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AJAX-отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common.v2.js/15Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Примеры работы с данными магазина
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Примеры работы с данными магазина
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/images_for_options/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    images_for_options
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    images_for_options
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Captcha
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Captcha
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google reCAPTCHA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Google reCAPTCHA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/aroma2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Аромат2, Фантазия2, Чистота
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/commonjs.v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Для любых шаблонов с commonjs.v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/dotstore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DotStore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/fleur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Флёр, Инсташоп, Cross
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/prezent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Презент, Монпансье, Плэнер
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/recaptcha-common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    reCaptchaCommon API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/template_without_commonjs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Для шаблонов без commonjs.v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Для шаблонов 3 поколения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/Google%20reCAPTCHA/z.InSales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Шаблоны с файлами z.InSales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/Captcha/yandex_captcha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yandex Captcha
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/site_currencies/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    site_currencies
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    site_currencies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API сайта
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API сайта
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Корзина
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Товары
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Коллекции
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BF%D0%BE%D0%B8%D1%81%D0%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поиск
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%B8%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сравнение и избранное
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отзывы и комментарии
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Покупатель
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Заказ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доставка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+      
+    
+      
+        
+        
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InSales API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    InSales API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01%20readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как интегрироваться с InSales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Подключение внешнего способа оплаты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Получение только изменившихся данных
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Частичные скидки в заказе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20InSales%20API%20-%20Widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Виджеты приложения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Счета приложения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07%20InSales%20API%20-%20Webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Вебхуки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08%20InSales%20API%20-%20%D0%9F%D0%B5%D1%80%D0%B8%D0%BE%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5%20%D1%81%D1%87%D0%B5%D1%82%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Периодические счета приложения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09%20%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Внешние скидки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Товары
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14%20%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Каталог
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Склады
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16%20%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отзывы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Темы, ассеты и файлы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Темы, ассеты и файлы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Список тем
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Название и описание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Публикация
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ассеты темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание ассета
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Изменение и переименование
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление ассета
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройки темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Файлы аккаунта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свой шаблон страницы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Виджеты темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Панели блоков
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Заказы и клиенты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13%20%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Магазин
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17%20%D0%94%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Доставка и точки самовывоза
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Способы оплаты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Приложения и диалоги
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20%20%D0%92%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выгрузки товаров
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15%20%D0%92%D0%B8%D1%82%D1%80%D0%B8%D0%BD%D0%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Витрина
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+      
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Список тем
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Название и описание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Публикация
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ассеты темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание ассета
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Изменение и переименование
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Удаление ассета
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройки темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Файлы аккаунта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Свой шаблон страницы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Виджеты темы
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Панели блоков
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">Темы, ассеты и файлы</h1>
+<p>Темы, ассеты и типы виджетов можно читать и менять, если у приложения есть право на дизайн. Для файлов раздела «Контент — Файлы» нужно право на файлы. Для панелей блоков — право на блоки.</p>
+<p>Если нужного права нет, ответ <code>403</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Недостаточно прав для операции"</span><span class="p">}</span>
+</code></pre></div>
+<p>Новую тему через этот API создать нельзя: <code>POST /admin/themes.json</code> отвечает <code>404</code>. Скачать тему архивом нельзя: <code>GET /admin/themes/:id/export.json</code> отвечает <code>404</code>.</p>
+<p>На витрине файл темы и файл раздела «Контент — Файлы» — разные адреса. Файл темы попадает в шаблон через фильтр <code>asset_url</code>, файл раздела — через <code>file_url</code>.</p>
+<h2 id="_2">Список тем</h2>
+<p><code>GET /admin/themes.json</code> отдаёт массив тем, которые можно открыть. В объект входят название, признак публикации, язык, версия ассетов и текст последней ошибки темы.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes.json</code></div>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/themes.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Пользовательская"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"is_mobile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"language_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"assets_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1651223995</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"errors_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-19T21:43:37.000+03:00"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:17:41.000+03:00"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>is_published: true</code> — тема включена на витрине. <code>language_id</code> — язык темы. <code>assets_version</code> входит в путь файлов темы. <code>errors_text</code> — текст последней ошибки темы. У темы без ошибки поле равно <code>null</code>.</p>
+<p><code>GET /admin/themes/999999999.json</code> отвечает <code>404</code>. Тело при заголовке <code>Accept: application/json</code> остаётся HTML-страницей.</p>
+<p>Одна тема читается тем же составом полей.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/themes/1.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Пользовательская"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"is_mobile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"language_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"assets_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1651223995</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"errors_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-19T21:43:37.000+03:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:17:41.000+03:00"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_3">Название и описание</h2>
+<p><code>PUT /admin/themes/:id.json</code> сохраняет <code>title</code> и <code>description</code>. Ответ — <code>{"status":"ok"}</code>, саму тему нужно прочитать отдельным <code>GET</code>. <code>description: null</code> очищает описание.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>theme[title]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Название темы.</td>
+</tr>
+<tr>
+<td><code>theme[description]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Описание. `null` очищает поле.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/themes/1.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "theme": {</span>
+<span class="err">    "title": "Пользовательская",</span>
+<span class="err">    "description": "docs probe"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Настройки цветов, шрифтов и пресетов этим запросом не передаются. Они лежат в файле <code>settings_data.json</code>, см. <a href="#настройки-темы">ниже</a>.</p>
+<h2 id="_4">Публикация</h2>
+<p><code>PUT /admin/themes/:id/publish.json</code> публикует тему. Повторный вызов для уже опубликованной темы тоже отвечает <code>{"status":"ok"}</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/publish.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/themes/1/publish.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_5">Удаление</h2>
+<p><code>DELETE /admin/themes/:id.json</code> у опубликованной основной темы отвечает <code>{"status":"ok"}</code>, и тема остаётся в списке.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/themes/1.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">DELETE /admin/themes/1.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>После такого ответа основную тему нужно перечитать: <code>{"status":"ok"}</code> здесь значит, что запрос принят, а не что запись исчезла.</p>
+<h2 id="_6">Ассеты темы</h2>
+<p>Ассет — файл внутри темы: шаблон, сниппет, картинка, стиль, скрипт или JSON из каталога <code>config</code>. Адрес: <code>/admin/themes/:theme_id/assets.json</code>.</p>
+<p><code>type</code> при создании:</p>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Что это</th>
+<th>Имя в запросе</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Asset::Template</code></td>
+<td>Шаблон страницы. К имени дописывается <code>.liquid</code>.</td>
+<td><code>product.docs_api</code> становится <code>product.docs_api.liquid</code></td>
+</tr>
+<tr>
+<td><code>Asset::Snippet</code></td>
+<td>Сниппет. К имени дописывается <code>.liquid</code>.</td>
+<td><code>docs_api_note</code> становится <code>docs_api_note.liquid</code></td>
+</tr>
+<tr>
+<td><code>Asset::Media</code></td>
+<td>Картинка, CSS, JS и прочие файлы в корне темы.</td>
+<td>Имя как есть, с расширением: <code>docs-api.png</code></td>
+</tr>
+<tr>
+<td><code>Asset::Configuration</code></td>
+<td>JSON настроек в <code>config</code>.</td>
+<td><code>docs-api.json</code>, <code>settings_data.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Список отдаёт id, тип, имя, человекочитаемое имя, адрес и <code>version</code> (unix-время изменения). Содержимого в списке нет.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/themes/1/assets.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Товар"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/templates/product.liquid"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product.liquid"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Template"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792435418</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">177</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theme.css"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/theme.css"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"theme.css"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Media"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792435421</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Список содержит все файлы темы, без текста. <code>asset_url</code> — путь файла на витрине. Хост к нему не добавляется. В пути стоит <code>assets_version</code> темы.</p>
+<p><code>GET</code> одного liquid-файла добавляет поле <code>content</code>. У CSS, JS, картинки и JSON в этом ответе <code>content</code> нет.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets/113.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/themes/1/assets/113.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"head.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/snippets/head.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"head.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Snippet"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792435418</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;!-- meta --&gt;\n&lt;meta charset=\"UTF-8\" /&gt;\n"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>У CSS, JS, картинки и JSON тот же <code>GET</code> возвращает метаданные без <code>content</code>.</p>
+<p>Тело любого файла, включая JSON, CSS и картинку, читается отдельным адресом <code>.../raw.json</code>. В ответе само содержимое файла. У картинки это байты файла.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets/153/raw.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/themes/1/assets/153/raw.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"current"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"presets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"color-btn-bg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#0073E6"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Так читается <code>settings_data.json</code>. Адрес <code>.../raw</code> без суффикса <code>.json</code> отвечает <code>404</code> с пустым телом.</p>
+<p>Тот же ресурс в <code>.xml</code> у картинки добавляет поле <code>attachment</code> — файл в Base64. В JSON-ответе картинки этого поля нет, байты берутся через <code>raw.json</code>.</p>
+<h2 id="_7">Создание ассета</h2>
+<p><code>POST /admin/themes/:theme_id/assets.json</code>. Без <code>Content-Type: application/json</code> ответ <code>422</code> и <code>{"message":"incorrect Content-Type, should be application/json"}</code>.</p>
+<p>Сниппет создаётся текстом в <code>content</code>. Расширение <code>.liquid</code> дописывается само.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/assets.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>asset[type]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>`Asset::Snippet`.</td>
+</tr>
+<tr>
+<td><code>asset[name]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Имя без `.liquid`.</td>
+</tr>
+<tr>
+<td><code>asset[content]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Текст сниппета.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/themes/1/assets.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "type": "Asset::Snippet",</span>
+<span class="err">    "name": "docs_api_note",</span>
+<span class="err">    "content": "&lt;p&gt;docs-api&lt;/p&gt;"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1241</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/snippets/docs_api_note.liquid?1792609806"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Snippet"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609806</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Повтор с тем же именем — <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Файл с именем docs_api_note.liquid уже существует"</span><span class="p">]}</span>
+</code></pre></div>
+<p>Невалидный Liquid отвечает <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner"</span><span class="p">:[</span><span class="s2">"Ошибка синтаксиса: Liquid syntax error (line 1): [:end_of_string] is not a valid expression in \"\""</span><span class="p">]}</span>
+</code></pre></div>
+<p>Неизвестный <code>type</code> — <code>422</code>, в теле одновременно «Не заполнены обязательные поля» у <code>inner</code> и «имеет неверное значение» у <code>type</code>.</p>
+<p>Свой шаблон товара называется <code>product.ИМЯ</code>. В ответе <code>human_readable_name</code> — «Товар: ИМЯ». Так же создаются <code>page.ИМЯ</code> («Страница: ИМЯ») и <code>collection.ИМЯ</code> («Категория: ИМЯ»).</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/assets.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>asset[type]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>`Asset::Template`.</td>
+</tr>
+<tr>
+<td><code>asset[name]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Тип страницы, точка и имя шаблона.</td>
+</tr>
+<tr>
+<td><code>asset[content]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Liquid-текст шаблона.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/themes/1/assets.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "type": "Asset::Template",</span>
+<span class="err">    "name": "product.docs_api",</span>
+<span class="err">    "content": "&lt;h1&gt;{{ product.title }}&lt;/h1&gt;"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1249</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Товар: docs_api"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/templates/product.docs_api.liquid?1792609807"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product.docs_api.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Template"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609807</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Картинка и прочий бинарный файл передаются полем <code>attachment</code>: содержимое в Base64. Рядом нужно <code>filename</code>, оно же попадает в <code>name</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/assets.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>asset[type]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>`Asset::Media`.</td>
+</tr>
+<tr>
+<td><code>asset[name]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Имя файла с расширением.</td>
+</tr>
+<tr>
+<td><code>asset[filename]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>То же имя: по нему определяется тип Base64.</td>
+</tr>
+<tr>
+<td><code>asset[attachment]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Файл в Base64.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/themes/1/assets.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "type": "Asset::Media",</span>
+<span class="err">    "name": "docs-api.png",</span>
+<span class="err">    "filename": "docs-api.png",</span>
+<span class="err">    "attachment": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1257</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api.png"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/docs-api.png?1792609808"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api.png"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Media"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609808</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Вместо Base64 можно передать публичный <code>src</code> — <code>http</code> или <code>https</code>. Адрес внутренней сети отвечает <code>422</code>: у <code>src</code> сообщение «Недопустимый URL», у <code>inner</code> — «Не заполнены обязательные поля».</p>
+<p>CSS и JSON создаются тем же полем <code>content</code>. Для CSS тип — <code>Asset::Media</code>, для JSON — <code>Asset::Configuration</code>. <code>raw.json</code> возвращает текст файла как есть.</p>
+<h2 id="_8">Изменение и переименование</h2>
+<p><code>PUT</code> записывает новое <code>content</code>. В JSON-ответе по-прежнему нет текста: его читают через <code>GET</code> для liquid или через <code>raw.json</code> для остальных.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/1241.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета в пути.</td>
+</tr>
+<tr>
+<td><code>asset[content]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Новый текст файла.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/themes/1/assets/1241.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "content": "&lt;p&gt;docs-api updated&lt;/p&gt;"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1241</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/snippets/docs_api_note.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Snippet"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609807</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Переименование — отдельный путь <code>.../rename.json</code>, поле <code>new_name</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/1241/rename.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета в пути.</td>
+</tr>
+<tr>
+<td><code>asset[new_name]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Новое имя файла.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/themes/1/assets/1241/rename.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "new_name": "docs_api_note_renamed.liquid"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1241</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note_renamed.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/snippets/docs_api_note_renamed.liquid?1792609807"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api_note_renamed.liquid"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Snippet"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609807</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Стандартный шаблон, например <code>product.liquid</code>, так не переименовывается. Ответ <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Нельзя переименовать стандартный шаблон"</span><span class="p">]}</span>
+</code></pre></div>
+<h2 id="_9">Удаление ассета</h2>
+<p><code>DELETE</code> отвечает <code>200</code> и пустым телом и для удалённого файла, и для файла, который удалить нельзя. Разница видна только следующим <code>GET</code>.</p>
+<p>Сниппет, свой шаблон, картинка и CSS после такого ответа читаются как <code>404</code>. Стандартный <code>product.liquid</code> остаётся на месте. Файл типа <code>Asset::Configuration</code>, в том числе свой JSON-файл настроек и <code>settings_data.json</code>, тоже остаётся: <code>GET</code> после <code>DELETE</code> по-прежнему <code>200</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/themes/1/assets/1241.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">DELETE /admin/themes/1/assets/1241.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<p>Тело пустое.</p>
+</div>
+</div>
+</div>
+<h2 id="_10">Настройки темы</h2>
+<p>Цвета, шрифты и текущий пресет лежат в ассете <code>settings_data.json</code> (<code>Asset::Configuration</code>). <code>GET</code> метаданных <code>content</code> не отдаёт. Текст читается через <code>.../raw.json</code>. Запись идёт через <code>PUT</code>: в <code>content</code> передаётся весь JSON файла. Ответ — метаданные ассета. Новый текст снова читается через <code>raw.json</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/153.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id ассета `settings_data.json`.</td>
+</tr>
+<tr>
+<td><code>asset[content]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Полный JSON файла настроек.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/themes/1/assets/153.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "asset": {</span>
+<span class="err">    "content": "&lt;текст из GET /admin/themes/1/assets/153/raw.json&gt;"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"human_readable_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"settings_data.json"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"asset_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/assets/1/1/1/1651223995/config/settings_data.json"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"inner_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"settings_data.json"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset::Configuration"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1792609881</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>В <code>content</code> кладётся весь JSON из <code>raw.json</code>, с изменёнными ключами. Запись части файла стирает остальные настройки пресета. После записи текст снова читается через <code>raw.json</code>.</p>
+<p><code>settings_data.json</code> сохраняет и невалидный JSON: ответ <code>200</code>, после этого файл не разбирается. <code>settings.json</code> и другие JSON-ассеты на такое тело отвечают <code>422</code>, файл остаётся прежним:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"content"</span><span class="p">:[</span><span class="s2">"Невалидный json"</span><span class="p">]}</span>
+</code></pre></div>
+<p>Рядом в теме лежат:</p>
+<ul>
+<li><code>settings.json</code> — описание полей редактора. Невалидный JSON отклоняется.</li>
+<li><code>messages.json</code> — тексты по языкам. Обновляется тем же <code>PUT</code> с полным JSON.</li>
+<li><code>setup.json</code> — состав блоков темы, в том числе <code>block_lists</code>. Читается через <code>raw.json</code>. Метода для панелей виджетов страницы в этом API нет, см. <a href="#виджеты-темы">ниже</a>.</li>
+</ul>
+<h2 id="_11">Файлы аккаунта</h2>
+<p><code>/admin/files.json</code> — это раздел «Контент — Файлы», не файлы темы. В ответе три поля: <code>id</code>, <code>created_at</code>, <code>absolute_url</code>. Имени отдельным полем нет, оно стоит в конце <code>absolute_url</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/files.json</code></div>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/files.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:13:06.867+03:00"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"absolute_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/files/1/249/249/original/docs-api.png"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:13:06.992+03:00"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"absolute_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/files/1/257/257/original/docs-api.txt"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>absolute_url</code> — полный адрес файла на CDN. Хост у магазина свой, путь имеет вид <code>/files/…/original/имя</code>. Хост из адреса убирать нельзя. В шаблоне тот же файл подключают фильтром <code>file_url</code> по имени.</p>
+<p>При создании в <code>absolute_url</code> есть query с unix-временем изменения. В списке и в <code>GET /admin/files/:id.json</code> этого query нет.</p>
+<p><code>name</code> ищет подстроку в имени. Без <code>per_page</code> на странице 10 файлов. <code>page</code> начинается с 1. <code>page=0</code> отвечает <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"page должен иметь значение, большее 0"</span><span class="p">}</span>
+</code></pre></div>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/files.json?name=docs-api&amp;per_page=1&amp;page=1</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Часть имени файла.</td>
+</tr>
+<tr>
+<td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
+<td>Размер страницы. Без параметра — 10.</td>
+</tr>
+<tr>
+<td><code>page</code> <span class="api-opt">необязательный</span><br>число</td>
+<td>Номер страницы, начиная с 1.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/files.json?name=docs-api&amp;per_page=1&amp;page=1</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:13:06.867+03:00"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"absolute_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/files/1/249/249/original/docs-api.png"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Загрузка — Base64 в <code>attachment</code> и <code>filename</code>. Отдельного метода изменения нет: <code>PUT /admin/files/:id.json</code> отвечает <code>404</code>. Чтобы заменить файл, его удаляют и создают снова. Повтор того же имени — <code>422</code>, <code>{"inner_file_name":["уже существует"]}</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/files.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file[filename]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Имя файла с расширением.</td>
+</tr>
+<tr>
+<td><code>file[attachment]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Файл в Base64. Вместо него можно передать `file[src]`.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/files.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "file": {</span>
+<span class="err">    "filename": "docs-api.png",</span>
+<span class="err">    "attachment": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-21T22:13:06.867+03:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"absolute_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/files/1/249/249/original/docs-api.png?1792609986"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>src</code> на <code>http://127.0.0.1/...</code> ответил <code>422</code>: «Недопустимый URL». Имя <code>robots.txt</code> тоже <code>422</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Вы можете отредактировать robots.txt в разделе Настройки → Robots.txt"</span><span class="p">]}</span>
+</code></pre></div>
+<p>Удаление возвращает <code>{"status":"ok"}</code>. Следующий <code>GET</code> этого id — HTML <code>404</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/files/249.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id файла в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">DELETE /admin/files/249.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_12">Свой шаблон страницы</h2>
+<p>Файл <code>product.docs_api.liquid</code> сам по себе ничего не подключает. У товара, страницы и категории есть поле <code>custom_template</code>. В него пишется часть имени после точки: для файла <code>product.docs_api.liquid</code> это <code>docs_api</code>. Метод сохраняет значение и тогда, когда такого файла в теме нет.</p>
+<p>Товар:</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/681.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id товара в пути.</td>
+</tr>
+<tr>
+<td><code>product[custom_template]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Имя шаблона без префикса `product.` и без `.liquid`.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">PUT /admin/products/681.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "product": {</span>
+<span class="err">    "custom_template": "docs_api"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">681</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api-theme"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"custom_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Создание товара — в <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/">разделе про товары</a>.</p>
+<p>Страница принимает то же поле, но без текста страницы ответ <code>422</code>: «Добавьте какой-нибудь текст на страницу, даже если она будет скрыта.» С текстом <code>custom_template</code> сохраняется.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/pages.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page[title]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Название. Из него строится permalink.</td>
+</tr>
+<tr>
+<td><code>page[content]</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Текст страницы.</td>
+</tr>
+<tr>
+<td><code>page[custom_template]</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Имя шаблона для файла `page.ИМЯ.liquid`.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/pages.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "page": {</span>
+<span class="err">    "title": "docs-api page",</span>
+<span class="err">    "content": "Текст страницы",</span>
+<span class="err">    "custom_template": "docs_api"</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api page"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api-page-710e05"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Текст страницы"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"custom_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs_api"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"is_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"only_page"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Категория создаётся с <code>parent_id</code> существующей категории и тем же <code>custom_template</code>. Без родителя ответ <code>422</code>: «Не заполнены обязательные поля» у <code>parent_id</code>. Файл шаблона категории — <code>collection.docs_api.liquid</code>.</p>
+<p>У блога в <code>GET /admin/blogs.json</code> есть поле <code>custom_template</code>.</p>
+<h2 id="_13">Виджеты темы</h2>
+<p>Публичное API работает с типами виджетов темы: <code>/admin/themes/:theme_id/widget_types.json</code>. Список содержит только свои типы этой темы. Системных виджетов в нём нет. Поставить виджет на страницу, прочитать список виджетов страницы или панели <code>header</code> / <code>content</code> / <code>footer</code> этим API нельзя: <code>GET /admin/themes/1/widgets.json</code>, <code>GET /admin/widget_lists.json</code> и <code>GET /admin/widgets.json</code> отвечают <code>404</code>.</p>
+<p>Виджет в карточке заказа или товара бэк-офиса — другой ресурс, <a href="../05%20InSales%20API%20-%20Widgets/">виджеты приложения</a>.</p>
+<p>Поля создания лежат в корне JSON. Объект внутри ключа <code>widget_type</code> отвечает <code>422</code>: ключ назван неизвестным, обязательные поля — пропущенными.</p>
+<p><code>page_kinds</code> — массив из <code>all</code>, <code>index</code>, <code>collection</code>, <code>product</code>, <code>cart</code>, <code>page</code>, <code>search</code>, <code>blog</code>, <code>article</code>, <code>compare</code>, <code>favorite</code>, <code>shared_cart</code>. Чужое значение даёт <code>422</code>: <code>{"page_kinds":{"0":["is not valid"]}}</code>.</p>
+<p><code>widget_list_kinds</code> — массив из <code>header</code>, <code>before_content</code>, <code>content</code>, <code>sidebar</code>, <code>after_content</code>, <code>footer</code>, <code>outside</code>, <code>top_panel</code>, <code>bottom_panel</code>. Чужое значение: <code>{"widget_list_kinds":{"0":["is not valid"]}}</code>.</p>
+<p><code>widget_category_handle</code> — handle существующей категории, например <code>benefits</code>. Неизвестная категория: <code>422</code>, <code>widget_category_id</code> — «Не заполнены обязательные поля».</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/widget_types.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>theme_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id темы в пути.</td>
+</tr>
+<tr>
+<td><code>type</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>`SimpleWidgetType` или `BlockListWidgetType`.</td>
+</tr>
+<tr>
+<td><code>name</code> <span class="api-req">обязательный</span><br>объект</td>
+<td>Название по языкам, ключ `ru` и другие.</td>
+</tr>
+<tr>
+<td><code>handle</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Код виджета в теме. Не начинается с `system_`.</td>
+</tr>
+<tr>
+<td><code>snippet_content</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Liquid-разметка.</td>
+</tr>
+<tr>
+<td><code>generation</code> <span class="api-req">обязательный</span><br>число</td>
+<td>Поколение виджета. Для темы поколения 4 — `4`.</td>
+</tr>
+<tr>
+<td><code>page_kinds</code> <span class="api-req">обязательный</span><br>массив</td>
+<td>Типы страниц, где виджет можно поставить.</td>
+</tr>
+<tr>
+<td><code>widget_list_kinds</code> <span class="api-req">обязательный</span><br>массив</td>
+<td>Панели, куда виджет можно поставить.</td>
+</tr>
+<tr>
+<td><code>widget_category_handle</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Категория в списке виджетов. Без известной категории запись не создаётся.</td>
+</tr>
+<tr>
+<td><code>snippet_js</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>JavaScript виджета.</td>
+</tr>
+<tr>
+<td><code>snippet_scss</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Стили виджета.</td>
+</tr>
+<tr>
+<td><code>messages</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>JSON текстов. В теле запроса это строка.</td>
+</tr>
+<tr>
+<td><code>description</code> <span class="api-opt">необязательный</span><br>объект</td>
+<td>Описание по языкам.</td>
+</tr>
+<tr>
+<td><code>setup</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>JSON состава строкой.</td>
+</tr>
+<tr>
+<td><code>settings_form</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>JSON формы настроек строкой.</td>
+</tr>
+<tr>
+<td><code>settings_data</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>JSON значений строкой.</td>
+</tr>
+<tr>
+<td><code>block_template_handle</code> <span class="api-opt">необязательный</span><br>строка</td>
+<td>Шаблон блока. Нужен для `BlockListWidgetType`.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/themes/1/widget_types.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "type": "SimpleWidgetType",</span>
+<span class="err">  "name": {"ru": "docs-api виджет"},</span>
+<span class="err">  "handle": "docs-api-widget",</span>
+<span class="err">  "snippet_content": "&lt;div class=\"docs-api\"&gt;{{ widget_settings.title }}&lt;/div&gt;",</span>
+<span class="err">  "generation": 4,</span>
+<span class="err">  "page_kinds": ["index", "all"],</span>
+<span class="err">  "widget_list_kinds": ["content"],</span>
+<span class="err">  "widget_category_handle": "benefits",</span>
+<span class="err">  "snippet_js": "console.log('docs-api');",</span>
+<span class="err">  "snippet_scss": ".docs-api{display:block}",</span>
+<span class="err">  "messages": "{\"ru\":{\"title\":\"Заголовок\"}}",</span>
+<span class="err">  "description": {"ru": "Пример виджета"},</span>
+<span class="err">  "setup": "{}",</span>
+<span class="err">  "settings_form": "{\"content\":[],\"design\":[]}",</span>
+<span class="err">  "settings_data": "{}"</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12381652</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SimpleWidgetType"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api виджет"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api-widget"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snippet_content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;div class=\"docs-api\"&gt;{{ widget_settings.title }}&lt;/div&gt;"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snippet_scss"</span><span class="p">:</span><span class="w"> </span><span class="s2">".docs-api{display:block}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"snippet_js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"console.log('docs-api');"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"settings_form"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"content\":[],\"design\":[]}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"settings_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"setup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"ru\":{\"title\":\"Заголовок\"}}"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Пример виджета"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"page_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"index"</span><span class="p">,</span><span class="w"> </span><span class="s2">"all"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"widget_list_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"content"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"widget_category_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"benefits"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"libraries"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>В ответе <code>name</code> и <code>description</code> — строки текущего языка. В запросе <code>name</code> передаётся объектом по языкам. <code>handle</code> после создания не обновляется: <code>PUT</code> с полем <code>handle</code> отвечает <code>422</code>, <code>{"handle":["unknown attribute"]}</code>.</p>
+<p>Пустой JSON <code>{}</code> на создание отвечает <code>422</code> и перечисляет пропущенные поля: <code>type</code>, <code>name</code>, <code>handle</code>, <code>snippet_content</code>, <code>generation</code>, <code>page_kinds</code>, <code>widget_list_kinds</code>. Неизвестный <code>type</code> — <code>{"type":["is not valid"]}</code>.</p>
+<p><code>PUT</code> меняет переданные поля и возвращает тип целиком. <code>GET /admin/themes/:theme_id/widget_types.json</code> возвращает массив таких объектов. <code>GET</code> одного id — один объект. <code>DELETE</code> отвечает <code>200</code> и пустым телом, следующий <code>GET</code> — HTML <code>404</code>.</p>
+<p>Виджет со списком блоков создаётся типом <code>BlockListWidgetType</code>. В <code>block_template_handle</code> передаётся handle системного шаблона блока, например <code>system-benefit</code>. В ответе это поле возвращается вместе с остальными полями простого виджета.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/widget_types.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>`BlockListWidgetType`.</td>
+</tr>
+<tr>
+<td><code>block_template_handle</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Handle системного шаблона блока, например `system-benefit`.</td>
+</tr>
+<tr>
+<td><code>name</code> <span class="api-req">обязательный</span><br>объект</td>
+<td>Название по языкам.</td>
+</tr>
+<tr>
+<td><code>handle</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Код виджета.</td>
+</tr>
+<tr>
+<td><code>snippet_content</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Liquid-разметка.</td>
+</tr>
+<tr>
+<td><code>generation</code> <span class="api-req">обязательный</span><br>число</td>
+<td>Поколение виджета. Для темы поколения 4 — `4`.</td>
+</tr>
+<tr>
+<td><code>page_kinds</code> <span class="api-req">обязательный</span><br>массив</td>
+<td>Типы страниц.</td>
+</tr>
+<tr>
+<td><code>widget_list_kinds</code> <span class="api-req">обязательный</span><br>массив</td>
+<td>Панели размещения.</td>
+</tr>
+<tr>
+<td><code>widget_category_handle</code> <span class="api-req">обязательный</span><br>строка</td>
+<td>Категория виджета.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">POST /admin/themes/1/widget_types.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">  "type": "BlockListWidgetType",</span>
+<span class="err">  "name": {"ru": "docs-api блоки"},</span>
+<span class="err">  "handle": "docs-api-blocks",</span>
+<span class="err">  "snippet_content": "&lt;div class=\"docs-api\"&gt;{{ widget_settings.title }}&lt;/div&gt;",</span>
+<span class="err">  "generation": 4,</span>
+<span class="err">  "page_kinds": ["index", "all"],</span>
+<span class="err">  "widget_list_kinds": ["content"],</span>
+<span class="err">  "widget_category_handle": "benefits",</span>
+<span class="err">  "block_template_handle": "system-benefit"</span>
+<span class="err">}</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 201</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12381653</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlockListWidgetType"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api блоки"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docs-api-blocks"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"block_template_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system-benefit"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"generation"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"page_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"index"</span><span class="p">,</span><span class="w"> </span><span class="s2">"all"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"widget_list_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"content"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"widget_category_handle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"benefits"</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Ответ содержит те же <code>snippet_content</code>, <code>settings_form</code>, <code>messages</code> и <code>libraries</code>, что и простой виджет, и поле <code>block_template_handle</code>.</p>
+<h2 id="_14">Панели блоков</h2>
+<p><code>/admin/block_lists.json</code> читает панели блоков магазина. Это записи с именем, <code>liquid_name</code> и <code>block_template_id</code>. Состав панели — <code>/admin/block_lists/:id/block_list_items.json</code>, у элемента есть <code>block_id</code> и <code>position</code>.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/block_lists.json</code></div>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/block_lists.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Цвет стикеров"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"liquid_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"block-list-e213b73920beb6a2-pffc9bb5ea465fefbd"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block_template_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2851286</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"invisible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>В ответе также есть <code>account_id</code> и даты. <code>GET /admin/block_lists/1.json</code> возвращает одну такую запись.</p>
+<div class="api-example">
+<div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/block_lists/1/block_list_items.json</code></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>block_list_id</code> <span class="api-req">обязательный</span><br>число</td>
+<td>id панели в пути.</td>
+</tr>
+</tbody>
+</table>
+<div class="api-example__grid">
+<div class="api-example__pane api-example__pane--request">
+<div class="api-lang" data-lang="HTTP">
+<div class="highlight"><pre><span></span><code><span class="err">GET /admin/block_lists/1/block_list_items.json</span>
+<span class="err">Authorization: Basic API_KEY:API_PASSWORD</span>
+<span class="err">Accept: application/json</span>
+</code></pre></div>
+</div>
+</div>
+<div class="api-example__pane">
+<p><span class="api-pane-label">Ответ · 200</span></p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block_list_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"block_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>POST /admin/block_lists.json</code> с <code>name</code> и <code>liquid_name</code> отвечает <code>404</code>. Страница содержит «Couldn't find BlockList without an ID». <code>PUT</code> панели в JSON отвечает <code>406</code>. Панель через JSON этим методом не меняется.</p>
+<p>Списка блоков нет: <code>GET /admin/blocks.json</code> отвечает <code>404</code>. <code>POST /admin/blocks.json</code> с названием и текстом отвечает <code>200</code> и <code>{"status":"error","errors":{}}</code>. Тот же запрос в XML отвечает <code>422</code> с пустым <code>&lt;errors/&gt;</code>. Отдельного чтения одного блока нет.</p>
+<p>Состав блоков поколения 4, который виден в редакторе темы, в эту пару методов не входит. Его читают как файл <code>setup.json</code> темы через <code>raw.json</code>. Разместить виджет на панели публичным API нельзя.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+    
+  </body>
+</html>

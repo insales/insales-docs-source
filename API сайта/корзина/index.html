@@ -4356,7 +4356,7 @@
 <span class="w">  </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">variant_id</span><span class="o">:</span><span class="w"> </span><span class="mf">2176487200</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">quantity</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">comment</span><span class="o">:</span><span class="w"> </span><span class="s2">"тест"</span>
+<span class="w">    </span><span class="nx">comment</span><span class="o">:</span><span class="w"> </span><span class="s2">"Позвоните перед доставкой"</span>
 <span class="w">  </span><span class="p">})</span>
 <span class="p">});</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
@@ -4376,7 +4376,7 @@
 <span class="w">      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">84990.0</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"total_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">84990.0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"тест"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Позвоните перед доставкой"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"product_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/product/apple-iphone-16-128-gb"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/cart_items/2176487200"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"accessory_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
@@ -4533,7 +4533,7 @@
 <div class="api-example__pane">
 <p><span class="api-pane-label">Ответ · 200</span></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"shared_cart_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://abc.insales.io/cart_items/shared/1b4ad00f-45a4-4ef9-b099-1815c5a42de0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"shared_cart_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.myinsales.ru/cart_items/shared/1b4ad00f-45a4-4ef9-b099-1815c5a42de0"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -4616,7 +4616,7 @@
 <span class="kd">const</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">URLSearchParams</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">variant_id</span><span class="o">:</span><span class="w"> </span><span class="s2">"2176487200"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">quantity</span><span class="o">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">comment</span><span class="o">:</span><span class="w"> </span><span class="s2">"тест"</span>
+<span class="w">  </span><span class="nx">comment</span><span class="o">:</span><span class="w"> </span><span class="s2">"Позвоните перед доставкой"</span>
 <span class="p">});</span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">"/cart_items.json"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>

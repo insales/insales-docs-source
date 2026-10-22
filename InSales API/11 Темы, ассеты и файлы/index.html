@@ -5206,7 +5206,7 @@
 </div>
 </div>
 </div>
-<p>Для <code>src</code> с адресом <code>http://127.0.0.1/...</code> API возвращает <code>422</code> и сообщение «Недопустимый URL». Имя <code>robots.txt</code> также отклоняется со статусом <code>422</code>:</p>
+<p>Для непубличного адреса в <code>src</code> API возвращает <code>422</code> и сообщение «Недопустимый URL». Имя <code>robots.txt</code> также отклоняется со статусом <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Вы можете отредактировать robots.txt в разделе Настройки → Robots.txt"</span><span class="p">]}</span>
 </code></pre></div>
 <p>Удаление возвращает <code>{"status":"ok"}</code>. Следующий <code>GET</code> этого id — HTML <code>404</code>.</p>

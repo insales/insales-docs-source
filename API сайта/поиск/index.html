@@ -4030,6 +4030,7 @@
 <h1 id="_1">Поиск</h1>
 <h2 id="_2">Результаты</h2>
 <p><code>GET /search.json?q=</code> возвращает массив товаров текущей страницы, без обёртки <code>status</code>. Параметры страницы: <code>page</code>, <code>page_size</code>, <code>order</code>.</p>
+<p>Адреса изображений в примере условные. Для вывода изображений используйте URL из ответа API вашего магазина.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/search.json?q=iphone&amp;page_size=1</code></div>
 <table>
@@ -4090,13 +4091,13 @@
 <span class="w">        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-23T16:18:28.000+03:00"</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">"image_processing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple iPhone 16 Pro Max"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"original_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"medium_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/medium_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"small_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/micro_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"compact_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/compact_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"large_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/large_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"original_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"medium_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/medium_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"small_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/micro_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"compact_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/compact_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"large_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/large_a9cc378c5ceb.jpg"</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9cc378c5ceb.jpg"</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">"has_bitmap_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">"image_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span>
@@ -4110,13 +4111,13 @@
 <span class="w">      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-23T16:18:28.000+03:00"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"image_processing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple iPhone 16 Pro Max"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"original_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"medium_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/medium_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"small_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/micro_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"compact_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/compact_a9cc378c5ceb.jpg"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"large_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://minio.insales.io:9000/insales-development-sber/images/products/1/129/129/large_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"original_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"medium_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/medium_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"small_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/micro_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/thumb_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"compact_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/compact_a9cc378c5ceb.jpg"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"large_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://static-ru.insales.ru/images/products/1/129/129/large_a9cc378c5ceb.jpg"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9cc378c5ceb.jpg"</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"has_bitmap_image"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">"image_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span>

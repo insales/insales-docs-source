@@ -4215,6 +4215,7 @@
 <p>Параметр <code>shop</code> будет в запросе <strong>от InSales к приложению</strong> во время установки. В запросе <strong>от приложения к API</strong> его значение используется как домен, как в примере выше. Добавлять <code>?shop=...</code> к адресу ресурса не нужно.</p>
 <p>Для авторизации используйте HTTP Basic: логин — идентификатор приложения, пароль — пароль приложения в конкретном магазине. Для каждого магазина используется свой пароль.</p>
 <p><code>GET</code>, <code>HEAD</code> и <code>DELETE</code> не требуют заголовка <code>Content-Type</code>. Для <code>POST</code>, <code>PUT</code> и <code>PATCH</code> он обязателен и должен соответствовать суффиксу адреса: <code>application/json</code> для <code>.json</code>, <code>application/xml</code> для <code>.xml</code>. Если тип содержимого не соответствует формату, API возвращает статус <code>422</code> и тело <code>{"message":"incorrect Content-Type, should be application/json"}</code> либо такое же сообщение для <code>application/xml</code>.</p>
+<p>Идентификаторы объектов и адреса в примерах условные. Используйте данные своего магазина и приложения.</p>
 <p>Вопросы по приложениям: <a href="mailto:partners@insales.ru">partners@insales.ru</a>.</p>
 <p><a id="лимит-запросов"></a></p>
 <h2 id="_1">Лимит запросов</h2>

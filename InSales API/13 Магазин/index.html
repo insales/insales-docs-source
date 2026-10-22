@@ -4052,10 +4052,10 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">233686</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Мой магазин"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"main_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc.insales.io"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"main_host_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo@demo.com"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"subdomain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"main_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo.myinsales.ru"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"main_host_protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"owner@example.com"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RU"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Москва"</span><span class="p">,</span>
@@ -4072,7 +4072,7 @@
 <span class="w">  </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6178456</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo@demo.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"owner@example.com"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-19T21:43:12.000+03:00"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4179,7 +4179,7 @@
 </div>
 <p>Число в сообщении об ошибке — максимальный номер заказа в магазине. Уменьшить сохранённый <code>next_order_number</code> с нарушением того же ограничения нельзя.</p>
 <h2 id="_3">Домены</h2>
-<p><code>GET /admin/domains.json</code> возвращает домены магазина, начиная с основного. Технический поддомен <code>*.insales.io</code> не включается. Если доменов нет, возвращается <code>[]</code>.</p>
+<p><code>GET /admin/domains.json</code> возвращает домены магазина, начиная с основного. Технический адрес магазина на поддомене платформы в список не включается. Если доменов нет, возвращается <code>[]</code>.</p>
 <p>При создании домена API удаляет схему, путь и префикс <code>www.</code>. Например, <code>https://www.docs-api-shop.example/path</code> сохраняется как <code>docs-api-shop.example</code>. Поддомен третьего уровня, например <code>msk.docs-api-shop.example</code>, сохраняется целиком.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/domains.json</code></div>

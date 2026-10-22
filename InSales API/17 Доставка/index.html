@@ -4412,7 +4412,7 @@
 <p>Без <code>price</code> ответ <code>422</code>, тело <code>{"price":["Не заполнены обязательные поля"]}</code>.</p>
 <h3 id="_5">Внешняя</h3>
 <p>Способ <code>DeliveryVariant::External</code> получает расчёт стоимости от сервиса по адресу <code>url</code>. Чтобы выбрать вторую версию протокола, передайте <code>api_version: v2</code>. Пустое значение включает первую версию. Поле <code>api_version</code> не возвращается в ответе, поэтому сохраняйте выбранную версию в приложении. Поля <code>javascript</code> и <code>customer_pickup</code> возвращаются; <code>javascript</code> сохраняется строкой.</p>
-<p>Адрес <code>http://127.0.0.1/...</code> отвечает <code>422</code>, тело <code>{"url":["Недопустимый URL"]}</code>.</p>
+<p>Для непубличного URL сервиса API возвращает <code>422</code> и тело <code>{"url":["Недопустимый URL"]}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/delivery_variants.json</code></div>
 <table>
@@ -4433,7 +4433,7 @@
 </tr>
 <tr>
 <td><code>delivery_variant[url]</code> <span class="api-req">обязательный</span><br>строка</td>
-<td>Адрес расчёта, http или https, не локальный.</td>
+<td>Публичный URL сервиса расчёта доставки со схемой <code>http</code> или <code>https</code>.</td>
 </tr>
 <tr>
 <td><code>delivery_variant[api_version]</code> <span class="api-opt">необязательный</span><br>строка</td>

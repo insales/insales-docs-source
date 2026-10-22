@@ -132,7 +132,8 @@ nav:
     - InSales API/13 Магазин.md
     - InSales API/17 Доставка.md
     - InSales API/19 Способы оплаты.md
-    - Приложения и диалоги: InSales API/14 Приложения, выгрузки, задачи и диалоги.md
+    - Приложения: InSales API/14 Приложения, выгрузки, задачи и диалоги.md
+    - Диалоги: InSales API/21 Диалоги.md
     - InSales API/20 Выгрузки товаров.md
     - InSales API/15 Витрина.md
 

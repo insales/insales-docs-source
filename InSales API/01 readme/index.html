@@ -3363,6 +3363,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Установка приложения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#настройка-приложения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройте приложение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обработка-установки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обработайте запрос установки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3373,6 +3401,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Вход пользователя в приложение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#автологин" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтвердите вход через InSales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4060,6 +4105,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Установка приложения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#настройка-приложения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройте приложение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#обработка-установки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обработайте запрос установки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4070,6 +4143,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Вход пользователя в приложение">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#автологин" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подтвердите вход через InSales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4117,9 +4207,12 @@
 
 <h1 id="insales">Как интегрироваться с InSales</h1>
 <p>Через API бэк-офиса приложение может создавать, читать, изменять и удалять объекты магазина: товары, заказы, клиентов и остальные ресурсы из <a href="https://api.insales.ru/">справочника InSales API</a>.</p>
-<p>Отправляйте запросы на адрес магазина, который InSales передаёт в параметре <code>shop</code> при установке приложения. Путь к ресурсу начинается с <code>/admin/</code>. Суффикс <code>.json</code> или <code>.xml</code> задаёт формат данных.</p>
-<div class="highlight"><pre><span></span><code>GET https://SHOP/admin/account.json
+<p>Чтобы приложение получило доступ к магазину, сначала <a href="#настройка-приложения">настройте и установите его</a>. При установке InSales сообщит приложению адрес магазина и данные для расчёта пароля.</p>
+<p>Запросы API отправляются на домен этого магазина. Например, запрос сведений о магазине <code>demo.myinsales.ru</code> выглядит так:</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://demo.myinsales.ru/admin/account.json</span>
 </code></pre></div>
+<p>Здесь <code>demo.myinsales.ru</code> — условный адрес магазина: замените его адресом, полученным при установке. Путь <code>/admin/account</code> выбирает ресурс, а суффикс <code>.json</code> — формат ответа. Для XML используйте <code>.xml</code>.</p>
+<p>Параметр <code>shop</code> будет в запросе <strong>от InSales к приложению</strong> во время установки. В запросе <strong>от приложения к API</strong> его значение используется как домен, как в примере выше. Добавлять <code>?shop=...</code> к адресу ресурса не нужно.</p>
 <p>Для авторизации используйте HTTP Basic: логин — идентификатор приложения, пароль — пароль приложения в конкретном магазине. Для каждого магазина используется свой пароль.</p>
 <p><code>GET</code>, <code>HEAD</code> и <code>DELETE</code> не требуют заголовка <code>Content-Type</code>. Для <code>POST</code>, <code>PUT</code> и <code>PATCH</code> он обязателен и должен соответствовать суффиксу адреса: <code>application/json</code> для <code>.json</code>, <code>application/xml</code> для <code>.xml</code>. Если тип содержимого не соответствует формату, API возвращает статус <code>422</code> и тело <code>{"message":"incorrect Content-Type, should be application/json"}</code> либо такое же сообщение для <code>application/xml</code>.</p>
 <p>Вопросы по приложениям: <a href="mailto:partners@insales.ru">partners@insales.ru</a>.</p>
@@ -4139,43 +4232,132 @@
 <li><code>429</code> — исчерпан лимит, см. <code>Retry-After</code>.</li>
 </ul>
 <h2 id="_3">Установка приложения</h2>
-<p>Создайте приложение в партнёрском кабинете. Укажите идентификатор приложения (логин для HTTP Basic), секрет и URL обработчика установки без параметров, например <code>https://myapp.example/install</code>.</p>
-<p>Когда пользователь нажимает «Установить», InSales создаёт одноразовый <code>token</code> и вычисляет пароль приложения для этого магазина:</p>
-<div class="highlight"><pre><span></span><code>password = MD5(token + secret)
+<h3 id="настройка-приложения">Настройте приложение</h3>
+<p>Откройте раздел «Разработчикам» в бэк-офисе и нажмите «Добавить расширение». Заполните название, описание и сведения о разработчике. В технических параметрах укажите идентификатор приложения и адреса обработчиков на вашем сервере:</p>
+<table>
+<thead>
+<tr>
+<th>Поле в форме</th>
+<th>Что указать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Идентификатор</td>
+<td>Например, <code>my_app</code>. Используется как логин HTTP Basic и одинаков для всех магазинов приложения.</td>
+</tr>
+<tr>
+<td>URL установки</td>
+<td>Адрес обработчика подключения магазина, например <code>https://myapp.example/install</code>.</td>
+</tr>
+<tr>
+<td>URL входа</td>
+<td>Страница, которую открывает пользователь при входе, например <code>https://myapp.example/login</code>.</td>
+</tr>
+<tr>
+<td>URL деинсталяции</td>
+<td>Адрес обработчика удаления приложения из магазина, например <code>https://myapp.example/uninstall</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Технические параметры расширения: идентификатор и URL установки, входа и удаления" src="../../img/insales-api/application-urls.jpg" /></p>
+<p>Сохраните расширение и настройте права на ресурсы, с которыми оно будет работать. Для примера с <code>/admin/account.json</code> нужно право на чтение настроек магазина. Без нужного права API вернёт <code>403</code>.</p>
+<p>Секрет приложения формируется при создании. Он доступен в настройках сохранённого приложения и нужен для расчёта пароля каждого подключаемого магазина. Храните секрет на сервере приложения.</p>
+<p>URL установки укажите без параметров: InSales добавит их при вызове обработчика. Обработчики установки и удаления должны быть доступны InSales по указанным адресам.</p>
+<p>Для установки своего расширения нажмите «Установить» в его строке:</p>
+<p><img alt="Строка расширения в разделе «Разработчикам» с кнопкой «Установить»" src="../../img/insales-api/application-install.jpg" /></p>
+<h3 id="обработка-установки">Обработайте запрос установки</h3>
+<p>После нажатия «Установить» InSales отправляет GET-запрос на URL установки вашего приложения. Для условного магазина <code>demo.myinsales.ru</code> запрос будет таким:</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://myapp.example/install?shop=demo.myinsales.ru&amp;token=TOKEN&amp;insales_id=123</span>
 </code></pre></div>
-<p>В обработчике установки вычислите пароль по той же формуле: соедините <code>token</code> и секрет приложения без разделителя и получите MD5 в шестнадцатеричном виде, в нижнем регистре. Сохраните пароль в приложении: InSales не отправляет <code>token</code> повторно.</p>
-<p>InSales вызывает обработчик установки GET-запросом:</p>
-<div class="highlight"><pre><span></span><code>https://myapp.example/install?shop=SHOP&amp;token=TOKEN&amp;insales_id=INSALES_ID
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Что получает приложение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shop</code></td>
+<td>Домен магазина для последующих запросов API. В примере — <code>demo.myinsales.ru</code>.</td>
+</tr>
+<tr>
+<td><code>insales_id</code></td>
+<td>Постоянный идентификатор магазина. В примере — <code>123</code>.</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>Одноразовая строка для расчёта пароля. Вместо <code>TOKEN</code> InSales передаст её значение.</td>
+</tr>
+</tbody>
+</table>
+<p>В обработчике установки:</p>
+<ol>
+<li>Вычислите пароль по формуле <code>password = MD5(token + secret)</code>, где <code>secret</code> — секрет приложения из его настроек. Соедините строки без разделителя и получите MD5 в шестнадцатеричном виде, в нижнем регистре.</li>
+<li>Сохраните <code>insales_id</code>, <code>shop</code> и рассчитанный пароль. Для каждого магазина нужен свой пароль; InSales не отправляет токен установки повторно.</li>
+<li>Верните HTTP-статус <code>200</code> в течение 10 секунд. Другой статус, в том числе <code>201</code>, или отсутствие ответа в срок отменяют установку. Рассчитанный пароль перестаёт действовать.</li>
+</ol>
+<p>В обработчике установки уже можно обращаться к API с рассчитанным паролем, например создавать <a href="../07%20InSales%20API%20-%20Webhooks/">вебхуки</a>. При этом обработчик всё равно должен успеть вернуть <code>200</code> за 10 секунд.</p>
+<p>После установки запрос сведений о том же магазине отправляется по адресу:</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://demo.myinsales.ru/admin/account.json</span>
 </code></pre></div>
-<ul>
-<li><code>shop</code> — адрес магазина, на него дальше уходят запросы API.</li>
-<li><code>insales_id</code> — постоянный идентификатор магазина.</li>
-<li><code>token</code> — одноразовая строка для расчёта пароля.</li>
-</ul>
-<p>К моменту вызова обработчика пароль уже действует. Поэтому во время установки можно обращаться к API, например создавать <a href="../07%20InSales%20API%20-%20Webhooks/">вебхуки</a>.</p>
-<p>Обработчик установки должен вернуть HTTP-статус <code>200</code> в течение 10 секунд. Если он вернёт другой статус или не ответит за это время, InSales отменит установку. Пароль приложения в этом магазине перестанет действовать.</p>
+<p>Для HTTP Basic используйте логин <code>my_app</code> из настроек приложения и пароль, рассчитанный в обработчике. Это связывает два примера: из <code>shop=demo.myinsales.ru</code> в запросе установки приложение получает домен для обращения к <code>/admin/account.json</code>.</p>
 <h2 id="_4">Вход пользователя в приложение</h2>
-<p>Кнопка входа открывает URL входа из настроек приложения и добавляет параметры:</p>
-<div class="highlight"><pre><span></span><code>https://myapp.example/login?shop=SHOP&amp;insales_id=INSALES_ID&amp;user_id=USER_ID&amp;user_email=USER_EMAIL
+<p>Установленное приложение отображается в разделе «Установленные расширения». Нажатие на его название открывает URL входа из настроек:</p>
+<p><img alt="Установленное расширение: нажмите название, чтобы открыть приложение" src="../../img/insales-api/application-enter.jpg" /></p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://myapp.example/login?shop=demo.myinsales.ru&amp;insales_id=123&amp;user_id=USER_ID&amp;user_email=USER_EMAIL</span>
 </code></pre></div>
-<p>Если у пользователя ещё нет сессии в приложении, перенаправьте его браузер на адрес автологина магазина:</p>
-<div class="highlight"><pre><span></span><code>https://SHOP/admin/applications/API_KEY/login?token=TOKEN&amp;login=https://myapp.example/autologin
+<p>В этом запросе <code>shop</code> и <code>insales_id</code> определяют магазин, а <code>user_id</code> и <code>user_email</code> — пользователя. Самого получения этих параметров недостаточно для входа: если сессии приложения ещё нет, подтвердите пользователя через автологин InSales.</p>
+<h3 id="автологин">Подтвердите вход через InSales</h3>
+<ol>
+<li>Создайте одноразовый токен для входа и сохраните его до проверки ответа. Он не связан с токеном установки.</li>
+<li>Перенаправьте браузер пользователя на адрес автологина магазина:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://demo.myinsales.ru/admin/applications/my_app/login?token=LOGIN_TOKEN&amp;login=https%3A%2F%2Fmyapp.example%2Fautologin</span>
 </code></pre></div>
-<p><code>API_KEY</code> — идентификатор приложения. Для <code>token</code> приложение создаёт новую строку; токен установки здесь не используется. В <code>login</code> укажите адрес обработчика автологина приложения. Его домен должен совпадать с доменом URL входа из настроек: InSales проверяет домен второго уровня.</p>
+<p><code>my_app</code> — идентификатор приложения. <code>LOGIN_TOKEN</code> — созданный вами токен. Параметр <code>login</code> содержит URL обработчика автологина вашего приложения; в примере он закодирован для передачи в URL.</p>
+<p>Домен обработчика должен совпадать с доменом URL входа из настроек приложения: InSales проверяет домен второго уровня.</p>
 <p>Если пользователь вошёл в бэк-офис и приложение установлено в магазине, InSales перенаправляет браузер на адрес из <code>login</code> со следующими параметрами:</p>
-<ul>
-<li><code>token</code> — <code>MD5(token + password)</code></li>
-<li><code>user_email</code>, <code>user_name</code>, <code>user_id</code></li>
-<li><code>token2</code> — <code>MD5(token + user_email + user_name + user_id + password)</code></li>
-<li><code>email_confirmed</code> — <code>true</code> или <code>false</code></li>
-<li><code>token3</code> — <code>MD5(token + user_email + user_name + user_id + email_confirmed + password)</code></li>
-</ul>
-<p>В формулах используйте исходный <code>token</code>, который приложение передало в запросе автологина. <code>password</code> — сохранённый пароль приложения в этом магазине. Сравнение рассчитанного значения с полученным <code>token3</code> позволяет проверить, что переход выполнен из бэк-офиса.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token</code></td>
+<td><code>MD5(LOGIN_TOKEN + password)</code></td>
+</tr>
+<tr>
+<td><code>user_email</code>, <code>user_name</code>, <code>user_id</code></td>
+<td>Данные пользователя. Имя может быть пустым.</td>
+</tr>
+<tr>
+<td><code>token2</code></td>
+<td><code>MD5(LOGIN_TOKEN + user_email + user_name + user_id + password)</code></td>
+</tr>
+<tr>
+<td><code>email_confirmed</code></td>
+<td>Строка <code>true</code> или <code>false</code>: подтверждён ли адрес почты.</td>
+</tr>
+<tr>
+<td><code>token3</code></td>
+<td><code>MD5(LOGIN_TOKEN + user_email + user_name + user_id + email_confirmed + password)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Здесь <code>LOGIN_TOKEN</code> — исходный токен, который приложение отправило в InSales, а <code>password</code> — сохранённый пароль приложения в этом магазине. Для вычисления MD5 соединяйте значения без разделителей, в указанном порядке.</p>
+<p>В обработчике автологина вычислите <code>token3</code> и сравните его с полученным значением. Создавайте сессию пользователя только после успешной проверки. Если значения не совпали, отклоните вход. Токен входа используйте один раз.</p>
+<p>Если сессия приложения уже есть, при повторном переходе можно открыть интерфейс приложения без нового автологина.</p>
 <h2 id="_5">Удаление приложения</h2>
-<p>При удалении приложения InSales вызывает URL обработчика удаления GET-запросом:</p>
-<div class="highlight"><pre><span></span><code>UNINSTALL_URL?shop=SHOP&amp;token=PASSWORD&amp;insales_id=INSALES_ID
+<p>При удалении приложения из магазина InSales отправляет GET-запрос на URL деинсталяции из настроек:</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://myapp.example/uninstall?shop=demo.myinsales.ru&amp;token=PASSWORD&amp;insales_id=123</span>
 </code></pre></div>
-<p>В этом запросе параметр <code>token</code> содержит пароль приложения в магазине. Секрет приложения и токен установки здесь не используются.</p>
+<p>Параметр <code>token</code> в этом запросе содержит пароль приложения в магазине. Сравните его с сохранённым паролем, чтобы проверить уведомление. Секрет приложения и токен установки для этой проверки не используются.</p>
+<p>Обработайте отключение магазина в своём приложении и верните <code>200</code>. После удаления прежний пароль больше не даёт доступа к API: запрос с ним возвращает <code>401</code>. Ошибка ответа обработчика не позволяет сохранить доступ к API или отменить удаление.</p>
 <h2 id="_6">Что читать дальше</h2>
 <p>Полный справочник методов опубликован на <a href="https://api.insales.ru/">api.insales.ru</a>. В статьях этого раздела описаны сценарии интеграции и поведение отдельных ресурсов:</p>
 <ul>

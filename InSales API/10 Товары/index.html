@@ -6290,7 +6290,7 @@
 <p><code>PUT /admin/products/variants_group_update.json</code> меняет цены и остатки сразу у нескольких вариантов. В теле — массив <code>variants</code>, у каждого элемента обязателен <code>id</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2176487279</span><span class="p">,</span><span class="w"> </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">}]}</span>
 </code></pre></div>
-<p>API ставит обновление в очередь и сразу возвращает <code>200</code> с пустым массивом <code>[]</code>. Чтобы получить новые цены и остатки, запросите варианты после обработки очереди.</p>
+<p>API сразу возвращает <code>200</code> с пустым массивом <code>[]</code>. Изменения применяются не сразу. Чтобы проверить новые цены и остатки, повторно запросите варианты после завершения обновления.</p>
 <h3 id="_18">Удаление варианта</h3>
 <p>Последний вариант удалить нельзя.</p>
 <div class="api-example">

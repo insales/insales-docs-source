@@ -23,6 +23,8 @@ GET https://demo.myinsales.ru/admin/account.json
 
 `GET`, `HEAD` и `DELETE` не требуют заголовка `Content-Type`. Для `POST`, `PUT` и `PATCH` он обязателен и должен соответствовать суффиксу адреса: `application/json` для `.json`, `application/xml` для `.xml`. Если тип содержимого не соответствует формату, API возвращает статус `422` и тело `{"message":"incorrect Content-Type, should be application/json"}` либо такое же сообщение для `application/xml`.
 
+Идентификаторы объектов и адреса в примерах условные. Используйте данные своего магазина и приложения.
+
 Вопросы по приложениям: [partners@insales.ru](mailto:partners@insales.ru).
 
 <a id="лимит-запросов"></a>

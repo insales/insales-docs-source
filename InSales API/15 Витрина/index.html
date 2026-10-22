@@ -3222,6 +3222,8 @@
       
         
       
+        
+      
     
     
     
@@ -3780,7 +3782,35 @@
   <span class="md-ellipsis">
     
   
-    Приложения и диалоги
+    Приложения
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21%20%D0%94%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Диалоги
   
 
     
@@ -5139,8 +5169,8 @@
 </div>
 </div>
 <h2 id="_8">Статьи</h2>
-<p>Создание идёт только внутрь блога: <code>POST /admin/blogs/:blog_id/articles.json</code>. <code>POST /admin/articles.json</code> отвечает <code>404</code>.</p>
-<p><code>GET /admin/blogs/:blog_id/articles.json</code> — статьи одного блога. Порядок: закреплённая, затем <code>published_at</code> по убыванию, затем id по убыванию. <code>GET /admin/articles.json</code> и <code>GET /admin/articles/:id.json</code> читают статьи всех блогов. У общего списка этого порядка нет.</p>
+<p>Создание идёт внутрь блога: <code>POST /admin/blogs/:blog_id/articles.json</code>.</p>
+<p><code>GET /admin/blogs/:blog_id/articles.json</code> — статьи одного блога. Порядок: закреплённая, затем <code>published_at</code> по убыванию, затем id по убыванию.</p>
 <p>На странице по умолчанию 10 статей. <code>per_page</code> и <code>limit</code> меньше 10 поднимаются до 10, сверху значение обрезается до 250. <code>updated_since</code> список не фильтрует.</p>
 <p>Обязательны <code>title</code>, <code>content</code>, <code>author</code> и <code>published_at</code>. Пустые поля отвечают <code>422</code>, и ключ текста — <code>content_with_urls</code>, не <code>content</code>. Дата без времени сохраняется как полночь в часовом поясе магазина: <code>2024-05-02</code> стал <code>2024-05-02T00:00:00.000+03:00</code>.</p>
 <p><code>permalink</code> можно задать. Если его нет, он строится из названия транслитом.</p>

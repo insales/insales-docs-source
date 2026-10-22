@@ -4062,16 +4062,17 @@
 
 
 <h1 id="_1">Способы оплаты</h1>
-<p>Способы оплаты можно читать и менять, если у приложения есть право на настройки магазина. Нужно ещё право на внешние оплаты.</p>
+<p>Для чтения и изменения способов оплаты приложению нужны права на настройки магазина и на внешние оплаты.</p>
 <p>Если нужного права нет, ответ <code>403</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Недостаточно прав для операции"</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="способы-оплаты">Способы оплаты</h2>
-<p><code>GET /admin/payment_gateways.json</code> отдаёт способы оплаты по <code>position</code>. <code>GET /admin/payment_gateways/:id.json</code> — один способ. Неизвестный id — <code>404</code> и HTML-страница.</p>
-<p>В объекте есть <code>id</code>, <code>type</code>, <code>position</code>, <code>title</code>, <code>description</code>, <code>margin</code>, <code>available_for_individual_clients</code>, <code>available_for_juridical_clients</code>, <code>payment_delivery_variants</code>, <code>created_at</code>, <code>updated_at</code>. <code>margin</code> — наценка в процентах, строка вроде <code>"0.0"</code>. Связь <code>payment_delivery_variants</code> указывает <code>delivery_variant_id</code>: без неё способ в чекауте для этой доставки не показывается.</p>
-<p><code>add_delivery_variants: true</code> при создании привязывает все текущие доставки. Одна доставка передаётся массивом <code>payment_delivery_variants_attributes</code> с <code>delivery_variant_id</code>. Оба флага сразу не обязательны: достаточно одного массива.</p>
-<p>Название уникально в магазине. Повтор — <code>422</code>, тело <code>{"title":["уже существует"]}</code>. Оба флага клиентов <code>false</code> — <code>422</code>, тело <code>{"client_types":["Не задан тип клиента"]}</code>. Тип вне списка, например <code>PaymentGateway::YandexMoney</code>, отвечает <code>500</code> и HTML-страницей.</p>
-<p><code>PUT</code> меняет название, описание, наценку, флаги клиентов и связи с доставками. Связь удаляется элементом с <code>id</code> и <code>_destroy: 1</code>. Новая связь — элемент с <code>delivery_variant_id</code>. Оба действия в одном теле выполняются вместе.</p>
+<p><code>GET /admin/payment_gateways.json</code> возвращает способы оплаты, отсортированные по <code>position</code>. Для чтения одного способа используйте <code>GET /admin/payment_gateways/:id.json</code>. Несуществующий идентификатор возвращает <code>404</code> с HTML-страницей.</p>
+<p>Объект способа оплаты содержит <code>id</code>, <code>type</code>, <code>position</code>, <code>title</code>, <code>description</code>, <code>margin</code>, <code>available_for_individual_clients</code>, <code>available_for_juridical_clients</code>, <code>payment_delivery_variants</code>, <code>created_at</code> и <code>updated_at</code>.</p>
+<p>Поле <code>margin</code> задаёт наценку в процентах и возвращается строкой, например <code>"0.0"</code>. Массив <code>payment_delivery_variants</code> содержит связи со способами доставки через <code>delivery_variant_id</code>. Без такой связи способ оплаты не отображается при оформлении заказа с выбранной доставкой.</p>
+<p>Чтобы привязать способ оплаты ко всем существующим доставкам, при создании передайте <code>add_delivery_variants: true</code>. Чтобы выбрать отдельную доставку, передайте <code>payment_delivery_variants_attributes</code> с её <code>delivery_variant_id</code>. Одновременно передавать оба параметра не нужно: для выбранных доставок достаточно массива.</p>
+<p>Название способа оплаты должно быть уникальным в магазине. При повторе API возвращает <code>422</code> и <code>{"title":["уже существует"]}</code>. Если оба флага доступности для типов клиентов равны <code>false</code>, API возвращает <code>422</code> и <code>{"client_types":["Не задан тип клиента"]}</code>. Неподдерживаемый тип, например <code>PaymentGateway::YandexMoney</code>, приводит к ответу <code>500</code> с HTML-страницей.</p>
+<p>Запрос <code>PUT</code> изменяет название, описание, наценку, доступность для типов клиентов и связи с доставками. Чтобы удалить связь, передайте её <code>id</code> и <code>_destroy: 1</code>. Чтобы добавить — элемент с <code>delivery_variant_id</code>. Удаление и добавление можно выполнить одним запросом.</p>
 <p><code>DELETE /admin/payment_gateways/:id.json</code> отвечает <code>200</code>, тело пустое.</p>
 <p>Протокол <code>PaymentGateway::External</code> — в <a href="../02%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B%20%28%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B9%29/">статье о внешнем способе</a>. Создание этого типа тем же <code>POST</code> отвечает <code>201</code> и добавляет <code>url</code>, <code>shop_id</code>, <code>password</code>, <code>send_order</code>, <code>success_url</code>, <code>fail_url</code>, <code>server_url</code>.</p>
 <h3 id="_2">Наложенный платёж</h3>
@@ -4159,7 +4160,7 @@
 </div>
 <p>Связь есть у каждого способа доставки магазина.</p>
 <h3 id="_3">Произвольный способ</h3>
-<p><code>PaymentGateway::Custom</code> — свой способ без перехода на платёжную страницу. Доставку можно указать точечно.</p>
+<p><code>PaymentGateway::Custom</code> позволяет создать собственный способ оплаты без перехода на платёжную страницу. Его можно связать с отдельными способами доставки.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/payment_gateways.json</code></div>
 <table>

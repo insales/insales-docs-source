@@ -4106,11 +4106,12 @@
 
 
 <h1 id="_1">Приложения</h1>
-<p>Три ресурса: OAuth-приложения покупателя, каналы продаж приложения и действия приложения.</p>
+<p>В этой статье описаны OAuth-приложения для входа покупателей на витрину, каналы продаж и действия приложения в бэк-офисе.</p>
 <p>Задачи по заказам описаны в <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/#задачи-пользователя">заказах и клиентах</a>. Выгрузки товаров — в <a href="../20%20%D0%92%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2/">выгрузках</a>. Токен канала «Диалогов» — в <a href="../21%20%D0%94%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/">диалогах</a>.</p>
-<p>Ключ доступа из раздела «Разработчикам» работает в одном магазине. Установленное приложение из каталога вызывает те же адреса своим паролем магазина. Список OAuth принадлежит этому паролю: второй ключ того же магазина получает пустой список OAuth. Имя провайдера OAuth при этом одно на весь магазин.</p>
+<p>Ключ доступа из раздела «Разработчикам» действует в одном магазине. Приложение, установленное из каталога, обращается к тем же адресам с паролем, выданным для этого магазина.</p>
+<p>OAuth-записи принадлежат паролю приложения, с которым созданы. Другой ключ того же магазина не видит эти записи и получает пустой список. При этом имя OAuth-провайдера должно быть уникальным для всего магазина.</p>
 <h2 id="_2">Права</h2>
-<p>Ключ доступа проверяет раздел настроек.</p>
+<p>При обращении по ключу доступа API проверяет, разрешён ли ему соответствующий раздел настроек:</p>
 <table>
 <thead>
 <tr>
@@ -4151,15 +4152,15 @@
 </div>
 </div>
 </div>
-<p>У опубликованного приложения каждое действие выдаётся отдельно. Пока действие не выдано, ответ тот же <code>403</code>.</p>
-<p>У приложения в режиме разработки первый вызов действия проходит и запоминается. Следующие вызовы этого действия идут как у выданного права.</p>
+<p>Для опубликованного приложения право на каждое действие выдаётся отдельно. Если право не выдано, API возвращает <code>403</code>.</p>
+<p>Для приложения в режиме разработки первый вызов действия разрешается и сохраняется как выданное право. Последующие вызовы выполняются с этим правом.</p>
 <h2 id="oauth-">OAuth-приложения</h2>
-<p>Ресурс хранит <code>client_id</code> и <code>client_secret</code> входа покупателя на витрине. Установка приложения и три токена автологина описаны в <a href="../01%20readme/">общем описании</a>.</p>
-<p><code>GET /admin/o_auth_apps.json</code> отдаёт массив записей этого пароля. Пустой список — <code>[]</code>. Поля записи: <code>id</code>, <code>client_id</code>, <code>client_secret</code>, <code>provider</code>, <code>issuer</code>, <code>enabled</code>.</p>
-<p>Готовые <code>provider</code>: <code>yandex</code>, <code>vkontakte</code>, <code>google</code>, <code>mailru</code>, <code>wbid</code>. Для них <code>issuer</code> пустой. Любое другое имя — свой провайдер, и <code>issuer</code> обязателен. Поле <code>enabled</code> в запросе не меняет запись: в ответе остаётся <code>true</code>.</p>
+<p>Ресурс хранит <code>client_id</code> и <code>client_secret</code>, которые используются для входа покупателя на витрину через OAuth-провайдера. Установка самого приложения и токены автологина описаны в статье <a href="../01%20readme/">«Как интегрироваться с InSales»</a>.</p>
+<p><code>GET /admin/o_auth_apps.json</code> возвращает массив записей этого пароля. Пустой список — <code>[]</code>. Поля записи: <code>id</code>, <code>client_id</code>, <code>client_secret</code>, <code>provider</code>, <code>issuer</code>, <code>enabled</code>.</p>
+<p>Для встроенных провайдеров используйте <code>provider</code>: <code>yandex</code>, <code>vkontakte</code>, <code>google</code>, <code>mailru</code> или <code>wbid</code>. Поле <code>issuer</code> для них пустое. Любое другое имя задаёт собственного провайдера, для которого <code>issuer</code> обязателен. Переданное значение <code>enabled</code> не меняет запись: в ответе поле остаётся <code>true</code>.</p>
 <p>Покупатель открывает <code>/auth/yandex</code>, <code>/auth/vkontakte</code>, <code>/auth/google</code> или <code>/auth/mailru</code> — магазин переходит на страницу провайдера.</p>
 <h3 id="_3">Создание</h3>
-<p>Тело можно передать объектом <code>o_auth_app</code> или полями на верхнем уровне. Пустой объект <code>{"o_auth_app":{}}</code> отвечает <code>422</code>, тело <code>{"message":"param is missing or the value is empty or invalid: o_auth_app"}</code>.</p>
+<p>Передайте данные в объекте <code>o_auth_app</code> или на верхнем уровне JSON. Если объект <code>o_auth_app</code> пуст, API вернёт <code>422</code> и <code>{"message":"param is missing or the value is empty or invalid: o_auth_app"}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/o_auth_apps.json</code></div>
 <table>
@@ -4446,10 +4447,10 @@
 </div>
 <p><code>DELETE /admin/sales_channels/:id.json</code> отвечает <code>{"status":"ok"}</code>. Следующий список — <code>[]</code>.</p>
 <h2 id="действия-приложения">Действия приложения</h2>
-<p>Действие приложения — кнопка в карточке сущности бэк-офиса. Магазин отправляет на <code>url</code> POST с телом JSON: массив выбранных объектов. <code>entity</code> задаёт, в каком разделе кнопка видна.</p>
+<p>Действие приложения добавляет кнопку в раздел бэк-офиса, заданный полем <code>entity</code>. При вызове действия магазин отправляет POST-запрос на <code>url</code> приложения. Тело запроса — JSON-массив выбранных объектов.</p>
 <p>Читать и менять действия можно, если у приложения есть право на настройки магазина.</p>
 <p>Список <code>GET /admin/application_actions.json</code> содержит действия текущего приложения. Действия других приложений в него не входят. Пустой список — <code>[]</code>.</p>
-<p><code>entity</code>: <code>order</code>, <code>product</code>, <code>client</code>, <code>discount_code</code>, <code>file</code>, <code>page</code>, <code>article</code>, <code>collection_filter</code>. У приложения должно быть право читать эту сущность. <code>handle</code> уникален в пределах приложения.</p>
+<p>Поле <code>entity</code> принимает <code>order</code>, <code>product</code>, <code>client</code>, <code>discount_code</code>, <code>file</code>, <code>page</code>, <code>article</code> или <code>collection_filter</code>. Приложению нужно право на чтение выбранного типа объектов. Поле <code>handle</code> должно быть уникальным в пределах приложения.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/application_actions.json</code></div>
 <table>

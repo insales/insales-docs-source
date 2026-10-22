@@ -3740,7 +3740,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Список и число
+        Список и количество заказов
       
     </span>
   </a>
@@ -3751,7 +3751,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Отбор
+        Фильтрация
       
     </span>
   </a>
@@ -4239,7 +4239,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Список и число
+        Список и количество заказов
       
     </span>
   </a>
@@ -4250,7 +4250,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Отбор
+        Фильтрация
       
     </span>
   </a>
@@ -4504,17 +4504,18 @@
 
 
 <h1 id="_1">Заказы и клиенты</h1>
-<p>Это API приложения, а не сессия покупателя на витрине. Список заказов клиента после входа на сайт через <code>session.json</code> отсюда не берётся: заказы клиента читаются параметром <code>client_id</code> у <code>GET /admin/orders.json</code>.</p>
+<p>Для работы с заказами и клиентами используйте авторизацию приложения в API бэк-офиса. Вход покупателя на витрину через <code>session.json</code> не даёт доступа к этим методам. Чтобы получить заказы конкретного клиента, передайте <code>client_id</code> в <code>GET /admin/orders.json</code>.</p>
 <p>Сверка списков по <code>updated_since</code> и <code>from_id</code> — в <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">изменившихся данных</a>. Скидка на отдельные строки — в <a href="../04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/">частичных скидках</a>. Скидка внешней системы — в <a href="../09%20%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8/">внешних скидках</a>.</p>
 <h2 id="_2">Заказы</h2>
-<p><code>id</code> — идентификатор заказа в URL. <code>number</code> — номер, который магазин показывает покупателю. Номер задаётся отдельно от <code>id</code>: у заказа могут быть <code>id</code> 1 и <code>number</code> 1000, у следующего — <code>1001</code>.</p>
+<p>В пути к заказу используется <code>id</code> — его идентификатор в API. Поле <code>number</code> содержит номер, который магазин показывает покупателю. Эти значения независимы: например, у заказа с <code>id: 1</code> может быть <code>number: 1000</code>, а следующий заказ получит номер <code>1001</code>.</p>
 <p><code>GET /admin/orders/1000.json</code>, где 1000 — номер, а не <code>id</code>, отвечает <code>404</code>. Тело при <code>Accept: application/json</code> остаётся HTML-страницей.</p>
-<p>Карточка заказа собрана из полей заказа, массива <code>order_lines</code>, объекта <code>client</code>, объекта <code>shipping_address</code>, массива <code>discounts</code> и объекта <code>discount</code> — это первая скидка того же массива. У строки есть <code>sale_price</code>, <code>full_sale_price</code>, <code>total_price</code>, <code>full_total_price</code>, <code>quantity</code>, <code>variant_id</code>, <code>product_id</code>, <code>bundle_id</code>. Вложенный <code>client</code> короче карточки клиента: в нём нет <code>default_address</code>, <code>client_tags</code> и <code>full_name</code>.</p>
+<p>Карточка заказа содержит поля заказа, строки <code>order_lines</code>, клиента <code>client</code>, адрес <code>shipping_address</code> и скидки <code>discounts</code>. Поле <code>discount</code> дублирует первую скидку из массива.</p>
+<p>У строки заказа есть <code>sale_price</code>, <code>full_sale_price</code>, <code>total_price</code>, <code>full_total_price</code>, <code>quantity</code>, <code>variant_id</code>, <code>product_id</code> и <code>bundle_id</code>. Вложенный объект <code>client</code> содержит меньше данных, чем карточка клиента: в нём нет <code>default_address</code>, <code>client_tags</code> и <code>full_name</code>.</p>
 <p><code>custom_status</code> — объект с <code>permalink</code> и <code>title</code>. <code>fulfillment_status</code> — системный статус исполнения: <code>new</code>, <code>accepted</code>, <code>approved</code>, <code>dispatched</code>, <code>delivered</code>, <code>returning</code>, <code>declined</code>, <code>returned</code>. <code>financial_status</code> — оплата: <code>pending</code>, <code>paid</code>, <code>partially_paid</code>.</p>
-<h3 id="_3">Список и число</h3>
-<p><code>GET /admin/orders.json</code> отдаёт массив, по умолчанию 25 записей, новые <code>id</code> впереди. <code>per_page</code> больше 100 срезается до 100. <code>per_page=1</code> возвращает одну запись. <code>per_page=0</code> возвращает пустой массив.</p>
-<p><code>page</code> начинается с 1. Ноль отвечает <code>422</code>, тело <code>{"message":"page должен иметь значение, большее 0"}</code>.</p>
-<p><code>GET /admin/orders/count.json</code> считает тот же отбор и отдаёт <code>{"count": N}</code>.</p>
+<h3 id="_3">Список и количество заказов</h3>
+<p><code>GET /admin/orders.json</code> возвращает массив заказов. По умолчанию на странице 25 записей, отсортированных по убыванию <code>id</code>. Если <code>per_page</code> больше 100, API использует 100. Значение <code>per_page=1</code> возвращает одну запись, <code>per_page=0</code> — пустой массив.</p>
+<p>Нумерация <code>page</code> начинается с 1. При <code>page=0</code> API возвращает <code>422</code> и <code>{"message":"page должен иметь значение, большее 0"}</code>.</p>
+<p><code>GET /admin/orders/count.json</code> возвращает количество заказов, соответствующих переданным фильтрам: <code>{"count": N}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/orders.json?per_page=1</code></div>
 <table>
@@ -4527,7 +4528,7 @@
 <tbody>
 <tr>
 <td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Размер страницы. Больше 100 срезается до 100, 0 даёт пустую страницу.</td>
+<td>Количество заказов на странице. При значении больше 100 API использует 100. При <code>0</code> возвращает пустой массив.</td>
 </tr>
 <tr>
 <td><code>page</code> <span class="api-opt">необязательный</span><br>число</td>
@@ -4593,15 +4594,15 @@
 </div>
 </div>
 </div>
-<h3 id="_4">Отбор</h3>
-<p>Параметр <code>number</code> список не ограничивает. Номер читается границами <code>number_from</code> и <code>number_to</code>. Один номер — обе границы равны ему.</p>
+<h3 id="_4">Фильтрация</h3>
+<p>Чтобы найти заказ по номеру, задайте одинаковые <code>number_from</code> и <code>number_to</code>. Для диапазона укажите разные границы. Параметр <code>number</code> не фильтрует список.</p>
 <p><code>from_number</code> оставляет заказы с номером больше либо равным переданному. Номер больше последнего даёт пустой массив.</p>
-<p><code>client_id</code> оставляет заказы клиента. <code>ids[]</code> повторяется для нескольких id. <code>fulfillment_status</code> сравнивается точно. <code>delivery_variant_id</code> и <code>payment_gateway_id</code> сравниваются точно. <code>q</code> — поиск магазина. Неизвестная строка возвращает <code>[]</code>.</p>
-<p><code>status=open</code> оставляет заказы в работе, включая доставленный и ещё не оплаченный. <code>status=closed</code> оставляет отменённые, возвращённые и доставленные оплаченные.</p>
+<p><code>client_id</code> ограничивает список заказами одного клиента. Для нескольких идентификаторов повторите параметр <code>ids[]</code>. Параметры <code>fulfillment_status</code>, <code>delivery_variant_id</code> и <code>payment_gateway_id</code> требуют точного совпадения. Параметр <code>q</code> использует поиск магазина; строка, для которой нет совпадений, возвращает <code>[]</code>.</p>
+<p>С <code>status=open</code> возвращаются заказы в работе, в том числе доставленные, но ещё не оплаченные. С <code>status=closed</code> возвращаются отменённые, возвращённые, а также доставленные и оплаченные заказы.</p>
 <p><code>custom_status</code> сравнивает permalink пользовательского статуса. Несколько значений передаются повторением параметра.</p>
-<p>Одиночное <code>financial_status=paid</code> оставляет оплаченные. Любая другая одиночная строка, в том числе <code>pending</code> и <code>partially_paid</code>, оставляет заказы, у которых статус оплаты не <code>paid</code>. Точный набор передаётся массивом <code>financial_status[]</code>.</p>
-<p><code>created_at_from</code> и <code>created_at_to</code> запрос принимает и отвечает <code>200</code>. Выборка за календарный день, в котором заказы есть, может прийти пустой. Период по времени изменения читается через <code>updated_since</code>.</p>
-<p>При заданном <code>updated_since</code> порядок меняется на <code>updated_at</code>, затем <code>id</code>. <code>per_page=1</code> в таком списке возвращает самый старый подходящий заказ. Следующий запрос с его <code>updated_at</code> и <code>from_id</code>, равным его <code>id</code>, этот заказ не повторяет. Дальше — алгоритм со страницы <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">изменившихся данных</a>.</p>
+<p>Одиночный параметр <code>financial_status=paid</code> возвращает оплаченные заказы. Любое другое одиночное значение, включая <code>pending</code> и <code>partially_paid</code>, возвращает все заказы со статусом оплаты, отличным от <code>paid</code>. Чтобы выбрать точные статусы, используйте массив <code>financial_status[]</code>.</p>
+<p>API принимает <code>created_at_from</code> и <code>created_at_to</code> со статусом <code>200</code>, но запрос за календарный день может вернуть пустой список, даже если в этот день есть заказы. Для чтения изменений используйте <code>updated_since</code>.</p>
+<p>При заданном <code>updated_since</code> заказы сортируются по возрастанию <code>updated_at</code>, затем по <code>id</code>. Поэтому при <code>per_page=1</code> возвращается самый старый из подходящих заказов. В следующем запросе передайте его <code>updated_at</code> как <code>updated_since</code>, а <code>id</code> — как <code>from_id</code>: этот заказ повторно не вернётся. Последовательность обхода описана в статье <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">«Получение только изменившихся данных»</a>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/orders.json?number_from=1001&amp;number_to=1001</code></div>
 <table>
@@ -4746,9 +4747,10 @@
 </div>
 </div>
 </div>
-<p>Заказы клиента за период собираются так: <code>client_id</code> ограничивает клиента, а время берётся из <code>created_at</code> уже полученных заказов либо из <code>updated_since</code>.</p>
+<p>Чтобы получить заказы клиента за период, ограничьте список параметром <code>client_id</code>. Дату создания проверяйте по <code>created_at</code> полученных заказов; если нужен период изменения, используйте <code>updated_since</code>.</p>
 <h3 id="_5">Архив</h3>
-<p>Обычный список и <code>GET /admin/orders/:id.json</code> архивный заказ не отдают: для удалённого id ответ <code>404</code> с HTML-телом. <code>deleted=true</code> оставляет только архив. <code>with_deleted=true</code> отдаёт текущие и архивные, у архивного <code>archived</code> равен <code>true</code>. Те же флаги работают у карточки и у <code>count</code>.</p>
+<p>По умолчанию архивные заказы не возвращаются ни в списке, ни при чтении карточки. Запрос к карточке архивного заказа возвращает <code>404</code> с HTML-страницей.</p>
+<p>Параметр <code>deleted=true</code> возвращает только архивные заказы, <code>with_deleted=true</code> — текущие и архивные. У архивного заказа <code>archived</code> равен <code>true</code>. Эти флаги применяются к списку, карточке и подсчёту заказов.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/orders/2.json?with_deleted=true</code></div>
 <table>
@@ -4790,11 +4792,13 @@
 </div>
 </div>
 <h3 id="_6">Создание с товаром</h3>
-<p><code>POST /admin/orders.json</code> ждёт объект <code>order</code>. Строки — <code>order_lines_attributes</code>. Ключ <code>order_lines</code> игнорируется, и заказ без строк отвечает <code>422</code> с текстом «Заказ должен содержать хотя бы одну позицию».</p>
-<p>В строке достаточно <code>variant_id</code> и <code>quantity</code>. Если передан только <code>product_id</code>, берётся первый вариант товара. <code>sale_price</code> в строке сохраняется и становится ценой строки. Сумма заказа считается по ней.</p>
-<p>Адрес передаётся объектом <code>shipping_address</code>. В адресе передаётся <code>full_locality_name</code>, в ошибке оно называется «Населенный пункт». Город и регион по отдельности это поле не заменяют. Телефон и согласие на обработку персональных данных тоже обязательны, если так настроены поля магазина.</p>
-<p><code>delivery_variant_id</code> и <code>payment_gateway_id</code> выбирают доставку и оплату. Цена доставки при создании берётся у способа. Тариф внешней доставки и точка самовывоза передаются объектом <code>delivery_info_attributes</code>: в нём <code>tariff_id</code>, <code>price</code>, <code>title</code> и <code>outlet</code>. Для <code>DeliveryVariant::PickUp</code> в <code>outlet</code> нужны <code>latitude</code> и <code>longitude</code>, иначе ответ <code>422</code> с текстом «Не выбрана точка самовывоза». Поля доставки — в <a href="../17%20%D0%94%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/">доставке</a>. Поля оплаты — в <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/">способах оплаты</a>. Письма магазину и клиенту отключают <code>not_send_email_to_client</code> и <code>not_send_email_to_account</code>.</p>
-<p>Клиента можно передать объектом <code>client</code> или готовым <code>client_id</code>. Вложенный <code>client</code> сохраняет имя, почту, телефон и согласие. Фамилию и отчество записывает отдельное создание клиента, после него в заказ уходит <code>client_id</code>.</p>
+<p>Для создания заказа передайте объект <code>order</code> в <code>POST /admin/orders.json</code>. Строки заказа задаются через <code>order_lines_attributes</code>. Поле <code>order_lines</code> при создании игнорируется: если строки не заданы, API вернёт <code>422</code> и сообщение «Заказ должен содержать хотя бы одну позицию».</p>
+<p>Для строки достаточно указать <code>variant_id</code> и <code>quantity</code>. Если передать только <code>product_id</code>, InSales выберет первый вариант товара. Если передать <code>sale_price</code>, это значение станет ценой строки и будет использоваться при расчёте суммы заказа.</p>
+<p>Передайте адрес объектом <code>shipping_address</code>, указав населённый пункт в <code>full_locality_name</code>. В сообщениях об ошибках это поле называется «Населенный пункт». Отдельные город и регион не заменяют <code>full_locality_name</code>. Если телефон и согласие на обработку персональных данных обязательны в настройках магазина, их тоже нужно передать.</p>
+<p>Параметры <code>delivery_variant_id</code> и <code>payment_gateway_id</code> выбирают способы доставки и оплаты. При создании заказа цена доставки берётся из настроек способа.</p>
+<p>Для внешней доставки передайте тариф и точку самовывоза в <code>delivery_info_attributes</code>: поля <code>tariff_id</code>, <code>price</code>, <code>title</code> и <code>outlet</code>. Для <code>DeliveryVariant::PickUp</code> укажите в <code>outlet</code> координаты <code>latitude</code> и <code>longitude</code>. Без них API вернёт <code>422</code> и сообщение «Не выбрана точка самовывоза».</p>
+<p>Поля способов описаны в разделах <a href="../17%20%D0%94%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/">«Доставка»</a> и <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/">«Способы оплаты»</a>. Чтобы отключить письма клиенту и магазину, используйте соответственно <code>not_send_email_to_client</code> и <code>not_send_email_to_account</code>.</p>
+<p>Клиента можно передать вложенным объектом <code>client</code> или указать идентификатор существующего клиента в <code>client_id</code>. Во вложенном объекте сохраняются имя, почта, телефон и согласие. Чтобы записать фамилию и отчество, сначала создайте клиента отдельным запросом, затем передайте его <code>client_id</code> в заказ.</p>
 <p>Без населённого пункта и согласия ответ <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"full_locality_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"Не заполнено обязательное поле \"Населенный пункт\""</span><span class="p">]],</span>
@@ -4975,8 +4979,8 @@
 </div>
 <p>Без <code>number</code> магазин назначает следующий номер. <code>number</code> в <code>PUT</code> уже выданный номер не меняет.</p>
 <h3 id="_7">Создание с комплектом</h3>
-<p>В строку заказа передаётся <code>variant_id</code> комплекта. В сохранённом заказе строки комплекта нет. На её месте стоят составляющие, у каждой <code>bundle_id</code> равен id товара-комплекта. Количество составляющей — количество в комплекте, умноженное на количество комплектов. Цены составляющих в сумме дают цену комплекта.</p>
-<p>Рядом может лежать тот же вариант отдельной строкой. У неё <code>bundle_id</code> пустой, а <code>variant_id</code> совпадает с составляющей. Строку для скидки поэтому выбирают по <code>order_lines[].id</code>, как в <a href="../04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/">частичных скидках</a>.</p>
+<p>Для заказа комплекта передайте в строке <code>variant_id</code> комплекта. При сохранении InSales заменяет эту строку составляющими. У каждой из них <code>bundle_id</code> содержит идентификатор товара-комплекта. Количество составляющей равно её количеству в комплекте, умноженному на количество комплектов в заказе. Сумма цен составляющих равна цене комплекта.</p>
+<p>Тот же вариант может быть добавлен в заказ отдельной строкой. У неё будет такой же <code>variant_id</code>, как у составляющей комплекта, но пустой <code>bundle_id</code>. Поэтому для скидки выбирайте строку по <code>order_lines[].id</code>, как описано в статье <a href="../04%20API%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8/">«Частичные скидки в заказе»</a>.</p>
 <p>Комплект ниже собран из варианта за 100 и двух штук варианта за 1, цена комплекта 90. В заказе одна штука комплекта и одна отдельная штука первого варианта.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/orders.json</code></div>
@@ -5090,8 +5094,8 @@
 </div>
 <p>88,24 и 1,76 в сумме дают 90 — цену комплекта. Отдельная строка осталась по 100. Итог заказа 190, самовывоз добавил 0 к доставке.</p>
 <h3 id="_8">Строки и адрес</h3>
-<p><code>PUT /admin/orders/:id.json</code> меняет заказ. Существующая строка находится по <code>id</code>. Новая строка приходит без <code>id</code>. Удаление строки — <code>id</code> и <code>_destroy: true</code>.</p>
-<p><code>shipping_address_attributes</code> обновляет адрес, в теле нужен <code>id</code> адреса. <code>delivery_price</code> при обновлении записывается как переданное число, итог пересчитывается. <code>manager_comment</code> сохраняется.</p>
+<p>Для изменения заказа используйте <code>PUT /admin/orders/:id.json</code>. В <code>order_lines_attributes</code> передавайте <code>id</code> для изменения существующей строки, элемент без <code>id</code> — для добавления новой. Чтобы удалить строку, передайте её <code>id</code> и <code>_destroy: true</code>.</p>
+<p>Для изменения адреса передайте <code>shipping_address_attributes</code> с идентификатором адреса <code>id</code>. Поле <code>delivery_price</code> заменяет стоимость доставки переданным числом, после чего итог заказа пересчитывается. Поле <code>manager_comment</code> сохраняет комментарий менеджера.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/orders/3.json</code></div>
 <table>
@@ -5198,15 +5202,15 @@
 </div>
 <p>Удаление второй строки тем же <code>PUT</code> с <code>_destroy: true</code> оставило одну строку и итог 130 при доставке 50.</p>
 <h3 id="_9">Статусы</h3>
-<p><code>financial_status: "paid"</code> проставляет <code>paid_at</code> и <code>paid_amount</code> по текущей сумме. <code>partially_paid</code> оплату не считает полной: <code>paid_at</code> сбрасывается. Уже записанный <code>paid_amount</code> при уменьшении заказа сам не уменьшается.</p>
+<p>Статус <code>financial_status: "paid"</code> заполняет <code>paid_at</code> и устанавливает <code>paid_amount</code> по текущей сумме заказа. При <code>partially_paid</code> заказ не считается полностью оплаченным, а <code>paid_at</code> сбрасывается. Если затем уменьшить сумму заказа, уже записанный <code>paid_amount</code> автоматически не уменьшится.</p>
 <p><code>fulfillment_status</code> переводит заказ в системный статус и подставляет permalink статуса по умолчанию для этого системного статуса. <code>delivered</code> заполняет <code>delivered_at</code> и ставит <code>custom_status</code> в <code>dostavlen</code> («Доставлен»).</p>
-<p>Свой permalink передаётся в <code>custom_status_permalink</code>. Вместе с ним записывается системный статус этой записи. Системный код (<code>new</code>, <code>accepted</code>, <code>approved</code> и остальные из списка выше) в этом поле записывается как <code>fulfillment_status</code>.</p>
-<p>Одновременно переданные несовместимые исполнение и permalink отвечают <code>422</code>:</p>
+<p>Чтобы назначить пользовательский статус, передайте его <code>permalink</code> в <code>custom_status_permalink</code>. InSales также установит связанный с ним системный статус. Если передать в этом поле системный код (<code>new</code>, <code>accepted</code>, <code>approved</code> и другие из списка выше), он будет записан как <code>fulfillment_status</code>.</p>
+<p>Если одновременно передать несовместимые <code>fulfillment_status</code> и <code>custom_status_permalink</code>, API вернёт <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incompatible fulfillment and custom statuses"</span><span class="p">}</span>
 </code></pre></div>
-<p>Неизвестное исполнение отвечает <code>422</code>, в <code>fulfillment_status</code> текст «имеет непредусмотренное значение».</p>
-<p><code>version</code> — целое время <code>updated_at</code>. Если у заказа время больше переданного <code>version</code>, ответ <code>409</code> и тело <code>{}</code>.</p>
-<p>В <code>order_changes</code> пишется история. У элемента есть <code>action</code>, <code>value_was</code>, <code>value_is</code>, <code>created_at</code>, <code>full_description</code> и <code>user_name</code>. Для запроса приложения в <code>user_name</code> стоит название ключа. Смена исполнения даёт <code>action</code> со значением <code>fulfillment_status_changed</code>.</p>
+<p>Неизвестное значение <code>fulfillment_status</code> отклоняется со статусом <code>422</code> и сообщением «имеет непредусмотренное значение».</p>
+<p>Параметр <code>version</code> содержит время <code>updated_at</code> в целых секундах. Если заказ изменился позже переданного <code>version</code>, API вернёт <code>409</code> с телом <code>{}</code>.</p>
+<p>История изменений возвращается в <code>order_changes</code>. У каждой записи есть <code>action</code>, <code>value_was</code>, <code>value_is</code>, <code>created_at</code>, <code>full_description</code> и <code>user_name</code>. Для запроса приложения <code>user_name</code> содержит название ключа доступа. При смене системного статуса <code>action</code> равен <code>fulfillment_status_changed</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/orders/4.json</code></div>
 <table>
@@ -5266,9 +5270,10 @@
 </div>
 </div>
 <h3 id="_10">Промокод, группа и бонусы в заказе</h3>
-<p>Промокод передаётся полем <code>coupon</code> при создании. Регистр не важен: <code>DOCSAPI10</code> и <code>docsapi10</code> применили один код. Скидка появляется в <code>discounts</code>, <code>discount</code> дублирует первую. Код на 10% снизил строку за 100 до итога 90. Код на 50 рублей снизил ту же строку до 50. Повтор кода с <code>act_once: true</code> ответил <code>422</code>: «Указан несуществующий купон, убедитесь, что он введен верно».</p>
-<p>Клиент из группы со скидкой 15% получил заказ с итогом 85 при цене строки 100. Скидка лежит в <code>discounts</code> с <code>reference_type</code> <code>ClientGroup</code>. <code>sale_price</code> строки остался 100, <code>discounts_amount</code> строки остался 0, <code>items_price</code> и <code>total_price</code> уже с вычетом 15.</p>
-<p>Списание баллов: <code>use_bonus_points: true</code> и <code>client_bonus_points</code>. У клиента с 50 баллами списание 20 дало скидку 20, итог 80 и остаток 30. Скидка в <code>discounts</code> имеет <code>reference_type</code> <code>BonusSystem</code> и описание «Скидка по бонусной программе». Начисление баллов отдельной транзакцией описано ниже.</p>
+<p>Чтобы применить промокод при создании заказа, передайте его в <code>coupon</code>. Регистр не учитывается: <code>DOCSAPI10</code> и <code>docsapi10</code> обозначают один код. Скидка возвращается в <code>discounts</code>, а поле <code>discount</code> дублирует первую скидку.</p>
+<p>Для строки стоимостью 100 код на 10% даёт итог 90, код на 50 рублей — итог 50. Повторное использование кода с <code>act_once: true</code> отклоняется со статусом <code>422</code>: «Указан несуществующий купон, убедитесь, что он введен верно».</p>
+<p>Если клиент входит в группу со скидкой 15%, при стоимости строки 100 итог заказа составит 85. Скидка возвращается в <code>discounts</code> с <code>reference_type: ClientGroup</code>. При этом <code>sale_price</code> остаётся 100, а <code>discounts_amount</code> строки — 0. Поля заказа <code>items_price</code> и <code>total_price</code> уже учитывают скидку 15.</p>
+<p>Для списания бонусных баллов передайте <code>use_bonus_points: true</code> и количество в <code>client_bonus_points</code>. Например, если у клиента 50 баллов, списание 20 даёт скидку 20 и оставляет 30 баллов. При стоимости товаров 100 итог составит 80. В <code>discounts</code> у такой скидки <code>reference_type</code> равен <code>BonusSystem</code>, описание — «Скидка по бонусной программе». Начисление баллов описано в разделе <a href="#бонусные-транзакции">«Бонусные транзакции»</a>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/orders.json</code></div>
 <table>
@@ -5356,8 +5361,8 @@
 </div>
 <h3 id="дополнительное-поле">Дополнительное поле</h3>
 <p>Список полей можно прочитать, если у приложения есть право читать заказы. Создавать и менять поле можно, если есть право на настройки магазина.</p>
-<p><code>GET /admin/fields.json</code> отдаёт поля заказа, клиента, адреса и контактов одним массивом. Удалённые в него не входят.</p>
-<p><code>destiny</code> задаёт, чьё это поле:</p>
+<p><code>GET /admin/fields.json</code> возвращает одним массивом дополнительные поля заказа, клиента, адреса и контактов. Удалённые поля в ответ не включаются.</p>
+<p>Поле <code>destiny</code> определяет, к какому объекту относится дополнительное поле:</p>
 <table>
 <thead>
 <tr>
@@ -5567,7 +5572,7 @@
 </div>
 </div>
 </div>
-<p><code>PUT</code> меняет название и варианты. <code>type</code> и <code>destiny</code> в теле обновления игнорируются: список остаётся списком и на том же <code>destiny</code>. Новый вариант без <code>id</code> добавляется. Вариант с <code>id</code> меняет <code>value</code>.</p>
+<p>При обновлении через <code>PUT</code> можно изменить название поля и варианты списка. Поля <code>type</code> и <code>destiny</code> игнорируются: тип и назначение дополнительного поля остаются прежними. Элемент вариантов без <code>id</code> добавляет новый вариант; элемент с <code>id</code> меняет его <code>value</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/fields/201.json</code></div>
 <table>
@@ -5690,10 +5695,11 @@
 </div>
 <h2 id="задачи-пользователя">Задачи пользователя</h2>
 <p>Список задач можно прочитать, если у приложения есть право читать заказы. Создавать и менять задачу можно, если есть право изменять информацию заказа.</p>
-<p><code>GET /admin/user_tasks.json</code> отдаёт массив. В ответе нет общего числа записей. Поля: <code>id</code>, <code>complete</code>, <code>order_id</code>, <code>assignee_id</code>, <code>title</code>, <code>description</code>, <code>created_at</code>, <code>updated_at</code>, <code>deadline_at</code>, <code>order</code>. У задачи с заказом <code>order</code> — объект <code>{id, number}</code>. У задачи без заказа в списке <code>order</code> равен <code>null</code>. Автора в JSON нет.</p>
+<p><code>GET /admin/user_tasks.json</code> возвращает массив задач без общего количества записей. У задачи есть <code>id</code>, <code>complete</code>, <code>order_id</code>, <code>assignee_id</code>, <code>title</code>, <code>description</code>, <code>created_at</code>, <code>updated_at</code>, <code>deadline_at</code> и <code>order</code>. Если задача связана с заказом, <code>order</code> содержит объект <code>{id, number}</code>; иначе в списке возвращается <code>null</code>. Данные автора в JSON не включаются.</p>
 <p><code>assignee_id</code> — идентификатор пользователя магазина. У запроса приложения <code>assignee=me</code> выбирает задачи с пустым <code>assignee_id</code>.</p>
-<p>Создание отвечает <code>200</code>. Если <code>deadline_at</code> не передан, он становится временем создания плюс один час. Если <code>complete</code> не передан, в JSON стоит <code>null</code>. Явное <code>false</code> сохраняется как <code>false</code>. Фильтр <code>complete=false</code> такие <code>null</code> не возвращает. Строки <code>true</code> и <code>false</code> фильтруют. <code>complete=1</code> фильтр не включает. Если в запросе есть и <code>completed</code>, и <code>complete</code>, действует <code>completed</code>.</p>
-<p><code>order_id</code> и <code>assignee_id</code> сохраняются и тогда, когда заказа или пользователя нет. Тогда <code>order</code> в ответе создания отсутствует, а в списке равен <code>null</code>.</p>
+<p>Создание задачи возвращает <code>200</code>. Если <code>deadline_at</code> не передан, срок устанавливается на один час позже времени создания.</p>
+<p>Если <code>complete</code> не передан, поле сохраняется как <code>null</code>. Явно переданное <code>false</code> сохраняется как <code>false</code>. Фильтр <code>complete=false</code> не включает задачи с <code>null</code>. Для фильтрации используйте строки <code>true</code> или <code>false</code>: значение <code>complete=1</code> не включает фильтр. Если одновременно переданы <code>completed</code> и <code>complete</code>, применяется <code>completed</code>.</p>
+<p>API сохраняет <code>order_id</code> и <code>assignee_id</code>, даже если соответствующего заказа или пользователя нет. Для несуществующего заказа объект <code>order</code> отсутствует в ответе создания, а в списке равен <code>null</code>.</p>
 <p><code>title</code> обязателен, длиннее 1000 символов отвечает <code>422</code>, тело <code>{"title":["слишком большой длины (не может быть больше чем 1000 символов)"]}</code>. Пустой <code>title</code> при изменении отвечает <code>422</code>, тело <code>{"title":["Не заполнены обязательные поля"]}</code>.</p>
 <h3 id="_11">Создание</h3>
 <div class="api-example">
@@ -5776,8 +5782,8 @@
 </div>
 <p>Тело без обёртки <code>user_task</code> тоже создаёт задачу и отвечает <code>200</code>.</p>
 <h3 id="_12">Список</h3>
-<p>Порядок по умолчанию: <code>complete</code>, затем <code>deadline_at</code>. <code>sort</code> принимает <code>title</code>, <code>created_at</code>, <code>deadline_at</code>, <code>status</code>. Другое значение сортировку не меняет. <code>sort_order</code> — <code>asc</code> или <code>desc</code>.</p>
-<p><code>per_page</code> и <code>limit</code> ниже 25 поднимаются до 25, выше 1000 опускаются до 1000. Если переданы оба, берётся <code>limit</code>, и к нему применяется тот же диапазон. <code>page</code> начинается с 1. Страница за концом списка — <code>[]</code>.</p>
+<p>По умолчанию задачи сортируются по <code>complete</code>, затем по <code>deadline_at</code>. Для выбора сортировки передайте <code>sort</code>: <code>title</code>, <code>created_at</code>, <code>deadline_at</code> или <code>status</code>. Другие значения не меняют сортировку. Параметр <code>sort_order</code> задаёт направление: <code>asc</code> или <code>desc</code>.</p>
+<p>Размер страницы задаётся через <code>per_page</code> или <code>limit</code> в диапазоне от 25 до 1000. Значения за пределами диапазона заменяются ближайшей границей. Если переданы оба параметра, используется <code>limit</code>. Нумерация <code>page</code> начинается с 1. Для страницы за концом списка возвращается <code>[]</code>.</p>
 <p><code>q</code> ищет без учёта регистра по названию, описанию, имени автора, имени исполнителя и по номеру заказа, если строка — целое меньше 2^31.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/user_tasks.json?complete=true&amp;order_id=4</code></div>
@@ -5791,7 +5797,7 @@
 <tbody>
 <tr>
 <td><code>complete</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>true или false. Значение 1 отбор не включает.</td>
+<td><code>true</code> или <code>false</code>. Значение <code>1</code> не включает фильтрацию.</td>
 </tr>
 <tr>
 <td><code>completed</code> <span class="api-opt">необязательный</span><br>строка</td>
@@ -5902,12 +5908,12 @@
 </div>
 </div>
 </div>
-<p><code>GET /admin/user_tasks/ID.json</code> отдаёт одну задачу. Неизвестный <code>id</code> отвечает <code>404</code>, тело — HTML-страница. <code>PUT</code> и <code>PATCH</code> отвечают <code>200</code>. <code>DELETE</code> отвечает <code>200</code> с пустым телом.</p>
+<p><code>GET /admin/user_tasks/ID.json</code> возвращает одну задачу. Неизвестный <code>id</code> отвечает <code>404</code>, тело — HTML-страница. <code>PUT</code> и <code>PATCH</code> отвечают <code>200</code>. <code>DELETE</code> отвечает <code>200</code> с пустым телом.</p>
 <h2 id="_13">Клиенты</h2>
 <p>Карточка клиента содержит контакты, <code>type</code>, <code>registered</code>, <code>subscribe</code>, <code>bonus_points</code>, <code>client_group_id</code>, <code>fields_values</code>, <code>default_address</code>, <code>client_tags</code> и <code>full_name</code>. У физлица есть <code>surname</code> и <code>middlename</code>. У юрлица есть <code>inn</code>, <code>kpp</code>, <code>ogrn</code>, <code>juridical_address</code>, <code>bank_name</code>, <code>bik</code>, <code>correspondent_account</code>, <code>settlement_account</code>. <code>full_name</code> физлица собирается как фамилия, имя и отчество.</p>
-<p>Запросы <code>orders_count=1</code>, <code>turnover=1</code> и <code>last_order=1</code> добавляют число заказов, оборот и последний заказ. Оборот суммирует оплаченные заказы: у клиента с неоплаченными заказами <code>turnover</code> равен <code>0.0</code>, при этом <code>orders_count</code> их считает. <code>last_order_id</code> и <code>last_order_number</code> берутся по дате создания.</p>
+<p>Параметры <code>orders_count=1</code>, <code>turnover=1</code> и <code>last_order=1</code> добавляют в ответ количество заказов, оборот и сведения о последнем заказе. В обороте учитываются только оплаченные заказы, а в количестве — также неоплаченные. Поэтому у клиента только с неоплаченными заказами <code>turnover</code> равен <code>0.0</code>. Значения <code>last_order_id</code> и <code>last_order_number</code> определяются по дате создания заказа.</p>
 <h3 id="_14">Список</h3>
-<p><code>GET /admin/clients.json</code> отдаёт массив. Размер страницы меньше 10 поднимается до 10, больше 500 срезается до 500. В ответе есть заголовок <code>X-TOTAL-PAGES</code>.</p>
+<p><code>GET /admin/clients.json</code> возвращает массив клиентов. Размер страницы ограничен диапазоном от 10 до 500: меньшее значение заменяется на 10, большее — на 500. Заголовок <code>X-TOTAL-PAGES</code> содержит количество страниц.</p>
 <p><code>q</code> ищет подстроку в фамилии, имени, отчестве, телефоне и почте. <code>type=individual</code> и <code>type=juridical</code> различают физлицо и юрлицо. <code>created_at_from</code> и <code>created_at_to</code> ограничивают день создания. <code>orders_count_from</code> и <code>orders_count_to</code> сравнивают число заказов. <code>updated_since</code> и <code>from_id</code> работают так же, как у <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">изменившихся данных</a>.</p>
 <p>Удалённый клиент из списка уходит. <code>GET</code> по его id отвечает <code>404</code> с HTML-телом.</p>
 <div class="api-example">
@@ -5959,10 +5965,11 @@
 </div>
 </div>
 <h3 id="_15">Создание</h3>
-<p>Минимальный клиент с одним телефоном создаётся. Пустое имя записывается как «Имя не указано», <code>consent_to_personal_data</code> становится <code>true</code>, <code>subscribe</code> становится <code>true</code>, <code>type</code> — <code>Client::Individual</code>. Имя и почта без телефона отвечают <code>422</code>: «Не заполнено обязательное поле "Контактный телефон"», если телефон в магазине обязателен.</p>
-<p>Фамилия, имя и отчество все три сразу не требуются. Переданные сохраняются, <code>full_name</code> равен «Фамилия Имя Отчество», <code>contact_name</code> совпадает с именем. Повторный <code>GET</code> отдаёт те же поля. <code>PUT</code> меняет фамилию и отчество.</p>
-<p>Юрлицо создаётся с <code>type</code> <code>juridical</code>. Обязательно <code>contact_name</code> — поле «Ваше имя». <code>name</code> сохраняется названием организации, вместе с ним записываются <code>inn</code>, <code>kpp</code> и <code>juridical_address</code>. В ответе <code>type</code> равен <code>Client::Juridical</code>.</p>
-<p>Регистрация: <code>registered: true</code>, почта, телефон и <code>password</code> длиной от 6 символов. <code>skip_send_mail: true</code> не отправляет письмо. Пароль в ответе не возвращается. Если к этому моменту работает бонусная система с бонусом за регистрацию, новому клиенту сразу начисляются баллы: при бонусе 50 в ответе <code>bonus_points</code> равен 50.</p>
+<p>Для создания клиента достаточно передать телефон. Если имя пустое, оно сохраняется как «Имя не указано»; поля <code>consent_to_personal_data</code> и <code>subscribe</code> получают значение <code>true</code>, а <code>type</code> — <code>Client::Individual</code>.</p>
+<p>Если телефон обязателен в настройках магазина, запрос с именем и почтой без телефона вернёт <code>422</code>: «Не заполнено обязательное поле "Контактный телефон"».</p>
+<p>Фамилию, имя и отчество можно передавать по отдельности: все три поля одновременно не обязательны. Из переданных значений формируется <code>full_name</code> в порядке «Фамилия Имя Отчество», а <code>contact_name</code> совпадает с именем. Эти поля возвращаются и при повторном чтении. Фамилию и отчество можно изменить через <code>PUT</code>.</p>
+<p>Для создания юридического лица передайте <code>type: juridical</code> и обязательное поле <code>contact_name</code> («Ваше имя»). Поле <code>name</code> используется как название организации. Также сохраняются <code>inn</code>, <code>kpp</code> и <code>juridical_address</code>. В ответе <code>type</code> будет равен <code>Client::Juridical</code>.</p>
+<p>Чтобы зарегистрировать клиента, передайте <code>registered: true</code>, почту, телефон и <code>password</code> длиной не менее 6 символов. Параметр <code>skip_send_mail: true</code> отключает отправку письма. Пароль в ответ не включается. Если в магазине работает бонусная система с начислением за регистрацию, новый клиент сразу получит баллы: например, при бонусе 50 поле <code>bonus_points</code> будет равно 50.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/clients.json</code></div>
 <table>
@@ -6132,7 +6139,7 @@
 </div>
 </div>
 </div>
-<p>Адрес по умолчанию передаётся рядом с <code>client</code>, ключом <code>default_address_attributes</code>, а не внутри клиента. В карточке он лежит в <code>default_address</code>. Телефон адреса пустым не остаётся: он дополняется телефоном клиента.</p>
+<p>Адрес по умолчанию передаётся в <code>default_address_attributes</code> на одном уровне с <code>client</code>. При чтении карточки адрес возвращается в <code>default_address</code>. Если телефон адреса пуст, InSales подставляет телефон клиента.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/clients.json</code></div>
 <table>
@@ -6209,7 +6216,7 @@
 </div>
 <p><code>DELETE /admin/clients/:id.json</code> убирает клиента из списка. Тело ответа — JSON-строка <code>"ok"</code>. Повторное чтение отвечает <code>404</code>.</p>
 <h2 id="_16">Группы клиентов</h2>
-<p><code>GET /admin/client_groups.json</code> отдаёт массив. У группы есть <code>id</code>, <code>title</code>, <code>discount</code>, <code>discount_description</code>, <code>is_default</code>, <code>b2b</code>. Скидка в ответе — строка, например <code>"15.0"</code>. У обычной группы <code>b2b</code> равен <code>false</code>.</p>
+<p><code>GET /admin/client_groups.json</code> возвращает массив. У группы есть <code>id</code>, <code>title</code>, <code>discount</code>, <code>discount_description</code>, <code>is_default</code>, <code>b2b</code>. Скидка в ответе — строка, например <code>"15.0"</code>. У обычной группы <code>b2b</code> равен <code>false</code>.</p>
 <p>Создание и чтение одной группы возвращают этот объект, создание — со статусом <code>201</code>. <code>PUT</code> отвечает <code>{"status":"ok"}</code>, новое значение видно следующим <code>GET</code>. <code>DELETE</code> отвечает <code>200</code> с пустым телом, затем <code>GET</code> этой группы — <code>404</code>.</p>
 <p>Клиент связывается с группой полем <code>client_group_id</code>. В карточке тогда есть <code>group_discount</code>. Новый заказ этого клиента получает скидку группы.</p>
 <div class="api-example">
@@ -6276,7 +6283,7 @@
 <h2 id="_17">Теги клиентов</h2>
 <p>Тег создаётся <code>POST /admin/client_tags.json</code> с <code>text</code> и <code>color</code>. Ответ — <code>{"success": true, "tag": {...}}</code>, а не сам тег. <code>PUT /admin/client_tags/:id.json</code> отвечает <code>{"success": true}</code> и не возвращает тег. <code>DELETE /admin/client_tags/:id.json</code> отвечает тем же <code>{"success": true}</code>.</p>
 <p><code>POST</code>, <code>PUT</code> и <code>DELETE</code> требуют <code>Content-Type: application/json</code>, даже с пустым телом <code>{}</code>.</p>
-<p>Список без <code>client_id</code> отдаёт теги, которые ни к кому не привязаны. После привязки тот же список стал пустым. Теги клиента читаются как <code>GET /admin/client_tags.json?client_id=ID</code> или из карточки клиента, поле <code>client_tags</code>. У элемента есть <code>attached</code>.</p>
+<p>Без параметра <code>client_id</code> список возвращает теги, не привязанные ни к одному клиенту. После привязки тег больше не входит в этот список. Для чтения тегов клиента используйте <code>GET /admin/client_tags.json?client_id=ID</code> или поле <code>client_tags</code> его карточки. У каждого элемента есть поле <code>attached</code>.</p>
 <p>Привязка — <code>POST /admin/client_tags/:id/add.json?client_id=ID</code>. Снятие — <code>DELETE /admin/client_tags/:id/remove.json?client_id=ID</code>. Закрепление одного тега — <code>PUT /admin/client_tags/:id/attach.json?client_id=ID</code> с телом <code>{"attached": true}</code>. В карточке клиента <code>attached</code> становится <code>true</code>.</p>
 <p><code>GET /admin/client_tags/search.json?q=...&amp;client_id=ID</code> ищет тег через поиск магазина. Сразу после создания поиск по тексту тега ещё может быть пустым. Список по <code>client_id</code> тег уже возвращает.</p>
 <div class="api-example">
@@ -6377,7 +6384,7 @@
 </div>
 </div>
 <h2 id="_18">Пользовательские статусы</h2>
-<p><code>GET /admin/custom_statuses.json</code> отдаёт статусы магазина. Если свои статусы включены, а для системного статуса записи ещё нет, этот запрос создаёт статус по умолчанию. Первый список создаёт недостающие статусы.</p>
+<p><code>GET /admin/custom_statuses.json</code> возвращает пользовательские статусы магазина. Если пользовательские статусы включены, запрос также создаёт недостающие статусы по умолчанию для системных статусов.</p>
 <table>
 <thead>
 <tr>
@@ -6429,9 +6436,10 @@
 </tr>
 </tbody>
 </table>
-<p>У каждой <code>is_default</code> равен <code>true</code>, пока для этого системного статуса она одна. В объекте также есть <code>id</code>, <code>position</code>, <code>color</code>, <code>created_at</code>, <code>updated_at</code>.</p>
-<p>Чтение, обновление и удаление идут по permalink, а не по <code>id</code>. <code>GET /admin/custom_statuses/1.json</code> отвечает <code>404</code> с HTML-телом. <code>GET /admin/custom_statuses/novyy.json</code> отдаёт статус «Новый».</p>
-<p>Создание принимает <code>title</code> и <code>system_status</code>. Permalink строится из названия транслитом. <code>system_status</code> — один из восьми кодов таблицы. Цвет выбирается сам, в ответ он входит. <code>PUT /admin/custom_statuses/:permalink.json</code> отвечает <code>{"status":"ok"}</code>, новое название видно в заказе и в следующем чтении. <code>DELETE</code> отвечает <code>{"status":"ok"}</code>, повторное чтение — <code>404</code>.</p>
+<p>Пока для системного статуса существует только одна запись, её <code>is_default</code> равен <code>true</code>. Объект также содержит <code>id</code>, <code>position</code>, <code>color</code>, <code>created_at</code> и <code>updated_at</code>.</p>
+<p>Чтение, обновление и удаление идут по permalink, а не по <code>id</code>. <code>GET /admin/custom_statuses/1.json</code> отвечает <code>404</code> с HTML-телом. <code>GET /admin/custom_statuses/novyy.json</code> возвращает статус «Новый».</p>
+<p>Для создания передайте <code>title</code> и один из восьми кодов <code>system_status</code> из таблицы. Значение <code>permalink</code> формируется из названия транслитерацией, цвет выбирается автоматически и возвращается в ответе.</p>
+<p>При изменении <code>PUT /admin/custom_statuses/:permalink.json</code> возвращает <code>{"status":"ok"}</code>. Новое название отображается в заказе и при следующем чтении статуса. При удалении <code>DELETE</code> возвращает <code>{"status":"ok"}</code>, а повторное чтение — <code>404</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/custom_statuses.json</code></div>
 <table>
@@ -6483,10 +6491,11 @@
 </div>
 </div>
 </div>
+<p><a id="бонусные-транзакции"></a></p>
 <h2 id="_19">Бонусные транзакции</h2>
-<p>Транзакции пишутся в работающую бонусную систему магазина.</p>
+<p>Для работы с бонусными транзакциями в магазине должна действовать бонусная система.</p>
 <p><code>GET /admin/bonus_system_transactions.json</code> — общий список. <code>GET /admin/clients/:client_id/bonus_system_transactions.json</code> — транзакции клиента. Одна транзакция читается <code>GET /admin/bonus_system_transactions/:id.json</code>. Списки принимают <code>page</code>, <code>updated_since</code> и <code>from_id</code>.</p>
-<p>Начисление — <code>POST /admin/clients/:client_id/bonus_system_transactions.json</code>. <code>bonus_points</code> целое: положительное увеличивает баланс, отрицательное уменьшает. 100 и затем −30 оставили на карточке 70 баллов. <code>status</code> после сохранения равен <code>charged</code>. У начисления <code>initiator_type</code> равен <code>ApplicationPassword</code>.</p>
+<p>Чтобы изменить баланс клиента, отправьте <code>POST /admin/clients/:client_id/bonus_system_transactions.json</code>. Поле <code>bonus_points</code> должно быть целым: положительное значение начисляет баллы, отрицательное списывает. Например, начисление 100 и списание 30 оставляют баланс 70. После сохранения <code>status</code> равен <code>charged</code>; у транзакции приложения <code>initiator_type</code> равен <code>ApplicationPassword</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/clients/33/bonus_system_transactions.json</code></div>
 <table>
@@ -6544,12 +6553,12 @@
 </div>
 </div>
 <h2 id="_20">Промокоды</h2>
-<p><code>GET /admin/discount_codes.json</code> отдаёт коды, новые id впереди. <code>q</code> ищет по коду и описанию: <code>q=docs</code> возвращает коды с этой подстрокой. Список также принимает <code>updated_since</code> и <code>from_id</code>.</p>
+<p><code>GET /admin/discount_codes.json</code> возвращает промокоды по убыванию идентификаторов. Параметр <code>q</code> ищет подстроку в коде и описании: например, <code>q=docs</code> возвращает записи с этой подстрокой. Для чтения изменений поддерживаются <code>updated_since</code> и <code>from_id</code>.</p>
 <p>Новый код по умолчанию выключен: <code>disabled</code> равен <code>true</code>, <code>worked</code> равен <code>false</code>, <code>act_once</code> равен <code>true</code>, <code>type_id</code> равен 2. Код приводится к нижнему регистру: <code>DOCSAPI10</code> сохраняется как <code>docsapi10</code>. Повтор того же кода отвечает <code>422</code>, тело <code>{"code":["уже существует"]}</code>.</p>
 <p><code>type_id</code> 1 — процент, 2 — сумма. Процент больше либо равный 100 не проходит проверку. <code>min_price</code> — минимальная сумма товаров. Код применяется, если сумма не ниже порога.</p>
-<p>Чтобы код работал в заказе, в создании или в <code>PUT</code> нужно <code>disabled: false</code>. <code>PUT</code> отвечает <code>{"status":"ok"}</code>, карточка читается следующим <code>GET</code>. <code>DELETE</code> отвечает <code>{"status":"ok"}</code>.</p>
+<p>Чтобы промокод можно было применить к заказу, передайте <code>disabled: false</code> при создании или обновлении. Запрос <code>PUT</code> возвращает <code>{"status":"ok"}</code>; обновлённую карточку получите отдельным <code>GET</code>. Запрос <code>DELETE</code> также возвращает <code>{"status":"ok"}</code>.</p>
 <p><code>collection_ids</code> ограничивает код коллекциями. В ответе появляется <code>discount_collections</code> с <code>collection_id</code>. <code>discount_collections_group_id</code> связывает код с группой коллекций. В самом коде этого id нет: связь видна в <code>GET /admin/discount_collections_groups/:id/discount_codes.json</code>.</p>
-<p><code>worked</code> становится <code>false</code>, когда код выключен или одноразовый код уже использован. После заказа с <code>act_once: true</code> у кода <code>worked</code> стал <code>false</code>, второй заказ с тем же купоном не создался.</p>
+<p>Поле <code>worked</code> равно <code>false</code>, если код выключен или одноразовый код уже использован. После применения к заказу кода с <code>act_once: true</code> его <code>worked</code> становится <code>false</code>. Создать второй заказ с тем же купоном нельзя.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/discount_codes.json</code></div>
 <table>
@@ -6638,7 +6647,7 @@
 </div>
 </div>
 </div>
-<p>Включение выключенного кода — отдельное обновление. Ответ короткий, состояние читается карточкой.</p>
+<p>Чтобы включить выключенный промокод, отправьте отдельный запрос на обновление. Ответ не содержит карточку: проверьте состояние кода запросом на чтение.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/discount_codes/1.json</code></div>
 <table>
@@ -6684,7 +6693,7 @@
 </div>
 </div>
 <h2 id="_21">Группы скидок на коллекции</h2>
-<p><code>GET /admin/discount_collections_groups.json</code> и <code>GET /admin/discount_collections_groups/:id.json</code> отдают группы, которые заведены в бэк-офисе. У группы есть <code>id</code>, <code>title</code>, <code>collection_ids</code> и <code>collections</code> с <code>id</code>, <code>title</code>, <code>parent_id</code>, <code>permalink</code>. Создать или изменить группу этим API нельзя: <code>POST /admin/discount_collections_groups.json</code> отвечает <code>404</code>.</p>
+<p><code>GET /admin/discount_collections_groups.json</code> и <code>GET /admin/discount_collections_groups/:id.json</code> возвращают группы, которые заведены в бэк-офисе. У группы есть <code>id</code>, <code>title</code>, <code>collection_ids</code> и <code>collections</code> с <code>id</code>, <code>title</code>, <code>parent_id</code>, <code>permalink</code>. Создать или изменить группу этим API нельзя: <code>POST /admin/discount_collections_groups.json</code> отвечает <code>404</code>.</p>
 <p>Коды, привязанные к группе, читаются отдельно.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/discount_collections_groups/1.json</code></div>

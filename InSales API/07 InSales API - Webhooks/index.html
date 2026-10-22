@@ -4050,10 +4050,11 @@
 
 
 <h1 id="_1">Вебхуки</h1>
-<p>Вебхук — POST на адрес приложения, когда в магазине происходит событие. Доставка не гарантируется: для полной сверки дополнительно читайте списки через <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">updated_since</a>.</p>
+<p>Когда в магазине происходит событие, InSales отправляет POST-запрос на адрес приложения, указанный в вебхуке. Так приложение получает уведомления об изменениях товаров, заказов и клиентов.</p>
+<p>Доставка уведомления не гарантируется. Для полной сверки данных дополнительно запрашивайте списки с параметром <a href="../03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/">updated_since</a>.</p>
 <p>Методы — <code>Webhook</code> в <a href="https://api.insales.ru/">справочнике</a>. Создавать вебхуки можно уже в обработчике <a href="../01%20readme/">установки приложения</a>.</p>
 <h2 id="_2">Темы</h2>
-<p><code>topic</code> при создании обязателен. В справочнике перечислены:</p>
+<p>Параметр <code>topic</code> определяет событие, о котором нужно уведомлять приложение. Он обязателен при создании вебхука. В справочнике перечислены следующие темы:</p>
 <ul>
 <li><code>orders/create</code>, <code>orders/update</code>, <code>orders/destroy</code></li>
 <li><code>products/create</code>, <code>products/update</code></li>
@@ -4062,9 +4063,9 @@
 <p>Дополнительные поля:</p>
 <ul>
 <li><code>format_type</code> — <code>json</code> или <code>xml</code></li>
-<li><code>warehouse_id</code> — только для тем заказов, в рассылку попадают заказы этого <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#склады">склада</a></li>
-<li><code>sales_channel_id</code> — только для <code>products/update</code>, фильтр по <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/#каналы-продаж">каналу продаж</a></li>
-<li><code>batch_size</code> — только для <code>products/create</code> и <code>products/update</code>. Товары уходят пачками, по умолчанию 10</li>
+<li><code>warehouse_id</code> применяется только к темам заказов. Если указать идентификатор <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#склады">склада</a>, уведомления будут приходить только о заказах этого склада</li>
+<li><code>sales_channel_id</code> применяется только к <code>products/update</code> и ограничивает уведомления товарами выбранного <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/#каналы-продаж">канала продаж</a></li>
+<li><code>batch_size</code> применяется только к <code>products/create</code> и <code>products/update</code>. Задаёт максимальное число товаров в одном уведомлении; по умолчанию — 10</li>
 </ul>
 <h2 id="_3">Создание</h2>
 <p><code>POST /admin/webhooks.json</code></p>
@@ -4085,10 +4086,10 @@
 <li><code>PUT /admin/webhooks/:id.json</code></li>
 <li><code>DELETE /admin/webhooks/:id.json</code> — <code>{ "status": "ok" }</code></li>
 </ul>
-<p>Пара адрес + тема уникальны в рамках приложения.</p>
+<p>Для одного приложения нельзя создать два вебхука с одинаковыми адресом и темой.</p>
 <h2 id="address">Что приходит на address</h2>
-<p>Это POST. <code>Content-Type</code> соответствует <code>format_type</code>: для JSON — <code>application/json</code>.</p>
-<p>Для <code>products/create</code> и <code>products/update</code> тело — JSON-массив товаров, те же поля, что у <code>GET /admin/products.json</code>. В одном запросе не больше <code>batch_size</code> товаров. При <code>batch_size: 1</code> массив из одного товара.</p>
+<p>InSales отправляет уведомление POST-запросом на <code>address</code>. Заголовок <code>Content-Type</code> соответствует выбранному <code>format_type</code>: например, для JSON используется <code>application/json</code>.</p>
+<p>Для <code>products/create</code> и <code>products/update</code> тело — JSON-массив товаров, те же поля, что у <code>GET /admin/products.json</code>. В одном запросе не больше <code>batch_size</code> товаров. При <code>batch_size: 1</code> тело всё равно содержит массив, состоящий из одного товара.</p>
 <p>Для <code>orders/create</code>, <code>orders/update</code> и <code>orders/destroy</code> тело — один заказ в выбранном формате, как объект заказа в API.</p>
 <p>Для <code>client/create</code> и <code>client/update</code> тело — один клиент, тоже в выбранном формате.</p>
 

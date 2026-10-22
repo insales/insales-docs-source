@@ -4028,8 +4028,8 @@
 
 
 <h1 id="_1">Периодические счета приложения</h1>
-<p>Периодический счёт — ежемесячная оплата приложения. Он один на приложение в магазине. Разовый платёж за действие оформляется отдельно, см. <a href="../06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/">счета приложения</a>.</p>
-<p>Методы — <code>RecurringApplicationCharge</code> в <a href="https://api.insales.ru/">справочнике</a>. В пути нет id: ресурс единственный.</p>
+<p>Периодический счёт используется для ежемесячной оплаты приложения. В одном магазине у приложения может быть один такой счёт. Для разовой оплаты отдельного действия используйте <a href="../06%20InSales%20API%20-%20%D0%A1%D1%87%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/">счета приложения</a>.</p>
+<p>Методы ресурса <code>RecurringApplicationCharge</code> описаны в <a href="https://api.insales.ru/">справочнике</a>. Идентификатор счёта в пути не нужен, поскольку ресурс единственный для приложения в магазине.</p>
 <ul>
 <li><code>POST /admin/recurring_application_charge.json</code> — создать</li>
 <li><code>GET /admin/recurring_application_charge.json</code> — прочитать</li>
@@ -4038,7 +4038,7 @@
 <li><code>PATCH /admin/recurring_application_charge/add_free_days.json</code> — добавить бесплатные дни</li>
 </ul>
 <h2 id="_2">Создание</h2>
-<p>Обязательное поле — <code>monthly</code>, сумма в месяц. <code>trial_expired_at</code> — дата конца пробного периода. Если её не передать, берётся пробный период приложения.</p>
+<p>Для создания счёта передайте обязательное поле <code>monthly</code> — сумму ежемесячной оплаты. В <code>trial_expired_at</code> можно указать дату окончания пробного периода. Если поле не передать, InSales использует пробный период из настроек приложения.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"recurring_application_charge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"monthly"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span>
@@ -4055,8 +4055,8 @@
 <span class="w">  </span><span class="nt">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>paid_till</code> — до какой даты оплачен доступ. <code>blocked</code> — доступ по этому счёту остановлен.</p>
-<p>Смена суммы — <code>PUT</code> с новым <code>monthly</code>. Пробная дата в этом запросе не меняется.</p>
+<p><code>paid_till</code> содержит дату, до которой оплачен доступ. Значение <code>blocked</code> показывает, заблокирован ли доступ по этому счёту.</p>
+<p>Чтобы изменить сумму оплаты, отправьте <code>PUT</code> с новым значением <code>monthly</code>. Дата окончания пробного периода при этом не меняется.</p>
 <h2 id="_3">Бесплатные дни</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"recurring_application_charge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -4064,7 +4064,8 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>В ответе смотрите <code>paid_till</code>. <code>trial_expired_at</code> при этом тоже может сдвинуться, а может остаться прежней: для проверки срока ориентируйтесь на <code>paid_till</code>.</p>
+<p>Чтобы добавить бесплатные дни, отправьте <code>PATCH /admin/recurring_application_charge/add_free_days.json</code> с указанным телом.</p>
+<p>Проверьте новую дату в <code>paid_till</code> из ответа. Дата <code>trial_expired_at</code> при этой операции может измениться или остаться прежней, поэтому срок доступа проверяйте по <code>paid_till</code>.</p>
 
 
 

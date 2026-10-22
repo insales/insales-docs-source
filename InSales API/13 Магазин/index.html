@@ -4035,7 +4035,7 @@
 </code></pre></div>
 <p>Дополнительные поля заказа, клиента и адреса — в <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/#дополнительное-поле">заказах и клиентах</a>.</p>
 <h2 id="_2">Аккаунт</h2>
-<p><code>GET /admin/account.json</code> отдаёт один объект магазина. Отдельного списка нет: аккаунт у приложения один.</p>
+<p><code>GET /admin/account.json</code> возвращает объект магазина, в котором авторизовано приложение. Отдельного метода списка аккаунтов нет.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/account.json</code></div>
 <div class="api-example__grid">
@@ -4082,8 +4082,10 @@
 </div>
 <p>В том же объекте есть флаги скидок <code>enable_cart_discounts</code>, <code>enable_client_discounts</code>, <code>enable_group_discounts</code>, <code>enable_order_discounts</code>, а также <code>hide_items_out_of_stock</code>, <code>contact_phone</code>, <code>sms_notification_phone</code>, <code>icq</code>, <code>registration_type_id</code>, <code>inviter_id</code>, <code>created_at</code>.</p>
 <p><code>stock_currency_exchange_rate</code> — курс валюты склада по умолчанию к валюте сайта. При одинаковой валюте курс равен <code>1.0</code>. Как задать валюту — в <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#валюты-склада">складах</a>.</p>
-<p><code>PUT /admin/account.json</code> сохраняет два поля: <code>next_order_number</code> и <code>client_cookies_whitelist</code>. Название, организация, город и остальные ключи из ответа остаются прежними. Успех и ошибка полей приходят с HTTP <code>200</code>. Успех — <code>{"status":"ok"}</code>.</p>
-<p><code>next_order_number</code> — номер, который получит следующий заказ. Новое значение больше наибольшего номера уже существующего заказа. <code>client_cookies_whitelist</code> — список cookie, которые заказ сохраняет при оформлении. Это регулярные выражения, каждое с новой строки.</p>
+<p>Через <code>PUT /admin/account.json</code> можно изменить <code>next_order_number</code> и <code>client_cookies_whitelist</code>. Название, организация, город и остальные поля из ответа на чтение этим запросом не меняются.</p>
+<p>API возвращает HTTP-статус <code>200</code> как при успешном сохранении, так и при ошибке проверки полей. Проверяйте тело ответа: при успехе оно содержит <code>{"status":"ok"}</code>.</p>
+<p><code>next_order_number</code> задаёт номер следующего заказа. Новое значение должно быть больше максимального номера существующего заказа.</p>
+<p><code>client_cookies_whitelist</code> определяет, какие cookie сохраняются в заказе при оформлении. Передайте регулярные выражения, по одному на строку.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/account.json</code></div>
 <table>
@@ -4130,7 +4132,7 @@
 </div>
 </div>
 <p>Следующий <code>GET</code> возвращает записанные <code>next_order_number</code> и <code>client_cookies_whitelist</code>. <code>title</code> не меняется.</p>
-<p>Номер не больше текущего максимального тоже отвечает <code>200</code>, в теле статус ошибки.</p>
+<p>Если новый номер не превышает текущий максимальный, API возвращает <code>200</code> с описанием ошибки в теле:</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/account.json</code></div>
 <table>
@@ -4175,10 +4177,10 @@
 </div>
 </div>
 </div>
-<p>Число в тексте ошибки — наибольший номер заказа в магазине. Уменьшить уже сохранённый <code>next_order_number</code> тем же правилом нельзя.</p>
+<p>Число в сообщении об ошибке — максимальный номер заказа в магазине. Уменьшить сохранённый <code>next_order_number</code> с нарушением того же ограничения нельзя.</p>
 <h2 id="_3">Домены</h2>
-<p><code>GET /admin/domains.json</code> отдаёт домены магазина, основной первым. Технический поддомен <code>*.insales.io</code> в этот список не входит. Пустой магазин отвечает <code>[]</code>.</p>
-<p>Создание снимает схему, путь и префикс <code>www.</code>. <code>https://www.docs-api-shop.example/path</code> сохраняется как <code>docs-api-shop.example</code>. Поддомен третьего уровня сохраняется целиком: <code>msk.docs-api-shop.example</code>.</p>
+<p><code>GET /admin/domains.json</code> возвращает домены магазина, начиная с основного. Технический поддомен <code>*.insales.io</code> не включается. Если доменов нет, возвращается <code>[]</code>.</p>
+<p>При создании домена API удаляет схему, путь и префикс <code>www.</code>. Например, <code>https://www.docs-api-shop.example/path</code> сохраняется как <code>docs-api-shop.example</code>. Поддомен третьего уровня, например <code>msk.docs-api-shop.example</code>, сохраняется целиком.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/domains.json</code></div>
 <table>
@@ -4228,7 +4230,7 @@
 </div>
 </div>
 </div>
-<p>Первый домен сам по себе основным не становится. <code>PUT /admin/domains/4310871.json</code> с <code>{"domain":{"main":true}}</code> отвечает <code>200</code> и <code>"main": true</code>. Пока домен не настроен, <code>main_host</code> аккаунта остаётся техническим адресом.</p>
+<p>Первый добавленный домен не становится основным автоматически. Чтобы назначить его основным, отправьте <code>PUT /admin/domains/4310871.json</code> с <code>{"domain":{"main":true}}</code>. API вернёт <code>200</code> и <code>"main": true</code>. Пока домен не настроен, <code>main_host</code> аккаунта продолжает содержать технический адрес.</p>
 <p>Повтор того же имени — <code>422</code>, тело <code>{"domain":["Вы уже добавили этот домен"]}</code>. Имя без точки — <code>422</code>, тело <code>{"domain":["Неверный формат имени домена","Неверный формат имени домена"]}</code>: сообщение приходит дважды. Имя с <code>insales.ru</code> — <code>422</code>, тело <code>{"domain":["Домен не должен содержать в себе слова insales или ekam"]}</code>.</p>
 <p><code>DELETE /admin/domains/:id.json</code> отвечает <code>200</code>, тело пустое.</p>
 

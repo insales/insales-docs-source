@@ -4362,15 +4362,16 @@
 
 
 <h1 id="_1">Каталог</h1>
-<p>Товар, привязка товара к коллекции, свойства вариантов и типы цен описаны в <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/">товарах</a>. Каналы продаж приложения — в <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/#каналы-продаж">приложениях</a>. Отзывы бэк-офиса — в <a href="../16%20%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/">отзывах</a>. Склады и валюты склада — в <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/">складах</a>. Здесь — справочники и методы вокруг товара: коллекции витрины, категории учёта, фильтры и дополнительные поля.</p>
-<p>Тело без корневого объекта отвечает <code>422</code>, в <code>message</code> назван ожидаемый ключ, например <code>collection</code>. Несуществующий id в <code>GET</code> отвечает <code>404</code> с HTML-страницей.</p>
+<p>Здесь описаны коллекции витрины, категории учёта, фильтры коллекций и дополнительные поля. Создание товаров, привязка к коллекциям, свойства вариантов и типы цен описаны в разделе <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/">«Товары»</a>.</p>
+<p>Связанные ресурсы: <a href="../14%20%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%B8%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8/#каналы-продаж">каналы продаж приложения</a>, <a href="../16%20%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/">отзывы</a>, <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/">склады и валюты склада</a>.</p>
+<p>Если передать тело без ожидаемого корневого объекта, API вернёт <code>422</code>. Поле <code>message</code> укажет, какой ключ нужен, например <code>collection</code>. Чтение объекта с несуществующим идентификатором возвращает <code>404</code> с HTML-страницей.</p>
 <h2 id="_2">Коллекции</h2>
 <p>Коллекция — раздел витрины. Корневая коллекция магазина приходит с пустым <code>parent_id</code>. Скрытая коллекция (<code>is_hidden: true</code>) в список входит. Коллекция, помеченная к удалению, из списка пропадает.</p>
 <p>У обычной коллекции <code>is_smart</code> в ответе равен <code>null</code>. Ключ <code>image</code> есть только у коллекции с картинкой.</p>
 <h3 id="_3">Список</h3>
-<p><code>GET /admin/collections.json</code> без <code>page</code> и <code>per_page</code> отдаёт весь список. Порядок — <code>parent_id</code>, затем <code>position</code>: коллекция без родителя стоит в конце.</p>
-<p><code>parent_id</code> оставляет дочерние коллекции этого родителя. <code>parent_id=null</code> оставляет коллекции без родителя.</p>
-<p><code>page</code> или <code>per_page</code> включают постраничную выдачу. <code>per_page</code> меньше 10 поднимается до 10, больше 250 опускается до 250. В заголовке ответа есть <code>X-TOTAL-PAGES</code>. <code>page</code> меньше 1 отвечает <code>422</code>.</p>
+<p><code>GET /admin/collections.json</code> без <code>page</code> и <code>per_page</code> возвращает все коллекции. Они сортируются по <code>parent_id</code>, затем по <code>position</code>. Коллекция без родителя находится в конце списка.</p>
+<p>Для чтения дочерних коллекций передайте <code>parent_id</code> родительской коллекции. Значение <code>parent_id=null</code> возвращает коллекции без родителя.</p>
+<p>Чтобы получать список по страницам, передайте <code>page</code> или <code>per_page</code>. Размер страницы ограничен диапазоном от 10 до 250: API заменяет значения за его пределами ближайшей границей. Количество страниц возвращается в заголовке <code>X-TOTAL-PAGES</code>. Если <code>page</code> меньше 1, API вернёт <code>422</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/collections.json?per_page=10&amp;page=1</code></div>
 <table>
@@ -4383,7 +4384,7 @@
 <tbody>
 <tr>
 <td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Размер страницы. Меньше 10 поднимается до 10, больше 250 опускается до 250.</td>
+<td>Количество коллекций на странице: от 10 до 250. Значения за пределами диапазона заменяются ближайшей границей.</td>
 </tr>
 <tr>
 <td><code>page</code> <span class="api-opt">необязательный</span><br>число</td>
@@ -4445,9 +4446,9 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"page должен иметь значение, большее 0"</span><span class="p">}</span>
 </code></pre></div>
 <h3 id="_4">Изменившиеся коллекции</h3>
-<p><code>updated_since</code> оставляет коллекции с <code>updated_at</code> больше или равным переданному времени. Порядок такого ответа — <code>updated_at</code>, затем <code>id</code>. Время передают в query целиком, двоеточие и знак часового пояса кодируют.</p>
-<p>Параметр <code>from_id</code> список коллекций не меняет: набор и порядок те же, что в запросе без него. Следующую пачку сдвигают новым <code>updated_since</code>. Одна и та же граница может прийти снова, потому что запись с этим временем входит в ответ.</p>
-<p>Строка, которую нельзя разобрать как дату, фильтр не включает. Ответ приходит целиком, порядок у него уже по <code>updated_at</code> и <code>id</code>.</p>
+<p>Параметр <code>updated_since</code> возвращает коллекции, у которых <code>updated_at</code> больше либо равен указанному времени. Результат сортируется по <code>updated_at</code>, затем по <code>id</code>. Передавайте время целиком в параметре URL, кодируя двоеточия и знак смещения часового пояса.</p>
+<p>Параметр <code>from_id</code> не меняет состав и порядок списка коллекций. Для следующего запроса изменяйте <code>updated_since</code>. Записи с граничным временем могут вернуться повторно, поскольку сравнение включает указанное время.</p>
+<p>Если значение <code>updated_since</code> не удаётся разобрать как дату, фильтрация по времени не применяется. API возвращает список без этого ограничения, но сортирует его по <code>updated_at</code> и <code>id</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/collections.json?updated_since=2026-10-21T22%3A00%3A00%2B03%3A00</code></div>
 <table>
@@ -4493,7 +4494,7 @@
 </div>
 <p>У записи списка есть <code>id</code>, <code>updated_at</code> и <code>title</code>.</p>
 <h3 id="_5">Создание и изменение</h3>
-<p><code>POST /admin/collections.json</code> создаёт коллекцию и отвечает <code>201</code>. <code>parent_id</code> обязателен. Занятый <code>permalink</code> запрос не отклоняет: к нему дописывается суффикс <code>-2</code>.</p>
+<p><code>POST /admin/collections.json</code> создаёт коллекцию и возвращает статус <code>201</code>. Поле <code>parent_id</code> обязательно. Если <code>permalink</code> уже занят, InSales добавляет суффикс <code>-2</code>, не отклоняя запрос.</p>
 <p><code>sort_type</code> — код порядка товаров в коллекции. Чужой код отвечает <code>422</code>, в ошибке <code>sort_type</code> со значением «имеет непредусмотренное значение».</p>
 <table>
 <thead>
@@ -4749,12 +4750,17 @@
 </div>
 </div>
 </div>
-<p>Тот же объект <code>image_attributes</code> в <code>PUT /admin/collections/:id.json</code> отвечает <code>200</code> и тоже отдаёт <code>original_url</code> равным <code>/images/loading.gif</code>, пока файл обрабатывается.</p>
+<p>Тот же объект <code>image_attributes</code> в <code>PUT /admin/collections/:id.json</code> отвечает <code>200</code> и тоже возвращает <code>original_url</code> равным <code>/images/loading.gif</code>, пока файл обрабатывается.</p>
 <h3 id="_7">Умная коллекция</h3>
 <p>Умная коллекция собирает товары по фильтрам. <code>POST</code> с <code>is_smart: true</code> и пустым списком фильтров отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"smart_collection_filters"</span><span class="p">:[</span><span class="s2">"Настройте хотя бы один фильтр"</span><span class="p">]}</span>
 </code></pre></div>
-<p><code>POST</code>, в котором умная коллекция и фильтры приходят вместе, отвечает <code>500</code> и коллекцию не создаёт. Рабочий порядок — сначала обычная коллекция, затем <code>PUT</code> с <code>is_smart</code> и <code>smart_collection_filters_attributes</code>. Ответ <code>200</code>, <code>is_smart</code> равен <code>true</code>. Сами фильтры в JSON коллекции не возвращаются.</p>
+<p>Создавайте умную коллекцию в два шага:</p>
+<ol>
+<li>Создайте обычную коллекцию.</li>
+<li>Отправьте <code>PUT</code> с <code>is_smart</code> и <code>smart_collection_filters_attributes</code>.</li>
+</ol>
+<p>API вернёт <code>200</code> и <code>is_smart: true</code>. Фильтры в JSON коллекции не включаются. Если попытаться сразу создать умную коллекцию с фильтрами через <code>POST</code>, API вернёт <code>500</code> и не создаст коллекцию.</p>
 <p><code>method_or_field_name</code> задаёт поле и ключ через двоеточие. Для названия это <code>title:</code>. <code>values</code> — массив.</p>
 <table>
 <thead>
@@ -4786,7 +4792,7 @@
 </tr>
 </tbody>
 </table>
-<p>Для свойства в <code>method_or_field_name</code> после двоеточия стоит id свойства. У <code>empty</code> и <code>notempty</code> список <code>values</code> может быть пустым. Запрос ниже оставляет коллекции, в названии которых есть строка.</p>
+<p>Для фильтра по свойству укажите его идентификатор после двоеточия в <code>method_or_field_name</code>. С операторами <code>empty</code> и <code>notempty</code> массив <code>values</code> может быть пустым. В примере ниже фильтр выбирает товары по подстроке в названии.</p>
 <p>Состав умной коллекции пересчитывается после сохранения.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/collections/53486018.json</code></div>
@@ -4888,8 +4894,8 @@
 </div>
 </div>
 <h2 id="_9">Категории</h2>
-<p>Категория — раздел учёта товара. В карточке товара это <code>category_id</code>. Коллекция витрины в это поле не подставляется.</p>
-<p><code>GET /admin/categories.json</code> отдаёт все категории без постраничной нарезки. Порядок и отбор <code>updated_since</code> и <code>parent_id</code> такие же, как у коллекций: <code>from_id</code> список не меняет. В объекте только <code>id</code>, <code>parent_id</code>, <code>title</code>, <code>position</code>, <code>created_at</code>, <code>updated_at</code>.</p>
+<p>Категория задаёт раздел учёта товара и указывается в его поле <code>category_id</code>. Идентификатор коллекции витрины в этом поле использовать нельзя.</p>
+<p><code>GET /admin/categories.json</code> возвращает все категории без постраничного деления. Сортировка и фильтрация по <code>updated_since</code> и <code>parent_id</code> работают так же, как у коллекций. Параметр <code>from_id</code> не меняет список. Объект категории содержит только <code>id</code>, <code>parent_id</code>, <code>title</code>, <code>position</code>, <code>created_at</code> и <code>updated_at</code>.</p>
 <p><code>POST /admin/categories.json</code> отвечает <code>201</code>. Меняются <code>title</code>, <code>parent_id</code> и <code>position</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/categories.json</code></div>
@@ -4948,12 +4954,13 @@
 </div>
 </div>
 <h3 id="_10">Удаление</h3>
-<p><code>DELETE /admin/categories/:id.json</code> у дочерней категории отвечает <code>{"status":"ok"}</code>, затем <code>GET</code> этой категории — <code>404</code>. Товары этой категории уходят в архив.</p>
+<p>При удалении дочерней категории <code>DELETE /admin/categories/:id.json</code> возвращает <code>{"status":"ok"}</code>. Следующее чтение категории возвращает <code>404</code>. Товары, находившиеся в этой категории, переносятся в архив.</p>
 <p><code>DELETE</code> корневой категории тоже отвечает <code>{"status":"ok"}</code>, и категория остаётся.</p>
 <h2 id="_11">Фильтры коллекций</h2>
-<p>Фильтр коллекции — SEO-страница внутри коллекции: название, адрес и набор параметров товара и свойств варианта. Методы доступны, когда фильтры коллекций есть в тарифе.</p>
-<p>Список <code>GET /admin/collection_filters.json</code> постраничный. <code>per_page</code> меньше 10 поднимается до 10, больше 500 опускается до 500, без параметра страница содержит до 500 записей. Заголовка <code>X-TOTAL-PAGES</code> нет. <code>collection_id</code> оставляет фильтры одной коллекции; с ним порядок по <code>position</code>, без него — по коллекции и позиции.</p>
-<p>Тело создания и изменения лежит в ключе <code>filter</code>. Ответ <code>201</code> на создание и <code>200</code> на изменение. Характеристики в ответе лежат в поле <code>characteristis</code> — так ключ называется в JSON. Значения дополнительных полей в этот JSON не входят.</p>
+<p>Фильтр коллекции — SEO-страница внутри коллекции с собственным названием, адресом и набором параметров товара и свойств варианта. Методы доступны, если фильтры коллекций входят в тариф магазина.</p>
+<p><code>GET /admin/collection_filters.json</code> возвращает список по страницам. По умолчанию на странице до 500 записей. Параметр <code>per_page</code> ограничен диапазоном от 10 до 500; значения за пределами диапазона заменяются ближайшей границей. Заголовка <code>X-TOTAL-PAGES</code> нет.</p>
+<p>Чтобы получить фильтры одной коллекции, передайте <code>collection_id</code>. С ним список сортируется по <code>position</code>, без него — по коллекции и позиции.</p>
+<p>При создании и изменении передавайте данные в корневом объекте <code>filter</code>. При создании API возвращает <code>201</code>, при изменении — <code>200</code>. В ответе характеристики находятся в поле <code>characteristis</code>: сохраняйте именно такое написание ключа. Значения дополнительных полей в ответ не включаются.</p>
 <p><code>properties_attributes</code> и <code>options_attributes</code> ищут параметр и свойство по названию и создают отсутствующие. Повтор того же набора параметров и свойств в той же коллекции отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"properties_attributes"</span><span class="p">:[</span><span class="s2">"Уже существует фильтр с такими параметрами и свойствами"</span><span class="p">]}</span>
 </code></pre></div>
@@ -5086,7 +5093,7 @@
 </div>
 <p><code>PUT /admin/collection_filters/:id.json</code> с новым <code>title</code> и <code>permalink</code> отвечает <code>200</code> и тем же набором <code>characteristis</code> и <code>option_values</code>. <code>DELETE /admin/collection_filters/:id.json</code> удаляет фильтр.</p>
 <h2 id="_12">Дополнительные поля коллекции</h2>
-<p>Поле коллекции создаётся с типом <code>CollectionField::TextField</code> или <code>CollectionField::TextArea</code>. Другой <code>type</code> отвечает <code>500</code>, поле не создаётся.</p>
+<p>Для дополнительного поля коллекции используйте тип <code>CollectionField::TextField</code> или <code>CollectionField::TextArea</code>. Другие значения <code>type</code> приводят к ответу <code>500</code>, поле при этом не создаётся.</p>
 <p><code>POST /admin/collection_fields.json</code> отвечает <code>201</code>. В ответе есть <code>application_id</code> и <code>application_title</code> приложения, от имени которого создано поле. Повтор <code>handle</code> отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"handle"</span><span class="p">:[</span><span class="s2">"Свойство с таким пермалинком уже существует"</span><span class="p">]}</span>
 </code></pre></div>
@@ -5158,9 +5165,9 @@
 </div>
 </div>
 <h3 id="_13">Значение поля</h3>
-<p>Значение можно передать при сохранении коллекции через <code>field_values_attributes</code>. Отдельные методы: список, чтение и изменение. Создания и удаления отдельным методом нет.</p>
+<p>Чтобы сохранить значение вместе с коллекцией, передайте <code>field_values_attributes</code>. Для работы со значением отдельно доступны список, чтение и изменение. Отдельных методов создания и удаления нет.</p>
 <p><code>GET /admin/collections/:collection_id/collection_field_values.json</code> — значения этой коллекции. <code>GET</code> и <code>PUT</code> одного значения идут по id поля или по его <code>handle</code>.</p>
-<p>Если значения ещё нет, <code>GET</code> отвечает <code>200</code> и объект с пустыми <code>id</code> и <code>value</code>, запись при этом не создаётся. <code>PUT</code> создаёт или меняет значение и отвечает <code>{"status":"ok"}</code>. Новое значение читается следующим <code>GET</code>.</p>
+<p>Если значение ещё не сохранено, <code>GET</code> возвращает <code>200</code> и объект с пустыми <code>id</code> и <code>value</code>, не создавая запись. Для создания или изменения значения используйте <code>PUT</code>. Ответ содержит <code>{"status":"ok"}</code>; новое значение можно прочитать следующим <code>GET</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/collections/53486015/collection_field_values/9.json</code></div>
 <table>
@@ -5249,7 +5256,7 @@
 </div>
 </div>
 <h2 id="_14">Значения дополнительных полей</h2>
-<p>Поля товара и варианта и запись значения вместе с товаром разобраны в <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#дополнительное-поле-товара">товарах</a>. Ниже те же значения отдельными методами. Пустой массив в карточке значит, что значений нет.</p>
+<p>Создание дополнительных полей товара и варианта, а также запись значений вместе с товаром описаны в разделе <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#дополнительное-поле-товара">«Товары»</a>. Ниже показана работа со значениями через отдельные методы. Пустой массив в карточке означает, что значений нет.</p>
 <h3 id="_15">Товар</h3>
 <p><code>GET /admin/products/:product_id/product_field_values.json</code> — значения товара. <code>POST</code> создаёт значение и отвечает <code>201</code>. Повтор того же поля отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"product_field_id"</span><span class="p">:[</span><span class="s2">"уже существует"</span><span class="p">]}</span>
@@ -5360,7 +5367,7 @@
 </div>
 </div>
 <h3 id="_16">Вариант</h3>
-<p>Значения варианта лежат на пути <code>/admin/variants/:variant_id/variant_field_values.json</code>. Путь <code>/admin/products/:product_id/variants/:variant_id/variant_field_values.json</code> отвечает <code>404</code>.</p>
+<p>Для работы со значениями дополнительных полей варианта используйте путь <code>/admin/variants/:variant_id/variant_field_values.json</code>. Путь <code>/admin/products/:product_id/variants/:variant_id/variant_field_values.json</code> отвечает <code>404</code>.</p>
 <p><code>POST</code> принимает <code>variant_field_id</code> или <code>variant_field_handle</code> и отвечает <code>201</code>. <code>PUT</code> по handle отвечает объектом значения. После записи то же значение видно в <code>variant_field_values</code> карточки варианта.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/variants/2176487181/variant_field_values.json</code></div>

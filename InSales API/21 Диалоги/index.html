@@ -4040,12 +4040,14 @@
 
 
 <h1 id="_1">Диалоги</h1>
-<p>Ключ с правом на диалоги и полным доступом выпускает токен канала. Без права <code>POST /admin/dialogs/provider_tokens.json</code> отвечает <code>403</code>. У опубликованного приложения это право в кабинете партнёра не выдаётся, и ответ тот же. Дальше провайдер работает с Provider API на <code>messengers.insales.ru</code>.</p>
+<p>Для выпуска токена канала нужен ключ с правом на диалоги и полным доступом. Без этого права <code>POST /admin/dialogs/provider_tokens.json</code> возвращает <code>403</code>. Опубликованному приложению это право в кабинете партнёра не выдаётся, поэтому запрос также возвращает <code>403</code>.</p>
+<p>После получения токена провайдер работает через Provider API на <code>messengers.insales.ru</code>.</p>
 <h2 id="_2">Токен провайдера диалогов</h2>
-<p>Один метод: <code>POST /admin/dialogs/provider_tokens.json</code>. <code>GET</code> этого адреса отвечает <code>404</code>. Тело — верхний уровень, поле <code>messenger_type</code>. Обёртка <code>provider_token</code> игнорируется и отвечает тем же телом, что и пустой запрос.</p>
-<p>Рабочие значения: <code>sms</code>, <code>telegram</code>, <code>viber</code>, <code>email</code>, <code>vk</code>. <code>sms</code> — канал «Диалогов». Код входа на витрину этим методом не выпускается.</p>
-<p>Ответ успеха — <code>200</code> и два значения по 128 шестнадцатеричных символов. Повтор для того же <code>messenger_type</code> выпускает новую пару, старая перестаёт подходить к Provider API. Ошибки этого метода тоже приходят с <code>200</code> и полем <code>error</code>.</p>
-<p>Удаление пароля приложения удаляет его токены. Прежний <code>api_token</code> после этого отвечает <code>401</code>.</p>
+<p>Чтобы выпустить токен, используйте <code>POST /admin/dialogs/provider_tokens.json</code>. Передайте поле <code>messenger_type</code> на верхнем уровне JSON. Если вложить его в <code>provider_token</code>, поле будет проигнорировано, а ответ совпадёт с ответом на пустой запрос. Чтение через <code>GET</code> не поддерживается и возвращает <code>404</code>.</p>
+<p>Параметр <code>messenger_type</code> принимает <code>sms</code>, <code>telegram</code>, <code>viber</code>, <code>email</code> или <code>vk</code>. Значение <code>sms</code> относится к каналу «Диалогов»; метод не выпускает код входа покупателя на витрину.</p>
+<p>При успехе API возвращает <code>200</code> и пару токенов, каждый из 128 шестнадцатеричных символов. Повторный запрос для того же <code>messenger_type</code> выпускает новую пару. Прежние токены больше не подходят для работы с Provider API.</p>
+<p>Ошибки этого метода также возвращаются с HTTP-статусом <code>200</code>. Проверяйте наличие поля <code>error</code> в теле ответа.</p>
+<p>При удалении пароля приложения его токены также удаляются. Запрос к Provider API с прежним <code>api_token</code> после этого возвращает <code>401</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/dialogs/provider_tokens.json</code></div>
 <table>
@@ -4092,8 +4094,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="provider-api">Provider API</h3>
-<p>Хост — <code>https://messengers.insales.ru</code>. Заголовок <code>Authorization</code> равен <code>api_token</code>, без <code>Basic</code> и без <code>Bearer</code>. Чужой токен отвечает <code>401</code>, тело <code>{"error":"Not authorized"}</code>.</p>
-<p>Пока магазин не переключил канал на этого провайдера, <code>active</code> равен <code>false</code>. Вызов, который переключает канал, в Provider API нет.</p>
+<p>Отправляйте запросы на <code>https://messengers.insales.ru</code>. В заголовке <code>Authorization</code> передавайте значение <code>api_token</code> без префиксов <code>Basic</code> или <code>Bearer</code>. Для чужого токена API возвращает <code>401</code> и <code>{"error":"Not authorized"}</code>.</p>
+<p>Пока магазин не переключил канал на этого провайдера, поле <code>active</code> равно <code>false</code>. Переключить канал через Provider API нельзя.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/api/messengers/provider/v1/settings</code></div>
 <div class="api-example__grid">
@@ -4165,7 +4167,7 @@
 </div>
 </div>
 </div>
-<p>На <code>send_message_url</code> магазин шлёт <code>POST</code> с <code>Authorization: webhook_token</code> и <code>Content-Type: application/json</code>. Текстовое сообщение:</p>
+<p>Для отправки сообщения InSales вызывает <code>send_message_url</code> POST-запросом с заголовками <code>Authorization: webhook_token</code> и <code>Content-Type: application/json</code>. Текстовое сообщение имеет следующий вид:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chat-id"</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">"internal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
@@ -4174,9 +4176,10 @@
 <span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Файл вместо <code>body</code> и <code>type: text</code> приходит как <code>type: file</code> и <code>files: [{url, name}]</code>. Ответ сервиса — <code>200</code> и JSON со <code>status</code> и <code>external_id</code>. Статусы: <code>scheduled</code>, <code>wait_for_capture</code>, <code>complete</code>, <code>error</code>. Другой HTTP-статус и неизвестный <code>status</code> считаются ошибкой. Повторной отправки вебхука нет.</p>
-<p>На <code>settings_url</code> тем же заголовком уходит <code>{"gateway_token":"…","account_id":233686}</code>, когда у магазина меняется токен шлюза.</p>
-<p>Входящее сообщение клиента провайдер передаёт своим <code>POST /api/messengers/provider/v1/messages</code>. Пока <code>active</code> равен <code>false</code>, ответ <code>422</code>.</p>
+<p>Если сообщение содержит файл, вместо <code>body</code> и <code>type: text</code> передаются <code>type: file</code> и <code>files: [{url, name}]</code>.</p>
+<p>Сервис должен вернуть <code>200</code> и JSON с <code>status</code> и <code>external_id</code>. Допустимы статусы <code>scheduled</code>, <code>wait_for_capture</code>, <code>complete</code> и <code>error</code>. Другой HTTP-статус или неизвестный <code>status</code> считаются ошибкой. Повторной отправки вебхука нет.</p>
+<p>При изменении токена шлюза магазина InSales отправляет на <code>settings_url</code> запрос с телом <code>{"gateway_token":"…","account_id":233686}</code> и тем же заголовком авторизации.</p>
+<p>Чтобы передать входящее сообщение клиента в InSales, провайдер отправляет <code>POST /api/messengers/provider/v1/messages</code>. Если <code>active</code> равен <code>false</code>, API возвращает <code>422</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/api/messengers/provider/v1/messages</code></div>
 <table>

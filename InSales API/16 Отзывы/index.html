@@ -3939,14 +3939,15 @@
 
 
 <h1 id="_1">Отзывы</h1>
-<p><code>GET /admin/reviews.json</code> — отзывы бэк-офиса, по id от новых к старым. Это метод магазина. Отзывы витрины описаны в <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/">API сайта</a>.</p>
-<p>Обычный список — отзывы без пометки спама. <code>spam=true</code> оставляет только спам. <code>per_page</code> меньше 10 поднимается до 10, больше 250 опускается до 250. Без параметра на странице 10 отзывов. Заголовка <code>X-TOTAL-PAGES</code> нет. Отдельного суточного предела на отзывы нет: действует общий лимит запросов из <a href="../01%20readme/">общего описания</a>.</p>
-<p>Создание требует <code>author</code>, <code>email</code>, <code>content</code> и <code>product_id</code>. Плохой email отвечает <code>422</code> и <code>{"email":["имеет неверное значение"]}</code>. Несуществующий товар отвечает <code>422</code> и <code>{"product_id":["Указан несуществующий товар"]}</code>.</p>
+<p><code>GET /admin/reviews.json</code> возвращает отзывы товаров через API бэк-офиса, по убыванию <code>id</code>. Для работы с отзывами со стороны покупателя используйте <a href="../../API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B/">API сайта</a>.</p>
+<p>По умолчанию список содержит отзывы без отметки спама. С <code>spam=true</code> возвращается только спам. На странице по умолчанию 10 отзывов. Параметр <code>per_page</code> ограничен диапазоном от 10 до 250: значения за его пределами заменяются ближайшей границей. Заголовка <code>X-TOTAL-PAGES</code> нет.</p>
+<p>Отдельного суточного лимита для отзывов нет. Действует <a href="../01%20readme/#лимит-запросов">общий лимит запросов API</a>.</p>
+<p>Для создания отзыва передайте <code>author</code>, <code>email</code>, <code>content</code> и <code>product_id</code>. Некорректный адрес почты отклоняется со статусом <code>422</code> и телом <code>{"email":["имеет неверное значение"]}</code>. Для несуществующего товара API возвращает <code>422</code> и <code>{"product_id":["Указан несуществующий товар"]}</code>.</p>
 <p><code>rating</code> — целое от 1 до 5 или <code>null</code>. Ноль отвечает <code>{"rating":["может иметь лишь значение большее или равное 1"]}</code>.</p>
 <p>Дробное число сохраняется без дробной части: <code>4.5</code> становится <code>4</code>.</p>
-<p>Если в теле есть <code>published</code>, сохраняется переданное значение. Если ключа нет и в магазине включена модерация, отзыв сохраняется с <code>published: false</code>. <code>created_at</code> сохраняется как передан.</p>
-<p><code>manager_reply</code> и <code>replied_at</code> пишутся изменением отзыва. В ответе <code>replied_q</code> становится <code>true</code>. Смена <code>product_id</code> на существующий товар перепривязывает отзыв: в ответе меняются <code>product_id</code>, <code>title</code> и <code>url</code>.</p>
-<p>У товара без картинки <code>first_image</code> приходит заглушкой с адресами <code>/images/no_image_*.jpg</code>. Запрос с <code>image_attributes.src</code> или с <code>attachment</code> и <code>filename</code> отвечает <code>500</code>, отзыв при этом не создаётся.</p>
+<p>Если поле <code>published</code> передано, InSales сохраняет его значение. Если поле не передано и в магазине включена модерация, отзыв сохраняется с <code>published: false</code>. Переданное значение <code>created_at</code> также сохраняется.</p>
+<p>Чтобы добавить ответ магазина, измените отзыв, передав <code>manager_reply</code> и <code>replied_at</code>. Поле <code>replied_q</code> в ответе станет <code>true</code>. Чтобы привязать отзыв к другому товару, передайте существующий <code>product_id</code>: в ответе изменятся <code>product_id</code>, <code>title</code> и <code>url</code>.</p>
+<p>Если у товара нет изображения, <code>first_image</code> содержит адреса заглушек <code>/images/no_image_*.jpg</code>. Передать изображение при создании отзыва нельзя: запрос с <code>image_attributes.src</code> или с <code>attachment</code> и <code>filename</code> возвращает <code>500</code>, отзыв не создаётся.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/reviews.json</code></div>
 <table>

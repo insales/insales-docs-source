@@ -4028,12 +4028,12 @@
 
 
 <h1 id="_1">Виджеты приложения</h1>
-<p>Виджет приложения — iframe в карточке заказа или товара в бэк-офисе. В него попадает HTML из поля <code>code</code>. Методы — <code>ApplicationWidget</code> в <a href="https://api.insales.ru/">справочнике</a>.</p>
+<p>Виджет приложения позволяет встроить интерфейс интеграции в карточку заказа или товара в бэк-офисе. InSales выводит его в iframe, используя HTML из поля <code>code</code>. Методы ресурса <code>ApplicationWidget</code> описаны в <a href="https://api.insales.ru/">справочнике</a>.</p>
 <p>Поля:</p>
 <ul>
 <li><code>code</code> — HTML или JavaScript. В JSON передаётся обычной строкой, экранировать угловые скобки не нужно.</li>
 <li><code>height</code> — высота iframe в пикселях.</li>
-<li><code>page_type</code> — <code>order</code> или <code>product</code>. Без поля виджет создаётся для заказа.</li>
+<li><code>page_type</code> — карточка, в которой появится виджет: <code>order</code> — заказ, <code>product</code> — товар. Если поле не передать, виджет создаётся для заказа.</li>
 </ul>
 <h2 id="_2">Создание</h2>
 <p><code>POST /admin/application_widgets.json</code></p>
@@ -4062,21 +4062,21 @@
 <li><code>DELETE /admin/application_widgets/:id.json</code> — удалить, в ответе <code>{ "status": "ok" }</code></li>
 </ul>
 <h2 id="iframe">Что видно внутри iframe</h2>
-<p>Страница виджета задаёт глобальные переменные и затем вставляет <code>code</code>.</p>
+<p>Перед выполнением кода из <code>code</code> страница виджета задаёт глобальные переменные с данными текущей карточки и пользователя.</p>
 <p>На карточке заказа (<code>page_type: order</code>):</p>
 <ul>
 <li><code>window.order_info</code> — JSON текущего заказа, тот же состав, что у заказа в API</li>
 <li><code>window.account_id</code></li>
 <li><code>window.user_id</code></li>
 </ul>
-<p>На карточке товара (<code>page_type: product</code>) вместо заказа приходит <code>window.product_info</code>. <code>window.account_id</code> и <code>window.user_id</code> есть и там.</p>
+<p>В карточке товара (<code>page_type: product</code>) данные товара доступны в <code>window.product_info</code>. Переменные <code>window.account_id</code> и <code>window.user_id</code> также доступны.</p>
 <p>Короткий фрагмент для заказа:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Номер заказа: <span class="p">&lt;</span><span class="nt">b</span> <span class="na">id</span><span class="o">=</span><span class="s">"order-number"</span><span class="p">&gt;&lt;/</span><span class="nt">b</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"order-number"</span><span class="p">).</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">order_info</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Данные своего сервера виджет забирает сам, например отдельным запросом из <code>code</code>. Доступ к iframe с чужого домена ограничен браузером, поэтому обмен с приложением обычно идёт через запрос на адрес приложения, а не через родительское окно бэк-офиса.</p>
+<p>Для получения данных с вашего сервера добавьте соответствующий запрос в <code>code</code>. Браузер ограничивает доступ между окнами разных доменов, поэтому для обмена данными с приложением обычно используют запросы к его серверу.</p>
 
 
 

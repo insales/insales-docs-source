@@ -4094,17 +4094,17 @@
 
 
 <h1 id="_1">Подключение внешнего способа оплаты</h1>
-<p>Внешний способ оплаты — прокси между формой InSales и платёжной системой. После заказа магазин отправляет покупателя POST-запросом на URL из настроек. О результате платёжная система сообщает редиректом покупателя или запросом со своего сервера. При <code>widget_mode</code> оплата идёт на странице магазина.</p>
-<p>Создание способа — <code>POST /admin/payment_gateways.json</code>, тип <code>PaymentGateway::External</code>. Список способов, наложенный платёж, произвольный способ, изменение и удаление — в <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/">способах оплаты</a>.</p>
+<p>Внешний способ оплаты связывает магазин InSales с вашей платёжной системой. После создания заказа магазин передаёт покупателя на URL платёжной системы с помощью POST-запроса. Платёжная система сообщает результат при возврате покупателя в магазин или отдельным запросом со своего сервера. Если включён <code>widget_mode</code>, покупатель оплачивает заказ на странице магазина.</p>
+<p>Чтобы создать внешний способ оплаты, отправьте <code>POST /admin/payment_gateways.json</code> с типом <code>PaymentGateway::External</code>. Получение списка, изменение и удаление способов, а также наложенный платёж и произвольный способ описаны в разделе <a href="../19%20%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B/">«Способы оплаты»</a>.</p>
 <h2 id="_2">Поля создания</h2>
-<p>Обязательные для внешнего типа: <code>title</code>, <code>type</code>, <code>url</code>, <code>shop_id</code>.</p>
+<p>Для создания внешнего способа оплаты обязательны поля <code>title</code>, <code>type</code>, <code>url</code>, <code>shop_id</code>.</p>
 <ul>
 <li><code>url</code> — адрес платёжного сервиса.</li>
 <li><code>shop_id</code> — идентификатор магазина в вашей системе.</li>
-<li><code>password</code> — секрет подписи. Если поле не передать, в ответе будет сгенерированное значение. Переданное значение сохраняется как есть.</li>
-<li><code>send_order</code> — добавить в форму <code>order_json</code> с составом заказа. Это поле входит в подпись, в конец строки.</li>
-<li><code>convert_currency</code> — ISO-код валюты списания. Валюта должна быть заведена в магазине: по ней берётся курс. Суммы в <code>order_json</code> и в <code>GET /admin/orders/:id.json</code> остаются в валюте сайта.</li>
-<li><code>redirect_to_payment</code> — сразу уводить покупателя на оплату после создания заказа. По умолчанию <code>true</code>.</li>
+<li><code>password</code> — секрет для расчёта подписи. Если поле не передать, в ответе будет сгенерированное значение. Переданное значение сохраняется как есть.</li>
+<li><code>send_order</code> — добавить в отправляемую форму поле <code>order_json</code> с составом заказа. При расчёте подписи его значение добавляется после остальных полей формы, перед паролем.</li>
+<li><code>convert_currency</code> — ISO-код валюты списания. Добавьте эту валюту в магазин: InSales использует её курс для пересчёта суммы. Суммы в <code>order_json</code> и в <code>GET /admin/orders/:id.json</code> остаются в валюте сайта.</li>
+<li><code>redirect_to_payment</code> — сразу перенаправлять покупателя на оплату после создания заказа. По умолчанию <code>true</code>.</li>
 <li><code>widget_mode</code> — оплата на странице магазина.</li>
 <li><code>widget_html_code</code> — HTML и JavaScript виджета на этой странице.</li>
 <li><code>add_delivery_variants</code> — разрешить способ для всех вариантов доставки. Без привязанных доставок способ покупателю недоступен.</li>
@@ -4126,14 +4126,14 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>В ответе <code>201</code> приходят <code>password</code>, <code>success_url</code>, <code>fail_url</code> и <code>server_url</code>. Адреса уже содержат id способа:</p>
+<p>При успешном создании API возвращает статус <code>201</code> и поля <code>password</code>, <code>success_url</code>, <code>fail_url</code>, <code>server_url</code>. Полученные URL уже содержат идентификатор способа оплаты:</p>
 <div class="highlight"><pre><span></span><code>https://SHOP/payments/external/37/success
 https://SHOP/payments/external/37/fail
 https://SHOP/payments/external/37/server
 </code></pre></div>
 <p>Дальше используйте URL из ответа, а не собирайте путь вручную.</p>
 <h2 id="_3">Форма на платежный сервис</h2>
-<p>На <code>url</code> уходит POST. Поля по порядку:</p>
+<p>InSales отправляет POST-запрос на адрес из поля <code>url</code>. Форма содержит следующие поля в указанном порядке:</p>
 <ul>
 <li><code>shop_id</code></li>
 <li><code>amount</code> — сумма к оплате; при конвертации это уже сумма в <code>convert_currency</code></li>
@@ -4145,13 +4145,13 @@ https://SHOP/payments/external/37/server
 <li><code>email</code></li>
 </ul>
 <p>Если задан <code>convert_currency</code>, следом идут <code>original_currency</code>, <code>convert_currency</code>, <code>original_amount</code>, <code>conversion_rate</code>.</p>
-<p>Если <code>send_order</code> истинно, следом идёт <code>order_json</code>.</p>
-<p><code>signature</code> — MD5 от значений этих полей в том же порядке, через <code>;</code>, и в конце пароль способа:</p>
+<p>Если включён <code>send_order</code>, после остальных полей формы добавляется <code>order_json</code>.</p>
+<p>Для расчёта <code>signature</code> соедините значения полей в указанном порядке через <code>;</code>, добавьте пароль способа оплаты последним значением и вычислите MD5:</p>
 <div class="highlight"><pre><span></span><code>MD5(shop_id;amount;transaction_id;key;description;order_id;phone;email;password)
 </code></pre></div>
 <p>Поля конвертации и <code>order_json</code> вставляются перед паролем только когда соответствующая настройка включена.</p>
 <h2 id="_4">Возврат покупателя</h2>
-<p>Успешная оплата — POST на <code>success_url</code>, неуспешная — POST на <code>fail_url</code>. Поля:</p>
+<p>После оплаты платёжная система должна вернуть покупателя в магазин: отправить POST-запрос на <code>success_url</code> при успехе или на <code>fail_url</code> при неудаче. Передайте поля:</p>
 <ul>
 <li><code>paid</code> — <code>1</code> или <code>0</code></li>
 <li><code>amount</code></li>
@@ -4163,7 +4163,7 @@ https://SHOP/payments/external/37/server
 <p>Магазин проверяет подпись, сумму, <code>paid</code> и <code>shop_id</code>. При <code>paid=1</code> и верных данных заказ помечается оплаченным.</p>
 <p>Передавайте поля подписи именно в этом порядке: строка собирается из значений в порядке параметров запроса.</p>
 <h2 id="_5">Уведомление с сервера платёжной системы</h2>
-<p>POST на <code>server_url</code> с теми же полями, что и редирект. Ответ — JSON.</p>
+<p>Для уведомления без участия браузера отправьте со своего сервера POST-запрос на <code>server_url</code>. Передайте те же поля, что и при возврате покупателя. InSales вернёт ответ в JSON.</p>
 <p>Успех:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
@@ -4182,10 +4182,10 @@ https://SHOP/payments/external/37/server
 </ul>
 <h2 id="_6">Оплата виджетом на сайте</h2>
 <p>При <code>widget_mode</code> покупатель попадает на страницу вида <code>/payments/external/ID/payment_page?key=...</code>.</p>
-<p>В этот момент магазин сам делает POST на <code>url</code> способа и передаёт ту же форму, что и при обычном редиректе, телом JSON. Ожидается ответ <code>200</code> и JSON:</p>
+<p>При открытии страницы магазин отправляет POST-запрос на <code>url</code> способа оплаты. Тело запроса — JSON с теми же полями, что и форма перехода на платёжный сервис. Сервис должен вернуть статус <code>200</code> и JSON:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"widget_payment_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<p>Значение <code>widget_payment_data</code> попадает в переменную <code>widget_payment_data</code> на странице, рядом выводится <code>widget_html_code</code>. Подтверждение оплаты — те же <code>success_url</code>, <code>fail_url</code> и <code>server_url</code>.</p>
+<p>InSales сохраняет значение <code>widget_payment_data</code> в одноимённой переменной страницы и выводит код из <code>widget_html_code</code>. Для подтверждения результата оплаты используйте <code>success_url</code>, <code>fail_url</code> и <code>server_url</code>, как и при переходе на платёжный сервис.</p>
 
 
 

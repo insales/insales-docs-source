@@ -4270,14 +4270,14 @@
 
 
 <h1 id="_1">Темы, ассеты и файлы</h1>
-<p>Темы, ассеты и типы виджетов можно читать и менять, если у приложения есть право на дизайн. Для файлов раздела «Контент — Файлы» нужно право на файлы. Для панелей блоков — право на блоки.</p>
+<p>Для чтения и изменения тем, ассетов и типов виджетов приложению нужно право на дизайн. Для работы с разделом «Контент — Файлы» нужно право на файлы, для панелей блоков — право на блоки.</p>
 <p>Если нужного права нет, ответ <code>403</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Недостаточно прав для операции"</span><span class="p">}</span>
 </code></pre></div>
 <p>Новую тему через этот API создать нельзя: <code>POST /admin/themes.json</code> отвечает <code>404</code>. Скачать тему архивом нельзя: <code>GET /admin/themes/:id/export.json</code> отвечает <code>404</code>.</p>
-<p>На витрине файл темы и файл раздела «Контент — Файлы» — разные адреса. Файл темы попадает в шаблон через фильтр <code>asset_url</code>, файл раздела — через <code>file_url</code>.</p>
+<p>Файлы темы и файлы раздела «Контент — Файлы» имеют разные адреса на витрине. В шаблоне используйте фильтр <code>asset_url</code> для файла темы и <code>file_url</code> для файла из раздела «Контент — Файлы».</p>
 <h2 id="_2">Список тем</h2>
-<p><code>GET /admin/themes.json</code> отдаёт массив тем, которые можно открыть. В объект входят название, признак публикации, язык, версия ассетов и текст последней ошибки темы.</p>
+<p><code>GET /admin/themes.json</code> возвращает массив тем, которые можно открыть. В объект входят название, признак публикации, язык, версия ассетов и текст последней ошибки темы.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes.json</code></div>
 <div class="api-example__grid">
@@ -4311,7 +4311,7 @@
 </div>
 <p><code>is_published: true</code> — тема включена на витрине. <code>language_id</code> — язык темы. <code>assets_version</code> входит в путь файлов темы. <code>errors_text</code> — текст последней ошибки темы. У темы без ошибки поле равно <code>null</code>.</p>
 <p><code>GET /admin/themes/999999999.json</code> отвечает <code>404</code>. Тело при заголовке <code>Accept: application/json</code> остаётся HTML-страницей.</p>
-<p>Одна тема читается тем же составом полей.</p>
+<p>При чтении одной темы API возвращает тот же набор полей.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1.json</code></div>
 <table>
@@ -4405,7 +4405,7 @@
 </div>
 </div>
 </div>
-<p>Настройки цветов, шрифтов и пресетов этим запросом не передаются. Они лежат в файле <code>settings_data.json</code>, см. <a href="#настройки-темы">ниже</a>.</p>
+<p>Чтобы изменить цвета, шрифты и пресеты, обновите файл <code>settings_data.json</code>. Эти настройки не передаются в запросе на изменение темы. Подробнее — в разделе <a href="#настройки-темы">«Настройки темы»</a>.</p>
 <h2 id="_4">Публикация</h2>
 <p><code>PUT /admin/themes/:id/publish.json</code> публикует тему. Повторный вызов для уже опубликованной темы тоже отвечает <code>{"status":"ok"}</code>.</p>
 <div class="api-example">
@@ -4444,7 +4444,7 @@
 </div>
 </div>
 <h2 id="_5">Удаление</h2>
-<p><code>DELETE /admin/themes/:id.json</code> у опубликованной основной темы отвечает <code>{"status":"ok"}</code>, и тема остаётся в списке.</p>
+<p>Если отправить <code>DELETE /admin/themes/:id.json</code> для опубликованной основной темы, API вернёт <code>{"status":"ok"}</code>, но тема останется в списке.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/themes/1.json</code></div>
 <table>
@@ -4477,7 +4477,7 @@
 </div>
 </div>
 </div>
-<p>После такого ответа основную тему нужно перечитать: <code>{"status":"ok"}</code> здесь значит, что запрос принят, а не что запись исчезла.</p>
+<p>После ответа на удаление проверьте тему отдельным запросом. Ответ <code>{"status":"ok"}</code> подтверждает принятие запроса, но не гарантирует удаление записи.</p>
 <h2 id="_6">Ассеты темы</h2>
 <p>Ассет — файл внутри темы: шаблон, сниппет, картинка, стиль, скрипт или JSON из каталога <code>config</code>. Адрес: <code>/admin/themes/:theme_id/assets.json</code>.</p>
 <p><code>type</code> при создании:</p>
@@ -4512,7 +4512,7 @@
 </tr>
 </tbody>
 </table>
-<p>Список отдаёт id, тип, имя, человекочитаемое имя, адрес и <code>version</code> (unix-время изменения). Содержимого в списке нет.</p>
+<p>Список возвращает идентификатор, тип, имя, человекочитаемое имя, адрес и <code>version</code> — время изменения в формате Unix. Содержимое файлов в список не включается.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets.json</code></div>
 <table>
@@ -4562,8 +4562,8 @@
 </div>
 </div>
 </div>
-<p>Список содержит все файлы темы, без текста. <code>asset_url</code> — путь файла на витрине. Хост к нему не добавляется. В пути стоит <code>assets_version</code> темы.</p>
-<p><code>GET</code> одного liquid-файла добавляет поле <code>content</code>. У CSS, JS, картинки и JSON в этом ответе <code>content</code> нет.</p>
+<p>Список содержит все файлы темы без их содержимого. Поле <code>asset_url</code> задаёт путь к файлу на витрине без хоста. Путь включает значение <code>assets_version</code> темы.</p>
+<p>При чтении одного Liquid-файла API дополнительно возвращает поле <code>content</code>. Для CSS, JS, изображений и JSON это поле в ответ не включается.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets/113.json</code></div>
 <table>
@@ -4609,7 +4609,7 @@
 </div>
 </div>
 <p>У CSS, JS, картинки и JSON тот же <code>GET</code> возвращает метаданные без <code>content</code>.</p>
-<p>Тело любого файла, включая JSON, CSS и картинку, читается отдельным адресом <code>.../raw.json</code>. В ответе само содержимое файла. У картинки это байты файла.</p>
+<p>Чтобы получить содержимое любого файла, используйте отдельный адрес <code>.../raw.json</code>. API возвращает само содержимое: текст для JSON или CSS, байты файла для изображения.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/themes/1/assets/153/raw.json</code></div>
 <table>
@@ -4654,11 +4654,11 @@
 </div>
 </div>
 </div>
-<p>Так читается <code>settings_data.json</code>. Адрес <code>.../raw</code> без суффикса <code>.json</code> отвечает <code>404</code> с пустым телом.</p>
-<p>Тот же ресурс в <code>.xml</code> у картинки добавляет поле <code>attachment</code> — файл в Base64. В JSON-ответе картинки этого поля нет, байты берутся через <code>raw.json</code>.</p>
+<p>Например, через этот адрес можно прочитать <code>settings_data.json</code>. Запрос к <code>.../raw</code> без суффикса <code>.json</code> возвращает <code>404</code> с пустым телом.</p>
+<p>При чтении изображения в формате <code>.xml</code> ответ дополнительно содержит <code>attachment</code> — файл в Base64. В JSON этого поля нет; для получения байтов изображения используйте <code>raw.json</code>.</p>
 <h2 id="_7">Создание ассета</h2>
-<p><code>POST /admin/themes/:theme_id/assets.json</code>. Без <code>Content-Type: application/json</code> ответ <code>422</code> и <code>{"message":"incorrect Content-Type, should be application/json"}</code>.</p>
-<p>Сниппет создаётся текстом в <code>content</code>. Расширение <code>.liquid</code> дописывается само.</p>
+<p>Для создания ассета отправьте <code>POST /admin/themes/:theme_id/assets.json</code>. Заголовок <code>Content-Type: application/json</code> обязателен. Без него API вернёт <code>422</code> и <code>{"message":"incorrect Content-Type, should be application/json"}</code>.</p>
+<p>Чтобы создать сниппет, передайте его текст в <code>content</code>. InSales автоматически добавит расширение <code>.liquid</code> к имени.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/assets.json</code></div>
 <table>
@@ -4787,7 +4787,7 @@
 </div>
 </div>
 </div>
-<p>Картинка и прочий бинарный файл передаются полем <code>attachment</code>: содержимое в Base64. Рядом нужно <code>filename</code>, оно же попадает в <code>name</code>.</p>
+<p>Чтобы загрузить изображение или другой бинарный файл, передайте его содержимое в Base64 в поле <code>attachment</code>. В <code>filename</code> укажите имя файла — оно будет возвращаться в поле <code>name</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/themes/1/assets.json</code></div>
 <table>
@@ -4853,10 +4853,10 @@
 </div>
 </div>
 </div>
-<p>Вместо Base64 можно передать публичный <code>src</code> — <code>http</code> или <code>https</code>. Адрес внутренней сети отвечает <code>422</code>: у <code>src</code> сообщение «Недопустимый URL», у <code>inner</code> — «Не заполнены обязательные поля».</p>
+<p>Вместо содержимого в Base64 можно передать публичный URL в <code>src</code> со схемой <code>http</code> или <code>https</code>. Для адреса внутренней сети API возвращает <code>422</code>: ошибку «Недопустимый URL» у <code>src</code> и «Не заполнены обязательные поля» у <code>inner</code>.</p>
 <p>CSS и JSON создаются тем же полем <code>content</code>. Для CSS тип — <code>Asset::Media</code>, для JSON — <code>Asset::Configuration</code>. <code>raw.json</code> возвращает текст файла как есть.</p>
 <h2 id="_8">Изменение и переименование</h2>
-<p><code>PUT</code> записывает новое <code>content</code>. В JSON-ответе по-прежнему нет текста: его читают через <code>GET</code> для liquid или через <code>raw.json</code> для остальных.</p>
+<p>Чтобы заменить содержимое ассета, передайте новый текст в <code>content</code> запросом <code>PUT</code>. В JSON-ответе текст файла не возвращается. Проверьте результат через <code>GET</code> для Liquid-файла или через <code>raw.json</code> для остальных типов.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/1241.json</code></div>
 <table>
@@ -4911,7 +4911,7 @@
 </div>
 </div>
 </div>
-<p>Переименование — отдельный путь <code>.../rename.json</code>, поле <code>new_name</code>.</p>
+<p>Для переименования используйте отдельный путь <code>.../rename.json</code>. Передайте новое имя в поле <code>new_name</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/1241/rename.json</code></div>
 <table>
@@ -4970,7 +4970,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Нельзя переименовать стандартный шаблон"</span><span class="p">]}</span>
 </code></pre></div>
 <h2 id="_9">Удаление ассета</h2>
-<p><code>DELETE</code> отвечает <code>200</code> и пустым телом и для удалённого файла, и для файла, который удалить нельзя. Разница видна только следующим <code>GET</code>.</p>
+<p><code>DELETE</code> возвращает <code>200</code> с пустым телом и при успешном удалении, и когда файл удалить нельзя. Чтобы проверить результат, запросите файл отдельным <code>GET</code>.</p>
 <p>Сниппет, свой шаблон, картинка и CSS после такого ответа читаются как <code>404</code>. Стандартный <code>product.liquid</code> остаётся на месте. Файл типа <code>Asset::Configuration</code>, в том числе свой JSON-файл настроек и <code>settings_data.json</code>, тоже остаётся: <code>GET</code> после <code>DELETE</code> по-прежнему <code>200</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/themes/1/assets/1241.json</code></div>
@@ -5007,8 +5007,10 @@
 </div>
 </div>
 </div>
+<p><a id="настройки-темы"></a></p>
 <h2 id="_10">Настройки темы</h2>
-<p>Цвета, шрифты и текущий пресет лежат в ассете <code>settings_data.json</code> (<code>Asset::Configuration</code>). <code>GET</code> метаданных <code>content</code> не отдаёт. Текст читается через <code>.../raw.json</code>. Запись идёт через <code>PUT</code>: в <code>content</code> передаётся весь JSON файла. Ответ — метаданные ассета. Новый текст снова читается через <code>raw.json</code>.</p>
+<p>Цвета, шрифты и текущий пресет хранятся в <code>settings_data.json</code> — ассете типа <code>Asset::Configuration</code>. Чтобы прочитать файл, используйте <code>.../raw.json</code>: запрос метаданных не возвращает <code>content</code>.</p>
+<p>Для сохранения передайте весь JSON файла строкой в <code>content</code> запросом <code>PUT</code>. API вернёт метаданные ассета. Проверьте сохранённый текст повторным запросом к <code>raw.json</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/themes/1/assets/153.json</code></div>
 <table>
@@ -5063,8 +5065,8 @@
 </div>
 </div>
 </div>
-<p>В <code>content</code> кладётся весь JSON из <code>raw.json</code>, с изменёнными ключами. Запись части файла стирает остальные настройки пресета. После записи текст снова читается через <code>raw.json</code>.</p>
-<p><code>settings_data.json</code> сохраняет и невалидный JSON: ответ <code>200</code>, после этого файл не разбирается. <code>settings.json</code> и другие JSON-ассеты на такое тело отвечают <code>422</code>, файл остаётся прежним:</p>
+<p>Перед сохранением получите весь файл через <code>raw.json</code>, измените нужные ключи и передайте полный JSON в <code>content</code>. Если передать только часть файла, остальные настройки пресета будут удалены.</p>
+<p>Перед сохранением <code>settings_data.json</code> проверяйте синтаксис JSON: API принимает даже невалидный JSON со статусом <code>200</code>, после чего файл не удаётся разобрать. Для <code>settings.json</code> и других JSON-ассетов такое тело отклоняется со статусом <code>422</code>, а файл остаётся прежним:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"content"</span><span class="p">:[</span><span class="s2">"Невалидный json"</span><span class="p">]}</span>
 </code></pre></div>
 <p>Рядом в теме лежат:</p>
@@ -5074,7 +5076,7 @@
 <li><code>setup.json</code> — состав блоков темы, в том числе <code>block_lists</code>. Читается через <code>raw.json</code>. Метода для панелей виджетов страницы в этом API нет, см. <a href="#виджеты-темы">ниже</a>.</li>
 </ul>
 <h2 id="_11">Файлы аккаунта</h2>
-<p><code>/admin/files.json</code> — это раздел «Контент — Файлы», не файлы темы. В ответе три поля: <code>id</code>, <code>created_at</code>, <code>absolute_url</code>. Имени отдельным полем нет, оно стоит в конце <code>absolute_url</code>.</p>
+<p>Ресурс <code>/admin/files.json</code> позволяет работать с разделом «Контент — Файлы». В ответе возвращаются <code>id</code>, <code>created_at</code> и <code>absolute_url</code>. Отдельного поля с именем нет: имя файла находится в конце <code>absolute_url</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/files.json</code></div>
 <div class="api-example__grid">
@@ -5105,7 +5107,7 @@
 </div>
 </div>
 <p><code>absolute_url</code> — полный адрес файла на CDN. Хост у магазина свой, путь имеет вид <code>/files/…/original/имя</code>. Хост из адреса убирать нельзя. В шаблоне тот же файл подключают фильтром <code>file_url</code> по имени.</p>
-<p>При создании в <code>absolute_url</code> есть query с unix-временем изменения. В списке и в <code>GET /admin/files/:id.json</code> этого query нет.</p>
+<p>При создании файла <code>absolute_url</code> содержит параметр URL со временем изменения в формате Unix. В списке и в ответе <code>GET /admin/files/:id.json</code> этот параметр отсутствует.</p>
 <p><code>name</code> ищет подстроку в имени. Без <code>per_page</code> на странице 10 файлов. <code>page</code> начинается с 1. <code>page=0</code> отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"page должен иметь значение, большее 0"</span><span class="p">}</span>
 </code></pre></div>
@@ -5155,7 +5157,7 @@
 </div>
 </div>
 </div>
-<p>Загрузка — Base64 в <code>attachment</code> и <code>filename</code>. Отдельного метода изменения нет: <code>PUT /admin/files/:id.json</code> отвечает <code>404</code>. Чтобы заменить файл, его удаляют и создают снова. Повтор того же имени — <code>422</code>, <code>{"inner_file_name":["уже существует"]}</code>.</p>
+<p>Чтобы загрузить файл, передайте его содержимое в Base64 в <code>attachment</code> и имя в <code>filename</code>. Изменить существующий файл нельзя: <code>PUT /admin/files/:id.json</code> возвращает <code>404</code>. Для замены удалите файл и создайте его заново. Повторное имя отклоняется со статусом <code>422</code> и телом <code>{"inner_file_name":["уже существует"]}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/files.json</code></div>
 <table>
@@ -5204,7 +5206,7 @@
 </div>
 </div>
 </div>
-<p><code>src</code> на <code>http://127.0.0.1/...</code> ответил <code>422</code>: «Недопустимый URL». Имя <code>robots.txt</code> тоже <code>422</code>:</p>
+<p>Для <code>src</code> с адресом <code>http://127.0.0.1/...</code> API возвращает <code>422</code> и сообщение «Недопустимый URL». Имя <code>robots.txt</code> также отклоняется со статусом <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"inner_file_name"</span><span class="p">:[</span><span class="s2">"Вы можете отредактировать robots.txt в разделе Настройки → Robots.txt"</span><span class="p">]}</span>
 </code></pre></div>
 <p>Удаление возвращает <code>{"status":"ok"}</code>. Следующий <code>GET</code> этого id — HTML <code>404</code>.</p>
@@ -5241,7 +5243,8 @@
 </div>
 </div>
 <h2 id="_12">Свой шаблон страницы</h2>
-<p>Файл <code>product.docs_api.liquid</code> сам по себе ничего не подключает. У товара, страницы и категории есть поле <code>custom_template</code>. В него пишется часть имени после точки: для файла <code>product.docs_api.liquid</code> это <code>docs_api</code>. Метод сохраняет значение и тогда, когда такого файла в теме нет.</p>
+<p>Чтобы назначить собственный шаблон товару, странице или категории, запишите в <code>custom_template</code> часть имени файла между первой точкой и <code>.liquid</code>. Например, для <code>product.docs_api.liquid</code> передайте <code>docs_api</code>. Одного создания файла недостаточно для его назначения.</p>
+<p>API сохраняет <code>custom_template</code>, даже если соответствующего файла нет в теме.</p>
 <p>Товар:</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/681.json</code></div>
@@ -5351,10 +5354,12 @@
 </div>
 <p>Категория создаётся с <code>parent_id</code> существующей категории и тем же <code>custom_template</code>. Без родителя ответ <code>422</code>: «Не заполнены обязательные поля» у <code>parent_id</code>. Файл шаблона категории — <code>collection.docs_api.liquid</code>.</p>
 <p>У блога в <code>GET /admin/blogs.json</code> есть поле <code>custom_template</code>.</p>
+<p><a id="виджеты-темы"></a></p>
 <h2 id="_13">Виджеты темы</h2>
-<p>Публичное API работает с типами виджетов темы: <code>/admin/themes/:theme_id/widget_types.json</code>. Список содержит только свои типы этой темы. Системных виджетов в нём нет. Поставить виджет на страницу, прочитать список виджетов страницы или панели <code>header</code> / <code>content</code> / <code>footer</code> этим API нельзя: <code>GET /admin/themes/1/widgets.json</code>, <code>GET /admin/widget_lists.json</code> и <code>GET /admin/widgets.json</code> отвечают <code>404</code>.</p>
+<p>Для работы с типами виджетов темы используйте <code>/admin/themes/:theme_id/widget_types.json</code>. Список возвращает только собственные типы указанной темы; системные типы не включаются.</p>
+<p>Размещать виджеты на странице, получать список виджетов страницы и панели <code>header</code> / <code>content</code> / <code>footer</code> через этот API нельзя. Запросы <code>GET /admin/themes/1/widgets.json</code>, <code>GET /admin/widget_lists.json</code> и <code>GET /admin/widgets.json</code> возвращают <code>404</code>.</p>
 <p>Виджет в карточке заказа или товара бэк-офиса — другой ресурс, <a href="../05%20InSales%20API%20-%20Widgets/">виджеты приложения</a>.</p>
-<p>Поля создания лежат в корне JSON. Объект внутри ключа <code>widget_type</code> отвечает <code>422</code>: ключ назван неизвестным, обязательные поля — пропущенными.</p>
+<p>При создании типа виджета передавайте поля на верхнем уровне JSON. Если вложить их в <code>widget_type</code>, API вернёт <code>422</code>: ключ будет отмечен как неизвестный, а обязательные поля — как пропущенные.</p>
 <p><code>page_kinds</code> — массив из <code>all</code>, <code>index</code>, <code>collection</code>, <code>product</code>, <code>cart</code>, <code>page</code>, <code>search</code>, <code>blog</code>, <code>article</code>, <code>compare</code>, <code>favorite</code>, <code>shared_cart</code>. Чужое значение даёт <code>422</code>: <code>{"page_kinds":{"0":["is not valid"]}}</code>.</p>
 <p><code>widget_list_kinds</code> — массив из <code>header</code>, <code>before_content</code>, <code>content</code>, <code>sidebar</code>, <code>after_content</code>, <code>footer</code>, <code>outside</code>, <code>top_panel</code>, <code>bottom_panel</code>. Чужое значение: <code>{"widget_list_kinds":{"0":["is not valid"]}}</code>.</p>
 <p><code>widget_category_handle</code> — handle существующей категории, например <code>benefits</code>. Неизвестная категория: <code>422</code>, <code>widget_category_id</code> — «Не заполнены обязательные поля».</p>
@@ -5492,7 +5497,7 @@
 </div>
 </div>
 </div>
-<p>В ответе <code>name</code> и <code>description</code> — строки текущего языка. В запросе <code>name</code> передаётся объектом по языкам. <code>handle</code> после создания не обновляется: <code>PUT</code> с полем <code>handle</code> отвечает <code>422</code>, <code>{"handle":["unknown attribute"]}</code>.</p>
+<p>В ответе <code>name</code> и <code>description</code> содержат строки на текущем языке. В запросе <code>name</code> нужно передавать объектом с ключами языков. Поле <code>handle</code> задаётся при создании и не меняется: <code>PUT</code> с этим полем возвращает <code>422</code> и <code>{"handle":["unknown attribute"]}</code>.</p>
 <p>Пустой JSON <code>{}</code> на создание отвечает <code>422</code> и перечисляет пропущенные поля: <code>type</code>, <code>name</code>, <code>handle</code>, <code>snippet_content</code>, <code>generation</code>, <code>page_kinds</code>, <code>widget_list_kinds</code>. Неизвестный <code>type</code> — <code>{"type":["is not valid"]}</code>.</p>
 <p><code>PUT</code> меняет переданные поля и возвращает тип целиком. <code>GET /admin/themes/:theme_id/widget_types.json</code> возвращает массив таких объектов. <code>GET</code> одного id — один объект. <code>DELETE</code> отвечает <code>200</code> и пустым телом, следующий <code>GET</code> — HTML <code>404</code>.</p>
 <p>Виджет со списком блоков создаётся типом <code>BlockListWidgetType</code>. В <code>block_template_handle</code> передаётся handle системного шаблона блока, например <code>system-benefit</code>. В ответе это поле возвращается вместе с остальными полями простого виджета.</p>
@@ -5585,7 +5590,7 @@
 </div>
 <p>Ответ содержит те же <code>snippet_content</code>, <code>settings_form</code>, <code>messages</code> и <code>libraries</code>, что и простой виджет, и поле <code>block_template_handle</code>.</p>
 <h2 id="_14">Панели блоков</h2>
-<p><code>/admin/block_lists.json</code> читает панели блоков магазина. Это записи с именем, <code>liquid_name</code> и <code>block_template_id</code>. Состав панели — <code>/admin/block_lists/:id/block_list_items.json</code>, у элемента есть <code>block_id</code> и <code>position</code>.</p>
+<p><code>/admin/block_lists.json</code> возвращает панели блоков магазина. У панели есть имя, <code>liquid_name</code> и <code>block_template_id</code>. Чтобы получить её состав, используйте <code>/admin/block_lists/:id/block_list_items.json</code>: у каждого элемента есть <code>block_id</code> и <code>position</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/block_lists.json</code></div>
 <div class="api-example__grid">
@@ -5658,9 +5663,9 @@
 </div>
 </div>
 </div>
-<p><code>POST /admin/block_lists.json</code> с <code>name</code> и <code>liquid_name</code> отвечает <code>404</code>. Страница содержит «Couldn't find BlockList without an ID». <code>PUT</code> панели в JSON отвечает <code>406</code>. Панель через JSON этим методом не меняется.</p>
-<p>Списка блоков нет: <code>GET /admin/blocks.json</code> отвечает <code>404</code>. <code>POST /admin/blocks.json</code> с названием и текстом отвечает <code>200</code> и <code>{"status":"error","errors":{}}</code>. Тот же запрос в XML отвечает <code>422</code> с пустым <code>&lt;errors/&gt;</code>. Отдельного чтения одного блока нет.</p>
-<p>Состав блоков поколения 4, который виден в редакторе темы, в эту пару методов не входит. Его читают как файл <code>setup.json</code> темы через <code>raw.json</code>. Разместить виджет на панели публичным API нельзя.</p>
+<p>Создать панель через <code>POST /admin/block_lists.json</code> с <code>name</code> и <code>liquid_name</code> нельзя: API возвращает <code>404</code> со страницей «Couldn't find BlockList without an ID». Изменение панели через <code>PUT</code> в JSON возвращает <code>406</code>; панель не изменяется.</p>
+<p>Получить список блоков через <code>GET /admin/blocks.json</code> нельзя: API возвращает <code>404</code>. Запрос <code>POST /admin/blocks.json</code> с названием и текстом возвращает <code>200</code> и <code>{"status":"error","errors":{}}</code>. В формате XML тот же запрос возвращает <code>422</code> с пустым <code>&lt;errors/&gt;</code>. Отдельного метода чтения блока нет.</p>
+<p>Для чтения состава блоков поколения 4, который отображается в редакторе темы, получите файл <code>setup.json</code> через <code>raw.json</code>. Методы панелей блоков не возвращают этот состав. Разместить виджет на панели через публичный API нельзя.</p>
 
 
 

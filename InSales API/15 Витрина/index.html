@@ -4748,18 +4748,19 @@
 
 
 <h1 id="_1">Витрина</h1>
-<p>Блоги, статьи, страницы, меню, JS-теги и редиректы.</p>
-<p>Отсутствующий id отвечает <code>404</code> и HTML, не JSON. Так ведут себя блог, статья, страница, меню, пункт меню, JS-тег и редирект.</p>
-<p><code>PUT</code> меняет запись. <code>PATCH</code> у блога и страницы вызывает то же изменение и возвращает тот же статус. У редиректа <code>PUT</code> и <code>PATCH</code> отвечают <code>404</code>: у этого ресурса нет метода изменения.</p>
-<p><code>page</code> меньше 1 и <code>page</code> от 1000000 отвечают <code>422</code>:</p>
+<p>Через API бэк-офиса приложение может управлять содержимым витрины: блогами, статьями, страницами, меню, JS-тегами и редиректами.</p>
+<p>Если объекта с указанным идентификатором нет, API возвращает <code>404</code> с HTML-страницей, даже при запросе JSON. Это относится к блогам, статьям, страницам, меню, пунктам меню, JS-тегам и редиректам.</p>
+<p>Для изменения записи используйте <code>PUT</code>. У блогов и страниц также поддерживается <code>PATCH</code>: он выполняет то же изменение и возвращает тот же статус. Редиректы нельзя изменить: для них <code>PUT</code> и <code>PATCH</code> возвращают <code>404</code>.</p>
+<p>Если <code>page</code> меньше 1 или больше либо равен 1000000, API возвращает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"page должен иметь значение, большее 0"</span><span class="p">}</span>
 </code></pre></div>
-<p>Пустое тело там, где метод ждёт объект, отвечает <code>422</code> и <code>param is missing or the value is empty or invalid</code> с именем <code>blog</code>, <code>menu</code>, <code>js_tag</code> или <code>redirect</code>.</p>
-<p>Запись создаётся своим <code>POST</code>, удаляется своим <code>DELETE</code>.</p>
+<p>Если метод ожидает корневой объект, а тело пустое, API возвращает <code>422</code> с сообщением <code>param is missing or the value is empty or invalid</code>. В сообщении указывается нужный ключ: <code>blog</code>, <code>menu</code>, <code>js_tag</code> или <code>redirect</code>.</p>
+<p>Для создания записи используйте <code>POST</code> к соответствующему ресурсу, для удаления — <code>DELETE</code>.</p>
 <h2 id="_2">Язык</h2>
-<p>Текстовые поля блога и статьи читаются и пишутся на языке параметра <code>lang</code>. Язык должен быть включён в магазине. <code>GET</code> без <code>lang</code> возвращает язык магазина по умолчанию.</p>
-<p>Один <code>POST</code> создаёт одну запись. Второй <code>POST</code> с другим <code>lang</code> создаёт вторую запись, а не перевод. Перевод той же записи — <code>PUT</code> на её id с другим <code>lang</code>. <code>permalink</code> при этом не меняется. <code>title</code>, <code>content</code> и <code>author</code> записываются на языке <code>lang</code>. <code>GET</code> с тем же <code>lang</code> возвращает текст этого языка.</p>
-<p>Если языка в магазине нет, значение из <code>?lang=</code> записывается в язык по умолчанию и меняет текст этого языка.</p>
+<p>Параметр <code>lang</code> выбирает язык для чтения и записи текстовых полей блога и статьи. Язык должен быть включён в магазине. При чтении без <code>lang</code> возвращается текст на языке магазина по умолчанию.</p>
+<p>Чтобы добавить перевод существующей записи, отправьте <code>PUT</code> на её идентификатор с нужным <code>lang</code>. Поля <code>title</code>, <code>content</code> и <code>author</code> сохранятся на указанном языке, а <code>permalink</code> останется прежним. Для чтения перевода передайте тот же <code>lang</code> в GET-запросе.</p>
+<p>Каждый <code>POST</code> создаёт отдельную запись. Если повторить его с другим <code>lang</code>, появится вторая запись, а не перевод первой.</p>
+<p>Если язык из <code>lang</code> не включён в магазине, текст сохраняется на языке по умолчанию, заменяя его текущее значение.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/blogs/9/articles/121.json?lang=en</code></div>
 <table>
@@ -4827,11 +4828,12 @@
 </div>
 </div>
 </div>
-<p>Язык меняет поля перевода. Остальные поля статьи те же, что у <a href="#создание-статьи">создания</a>.</p>
+<p>В примере изменяются только переводимые поля. Остальные поля статьи описаны в разделе <a href="#создание-статьи">«Создание статьи»</a>.</p>
 <h2 id="_3">Блоги</h2>
-<p><code>GET /admin/blogs.json</code> отдаёт все блоги одним массивом, без страниц. Адрес блога, который не является главным, — <code>/blogs/{handle}</code>. Поле в JSON называется <code>handle</code>, отдельного <code>permalink</code> у блога нет.</p>
+<p><code>GET /admin/blogs.json</code> возвращает все блоги одним массивом, без постраничного деления. Адрес блога, который не является главным, имеет вид <code>/blogs/{handle}</code>. В JSON используется поле <code>handle</code>; отдельного поля <code>permalink</code> у блога нет.</p>
 <p><code>commentable</code> на витрине использует <code>no</code>, <code>yes</code> и <code>moderable</code>. Другое значение тоже сохраняется и возвращается.</p>
-<p><code>category</code> принимает значение из списка: Авто, Военторг, Дизайн, Дом, Еда, Здоровье, Знаменитости, Игры, Кино, Культура, Литература, Мода, Музыка, Наука, Общество, Политика, Природа, Происшествия, Психология, Путешествия, Спорт, Технологии, Фотографии, Хобби, Экономика, Юмор. Чужое значение отвечает <code>422</code>. <code>category</code>, <code>check_spam_enabled</code> и <code>custom_layout</code> в JSON блога нет: запрос с ними проходит, повторное чтение эти поля не возвращает. <code>custom_template</code> в ответе есть. Имя файла шаблона в теме — в <a href="../11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/">темах, ассетах и файлах</a>.</p>
+<p>Поле <code>category</code> принимает одно из значений: Авто, Военторг, Дизайн, Дом, Еда, Здоровье, Знаменитости, Игры, Кино, Культура, Литература, Мода, Музыка, Наука, Общество, Политика, Природа, Происшествия, Психология, Путешествия, Спорт, Технологии, Фотографии, Хобби, Экономика, Юмор. Другие значения отклоняются со статусом <code>422</code>.</p>
+<p>Поля <code>category</code>, <code>check_spam_enabled</code> и <code>custom_layout</code> принимаются в запросе, но не возвращаются в JSON блога, в том числе при повторном чтении. Поле <code>custom_template</code> возвращается. О назначении файла шаблона читайте в разделе <a href="../11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/">«Темы, ассеты и файлы»</a>.</p>
 <h3 id="_4">Список блогов</h3>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/blogs.json</code></div>
@@ -4868,7 +4870,7 @@
 </div>
 <p><code>tags</code> — массив объектов с <code>title</code>.</p>
 <h3 id="_5">Создание блога</h3>
-<p>Обязателен <code>title</code>. <code>handle</code> из названия строится транслитом. Занятый <code>handle</code> сохраняется с суффиксом <code>-2</code>, это <code>201</code>, не ошибка. Длина больше 16 тоже сохраняется.</p>
+<p>Для создания блога обязателен <code>title</code>. Значение <code>handle</code> формируется из названия транслитерацией. Если оно уже занято, InSales добавляет суффикс <code>-2</code> и создаёт блог со статусом <code>201</code>. Значение длиной больше 16 символов также сохраняется.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/blogs.json</code></div>
 <table>
@@ -5135,7 +5137,7 @@
 </div>
 </div>
 <h3 id="_7">Удаление блога</h3>
-<p>Удаление архивирует статьи блога. После этого и блог, и статья отвечают <code>404</code>.</p>
+<p>При удалении блога его статьи переносятся в архив. После этого чтение блога и его статей возвращает <code>404</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/blogs/9.json</code></div>
 <table>
@@ -5169,18 +5171,20 @@
 </div>
 </div>
 <h2 id="_8">Статьи</h2>
-<p>Создание идёт внутрь блога: <code>POST /admin/blogs/:blog_id/articles.json</code>.</p>
-<p><code>GET /admin/blogs/:blog_id/articles.json</code> — статьи одного блога. Порядок: закреплённая, затем <code>published_at</code> по убыванию, затем id по убыванию.</p>
-<p>На странице по умолчанию 10 статей. <code>per_page</code> и <code>limit</code> меньше 10 поднимаются до 10, сверху значение обрезается до 250. <code>updated_since</code> список не фильтрует.</p>
-<p>Обязательны <code>title</code>, <code>content</code>, <code>author</code> и <code>published_at</code>. Пустые поля отвечают <code>422</code>, и ключ текста — <code>content_with_urls</code>, не <code>content</code>. Дата без времени сохраняется как полночь в часовом поясе магазина: <code>2024-05-02</code> стал <code>2024-05-02T00:00:00.000+03:00</code>.</p>
+<p>Чтобы создать статью, отправьте <code>POST /admin/blogs/:blog_id/articles.json</code> в нужный блог.</p>
+<p><code>GET /admin/blogs/:blog_id/articles.json</code> возвращает статьи одного блога. Сначала идёт закреплённая статья, затем остальные по убыванию <code>published_at</code> и <code>id</code>.</p>
+<p>По умолчанию на странице 10 статей. Параметры <code>per_page</code> и <code>limit</code> ограничены диапазоном от 10 до 250: значения за его пределами заменяются ближайшей границей. Параметр <code>updated_since</code> не фильтрует список статей.</p>
+<p>Для создания статьи обязательны <code>title</code>, <code>content</code>, <code>author</code> и <code>published_at</code>. Пустые значения отклоняются со статусом <code>422</code>. Ошибка текста возвращается под ключом <code>content_with_urls</code>, а не <code>content</code>.</p>
+<p>Если дата публикации передана без времени, InSales использует полночь в часовом поясе магазина. Например, <code>2024-05-02</code> в магазине с поясом <code>+03:00</code> сохраняется как <code>2024-05-02T00:00:00.000+03:00</code>.</p>
 <p><code>permalink</code> можно задать. Если его нет, он строится из названия транслитом.</p>
-<p>Адрес опубликованной статьи — <code>/blogs/{handle}/{permalink}</code>, ответ витрины <code>200</code>. Статья с <code>published_at</code> в будущем в API есть, этот адрес на витрине отвечает <code>404</code>, а <code>/blogs/{handle}/{permalink}/preview</code> — <code>200</code>. Адрес <code>/blog/{permalink}</code> у блога, который не главный, отвечает <code>404</code>.</p>
+<p>Опубликованная статья доступна на витрине по адресу <code>/blogs/{handle}/{permalink}</code> со статусом <code>200</code>. Если <code>published_at</code> находится в будущем, статья уже доступна в API, но её обычный адрес возвращает <code>404</code>. Предпросмотр <code>/blogs/{handle}/{permalink}/preview</code> возвращает <code>200</code>. Адрес <code>/blog/{permalink}</code> для статьи неглавного блога возвращает <code>404</code>.</p>
 <p>Комментариев статьи в этом API нет. <code>GET /admin/comments.json</code> и <code>GET /admin/blogs/:blog_id/articles/:id/comments.json</code> отвечают <code>404</code>.</p>
+<p><a id="создание-статьи"></a></p>
 <h3 id="_9">Создание статьи</h3>
-<p><code>all_tags</code> заменяет весь список тегов. Тегов может быть 30. 31 тег отвечает <code>422</code>: «Невозможно задать больше 30 тегов к статье.»</p>
-<p>Товары задаются <code>related_products_attributes</code> с <code>product_id</code>. Массив id в <code>related_products</code> создаёт статью с пустым списком товаров. Неизвестный id отвечает <code>422</code>: «Товары 999999999 не найдены». Снять товар — тот же массив с <code>_destroy: true</code>.</p>
+<p>Поле <code>all_tags</code> заменяет список тегов целиком. Можно назначить не более 30 тегов. При передаче 31 тега API возвращает <code>422</code>: «Невозможно задать больше 30 тегов к статье.»</p>
+<p>Чтобы привязать товары к статье, передайте <code>related_products_attributes</code> с <code>product_id</code>. Массив идентификаторов в <code>related_products</code> не привязывает товары: статья создаётся с пустым списком. Несуществующий идентификатор отклоняется со статусом <code>422</code>: «Товары 999999999 не найдены». Для удаления привязки передайте элемент того же массива с <code>_destroy: true</code>.</p>
 <p><code>related_products</code> — товары статьи.</p>
-<p>Закреплённой остаётся одна статья. Вторая с <code>pinned: true</code> снимает закрепление с предыдущей: у первой в следующем чтении <code>pinned</code> стал <code>false</code>.</p>
+<p>Одновременно может быть закреплена одна статья. Если сохранить другую статью с <code>pinned: true</code>, у ранее закреплённой статьи <code>pinned</code> станет <code>false</code>.</p>
 <p>HTML в <code>content</code> сохраняется как передан, включая <code>meta</code> и <code>script</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/blogs/9/articles.json</code></div>
@@ -5486,7 +5490,7 @@
 </div>
 </div>
 <h3 id="_10">Картинка статьи</h3>
-<p>Картинка передаётся в том же <code>POST</code> или <code>PUT</code>, отдельной загрузки нет. Два рабочих вида: файл base64 в <code>attachment</code> вместе с <code>filename</code> и публичный адрес в <code>src</code>. Сразу после создания <code>original_url</code> может быть <code>/images/loading.gif</code>, пока файл обрабатывается.</p>
+<p>Изображение статьи передаётся при создании или изменении статьи, в том же <code>POST</code> или <code>PUT</code>. Отдельного метода загрузки нет. Используйте один из способов: содержимое файла в Base64 в <code>attachment</code> вместе с <code>filename</code> или публичный адрес в <code>src</code>. Пока InSales обрабатывает файл, <code>original_url</code> может указывать на <code>/images/loading.gif</code>.</p>
 <p>Внутренний адрес в <code>src</code> отвечает <code>422</code>, ключ ошибки — <code>image.src</code>, текст «Недопустимый URL».</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/blogs/9/articles.json</code></div>
@@ -5678,7 +5682,7 @@
 </div>
 </div>
 </div>
-<p><code>per_page</code> меньше 10 поднимается до 10.</p>
+<p>Если <code>per_page</code> меньше 10, API использует размер страницы 10.</p>
 <p><code>page=0</code> отклоняется.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/blogs/9/articles.json?page=0</code></div>
@@ -5717,7 +5721,7 @@
 </div>
 </div>
 <h3 id="_12">Замена тегов и товаров</h3>
-<p><code>all_tags</code> в <code>PUT</code> заменяет список целиком. Товар снимается <code>_destroy</code>.</p>
+<p>Чтобы заменить все теги статьи, передайте полный список в <code>all_tags</code> запросом <code>PUT</code>. Для удаления привязки товара передайте <code>_destroy</code> в <code>related_products_attributes</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/blogs/9/articles/9.json</code></div>
 <table>
@@ -5864,11 +5868,11 @@
 </div>
 </div>
 <h2 id="_14">Страницы</h2>
-<p>Адрес страницы — <code>/page/{permalink}</code>. <code>GET /admin/pages.json</code> отдаёт страницы без фиксированного порядка.</p>
-<p>По умолчанию и при <code>per_page</code> меньше 25 на странице 25 записей. Сверху значение обрезается до 1000.</p>
+<p>Адрес страницы — <code>/page/{permalink}</code>. <code>GET /admin/pages.json</code> возвращает страницы без фиксированного порядка.</p>
+<p>По умолчанию на странице до 25 записей. Если <code>per_page</code> меньше 25, API использует 25; если больше 1000 — 1000.</p>
 <p><code>content</code> обязателен. <code>permalink</code> можно задать. Занятый permalink сохраняется с суффиксом <code>-2</code>. Занятое название отвечает <code>422</code>: «уже существует». <code>created_at</code> можно передать, значение сохраняется. <code>custom_template</code> сохраняется и возвращается. Файл шаблона — в <a href="../11%20%D0%A2%D0%B5%D0%BC%D1%8B%2C%20%D0%B0%D1%81%D1%81%D0%B5%D1%82%D1%8B%20%D0%B8%20%D1%84%D0%B0%D0%B9%D0%BB%D1%8B/">темах</a>.</p>
 <p><code>is_hidden</code> и <code>kind</code> из запроса не применяются. В ответе <code>is_hidden</code> равен <code>false</code>, <code>kind</code> — <code>only_page</code>.</p>
-<p>Если меню уже есть, новая страница становится пунктом первого меню. <code>menu_id</code> в запросе меню не выбирает. Пункт получает название страницы и адрес <code>/page/{permalink}</code>.</p>
+<p>Если в магазине уже есть меню, новая страница автоматически добавляется в первое из них. Параметр <code>menu_id</code> не позволяет выбрать другое меню. Пункт получает название страницы и адрес <code>/page/{permalink}</code>.</p>
 <h3 id="_15">Создание страницы</h3>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/pages.json</code></div>
@@ -6071,7 +6075,7 @@
 </div>
 </div>
 <h3 id="_16">Изменение страницы</h3>
-<p><code>PUT</code> и <code>PATCH</code> отвечают <code>{"status":"ok"}</code>, не объектом страницы. Новые поля читаются следующим <code>GET</code>.</p>
+<p>При изменении страницы <code>PUT</code> и <code>PATCH</code> возвращают <code>{"status":"ok"}</code>. Чтобы получить обновлённый объект страницы, выполните отдельный GET-запрос.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/pages/31.json</code></div>
 <table>
@@ -6200,7 +6204,8 @@
 </div>
 </div>
 <h2 id="_18">Меню</h2>
-<p><code>GET /admin/menus.json</code> отдаёт все меню без страниц. Пунктов внутри объекта меню нет, они читаются отдельно. Поле <code>handle</code> — латинское имя: строчные буквы, цифры, дефис и точка. Ошибка приходит с ключом <code>liquid_name</code>.</p>
+<p><code>GET /admin/menus.json</code> возвращает все меню без постраничного деления. Пункты не включаются в объект меню; запрашивайте их отдельно.</p>
+<p>Поле <code>handle</code> задаёт имя меню латиницей. Допустимы строчные буквы, цифры, дефис и точка. Ошибки этого поля возвращаются под ключом <code>liquid_name</code>.</p>
 <p><code>POST /admin/menus/order.json</code> отвечает <code>404</code>. Порядок пунктов задаётся полем <code>position</code>.</p>
 <h3 id="_19">Создание меню</h3>
 <div class="api-example">
@@ -6336,8 +6341,8 @@
 </div>
 </div>
 <h2 id="_21">Пункты меню</h2>
-<p><code>GET /admin/menus/:menu_id/items.json</code> отдаёт плоский список. Поля родителя нет, вложенность этим ресурсом не задаётся. Позиции при создании идут с 1 по порядку.</p>
-<p><code>related_object_id</code> связывает пункт с объектом. Адрес в <code>url</code> для страницы, категории и блога собирается сам.</p>
+<p><code>GET /admin/menus/:menu_id/items.json</code> возвращает плоский список пунктов меню. Поля родителя нет, поэтому задать вложенность через этот ресурс нельзя. При создании пункты получают последовательные позиции, начиная с 1.</p>
+<p>Поле <code>related_object_id</code> связывает пункт меню с объектом магазина. Для страницы, коллекции и блога InSales формирует <code>url</code> автоматически:</p>
 <table>
 <thead>
 <tr>
@@ -6385,8 +6390,8 @@
 </tbody>
 </table>
 <p>Внешняя ссылка без <code>related_object_id</code> сохраняется как <code>Page_0</code>. Произвольный путь тоже: <code>Page_0</code> и <code>url</code> <code>/page/docs-api-page</code>.</p>
-<p>Название уникально внутри меню. Пустое название и неверный адрес отвечают <code>422</code>, ошибки лежат в объекте <code>errors</code>. У блога и страницы объект <code>errors</code> в таком ответе не используется.</p>
-<p>Свободная <code>position</code>, например 50, сохраняется. Занятая позиция в <code>PUT</code> отвечает <code>200</code> и в теле показывает переданное число, а следующий <code>GET</code> оставляет прежнюю позицию.</p>
+<p>Название уникально внутри меню. Пустое название и неверный адрес отвечают <code>422</code>, ошибки возвращаются в объекте <code>errors</code>. У блога и страницы объект <code>errors</code> в таком ответе не используется.</p>
+<p>Свободное значение <code>position</code>, например 50, сохраняется. Если позиция занята, <code>PUT</code> возвращает <code>200</code> и переданное число в теле ответа, но фактическая позиция остаётся прежней. Проверяйте её отдельным GET-запросом.</p>
 <p>Удаление пункта отвечает <code>200</code> с пустым телом.</p>
 <h3 id="_22">Пункт на страницу</h3>
 <div class="api-example">
@@ -6602,10 +6607,11 @@
 </div>
 </div>
 <h2 id="js-">JS-теги</h2>
-<p>JS-тег вставляет код на витрину. Список <code>GET /admin/js_tags.json</code> содержит только теги приложения, чей ключ стоит в Basic. Другой ключ получает пустой массив, а <code>GET</code> и <code>DELETE</code> чужого id отвечают <code>404</code>.</p>
-<p>Текст тега — JavaScript, не Liquid. Скобки Liquid остаются текстом и на витрине не исполняются. Код попадает на витрину у тега с <code>enabled: true</code>. Поле <code>enabled</code> принимается и хранится, в JSON его нет.</p>
+<p>JS-тег позволяет добавить код на витрину. <code>GET /admin/js_tags.json</code> возвращает только теги приложения, указанного в авторизации HTTP Basic. Другой ключ получает пустой массив. Попытка прочитать или удалить чужой тег возвращает <code>404</code>.</p>
+<p>В текст JS-тега передавайте JavaScript. Конструкции Liquid остаются текстом и не выполняются. Код подключается на витрине, если у тега <code>enabled: true</code>. Поле <code>enabled</code> принимается и сохраняется, но в JSON-ответ не включается.</p>
 <p>Для скрипта в карточке заказа или товара бэк-офиса есть <a href="../05%20InSales%20API%20-%20Widgets/">виджеты приложения</a>.</p>
-<p>Тип — <code>JsTag::TextTag</code> или <code>JsTag::FileTag</code>. <code>PUT</code> может сменить тип. В тексте <code>TextTag</code> нельзя писать тег <code>script</code>: ответ <code>422</code>, «В теле не должно быть тега &lt;script&gt;». У <code>FileTag</code> в <code>content</code> лежит URL файла. Неадрес отвечает <code>422</code> с ключом <code>url</code>, не <code>content</code>. Неизвестный тип не записывает поля и отвечает <code>422</code> сразу по <code>content</code>, <code>account_id</code> и <code>type</code>.</p>
+<p>JS-тег может иметь тип <code>JsTag::TextTag</code> или <code>JsTag::FileTag</code>. Тип можно изменить через <code>PUT</code>.</p>
+<p>Для <code>TextTag</code> передавайте сам JavaScript без тега <code>script</code>. Если добавить тег, API вернёт <code>422</code>: «В теле не должно быть тега &lt;script&gt;». Для <code>FileTag</code> передавайте URL файла в <code>content</code>. Если значение не является адресом, ошибка <code>422</code> возвращается под ключом <code>url</code>, а не <code>content</code>. Неизвестный тип отклоняется со статусом <code>422</code> с ошибками по <code>content</code>, <code>account_id</code> и <code>type</code>; поля не сохраняются.</p>
 <h3 id="_24">Текст и файл</h3>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/js_tags.json</code></div>
@@ -6724,7 +6730,7 @@
 </div>
 </div>
 </div>
-<p>Тег <code>script</code> в тексте отклоняется. Неадрес у файла отклоняется с ключом <code>url</code>.</p>
+<p>Тег <code>script</code> в тексте отклоняется. Если для файла передать некорректный URL, ошибка возвращается под ключом <code>url</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/js_tags.json</code></div>
 <table>
@@ -6904,15 +6910,15 @@
 </div>
 </div>
 <h2 id="_25">Редиректы</h2>
-<p><code>POST /admin/redirects.json</code> создаёт редирект. Изменить его нельзя: <code>PUT</code> и <code>PATCH</code> отвечают <code>404</code>. Удаляется по одному, <code>DELETE</code> отвечает <code>{"status":"ok"}</code>. Общего удаления нет.</p>
+<p>Для создания редиректа используйте <code>POST /admin/redirects.json</code>. Изменение не поддерживается: <code>PUT</code> и <code>PATCH</code> возвращают <code>404</code>. Удаляйте редиректы по одному через <code>DELETE</code>; успешный ответ содержит <code>{"status":"ok"}</code>. Метода массового удаления нет.</p>
 <p>Витрина отвечает <code>301</code> на адрес, который находится по правилам ниже. Редирект действует на запрос страницы. Адрес с суффиксом <code>.json</code> витрина по этим правилам не перенаправляет.</p>
-<p>Список по умолчанию содержит до 100 записей. Нижней границы у <code>per_page</code> нет. Порядок не задан: одна и та же запись может прийти и на первой, и на второй странице. Надёжнее поднять <code>per_page</code> или собирать id без повторов.</p>
+<p>По умолчанию список содержит до 100 записей. У <code>per_page</code> нет нижней границы. Порядок записей не задан, поэтому одна запись может попасть на несколько страниц. При сборе списка увеличьте <code>per_page</code> или исключайте повторы по <code>id</code>.</p>
 <p><code>q[q]</code> ищет подстроку в старом и новом адресе. <code>q[c_from]</code> и <code>q[c_to]</code> ограничивают <code>created_at</code> по часовому поясу магазина.</p>
 <h3 id="_26">Создание</h3>
-<p>Старый адрес сохраняется путём: схема и хост отбрасываются. <code>https://example.com/from-outside</code> сохраняется как <code>/from-outside</code>. Хвост <code>/</code> срезается. Запрос витрины на адрес с хвостом <code>/</code> с такой записью не совпадает.</p>
-<p>Новый адрес на домене магазина тоже сохраняется путём, хвост <code>/</code> срезается: <code>https://abc.myinsales.ru/catalog/</code> сохраняется как <code>/catalog</code>. Новый адрес чужого сайта остаётся абсолютным: <code>https://example.com/catalog</code>.</p>
+<p>При сохранении старого адреса InSales удаляет схему и хост, оставляя путь. Например, <code>https://example.com/from-outside</code> сохраняется как <code>/from-outside</code>. Завершающий <code>/</code> также удаляется. При этом запрос витрины с завершающим <code>/</code> не совпадёт с сохранённым правилом.</p>
+<p>Новый адрес на домене магазина также сохраняется как путь без завершающего <code>/</code>: <code>https://abc.myinsales.ru/catalog/</code> станет <code>/catalog</code>. Адрес другого сайта сохраняется целиком: <code>https://example.com/catalog</code>.</p>
 <p>Одинаковые старый и новый адреса отвечают <code>422</code>, ключ <code>new_url</code>: «имеет неверное значение».</p>
-<p>Корень <code>/</code> и первый сегмент из списка ниже создавать нельзя. Текст для <code>/delivery</code>: «Недопустимый URL. Путь '/delivery/' не может быть использован в качестве первой составной части старого URL.» Для корня в том же тексте путь <code>///</code>.</p>
+<p>Нельзя создать редирект с корня <code>/</code> или с адреса, первый сегмент которого входит в список ниже. Для <code>/delivery</code> возвращается ошибка «Недопустимый URL. Путь '/delivery/' не может быть использован в качестве первой составной части старого URL.». Для корня в таком же сообщении указан путь <code>///</code>.</p>
 <p>Запрещённый первый сегмент: <code>orders</code>, <code>cart_items</code>, <code>payments</code>, <code>auth</code>, <code>address</code>, <code>delivery</code>, <code>payment</code>, <code>fast_checkout</code>, <code>new_order</code>, <code>compares</code>, <code>cities</code>, <code>bank_receipts</code>, <code>yandex_market</code>, <code>yandex_snippets</code>, <code>torg_mail</code>, <code>sitemap</code>, <code>robots</code>, <code>juridical_person_receipts</code>, <code>yandex_market_fast_checkout</code>, <code>counter_settings</code>, <code>codes_settings</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/redirects.json</code></div>
@@ -6980,7 +6986,7 @@
 </tr>
 <tr>
 <td><code>redirect[new_url]</code> <span class="api-req">обязательный</span><br>строка</td>
-<td>Адрес на `поддомен.myinsales`. В ответе путь без хвоста `/`.</td>
+<td>Адрес на <code>поддомен.myinsales</code>. В ответе возвращается путь без завершающего <code>/</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -7109,9 +7115,9 @@
 </div>
 </div>
 <h3 id="_27">Цепочки</h3>
-<p>Новый старый адрес не может совпадать с новым адресом уже существующего редиректа, и новый адрес не может совпадать со старым адресом другого. Ответ <code>422</code>.</p>
+<p>При создании редиректа InSales проверяет, не образуется ли цепочка. Старый адрес новой записи не должен совпадать с новым адресом существующей, а новый адрес — со старым адресом другой записи. При совпадении API возвращает <code>422</code>.</p>
 <p>«Уже существует редирект на адрес ...» — ключ <code>old_url</code>. «Уже существует редирект с адреса ...» — ключ <code>new_url</code>.</p>
-<p><code>remove_redirect_chains</code> со значением <code>1</code> создаёт новую запись и переписывает новый адрес у тех редиректов, которые вели на этот старый адрес. Их id сохраняются.</p>
+<p>Чтобы объединить цепочку, передайте <code>remove_redirect_chains: 1</code>. InSales создаст новую запись и изменит конечный адрес существующих редиректов, которые вели на её старый адрес. Идентификаторы существующих записей сохранятся.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/redirects.json</code></div>
 <table>
@@ -7269,11 +7275,12 @@
 </div>
 <p>Новый адрес в ответе уже переписан правилом <code>remove_redirect_chains</code>.</p>
 <h3 id="_29">Как витрина выбирает адрес</h3>
-<p>Пока среди редиректов нет старого адреса с <code>?</code>, сравнивается путь, а query копируется на новый адрес. Правило, в чьём старом адресе есть <code>?</code>, в этом режиме не используется.</p>
-<p>Первый <code>POST</code> такого правила в этом режиме может ответить <code>500</code> и не сохранить запись. Магазин при этом переключается на точное сравнение. Повторный такой же <code>POST</code> отвечает <code>201</code>.</p>
-<p>Дальше путь и query должны совпасть. Параметры <code>domain</code> и <code>locale</code> отбрасываются. Параметры <code>_ga</code>, <code>tagtag_uid</code>, <code>erid</code>, <code>gsaid</code>, <code>advcake_params</code>, <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>yclid</code>, <code>ysclid</code>, <code>utm_referrer</code>, <code>utm_content</code> и <code>utm_term</code> на совпадение не влияют и дописываются к новому адресу. <code>page</code> к ним не относится: адрес с <code>page</code> и правило без query не совпадают.</p>
-<p><code>*</code> в конце старого адреса сравнивает этот путь целиком, с query и без него. Более длинный путь не совпадает. Это не регулярное выражение.</p>
-<p>Лишние слэши в пути схлопываются и без записи: <code>/foo//bar</code> ведёт на <code>/foo/bar</code>.</p>
+<p>Пока среди редиректов нет старых адресов с <code>?</code>, InSales сравнивает только путь запроса и переносит параметры URL на новый адрес. Правило со знаком <code>?</code> в старом адресе в этом режиме не применяется.</p>
+<p>При добавлении первого правила с <code>?</code> запрос <code>POST</code> может вернуть <code>500</code> без сохранения записи. При этом магазин переключается на точное сравнение адресов. Повторный такой же <code>POST</code> возвращает <code>201</code>.</p>
+<p>В режиме точного сравнения должны совпасть и путь, и параметры URL. Параметры <code>domain</code> и <code>locale</code> отбрасываются. Параметры <code>_ga</code>, <code>tagtag_uid</code>, <code>erid</code>, <code>gsaid</code>, <code>advcake_params</code>, <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>, <code>yclid</code>, <code>ysclid</code>, <code>utm_referrer</code>, <code>utm_content</code> и <code>utm_term</code> не влияют на совпадение и переносятся на новый адрес.</p>
+<p>Параметр <code>page</code> влияет на сравнение: адрес с <code>page</code> не совпадёт с правилом без параметров URL.</p>
+<p>Знак <code>*</code> в конце старого адреса позволяет сопоставить этот путь как с параметрами URL, так и без них. Более длинные пути с правилом не совпадают. Регулярные выражения не поддерживаются.</p>
+<p>Повторяющиеся слэши в пути заменяются одним, даже если для адреса нет отдельного редиректа. Например, <code>/foo//bar</code> перенаправляется на <code>/foo/bar</code>.</p>
 <p>В таблице цель цепочки — <code>/docs-api-final</code>. В колонке «точный режим» среди редиректов есть старый адрес с <code>?</code>. В колонке «только путь» таких редиректов нет.</p>
 <table>
 <thead>

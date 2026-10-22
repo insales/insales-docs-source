@@ -4006,16 +4006,16 @@
 
 
 <h1 id="_1">Частичные скидки в заказе</h1>
-<p>Частичная скидка действует не на все позиции заказа, а на выбранные. Позиция задаётся <code>id</code> строки заказа, <code>order_lines[].id</code>, а не <code>product_id</code> и не <code>variant_id</code>.</p>
-<p>Один и тот же товар может стоять в заказе несколькими строками. Так бывает после расщепления комплекта: комплект K из товаров A и B превращается в отдельные строки A и B, и рядом может лежать ещё одна строка A, купленная отдельно. У строк совпадают <code>product_id</code> и даже <code>variant_id</code>, а скидка нужна только одной из них. Поэтому строку нельзя узнать по товару.</p>
-<p>У строки заказа есть <code>full_total_price</code> и <code>full_sale_price</code>: это суммы уже с учётом скидок. Если раскладка по строкам не нужна, достаточно их.</p>
+<p>Частичная скидка применяется к выбранным строкам заказа. Для выбора строки используйте её идентификатор <code>order_lines[].id</code>. Идентификаторы товара <code>product_id</code> и варианта <code>variant_id</code> для этого не подходят.</p>
+<p>Один товар может занимать несколько строк заказа. Например, комплект K из товаров A и B при сохранении заказа разбивается на строки A и B. Если покупатель добавил товар A ещё и отдельно, в заказе будет две строки с одинаковыми <code>product_id</code> и <code>variant_id</code>. У каждой строки свой <code>id</code>, поэтому скидку можно назначить только одной из них.</p>
+<p>Поля строки заказа <code>full_total_price</code> и <code>full_sale_price</code> уже учитывают скидки. Используйте их, если нужны итоговые суммы без самостоятельного распределения скидок по строкам.</p>
 <h2 id="_2">Как назначить скидку</h2>
 <p><code>PUT /admin/orders/:id.json</code> принимает <code>discounts_attributes</code>. Поля из <a href="https://api.insales.ru/">справочника Order</a>:</p>
 <ul>
-<li><code>discount</code> — величина</li>
-<li><code>type_id</code> — <code>1</code> процент (значение по умолчанию), <code>2</code> сумма</li>
-<li><code>description</code></li>
-<li><code>discount_order_lines_ids</code> — id строк, на которые скидка действует. Без массива скидка идёт на все строки</li>
+<li><code>discount</code> — размер скидки</li>
+<li><code>type_id</code> — тип скидки: <code>1</code> — процент (по умолчанию), <code>2</code> — сумма</li>
+<li><code>description</code> — описание скидки</li>
+<li><code>discount_order_lines_ids</code> — идентификаторы строк заказа, к которым применяется скидка. Если не передать массив, скидка применяется ко всем строкам</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -4029,13 +4029,13 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>В ответе у заказа есть массив <code>discounts</code> и поле <code>discount</code> — первая скидка массива, оно оставлено для старых клиентов. У объекта скидки два массива:</p>
+<p>В ответе скидки заказа возвращаются в массиве <code>discounts</code>. Поле <code>discount</code> содержит первую скидку из этого массива и сохранено для совместимости с существующими интеграциями. У объекта скидки два массива:</p>
 <ul>
 <li><code>discount_order_lines_ids</code> — строки заказа</li>
 <li><code>discount_products_ids</code> — товары этих строк</li>
 </ul>
 <p>Оба приходят заполненными, когда скидка частичная. Для записи передавайте только <code>discount_order_lines_ids</code>.</p>
-<p>Удаление скидки — тот же <code>PUT</code> с <code>id</code> и <code>_destroy</code>:</p>
+<p>Чтобы удалить скидку, отправьте тот же <code>PUT</code> и передайте её <code>id</code> вместе с <code>_destroy</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"discounts_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -4044,7 +4044,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Создание заказа сразу с <code>discount_order_lines_ids</code> справочник не описывает: строки получают id уже после создания. Частичную скидку добавляют обновлением готового заказа. Создание заказа, строки и статусы — в <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/">заказах и клиентах</a>.</p>
+<p>Справочник не описывает создание заказа с <code>discount_order_lines_ids</code>: идентификаторы строк появляются только после создания. Поэтому назначайте частичную скидку при обновлении уже созданного заказа. Создание заказа, строки и статусы — в <a href="../12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/">заказах и клиентах</a>.</p>
 
 
 

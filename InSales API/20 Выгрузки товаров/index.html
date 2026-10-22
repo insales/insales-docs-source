@@ -4111,14 +4111,16 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Недостаточно прав для операции"</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="выгрузки-товаров">Выгрузки товаров</h2>
-<p><code>/admin/marketplaces</code> — файл товаров для внешней площадки. Каталог приложений к этому адресу не относится. <code>id</code> в пути — число. <code>GET /admin/marketplaces/abc.json</code> — страница <code>404</code> витрины.</p>
-<p>Поле <code>url</code> — адрес файла без Basic. <code>Content-Type</code> XML-файла — <code>application/xml; charset=utf-8</code>. Ссылки внутри файла используют хост, с которого файл запрошен. Если запрошенный язык в магазине не включён, <code>?lang=</code> возвращает тот же файл. <code>?download=1</code> при сборке файла на лету заголовок скачивания не ставит.</p>
-<p><code>GET /admin/marketplaces.json</code> отдаёт массив. Набор полей зависит от <code>type</code>. <code>collection_ids</code> в ответе <code>201</code> может быть <code>[]</code>, хотя идентификаторы сохранены: следующий <code>GET</code> их показывает.</p>
+<p>Ресурс <code>/admin/marketplaces</code> позволяет создавать файлы выгрузок товаров для внешних площадок. Идентификатор <code>id</code> в пути должен быть числом. Запрос с текстовым идентификатором, например <code>GET /admin/marketplaces/abc.json</code>, возвращает страницу <code>404</code> витрины.</p>
+<p>Поле <code>url</code> содержит публичный адрес файла, доступный без HTTP Basic. XML-файл возвращается с <code>Content-Type: application/xml; charset=utf-8</code>. Ссылки внутри него используют хост, с которого запрошен файл.</p>
+<p>Если язык из <code>lang</code> не включён в магазине, возвращается тот же файл. При формировании файла на лету параметр <code>download=1</code> не добавляет заголовок скачивания.</p>
+<p><code>GET /admin/marketplaces.json</code> возвращает массив выгрузок. Набор полей зависит от <code>type</code>. При создании в ответе <code>201</code> поле <code>collection_ids</code> может содержать <code>[]</code>, даже если идентификаторы сохранены. Проверьте их следующим GET-запросом.</p>
 <p>В файл попадают товары выбранных коллекций. Пустой список коллекций и пустая коллекция дают файл без товаров. Архивный товар из файла пропадает. Товар вне выбранных коллекций в файл не входит.</p>
-<p>Смена <code>type</code> у существующей записи запросом <code>PATCH</code> отвечает HTML <code>404</code>, и тип в записи уже другой. Новую площадку создают отдельным <code>POST</code>.</p>
+<p>Чтобы создать выгрузку другого типа, используйте отдельный <code>POST</code>. Если изменить <code>type</code> существующей записи через <code>PATCH</code>, API вернёт HTML-страницу <code>404</code>, хотя тип записи уже изменится.</p>
 <p><code>DELETE /admin/marketplaces/ID.json</code> отвечает <code>200</code>, тело <code>{"status":"ok"}</code>.</p>
 <h3 id="_2">Какие типы создаются одним названием</h3>
-<p>Тело с <code>name</code> и <code>type</code>. Неизвестная строка типа отвечает <code>422</code>, тело <code>{"type":["Тип является обязательным полем"]}</code>. Тело только с <code>name</code>, без <code>type</code>, отвечает <code>500</code> и HTML-страницей. Повтор <code>name</code> в магазине отвечает <code>422</code>, тело <code>{"name":["Выгрузка с таким названием уже существует"]}</code>. Пустое название отвечает <code>422</code>, тело <code>{"name":["Не указано название выгрузки"]}</code>.</p>
+<p>Для создания передайте <code>name</code> и <code>type</code>. Неизвестное значение <code>type</code> отклоняется со статусом <code>422</code> и телом <code>{"type":["Тип является обязательным полем"]}</code>. Если передать только <code>name</code>, без <code>type</code>, API вернёт <code>500</code> с HTML-страницей.</p>
+<p>Название должно быть непустым и уникальным в магазине. При повторе возвращается <code>422</code> и <code>{"name":["Выгрузка с таким названием уже существует"]}</code>, при пустом названии — <code>422</code> и <code>{"name":["Не указано название выгрузки"]}</code>. Дополнительные обязательные поля зависят от типа:</p>
 <table>
 <thead>
 <tr>
@@ -4278,8 +4280,8 @@
 </div>
 <p>Шапка RSS идёт одной строкой. У товара могут быть пустые <code>g:product_type</code> и <code>g:image_link</code>. Состав полей товара тот же.</p>
 <h3 id="_3">Яндекс.Маркет, модель</h3>
-<p><code>shop_name</code> короче 21 символа. Длиннее отвечает <code>422</code>, тело <code>{"shop_name":["Название магазина не может быть длиннее 20 символов."]}</code>. <code>vendor_id</code> — <code>id</code> параметра товара. Чужой <code>id</code> отвечает <code>422</code>, тело <code>{"vendor_id":["Такого параметра для указания производителя не существует"]}</code>.</p>
-<p>Успешное создание возвращает <code>collection_ids: []</code>. Категории уже есть в файле, а следующий <code>PUT</code> без повторной передачи коллекций возвращает их список. Дата в файле модели — время магазина со смещением.</p>
+<p>Длина <code>shop_name</code> не должна превышать 20 символов. Более длинное значение отклоняется со статусом <code>422</code> и телом <code>{"shop_name":["Название магазина не может быть длиннее 20 символов."]}</code>. Поле <code>vendor_id</code> содержит идентификатор параметра товара. Для несуществующего идентификатора API возвращает <code>422</code> и <code>{"vendor_id":["Такого параметра для указания производителя не существует"]}</code>.</p>
+<p>При создании <code>collection_ids</code> возвращается пустым массивом, хотя категории уже включены в файл. Следующий <code>PUT</code> возвращает список коллекций, даже если не передавать их повторно. В стандартном файле модельной выгрузки дата указана во времени магазина, со смещением часового пояса.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/marketplaces.json</code></div>
 <table>
@@ -4381,9 +4383,10 @@
 </div>
 </div>
 <h3 id="_4">Произвольный шаблон</h3>
-<p><code>Marketplace::LiquidYandexMarket</code> без <code>offer_liquid</code> отвечает <code>201</code> и записывает шаблон оффера по умолчанию. В нём есть <code>product.id</code>, <code>product.price</code>, <code>product.title</code>, <code>product.properties.vendor</code>, <code>account.url</code>, <code>collection.id</code>. Ошибочный Liquid отвечает <code>422</code>, например <code>{"offer_liquid":["Offer liquid содержит ошибку: Liquid syntax error (line 1): 'if' tag was never closed"]}</code>.</p>
-<p>В шаблоне оффера доступны <code>product</code>, <code>account</code> и <code>collection</code>: <code>product.id</code>, <code>product.title</code>, <code>product.price</code>, <code>product.cost_price</code>, <code>product.sku</code>, <code>product.currency_id</code>, <code>product.available</code>, <code>product.variants.first.id</code>, <code>product.variants.first.cost_price</code>, <code>account.url</code>, <code>collection.id</code>, <code>collection.title</code>. Закупочная цена печатается и как <code>product.cost_price</code>, и как <code>product.variants.first.cost_price</code>, когда она заполнена у варианта.</p>
-<p>Параметр товара печатается по permalink и по названию: <code>product.properties.brand</code> и <code>product.properties['Бренд']</code>. Имя <code>vendor</code> остаётся пустым, пока нет параметра с таким permalink или названием. Параметр попадает в шаблон после выбора в выгрузке. Выбор передаётся объектом с числовыми ключами.</p>
+<p>Если при создании <code>Marketplace::LiquidYandexMarket</code> не передать <code>offer_liquid</code>, API вернёт <code>201</code> и сохранит стандартный шаблон товарного предложения (оффера). В нём используются <code>product.id</code>, <code>product.price</code>, <code>product.title</code>, <code>product.properties.vendor</code>, <code>account.url</code> и <code>collection.id</code>.</p>
+<p>Шаблон с ошибкой Liquid отклоняется со статусом <code>422</code>, например: <code>{"offer_liquid":["Offer liquid содержит ошибку: Liquid syntax error (line 1): 'if' tag was never closed"]}</code>.</p>
+<p>В шаблоне оффера доступны <code>product</code>, <code>account</code> и <code>collection</code>: <code>product.id</code>, <code>product.title</code>, <code>product.price</code>, <code>product.cost_price</code>, <code>product.sku</code>, <code>product.currency_id</code>, <code>product.available</code>, <code>product.variants.first.id</code>, <code>product.variants.first.cost_price</code>, <code>account.url</code>, <code>collection.id</code>, <code>collection.title</code>. Закупочная цена выводится и как <code>product.cost_price</code>, и как <code>product.variants.first.cost_price</code>, когда она заполнена у варианта.</p>
+<p>К параметру товара можно обратиться по <code>permalink</code> или названию: <code>product.properties.brand</code> и <code>product.properties['Бренд']</code>. Значение <code>product.properties.vendor</code> будет пустым, пока в магазине нет параметра с таким именем. Чтобы использовать параметр в шаблоне, выберите его в настройках выгрузки. В API выбор передаётся объектом с числовыми ключами.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--patch">PATCH</span><code>/admin/marketplaces/49.json</code></div>
 <table>
@@ -4491,13 +4494,15 @@
 </div>
 </div>
 <p>Вокруг оффера стандартная обёртка <code>yml_catalog</code>: категории, валюта <code>RUB</code>, пустой блок акций.</p>
-<p><code>product.fields.HANDLE</code> — строка выбранного доп. поля, без <code>.value</code>. Пока поле не выбрано, подстановка пустая. Запрос с <code>marketplace_product_fields_attributes</code> отвечает <code>422</code>:</p>
+<p>Для получения значения выбранного дополнительного поля используйте <code>product.fields.HANDLE</code>. Оно возвращается строкой, без обращения к <code>.value</code>. Если поле не выбрано, подстановка пустая. Поле <code>marketplace_product_fields_attributes</code> не принимается: запрос возвращает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">"marketplace_product_fields.account_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Не заполнены обязательные поля"</span><span class="p">],</span>
 <span class="w">  </span><span class="nt">"marketplace_product_fields.product_field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Не заполнены обязательные поля"</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>{% for product in products %}</code> в шаблоне оффера товаров не перебирает. Общая обёртка файла задаётся <code>layout_template</code>. В ней есть <code>content_for_layout</code> — уже собранные офферы, <code>marketplace.shop_name</code>, <code>marketplace.company</code>, <code>account.url</code>, <code>currency</code>. Переменной <code>products</code> в обёртке нет. <code>layout_template</code> в JSON записи не возвращается, файл при этом собирается по нему. Фильтр <code>{{ 'now' | date: '%Y-%m-%d %H:%M' }}</code> печатает время UTC: при магазине <code>+03:00</code> в файле было <code>2026-10-21 19:36</code>. Дата стандартной обёртки модели Яндекса при этом остаётся во времени магазина.</p>
+<p>Шаблон <code>offer_liquid</code> описывает одно товарное предложение. Цикл <code>{% for product in products %}</code> не перебирает товары в этом шаблоне.</p>
+<p>Общий шаблон файла задаётся через <code>layout_template</code>. В нём доступны <code>content_for_layout</code> (уже сформированные предложения), <code>marketplace.shop_name</code>, <code>marketplace.company</code>, <code>account.url</code> и <code>currency</code>. Переменной <code>products</code> нет. Поле <code>layout_template</code> не возвращается в JSON записи, но используется при формировании файла.</p>
+<p>Фильтр <code>{{ 'now' | date: '%Y-%m-%d %H:%M' }}</code> выводит время UTC. Например, в файле магазина с часовым поясом <code>+03:00</code> он может вывести <code>2026-10-21 19:36</code> по UTC. В стандартном шаблоне модельной выгрузки Яндекса дата остаётся во времени магазина.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--patch">PATCH</span><code>/admin/marketplaces/49.json</code></div>
 <table>

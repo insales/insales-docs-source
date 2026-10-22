@@ -4736,9 +4736,10 @@
 
 
 <h1 id="_1">Товары</h1>
+<p>Через API можно создавать товары, управлять их вариантами, ценами и остатками, добавлять изображения и дополнительные поля. В этой статье также описаны привязка товаров к коллекциям, опции покупки и комплекты.</p>
 <h2 id="_2">Список</h2>
-<p><code>GET /admin/products.json</code> отдаёт массив товаров. <code>GET /admin/products/count.json</code> отдаёт число записей в том же отборе.</p>
-<p><code>per_page</code> меньше 10 поднимается до 10. Вторая страница читается параметром <code>page</code>.</p>
+<p><code>GET /admin/products.json</code> возвращает массив товаров. Чтобы узнать количество товаров с теми же фильтрами, используйте <code>GET /admin/products/count.json</code>.</p>
+<p>Параметр <code>per_page</code> задаёт количество товаров на странице. Если передать значение меньше 10, API использует 10. Номер страницы задаётся параметром <code>page</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/products/count.json</code></div>
 <table>
@@ -4751,23 +4752,23 @@
 <tbody>
 <tr>
 <td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Размер страницы того же отбора. Значение меньше 10 поднимается до 10.</td>
+<td>Количество товаров на странице. При значении меньше 10 API использует 10.</td>
 </tr>
 <tr>
 <td><code>page</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Номер страницы того же отбора.</td>
+<td>Номер страницы списка товаров.</td>
 </tr>
 <tr>
 <td><code>filter[title]</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>Поиск по названию в том же отборе.</td>
+<td>Фильтрация товаров по названию.</td>
 </tr>
 <tr>
 <td><code>deleted</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>true — только архив.</td>
+<td><code>true</code> — только архивные товары.</td>
 </tr>
 <tr>
 <td><code>with_deleted</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>true — текущие и архивные.</td>
+<td><code>true</code> — текущие и архивные товары.</td>
 </tr>
 </tbody>
 </table>
@@ -4787,7 +4788,7 @@
 </div>
 </div>
 </div>
-<p>Поиск по названию — <code>filter[title]</code>. Ниже первый товар из такой выборки.</p>
+<p>Для поиска по названию передайте <code>filter[title]</code>. В примере запрашивается первый товар, соответствующий фильтру.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/products.json?per_page=10&amp;filter[title]=iPhone</code></div>
 <table>
@@ -4800,7 +4801,7 @@
 <tbody>
 <tr>
 <td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Размер страницы. Значение меньше 10 поднимается до 10.</td>
+<td>Количество товаров на странице. При значении меньше 10 API использует 10.</td>
 </tr>
 <tr>
 <td><code>page</code> <span class="api-opt">необязательный</span><br>число</td>
@@ -4834,7 +4835,7 @@
 </div>
 </div>
 </div>
-<p>Несколько товаров по id читаются через <code>product_ids</code>. В одном запросе метод принимает до 100 id.</p>
+<p>Чтобы получить несколько товаров по идентификаторам, передайте их в <code>product_ids</code>. Один запрос принимает не более 100 идентификаторов.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/products/by_ids.json?product_ids=561,569</code></div>
 <table>
@@ -4871,9 +4872,9 @@
 </div>
 </div>
 <p><code>GET /admin/products/999999999.json</code> отвечает <code>404</code>. Тело при заголовке <code>Accept: application/json</code> остаётся HTML-страницей.</p>
-<p>Скрытый товар (<code>is_hidden: true</code>) в этот список входит. Удалённый в архив — нет, пока не передан <code>deleted</code> или <code>with_deleted</code>, см. ниже.</p>
+<p>Скрытые товары (<code>is_hidden: true</code>) входят в список. Архивные товары по умолчанию не возвращаются. Для их получения используйте <code>deleted</code> или <code>with_deleted</code>, как описано в разделе <a href="#удаление-и-архив">«Удаление и архив»</a>.</p>
 <h2 id="_3">Создание</h2>
-<p>Минимальное тело — название и один вариант с ценой. Адрес товара (<code>permalink</code>) строится из названия. Описание сохраняется как переданный HTML.</p>
+<p>Для создания товара достаточно передать название и один вариант с ценой. InSales формирует адрес товара (<code>permalink</code>) из названия. Описание сохраняется в виде переданного HTML.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products.json</code></div>
 <table>
@@ -4967,13 +4968,14 @@
 </div>
 </div>
 </div>
-<p><code>category_id</code> в ответе — категория учёта. Если её не передать, магазин подставляет категорию сам. Идентификатор коллекции витрины в это поле не встаёт: такой запрос отвечает <code>422</code> и <code>{"category_id":["Категория удалена или отсутствует."]}</code>. Коллекция назначается отдельным запросом ниже.</p>
-<p>Запись без <code>Content-Type: application/json</code> отвечает <code>422</code>:</p>
+<p>Поле <code>category_id</code> задаёт категорию учёта. Если его не передать, магазин выберет категорию автоматически. Идентификатор коллекции витрины для этого поля не подходит: API вернёт <code>422</code> и <code>{"category_id":["Категория удалена или отсутствует."]}</code>. Чтобы добавить товар в коллекцию, используйте отдельный запрос из следующего раздела.</p>
+<p>Если отправить запрос на запись без <code>Content-Type: application/json</code>, API вернёт <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incorrect Content-Type, should be application/json"</span><span class="p">}</span>
 </code></pre></div>
+<p><a id="коллекция"></a></p>
 <h2 id="_4">Коллекция</h2>
-<p>Запись в коллекцию — <code>POST /admin/collects.json</code>. В <code>collections_ids</code> карточки попадает и родительская коллекция: привязка к дочерней добавляет её id и id родителя.</p>
-<p>Позиция этой записи — ручной порядок товара в коллекции.</p>
+<p>Чтобы добавить товар в коллекцию, отправьте <code>POST /admin/collects.json</code>. Если коллекция дочерняя, в <code>collections_ids</code> карточки товара появятся и её идентификатор, и идентификатор родительской коллекции.</p>
+<p>Поле <code>position</code> у привязки задаёт положение товара при ручной сортировке в коллекции.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/collects.json</code></div>
 <table>
@@ -5086,7 +5088,7 @@
 <tbody>
 <tr>
 <td><code>product[is_hidden]</code> <span class="api-req">обязательный</span><br>логический</td>
-<td>true убирает товар с витрины и оставляет его в списке. false возвращает на витрину.</td>
+<td><code>true</code> скрывает товар с витрины, сохраняя его в списке API. <code>false</code> возвращает товар на витрину.</td>
 </tr>
 </tbody>
 </table>
@@ -5118,10 +5120,12 @@
 </div>
 </div>
 </div>
-<p>Обратное включение — тот же запрос с <code>"is_hidden": false</code>.</p>
+<p>Чтобы снова показать товар на витрине, отправьте тот же запрос с <code>"is_hidden": false</code>.</p>
+<p><a id="удаление-и-архив"></a></p>
 <h2 id="_6">Удаление и архив</h2>
-<p><code>DELETE /admin/products/:id.json</code> переносит товар в архив. Тело ответа — <code>{"status":"ok"}</code>. После этого <code>GET</code> этой карточки отвечает <code>404</code> с HTML-страницей. Тот же <code>DELETE</code> для id, которого нет, тоже отвечает <code>200</code> и <code>{"status":"ok"}</code>: по коду удаления нельзя понять, был ли товар.</p>
-<p>Обычный список архивный товар не содержит. <code>deleted=true</code> отдаёт только архив, у записи <code>archived: true</code>. <code>with_deleted=true</code> отдаёт и текущие, и архивные. Ниже одна запись из списка <code>deleted=true</code>.</p>
+<p><code>DELETE /admin/products/:id.json</code> переносит товар в архив и возвращает <code>{"status":"ok"}</code>. После этого чтение карточки без архивных флагов возвращает <code>404</code> с HTML-страницей.</p>
+<p>Если товара с указанным идентификатором нет, <code>DELETE</code> также возвращает <code>200</code> и <code>{"status":"ok"}</code>. По ответу на удаление нельзя определить, существовал ли товар.</p>
+<p>По умолчанию список не содержит архивных товаров. С <code>deleted=true</code> API возвращает только архивные товары с <code>archived: true</code>. С <code>with_deleted=true</code> возвращаются и текущие, и архивные товары. Ниже показана одна запись из списка с <code>deleted=true</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/products.json?deleted=true&amp;per_page=250</code></div>
 <table>
@@ -5134,11 +5138,11 @@
 <tbody>
 <tr>
 <td><code>deleted</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>true отдаёт только архив, у записи archived true.</td>
+<td><code>true</code> возвращает только архивные товары с <code>archived: true</code>.</td>
 </tr>
 <tr>
 <td><code>with_deleted</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>true отдаёт текущие и архивные.</td>
+<td><code>true</code> возвращает текущие и архивные товары.</td>
 </tr>
 <tr>
 <td><code>per_page</code> <span class="api-opt">необязательный</span><br>число</td>
@@ -5168,9 +5172,10 @@
 </div>
 </div>
 </div>
+<p><a id="дополнительное-поле-товара"></a></p>
 <h2 id="_7">Дополнительное поле товара</h2>
-<p>Пустой <code>product_field_values</code> в карточке значит, что значений нет. Поле создаётся отдельно: в <code>type</code> передаётся <code>ProductField::TextField</code>.</p>
-<p>Значение пишется в товар через <code>product_field_values_attributes</code> и возвращается в <code>GET</code> карточки.</p>
+<p>Пустой массив <code>product_field_values</code> означает, что у товара нет значений дополнительных полей. Сначала создайте само поле; для текстового поля передайте <code>type: ProductField::TextField</code>.</p>
+<p>Затем запишите значение в товар через <code>product_field_values_attributes</code>. Оно будет возвращаться при чтении карточки товара.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/product_fields.json</code></div>
 <table>
@@ -5241,7 +5246,7 @@
 </tr>
 <tr>
 <td><code>product[product_field_values_attributes][][value]</code> <span class="api-req">обязательный</span><br>строка</td>
-<td>Значение поля. Пустой product_field_values в карточке значит, что значений нет.</td>
+<td>Значение дополнительного поля. Если значений нет, в карточке возвращается пустой <code>product_field_values</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -5278,12 +5283,13 @@
 </div>
 </div>
 </div>
+<p><a id="параметры"></a></p>
 <h2 id="_8">Параметры</h2>
-<p>Параметр карточки описывает товар целиком: материал, состав, длина. В API это свойство <code>property</code> и значение <code>characteristic</code>. При создании и обновлении товара пара передаётся названием в <code>properties_attributes</code>.</p>
-<p>Размер и цвет задаются свойствами варианта, раздел «Варианты». Гравировка и подарочная упаковка — опция покупки, раздел «Опция покупки»: у значения своя цена.</p>
-<p>Параметры товара читаются из <code>GET /admin/products/:id.json</code>. Названия свойств лежат в <code>properties</code>, значения — в <code>characteristics</code>. Пара связывается по <code>property_id</code>: у значения тот же <code>property_id</code>, что <code>id</code> у свойства. Название значения — поле <code>title</code>.</p>
+<p>Параметр описывает товар целиком, например его материал, состав или длину. В API параметр представлен свойством <code>property</code> и его значением <code>characteristic</code>. При создании или обновлении товара передайте название свойства и его значение в <code>properties_attributes</code>.</p>
+<p>Размер и цвет, от которых зависят варианты товара, задаются <a href="#варианты">свойствами вариантов</a>. Гравировка или подарочная упаковка могут быть <a href="#опция-покупки">опциями покупки</a>: у каждого значения такой опции есть своя цена.</p>
+<p>Чтобы прочитать параметры товара, запросите <code>GET /admin/products/:id.json</code>. Массив <code>properties</code> содержит свойства, а <code>characteristics</code> — их значения. Поле <code>property_id</code> у значения указывает на <code>id</code> свойства. Название значения хранится в <code>title</code>.</p>
 <h3 id="_9">Запись по названиям</h3>
-<p>Свойство и значение создаются, если таких названий в магазине ещё нет. Одинаковый <code>title</code> в нескольких элементах <code>properties_attributes</code> — одно свойство с несколькими значениями. В ответе свойство одно, у значений один и тот же <code>property_id</code>.</p>
+<p>Если свойства или значения с переданным названием ещё нет в магазине, API создаёт его. Несколько элементов <code>properties_attributes</code> с одинаковым <code>title</code> задают несколько значений одного свойства. В ответе будет одно свойство и несколько значений с одинаковым <code>property_id</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products.json</code></div>
 <table>
@@ -5368,8 +5374,8 @@
 </div>
 </div>
 <h3 id="_10">Полный список при обновлении</h3>
-<p><code>properties_attributes</code> заменяет весь набор пар товара. Пары, которых нет в теле, отвязываются.</p>
-<p>Чтобы добавить параметр и сохранить старые, в тело нужно положить и старые пары, и новую.</p>
+<p>При обновлении <code>properties_attributes</code> заменяет весь набор параметров товара. Связи со значениями, которые не вошли в запрос, удаляются.</p>
+<p>Чтобы добавить параметр и сохранить существующие, передайте в <code>properties_attributes</code> как прежние пары «свойство — значение», так и новую.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/929.json</code></div>
 <table>
@@ -5382,7 +5388,7 @@
 <tbody>
 <tr>
 <td><code>product[properties_attributes][][title]</code> <span class="api-req">обязательный</span><br>строка</td>
-<td>Название параметра. В товар уходит полный список, а не одна добавленная пара.</td>
+<td>Название параметра. Передавайте полный набор пар «свойство — значение», который должен остаться у товара.</td>
 </tr>
 <tr>
 <td><code>product[properties_attributes][][value]</code> <span class="api-req">обязательный</span><br>строка</td>
@@ -5426,9 +5432,9 @@
 </div>
 </div>
 </div>
-<p>Поля запроса без <code>properties_attributes</code> список пар не меняют. Его заменяет только само поле <code>properties_attributes</code>.</p>
+<p>Если не передать <code>properties_attributes</code>, набор параметров товара не изменится.</p>
 <h3 id="id">Одна пара по id</h3>
-<p><code>product_characteristics_attributes</code> добавляет одну пару по <code>property_id</code> и <code>characteristic_id</code>. Уже привязанные пары остаются.</p>
+<p>Чтобы добавить одну пару по идентификаторам и сохранить существующие, используйте <code>product_characteristics_attributes</code>. Передайте <code>property_id</code> и <code>characteristic_id</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/929.json</code></div>
 <table>
@@ -5483,10 +5489,10 @@
 </div>
 </div>
 </div>
-<p>В <code>characteristics</code> приходит id значения, а не id связи. Убрать пару — записать полный <code>properties_attributes</code> без неё.</p>
+<p>В <code>characteristics</code> поле <code>id</code> содержит идентификатор значения, а не связи с товаром. Чтобы убрать пару из товара, передайте полный <code>properties_attributes</code> без этой пары.</p>
 <h3 id="_11">Числовой параметр</h3>
-<p>Свойство с <code>"is_numeric": true</code> создаётся отдельным запросом. В ответе создания и в <code>GET /admin/properties/:id.json</code> поля <code>is_numeric</code> нет. Числовой режим виден по значениям.</p>
-<p>Значение числового параметра хранится числом: <code>12.5 см</code> сохраняется как <code>12.5</code>. Текст, который не является числом, например <code>40 см</code>, отвечает <code>422</code> и <code>{"title":["Указано не число"]}</code>. Число <code>40</code> принимается.</p>
+<p>Для числового параметра создайте свойство отдельным запросом с <code>"is_numeric": true</code>. Поле <code>is_numeric</code> не возвращается ни при создании, ни в <code>GET /admin/properties/:id.json</code>; числовой режим можно определить по обработке значений.</p>
+<p>Обработка числового значения зависит от способа записи. При сохранении товара через <code>properties_attributes</code> InSales извлекает число из строки: <code>12.5 см</code> сохраняется как <code>12.5</code>. При отдельном создании значения через <code>POST /admin/properties/:id/characteristics.json</code> передавайте число без единицы измерения: строка <code>40 см</code> отклоняется со статусом <code>422</code> и телом <code>{"title":["Указано не число"]}</code>, а <code>40</code> принимается.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/properties.json</code></div>
 <table>
@@ -5579,9 +5585,9 @@
 </div>
 <p>Список значений — <code>GET /admin/properties/:id/characteristics.json</code>. У значения есть <code>id</code>, <code>property_id</code>, <code>title</code>, <code>permalink</code>, <code>position</code>.</p>
 <h2 id="свойства-вариантов">Свойства вариантов</h2>
-<p>Свойство варианта — справочник вроде «Размер» или «Цвет». Назначение свойства конкретному товару разобрано в <a href="#варианты">вариантах</a>: в <code>product.options</code> передаются <code>title</code> и <code>value</code>. Ключ <code>option_name_id</code> внутри <code>variants_attributes</code> этот запрос отклоняет.</p>
-<p><code>GET /admin/option_names.json</code> отдаёт свойства без вложенных значений. В объекте есть <code>api_permalink</code>: префикс <code>o-</code> и <code>permalink</code>. <code>sorting_type</code> (<code>manual</code> или <code>auto</code>) принимается в запросе и в ответ не входит.</p>
-<p><code>POST /admin/option_names.json</code> отвечает <code>201</code> объектом свойства. <code>option_values_attributes</code> в этом теле значения создают, в ответ создания они не входят. Значения читаются отдельным <code>GET</code>.</p>
+<p>Свойство варианта — справочник значений, например размеров или цветов. Чтобы назначить свойство товару, передайте <code>title</code> и <code>value</code> в <code>product.options</code>, как описано в разделе <a href="#варианты">«Варианты»</a>. Поле <code>option_name_id</code> внутри <code>variants_attributes</code> в этом запросе не принимается.</p>
+<p><code>GET /admin/option_names.json</code> возвращает свойства без вложенных значений. Поле <code>api_permalink</code> состоит из префикса <code>o-</code> и значения <code>permalink</code>. Параметр <code>sorting_type</code> принимает <code>manual</code> или <code>auto</code>, но в ответе не возвращается.</p>
+<p><code>POST /admin/option_names.json</code> создаёт свойство и возвращает его объект со статусом <code>201</code>. Вложенные <code>option_values_attributes</code> позволяют сразу создать значения, но в ответ они не включаются. Получите их отдельным GET-запросом.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/option_names.json</code></div>
 <table>
@@ -5610,7 +5616,7 @@
 </tr>
 <tr>
 <td><code>option_name[sorting_type]</code> <span class="api-opt">необязательный</span><br>строка</td>
-<td>manual или auto. В ответе поля нет.</td>
+<td><code>manual</code> или <code>auto</code>. Поле не возвращается в ответе.</td>
 </tr>
 <tr>
 <td><code>option_name[option_values_attributes]</code> <span class="api-opt">необязательный</span><br>массив</td>
@@ -5660,11 +5666,11 @@
 </div>
 </div>
 </div>
-<p><code>PUT /admin/option_names/:id.json</code> меняет название и <code>navigational</code> и отвечает <code>200</code> объектом свойства. <code>DELETE /admin/option_names/:id.json</code> отвечает <code>{"status":"ok"}</code>. Сразу после удаления чтение свойства ещё возвращает его.</p>
-<p>Товар с одним вариантом удаление свойства не блокирует: ответ тот же <code>{"status":"ok"}</code>.</p>
+<p><code>PUT /admin/option_names/:id.json</code> изменяет название и <code>navigational</code>, затем возвращает объект свойства со статусом <code>200</code>. При удалении <code>DELETE /admin/option_names/:id.json</code> возвращает <code>{"status":"ok"}</code>. Сразу после удаления свойство ещё может возвращаться при чтении.</p>
+<p>Наличие товара с одним вариантом не блокирует удаление свойства: API возвращает <code>{"status":"ok"}</code>.</p>
 <h3 id="_12">Значения</h3>
-<p><code>GET /admin/option_names/:option_name_id/option_values.json</code> — значения одного свойства. <code>GET /admin/option_values.json</code> — значения магазина, <code>option_name_id</code> в query оставляет одно свойство.</p>
-<p><code>from_id</code> оставляет значения с id больше переданного. <code>limit</code> режет выборку: значение меньше 25 поднимается до 25, больше 1000 опускается до 1000. Без <code>limit</code> этот параметр выборку не режет.</p>
+<p><code>GET /admin/option_names/:option_name_id/option_values.json</code> возвращает значения одного свойства. <code>GET /admin/option_values.json</code> возвращает значения магазина; чтобы ограничить их одним свойством, добавьте параметр URL <code>option_name_id</code>.</p>
+<p><code>from_id</code> оставляет значения с идентификатором больше переданного. Параметр <code>limit</code> ограничивает количество записей: при значении меньше 25 API использует 25, при значении больше 1000 — 1000. Если <code>limit</code> не передан, ограничение по этому параметру не применяется.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--get">GET</span><code>/admin/option_names/2517842/option_values.json</code></div>
 <table>
@@ -5714,7 +5720,7 @@
 </div>
 </div>
 </div>
-<p><code>POST /admin/option_names/:option_name_id/option_values.json</code> создаёт значение и отвечает <code>201</code>. Картинка записывается <code>PUT</code> с <code>option_value.image.src</code>. В ответе <code>image_url</code> — адрес миниатюры.</p>
+<p><code>POST /admin/option_names/:option_name_id/option_values.json</code> создаёт значение со статусом <code>201</code>. Чтобы добавить изображение, отправьте <code>PUT</code> с полем <code>option_value.image.src</code>. Поле <code>image_url</code> в ответе содержит адрес миниатюры.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/option_names/2517842/option_values/21063155.json</code></div>
 <table>
@@ -5772,7 +5778,7 @@
 </div>
 </div>
 <p><code>image_url</code> — адрес миниатюры.</p>
-<p><code>DELETE /admin/option_names/:option_name_id/option_values/:id.json</code> сразу отвечает id и номером задачи. Пока удаление идёт, <code>GET /admin/option_names/:option_name_id/option_values/:id/destroy_status.json?jid=</code> отвечает <code>{"status":"wait"}</code>. Когда значения уже нет, тот же адрес отвечает <code>{"status":"ok"}</code>.</p>
+<p>Удаление значения выполняется асинхронно. <code>DELETE /admin/option_names/:option_name_id/option_values/:id.json</code> сразу возвращает идентификатор и номер задачи. Для проверки состояния используйте <code>GET /admin/option_names/:option_name_id/option_values/:id/destroy_status.json?jid=</code>. Пока значение удаляется, ответ содержит <code>{"status":"wait"}</code>, после удаления — <code>{"status":"ok"}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--delete">DELETE</span><code>/admin/option_names/2517842/option_values/21063157.json</code></div>
 <table>
@@ -5907,7 +5913,7 @@
 </div>
 </div>
 </div>
-<p>Новое значение того же свойства создаётся отдельным вариантом. <code>option_name_id</code> берётся из <code>option_names</code> товара.</p>
+<p>Чтобы добавить вариант с другим значением того же свойства, создайте отдельный вариант. Возьмите <code>option_name_id</code> из массива <code>option_names</code> товара.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/945/variants.json</code></div>
 <table>
@@ -6048,7 +6054,7 @@
 </div>
 </div>
 </div>
-<p>Свойство добавляется обновлением товара. Уже существующее передаётся как <code>option_name_id</code>. Новое — как <code>title</code> и <code>value</code>: <code>value</code> становится значением этого свойства у текущих вариантов. Тело со списком <code>values</code> и без <code>value</code> по умолчанию отвечает <code>422</code>.</p>
+<p>Сначала добавьте свойство запросом на обновление товара. Для существующего свойства передайте <code>option_name_id</code>, для нового — <code>title</code> и <code>value</code>. Значение <code>value</code> будет назначено всем текущим вариантам товара. Если вместо него передать список <code>values</code> без значения по умолчанию в <code>value</code>, API вернёт <code>422</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/985.json</code></div>
 <table>
@@ -6121,7 +6127,7 @@
 </div>
 </div>
 </div>
-<p>Дальше новый вариант передаёт все свойства товара. Одно свойство из двух даёт ту же ошибку про список свойств. У обновления варианта ошибки приходят без обёртки <code>status</code>: <code>{"options":["Список свойств у товара изменился, перезагрузите страницу"]}</code>.</p>
+<p>При создании следующего варианта передайте значения всех свойств товара. Если указать только одно из двух свойств, API вернёт ту же ошибку об изменении списка свойств. При обновлении варианта ошибки возвращаются без обёртки <code>status</code>: <code>{"options":["Список свойств у товара изменился, перезагрузите страницу"]}</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/985/variants.json</code></div>
 <table>
@@ -6195,7 +6201,7 @@
 </div>
 <h3 id="_15">Цена, артикул, вес, габариты</h3>
 <p><code>PUT /admin/products/:product_id/variants/:id.json</code> меняет цену, старую цену, артикул, штрихкод, вес и габариты одного варианта. Свойства варианта в этом запросе передавать не нужно. Дополнительные цены — в <a href="#типы-цен">типах цен</a>.</p>
-<p>Одна цена на все варианты товара задаётся тем же запросом по каждому id из <code>variants</code>.</p>
+<p>Чтобы установить одинаковую цену для всех вариантов, отправьте этот запрос для каждого идентификатора из <code>variants</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/913/variants/2176487279.json</code></div>
 <table>
@@ -6273,18 +6279,18 @@
 <p>Вес в ответе — строка, например <code>"0.35"</code>. Русская буква «х» в габаритах сохраняется как латинская <code>x</code>: <code>10х20х5</code> становится <code>10x20x5</code>.</p>
 <h3 id="_16">Внешний идентификатор</h3>
 <p><code>external_id</code> — идентификатор варианта во внешней системе. Его пишут в уже созданный вариант запросом <code>PUT /admin/products/:product_id/variants/:id.json</code>.</p>
-<p>При создании товара варианты лежат во вложенном объекте <code>variants_attributes</code>. Там можно передать цену, артикул, остаток, вес и габариты. Поля <code>external_id</code> в этом объекте нет. Создание товара с таким ключом отвечает <code>422</code>, ключ назван недопустимым:</p>
+<p>При создании товара данные вариантов передаются в <code>variants_attributes</code>: цена, артикул, остаток, вес и габариты. Поле <code>external_id</code> в этом вложенном объекте не поддерживается. Если передать его при создании товара, API вернёт <code>422</code> и укажет недопустимый ключ:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"variants_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"undefined keys [\"external_id\"]"</span><span class="p">]}</span>
 </code></pre></div>
-<p><code>PUT</code> варианта с <code>"external_id": "1c-200"</code> отвечает <code>200</code>. В JSON варианта этого поля нет, значение хранится у варианта.</p>
+<p>Обновление варианта с <code>"external_id": "1c-200"</code> возвращает <code>200</code>. Значение сохраняется у варианта, но не включается в его JSON-ответ.</p>
 <h3 id="остаток">Остаток</h3>
 <p><code>quantity</code> — остаток варианта. Остаток на складе передаётся полем <code>quantity_at_warehouseN</code>. Число <code>N</code> — это <code>array_index</code> склада из <code>GET /admin/warehouses.json</code>. У единственного склада индекс <code>0</code>, поле называется <code>quantity_at_warehouse0</code>.</p>
-<p>На магазине с одним складом это один и тот же остаток: запись в любое из двух полей меняет оба. В ответе остаток склада приходит строкой, например <code>"7.0"</code>. Несколько складов и сумма остатков — в <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#склады">складах</a>.</p>
+<p>Если в магазине один склад, <code>quantity</code> и <code>quantity_at_warehouse0</code> описывают один остаток: изменение любого из этих полей меняет оба. Остаток склада возвращается строкой, например <code>"7.0"</code>. Работа с несколькими складами и суммарным остатком описана в разделе <a href="../18%20%D0%A1%D0%BA%D0%BB%D0%B0%D0%B4%D1%8B/#склады">«Склады»</a>.</p>
 <h3 id="_17">Групповое обновление</h3>
 <p><code>PUT /admin/products/variants_group_update.json</code> меняет цены и остатки сразу у нескольких вариантов. В теле — массив <code>variants</code>, у каждого элемента обязателен <code>id</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"variants"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2176487279</span><span class="p">,</span><span class="w"> </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">}]}</span>
 </code></pre></div>
-<p>Запрос ставит обновление в очередь и сразу отвечает <code>200</code> и пустым массивом <code>[]</code>. Новые цены и остатки читают запросом варианта после обработки очереди.</p>
+<p>API ставит обновление в очередь и сразу возвращает <code>200</code> с пустым массивом <code>[]</code>. Чтобы получить новые цены и остатки, запросите варианты после обработки очереди.</p>
 <h3 id="_18">Удаление варианта</h3>
 <p>Последний вариант удалить нельзя.</p>
 <div class="api-example">
@@ -6321,7 +6327,7 @@
 </div>
 <p>Если вариантов больше одного, <code>DELETE /admin/products/945/variants/2176487284.json</code> отвечает <code>200</code> и <code>{"status":"ok"}</code>.</p>
 <h3 id="_19">Дополнительное поле варианта</h3>
-<p>Поле создаётся с типом <code>VariantField::TextField</code>. Значение пишется в вариант и возвращается в <code>variant_field_values</code>.</p>
+<p>Создайте поле с типом <code>VariantField::TextField</code>, затем запишите его значение в вариант. При чтении варианта значение возвращается в <code>variant_field_values</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/variant_fields.json</code></div>
 <table>
@@ -6430,7 +6436,7 @@
 </div>
 </div>
 <h2 id="типы-цен">Типы цен</h2>
-<p>Тип цены добавляет варианту ещё одну цену. Методы доступны, когда типы цен есть в тарифе. На обычном тарифе типов не больше 20.</p>
+<p>Тип цены позволяет хранить у варианта дополнительную цену. Методы доступны, если эта возможность входит в тариф магазина. На обычном тарифе можно создать не более 20 типов цен.</p>
 <p><code>POST /admin/price_kinds.json</code> отвечает <code>201</code>. <code>price_index</code> начинается с 1. <code>variant_price_method_name</code> для первого типа — <code>price2</code>: в варианте это поле <code>price2</code>. Следующий тип получает следующий индекс и поле <code>price3</code>. Повтор названия отвечает <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"title"</span><span class="p">:[</span><span class="s2">"уже существует"</span><span class="p">]}</span>
 </code></pre></div>
@@ -6485,7 +6491,7 @@
 </div>
 </div>
 </div>
-<p>Цена пишется в вариант полем из <code>variant_price_method_name</code>. Базовая <code>price</code> остаётся строкой. Дополнительная цена в ответе — число, массив <code>prices</code> содержит эти цены по порядку типов.</p>
+<p>Для записи дополнительной цены передайте в вариант поле, указанное в <code>variant_price_method_name</code>. Базовая цена <code>price</code> возвращается строкой, дополнительная — числом. Массив <code>prices</code> содержит дополнительные цены в порядке типов.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/673/variants/2176487181.json</code></div>
 <table>
@@ -6539,7 +6545,7 @@
 </div>
 </div>
 </div>
-<p><code>DELETE /admin/price_kinds/:id.json</code> отвечает <code>{"status":"ok"}</code>. Следующее чтение варианта уже без ключа <code>price2</code>, в <code>prices</code> на этом месте <code>null</code>.</p>
+<p><code>DELETE /admin/price_kinds/:id.json</code> возвращает <code>{"status":"ok"}</code>. После удаления первого типа цены в ответе варианта отсутствует ключ <code>price2</code>, а соответствующий элемент массива <code>prices</code> равен <code>null</code>.</p>
 <h2 id="единицы-измерения">Единицы измерения</h2>
 <p>Список можно прочитать, если у приложения есть право на настройки магазина.</p>
 <p><code>GET /admin/units.json</code> без <code>lang</code> отвечает <code>422</code>. Тело — строка, не JSON-объект: <code>Отсутствует параметр lang, либо данный язык недоступен на платформе</code>. Заголовок при этом <code>Content-Type: application/json</code>. То же тело у <code>lang=xx</code>.</p>
@@ -6617,7 +6623,7 @@
 </div>
 </div>
 <h2 id="_20">Изображения</h2>
-<p>Изображение создаётся у конкретного товара: <code>POST /admin/products/:product_id/images.json</code>. Пока файл обрабатывается, в ответе <code>image_processing: true</code>, а адреса указывают на <code>/images/loading.gif</code>. Имя файла при этом уже настоящее.</p>
+<p>Чтобы добавить изображение к товару, используйте <code>POST /admin/products/:product_id/images.json</code>. Пока InSales обрабатывает файл, <code>image_processing</code> равен <code>true</code>, а URL изображений указывают на <code>/images/loading.gif</code>. Имя файла в ответе уже соответствует загруженному файлу.</p>
 <h3 id="_21">Адрес изображения</h3>
 <p><code>src</code> — публичный адрес файла. Магазин скачивает изображение по этому адресу, поэтому адрес должен открываться из интернета. Если файл по адресу скачать нельзя, ответ <code>422</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Не заполнены обязательные поля"</span><span class="p">],</span><span class="w"> </span><span class="nt">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Недопустимый URL"</span><span class="p">]}</span>
@@ -6670,7 +6676,7 @@
 </div>
 </div>
 <h3 id="_22">Файл в теле</h3>
-<p>Файл передаётся в теле того же запроса <code>POST /admin/products/:product_id/images.json</code>: содержимое — в <code>attachment</code> кодировкой base64, имя файла — в <code>filename</code>. Пока файл обрабатывается, в ответе <code>image_processing: true</code>, адреса указывают на <code>/images/loading.gif</code>.</p>
+<p>Для загрузки файла передайте его содержимое в Base64 в поле <code>attachment</code>, а имя — в <code>filename</code>. Используйте тот же <code>POST /admin/products/:product_id/images.json</code>. Пока файл обрабатывается, <code>image_processing</code> равен <code>true</code>, а URL изображений указывают на <code>/images/loading.gif</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/913/images.json</code></div>
 <table>
@@ -6723,7 +6729,7 @@
 </div>
 </div>
 <h3 id="_23">Привязка к варианту и порядок</h3>
-<p><code>image_id</code> в <code>PUT</code> варианта записывает изображение и в <code>image_id</code>, и в <code>image_ids</code>. Подпись и позиция меняются запросом к самому изображению.</p>
+<p>Чтобы связать изображение с вариантом, передайте <code>image_id</code> при обновлении варианта. В ответе изображение будет указано и в <code>image_id</code>, и в <code>image_ids</code>. Подпись и положение изображения меняются отдельным запросом к изображению.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/913/variants/2176487279.json</code></div>
 <table>
@@ -6819,7 +6825,7 @@
 </div>
 </div>
 <h2 id="_24">Аналоги</h2>
-<p>Запрос принимает массив id других товаров. Ответ создания — <code>{"status":"ok"}</code>. Список возвращает эти id.</p>
+<p>Чтобы назначить аналоги, передайте массив идентификаторов других товаров. При сохранении API возвращает <code>{"status":"ok"}</code>. При чтении списка возвращаются идентификаторы назначенных товаров.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products/913/similars.json</code></div>
 <table>
@@ -6878,9 +6884,11 @@
 </div>
 </div>
 <h2 id="_25">Сопутствующие</h2>
-<p>Сопутствующие товары назначаются тем же запросом на <code>/admin/products/:id/supplementaries.json</code> с полем <code>supplementary_ids</code>. Ответ создания — <code>{"status":"ok"}</code>. Список — массив объектов с <code>id</code>.</p>
+<p>Чтобы назначить сопутствующие товары, отправьте запрос на <code>/admin/products/:id/supplementaries.json</code> с массивом <code>supplementary_ids</code>. При сохранении API возвращает <code>{"status":"ok"}</code>. Список сопутствующих товаров возвращается массивом объектов с полем <code>id</code>.</p>
+<p><a id="опция-покупки"></a></p>
 <h2 id="_26">Опция покупки</h2>
-<p>Опция покупки (аксессуар) — отдельный объект магазина со своими значениями и ценой. К товару она крепится ссылкой <code>product_accessory_link</code>. У значения своя цена, покупатель выбирает его при покупке. Размер задаётся в разделе «Варианты», параметр карточки — в разделе «Параметры».</p>
+<p>Опция покупки (аксессуар) — отдельный объект магазина, например гравировка или подарочная упаковка. У неё есть набор значений, каждое со своей ценой; покупатель выбирает значение при покупке. Опция связывается с товаром через <code>product_accessory_link</code>.</p>
+<p>Размер и другие свойства вариантов описаны в разделе <a href="#варианты">«Варианты»</a>. Характеристики товара целиком описаны в разделе <a href="#параметры">«Параметры»</a>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/accessories.json</code></div>
 <table>
@@ -7035,7 +7043,7 @@
 </div>
 <p>В карточке товара ссылка приходит так: <code>"product_accessory_links": [{"id": 2, "accessory_id": 2}]</code>.</p>
 <h2 id="_27">Комплект</h2>
-<p>Комплект создаётся вместе с товаром: в теле <code>"bundle": true</code> и состав <code>product_bundle_components_attributes</code>. В составе — <code>variant_id</code> других товаров и количество. Цена комплекта задаётся его собственным вариантом в <code>variants_attributes</code>.</p>
+<p>Чтобы создать комплект, передайте при создании товара <code>"bundle": true</code> и состав в <code>product_bundle_components_attributes</code>. Для каждой составляющей укажите <code>variant_id</code> другого товара и количество. Цену комплекта задайте в его собственном варианте через <code>variants_attributes</code>.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/products.json</code></div>
 <table>
@@ -7118,7 +7126,7 @@
 </div>
 </div>
 </div>
-<p><code>bundle</code> задаётся только при создании. Обновление обычного товара с <code>"bundle": true</code> и составом отвечает <code>200</code> и товар комплектом не делает: в ответе <code>bundle</code> — <code>null</code>, <code>product_bundle_components</code> — пустой массив.</p>
+<p>Признак <code>bundle</code> можно задать только при создании товара. Если обновить обычный товар, передав <code>"bundle": true</code> и состав комплекта, API вернёт <code>200</code>, но товар не станет комплектом. В ответе <code>bundle</code> будет равен <code>null</code>, а <code>product_bundle_components</code> — пустому массиву.</p>
 
 
 

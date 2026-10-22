@@ -4028,11 +4028,11 @@
 
 
 <h1 id="_1">Склады</h1>
-<p>Склад хранит остаток товара. Валюта склада — валюта, в которой этот остаток учитывается. Остаток одного склада у варианта — в <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#остаток">товарах</a>.</p>
+<p>В этой статье описаны склады магазина, остатки по складам и валюты складского учёта. Остаток хранится у варианта товара: работа с ним описана в разделе <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#остаток">«Остаток»</a>.</p>
 <h2 id="склады">Склады</h2>
-<p><code>GET /admin/warehouses.json</code> отдаёт склады. У исходного склада магазина <code>array_index</code> равен <code>0</code>, <code>status</code> равен <code>ready</code>. Число <code>N</code> в поле остатка <code>quantity_at_warehouseN</code> — это <code>array_index</code>. Один склад и совпадение <code>quantity</code> с <code>quantity_at_warehouse0</code> разобраны в <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#остаток">остатке варианта</a>.</p>
-<p><code>POST /admin/warehouses.json</code> отвечает <code>200</code> и объектом склада. <code>status</code> сразу после создания — <code>creating</code>, <code>array_index</code> назначается следующим свободным. В запросе принимаются <code>title</code> и <code>position</code>. Пока статус <code>creating</code>, в JSON варианта нет поля <code>quantity_at_warehouseN</code> этого склада.</p>
-<p>Когда статус становится <code>ready</code>, поле появляется. <code>quantity</code> варианта при нескольких готовых складах — сумма остатков. Остаток каждого склада в ответе — строка.</p>
+<p><code>GET /admin/warehouses.json</code> возвращает склады магазина. У исходного склада <code>array_index</code> равен <code>0</code>, а <code>status</code> — <code>ready</code>. Поле остатка <code>quantity_at_warehouseN</code> использует <code>array_index</code> в качестве <code>N</code>. Работа с одним складом и связь <code>quantity</code> с <code>quantity_at_warehouse0</code> описаны в разделе <a href="../10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/#остаток">«Остаток»</a>.</p>
+<p>Чтобы создать склад, отправьте <code>POST /admin/warehouses.json</code> с <code>title</code> и <code>position</code>. API вернёт <code>200</code> и объект склада со статусом <code>creating</code>. Поле <code>array_index</code> получит следующий свободный индекс. Пока склад создаётся, в JSON варианта нет соответствующего поля <code>quantity_at_warehouseN</code>.</p>
+<p>Когда <code>status</code> станет <code>ready</code>, поле остатка нового склада появится у варианта. При нескольких готовых складах <code>quantity</code> содержит сумму остатков. Остаток каждого склада возвращается строкой.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/warehouses.json</code></div>
 <table>
@@ -4085,7 +4085,7 @@
 </div>
 </div>
 </div>
-<p>После <code>status: "ready"</code> остатки пишутся в вариант.</p>
+<p>Дождитесь <code>status: "ready"</code>, прежде чем записывать остатки нового склада в вариант.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--put">PUT</span><code>/admin/products/673/variants/2176487181.json</code></div>
 <table>
@@ -4106,11 +4106,11 @@
 </tr>
 <tr>
 <td><code>variant[quantity_at_warehouse0]</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Остаток склада с array_index 0.</td>
+<td>Остаток склада с <code>array_index: 0</code>.</td>
 </tr>
 <tr>
 <td><code>variant[quantity_at_warehouse1]</code> <span class="api-opt">необязательный</span><br>число</td>
-<td>Остаток склада с array_index 1.</td>
+<td>Остаток склада с <code>array_index: 1</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -4143,13 +4143,15 @@
 </div>
 </div>
 </div>
-<p><code>PUT /admin/warehouses/:id.json</code> меняет <code>title</code> и <code>position</code> и отвечает объектом склада. <code>DELETE /admin/warehouses/:id.json</code> отвечает <code>202</code> с пустым телом. Следующий <code>GET</code> показывает <code>status</code> равным <code>deleting</code>.</p>
+<p><code>PUT /admin/warehouses/:id.json</code> изменяет <code>title</code> и <code>position</code>, возвращая объект склада. Удаление выполняется асинхронно: <code>DELETE /admin/warehouses/:id.json</code> возвращает <code>202</code> с пустым телом. При следующем чтении склад имеет <code>status: deleting</code>.</p>
 <h2 id="валюты-склада">Валюты склада</h2>
 <p>Валюты склада можно читать и менять, если у приложения есть право на настройки магазина.</p>
-<p><code>GET /admin/stock_currencies.json</code> отдаёт массив валют склада. У рубля по умолчанию <code>exchange_rate</code> равен <code>1.0</code>.</p>
+<p><code>GET /admin/stock_currencies.json</code> возвращает массив валют склада. У рубля по умолчанию <code>exchange_rate</code> равен <code>1.0</code>.</p>
 <p>Валюта создаётся по <code>code</code> из справочника валют платформы: <code>USD</code>, <code>EUR</code>, <code>RUR</code> и другие. Неизвестный код — <code>422</code>, тело <code>{"currency_code":["имеет неверное значение"],"currency":["Не заполнены обязательные поля"]}</code>. Повтор кода — <code>422</code>, тело <code>{"currency_id":["уже существует"]}</code>.</p>
-<p><code>exchange_rate_use_cb: false</code> требует <code>exchange_rate_manual</code>. Без него — <code>422</code>, тело <code>{"exchange_rate_manual":["Не заполнены обязательные поля"]}</code>. Курс к валюте сайта равен ручному курсу, умноженному на <code>1 + exchange_rate_percent / 100</code>. Ручной курс <code>90.5</code> и процент <code>2</code> дают <code>exchange_rate</code> <code>"92.31"</code>. <code>cb_rate</code> при этом остаётся курсом ЦБ этой валюты и в расчёт магазина не входит. <code>exchange_rate_round</code> в ответе есть и остаётся <code>true</code>, если передать <code>false</code>.</p>
-<p><code>is_default: true</code> делает валюту валютой склада по умолчанию и снимает признак с прежней. Снять признак с текущей валюты по умолчанию, не назначив другую, отвечает <code>422</code>, тело <code>{"is_default":["Установите другую валюту по умолчанию"]}</code>. <code>DELETE /admin/stock_currencies/:id.json</code> отвечает <code>404</code> и HTML-страницей: удаления валюты склада в API нет.</p>
+<p>Чтобы использовать ручной курс, передайте <code>exchange_rate_use_cb: false</code> и обязательное в этом режиме поле <code>exchange_rate_manual</code>. Без ручного курса API вернёт <code>422</code> и <code>{"exchange_rate_manual":["Не заполнены обязательные поля"]}</code>.</p>
+<p>Курс к валюте сайта рассчитывается как ручной курс, умноженный на <code>1 + exchange_rate_percent / 100</code>. Например, <code>90.5</code> с надбавкой <code>2</code> даёт <code>exchange_rate: "92.31"</code>. Поле <code>cb_rate</code> по-прежнему содержит курс ЦБ, но в этом режиме не участвует в расчёте. Поле <code>exchange_rate_round</code> возвращается как <code>true</code>, даже если передать <code>false</code>.</p>
+<p>Чтобы назначить валюту склада по умолчанию, передайте <code>is_default: true</code>. У прежней валюты этот признак будет снят. Нельзя снять признак с текущей валюты по умолчанию, не назначив другую: API вернёт <code>422</code> и <code>{"is_default":["Установите другую валюту по умолчанию"]}</code>.</p>
+<p>Удаление валюты склада через API не поддерживается. Запрос <code>DELETE /admin/stock_currencies/:id.json</code> возвращает <code>404</code> с HTML-страницей.</p>
 <div class="api-example">
 <div class="api-example__bar"><span class="api-verb api-verb--post">POST</span><code>/admin/stock_currencies.json</code></div>
 <table>

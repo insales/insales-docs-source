@@ -65,6 +65,7 @@ nav:
     - common.v2.js/5Compare.md
     - common.v2.js/6FavoritesProducts.md
     - common.v2.js/7EventBus.md
+    - common.v2.js/widget-lifecycle.md
     - common.v2.js/8ajaxAPI.md
     - AJAX-товары:
       - common.v2.js/ajax-products/README.md

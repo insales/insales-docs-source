@@ -1,6 +1,6 @@
 ---
 seo_title: "snippet.js — JavaScript виджета InSales"
-description: "JavaScript виджета InSales в snippet.js: доступ к jQuery, обёртка кода платформой и работа скрипта внутри виджета."
+description: "Как устроен snippet.js виджета InSales, как инициализировать экземпляры через WidgetLifecycle и подписываться на события редактора."
 ---
 
 # snippet.js
@@ -29,47 +29,49 @@ $widget.each(function(index, el) {
 });
 ```
 
-Можно использовать встроенные события EventBus, подробнее можно ознакомиться <a href="/common.v2.js/7EventBus/" target="_blank">здесь</a>
+Для виджетов с подписками, DOM-обработчиками или другими ресурсами используйте `WidgetLifecycle.mount(widget, initialize)`. Для каждого корня он создаёт отдельный объект `lifecycle`, через который можно настроить очистку ресурсов. [Жизненный цикл виджетов](../../common.v2.js/widget-lifecycle.md)
 
-Подписку, которая меняет разметку, размещайте внутри `$widget.each` и проверяйте, что событие относится к текущему экземпляру:
+Размещайте подписку внутри `initialize` и проверяйте, что событие относится к текущему корню. Передайте `lifecycle.signal` в `EventBus.listen`, чтобы снять подписку при уничтожении экземпляра. [Методы EventBus](../../common.v2.js/7EventBus.md#listen)
 
 ```js
-$widget.each(function(index, el) {
-  EventBus.subscribe('change_variant:insales:product', function(data) {
-    if (!data.action || !data.action.product) return;
-    if (!$.contains(el, data.action.product[0])) return;
+WidgetLifecycle.mount(widget, (element, lifecycle) => {
+  EventBus.listen('change_variant:insales:product', data => {
+    const product = data?.action?.product?.[0];
+    if (!product || !element.contains(product)) return;
+    if (!product.parentElement?.closest('.modal-product-preview.is-open')) return;
 
-    let is_product_instance_in_modal_panel = !!$(data.action.product[0]).parents(".modal-product-preview.is-open").length;
-
-    if (data.first_image.url && is_product_instance_in_modal_panel) {
-      let product_node = $(data.action.product[0]);
-      product_node.find(".product-preview__photo img").attr("src", data.first_image.medium_url);
+    const image = product.querySelector('.product-preview__photo img');
+    if (image && data.first_image?.medium_url) {
+      image.src = data.first_image.medium_url;
     }
-  });
+  }, { signal: lifecycle.signal });
 });
 ```
 
 #### События редактора
 
-Пока открыт редактор шаблона, изменение настройки виджета публикует событие без перезагрузки страницы. Подписка на витрине:
+В редакторе шаблона изменение настройки виджета публикует событие без перезагрузки страницы. Если виджет уже использует `mount`, добавьте подписку на настройки в ту же функцию `initialize`. Пример подписки через ID размещения:
 
 ```js
-$widget.each(function(index, el) {
-  const widgetItemId = $(el).data('widget-drop-item-id');
+WidgetLifecycle.mount(widget, (element, lifecycle) => {
+  const widgetItemId = lifecycle.widgetItemId;
+  if (widgetItemId === null) return;
 
-  EventBus.subscribe([
+  EventBus.listen([
     'widget:input-setting:insales:system:editor',
     'widget:change-setting:insales:system:editor',
     'widget:input-color:insales:system:editor',
     'widget:change-color:insales:system:editor'
-  ], function(data) {
-    if (data.widget_item_id != widgetItemId) return;
+  ], data => {
+    if (String(data.widget_item_id) !== widgetItemId) return;
     // data.setting_name, data.value, data.unit, data.type, data.widget_id
-  });
+  }, { signal: lifecycle.signal });
 });
 ```
 
 `widget_item_id` совпадает с атрибутом `data-widget-drop-item-id` обёртки виджета. `widget_id` — идентификатор виджета в редакторе.
+
+Если настройки меняют CSS-переменные и JavaScript должен прочитать уже применённые значения, используйте [`lifecycle.onCssChange`](../../common.v2.js/widget-lifecycle.md#css-settings).
 
 #### Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:
 Можно посмотреть <a href="/4%20поколение/Виджеты/info/#libraries">здесь</a>.

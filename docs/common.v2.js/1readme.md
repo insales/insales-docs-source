@@ -47,9 +47,14 @@ description: "Обзор common.v2.js для разработки шаблоно
 
 **[Шина событий EventBus:](/common.v2.js/7EventBus/)**
 
-- Подписка на события
+- Подписка на события и отписка через `AbortSignal`
 - Создание событий
 - Отладка событий
+
+**[Жизненный цикл виджетов](widget-lifecycle.md)**
+
+- Инициализация экземпляров и очистка их ресурсов
+- Обработка быстрых CSS-настроек в редакторе
 
 **[Модуль для работы с API магазина:](/common.v2.js/8ajaxAPI/)**
 
@@ -181,6 +186,7 @@ Lodash доступен глобально как `_`. В проекте дол�
 - ajaxAPI
 - Template
 - EventBus
+- WidgetLifecycle
 - Tools
 - reCaptchaCommon
 - yandexCaptchaCommon

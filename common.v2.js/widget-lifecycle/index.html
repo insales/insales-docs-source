@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Как инициализировать виджеты InSales через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
+        <meta name="description" content="Как инициализировать виджеты 4 поколения через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
       
       
       
@@ -28,7 +28,7 @@
     
   
     
-    <title>WidgetLifecycle — жизненный цикл виджетов InSales - LiquidHub</title>
+    <title>WidgetLifecycle — жизненный цикл виджетов 4 поколения InSales - LiquidHub</title>
   
 
     
@@ -69,12 +69,12 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="LiquidHub">
     <meta property="og:locale" content="ru_RU">
-    <meta property="og:title" content="WidgetLifecycle — жизненный цикл виджетов InSales - LiquidHub">
-    <meta property="og:description" content="Как инициализировать виджеты InSales через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
+    <meta property="og:title" content="WidgetLifecycle — жизненный цикл виджетов 4 поколения InSales - LiquidHub">
+    <meta property="og:description" content="Как инициализировать виджеты 4 поколения через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
     <meta property="og:url" content="https://docs.liquidhub.ru/common.v2.js/widget-lifecycle/">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="WidgetLifecycle — жизненный цикл виджетов InSales - LiquidHub">
-    <meta name="twitter:description" content="Как инициализировать виджеты InSales через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
+    <meta name="twitter:title" content="WidgetLifecycle — жизненный цикл виджетов 4 поколения InSales - LiquidHub">
+    <meta name="twitter:description" content="Как инициализировать виджеты 4 поколения через WidgetLifecycle, снимать подписки, освобождать ресурсы и реагировать на CSS-настройки редактора.">
     
   
 
@@ -4102,8 +4102,8 @@
 
 
 <h1 id="_1">Жизненный цикл виджетов</h1>
-<p><code>WidgetLifecycle</code> управляет ресурсами каждого экземпляра виджета. Вызовите <code>WidgetLifecycle.mount</code>, чтобы запустить инициализацию для каждого корня и связать с ним DOM-обработчики, подписки EventBus и другие ресурсы.</p>
-<p>API доступен как <code>window.WidgetLifecycle</code> после подключения версии common.v2.js с этим модулем. Он подходит для тем 2, 3 и 4 поколений. <a href="../1readme/">Подключение common.v2.js</a></p>
+<p><code>WidgetLifecycle</code> управляет ресурсами экземпляров виджетов в темах 4 поколения. Вызовите <code>WidgetLifecycle.mount</code>, чтобы запустить инициализацию для каждого корня и связать с ним DOM-обработчики, подписки EventBus и другие ресурсы.</p>
+<p>API доступен как <code>window.WidgetLifecycle</code> после подключения версии common.v2.js с этим модулем. <a href="../1readme/">Подключение common.v2.js</a></p>
 <h2 id="mount">Инициализация</h2>
 <p>В <code>snippet.js</code> виджета 4 поколения используйте предоставленный платформой селектор <code>widget</code>. <a href="../../4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.js/">Как устроен snippet.js</a></p>
 <div class="highlight"><pre><span></span><code><span class="nx">WidgetLifecycle</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="nx">widget</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
@@ -4151,7 +4151,7 @@
 </tr>
 <tr>
 <td><code>lifecycle.widgetItemId</code></td>
-<td>ID размещения на момент <code>mount</code>. Метод читает <code>data-widget-drop-item-id</code> у корня или ближайшего предка с этим атрибутом. Для старой разметки используется <code>data-item-id</code> на обёртке редактора. Значение возвращается строкой, при отсутствии ID — <code>null</code>.</td>
+<td>ID размещения на момент <code>mount</code>. В разметке виджета 4 поколения ID берётся из <code>data-widget-drop-item-id</code> у корня или ближайшего предка с этим атрибутом. Значение возвращается строкой, при отсутствии ID — <code>null</code>.</td>
 </tr>
 </tbody>
 </table>

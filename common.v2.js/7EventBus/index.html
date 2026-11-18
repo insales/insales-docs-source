@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Как использовать EventBus в InSales: подписка и публикация событий, взаимодействие скриптов common.v2.js и обработчики на Deferred.">
+        <meta name="description" content="Как публиковать события в EventBus InSales, подписываться через listen и subscribe и снимать подписки вручную или через AbortSignal.">
       
       
       
@@ -16,14 +16,14 @@
         <link rel="prev" href="../6FavoritesProducts/">
       
       
-        <link rel="next" href="../8ajaxAPI/">
+        <link rel="next" href="../widget-lifecycle/">
       
       
         
       
       
       <link rel="icon" href="../../img/favicon-32x32.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
   
@@ -32,7 +32,7 @@
   
 
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -70,11 +70,11 @@
     <meta property="og:site_name" content="LiquidHub">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="EventBus — шина событий common.v2.js InSales - LiquidHub">
-    <meta property="og:description" content="Как использовать EventBus в InSales: подписка и публикация событий, взаимодействие скриптов common.v2.js и обработчики на Deferred.">
+    <meta property="og:description" content="Как публиковать события в EventBus InSales, подписываться через listen и subscribe и снимать подписки вручную или через AbortSignal.">
     <meta property="og:url" content="https://docs.liquidhub.ru/common.v2.js/7EventBus/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="EventBus — шина событий common.v2.js InSales - LiquidHub">
-    <meta name="twitter:description" content="Как использовать EventBus в InSales: подписка и публикация событий, взаимодействие скриптов common.v2.js и обработчики на Deferred.">
+    <meta name="twitter:description" content="Как публиковать события в EventBus InSales, подписываться через listen и subscribe и снимать подписки вручную или через AbortSignal.">
     
   
 
@@ -1312,6 +1312,8 @@
       
         
       
+        
+      
     
     
     
@@ -1717,6 +1719,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#event-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Последние данные события
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Методы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Методы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        listen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#subscribe" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1726,8 +1762,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#unsubscribe" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        unsubscribe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#publish" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1737,8 +1784,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#loggeradd" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1748,11 +1795,44 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../widget-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жизненный цикл виджетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1811,7 +1891,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1833,14 +1913,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3997,6 +4077,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#event-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Последние данные события
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Методы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Методы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        listen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#subscribe" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4006,8 +4120,19 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#unsubscribe" class="md-nav__link">
+    <span class="md-ellipsis">
       
-        <li class="md-nav__item">
+        unsubscribe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#publish" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4017,8 +4142,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#loggeradd" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4026,6 +4151,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4050,55 +4180,57 @@
 
 
 <h1 id="eventbus">EventBus</h1>
-<p>EventBus (шина событий) предназначена для простого взаимодействия базового функционала с остальными скриптами, не привязываясь при этом к верстке и вспомогательным объектам.</p>
-<p>Работает по принципу Pub/Sub (Издатель/Подписчик) и построена на Deferred, что позволяет:</p>
-<ul>
-<li>привязать к одному событию (Издателю) несколько обработчиков (Подписчиков)</li>
-<li>обработчики событий сработают, даже если событие произошло раньше того, как мы к нему привязали обработчик</li>
-<li>не важен порядок объявления Издателя и Подписчиков</li>
-</ul>
-<p>Работа с шиной производится через объект EventBus.</p>
-<h3 id="subscribe">subscribe</h3>
-<p>В работе с API необходимо привязываться к подписчикам, так как издатели объявлены внутри API.
-Например, при добавлении товара в корзину внутри API публикуется событие <code>add_items:insales:cart</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<p>Шина событий <code>EventBus</code> связывает модули витрины и скрипты темы. Один скрипт публикует событие по имени, а другие получают его данные в зарегистрированных обработчиках.</p>
+<h2 id="event-memory">Последние данные события</h2>
+<p>Шина запоминает последние данные каждого опубликованного события. При вызове <code>subscribe</code> или <code>listen</code> обработчик может выполниться синхронно, ещё до возврата из метода. Подготовьте всё, что ему понадобится, до подписки. Последние данные хранятся и после снятия всех подписок на событие.</p>
+<h2 id="_1">Методы</h2>
+<h3 id="listen">listen</h3>
+<p><code>EventBus.listen(events, handler, options?)</code> подписывает обработчик на событие и возвращает функцию отписки. В <code>events</code> передайте имя или массив имён событий, в <code>handler</code> — функцию или массив функций. Массивы обработчиков могут быть вложенными. Функция отписки снимает все регистрации этого вызова <code>listen</code>. Её можно вызвать повторно.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">stopListening</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Товар добавлен'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Вызовите при завершении работы компонента.</span>
+<span class="c1">// stopListening();</span>
 </code></pre></div>
-<p>Данные, которые переданы через EventBus.publish, доступны в подписчике.</p>
+<p>Чтобы снять несколько подписок одновременно, передайте им один <code>AbortSignal</code> в <code>options.signal</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AbortController</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nx">signal</span><span class="w"> </span><span class="p">};</span>
+
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Товар добавлен'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s1">'update_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Корзина обновлена'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+
+<span class="c1">// Вызовите при завершении работы компонента.</span>
+<span class="c1">// controller.abort();</span>
+</code></pre></div>
+<p>Если сигнал уже отменён, <code>listen</code> пропускает регистрацию. Вызов <code>abort()</code> из обработчика останавливает оставшиеся вызовы подписок, связанных с этим сигналом. Используйте заранее созданный <code>AbortController</code>, если обработчик может отменить подписку при получении последних данных. Функция отписки в этот момент ещё может быть недоступна.</p>
+<p>В виджетах передавайте <code>lifecycle.signal</code>. <a href="../widget-lifecycle/">Жизненный цикл виджетов</a></p>
+<h3 id="subscribe">subscribe</h3>
+<p>Метод <code>EventBus.subscribe(events, handler)</code> регистрирует подписку. Передайте имя события или массив имён. Для одного события можно зарегистрировать несколько обработчиков. Каждая повторная регистрация той же функции добавляет отдельный вызов.</p>
+<p>Например, при добавлении товара в корзину API публикует событие <code>add_items:insales:cart</code>. Обработчик получает опубликованные данные:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'add_items:insales:cart:'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<p><strong>Параметры</strong></p>
-<p>В данных подписчика всегда доступен объект <strong>action</strong>. Он содержит свойство <code>method</code>, а также дополнительные сведения в зависимости от события.</p>
-<p>В дополнительных свойствах объекта <strong>action</strong> могут быть:</p>
-<ul>
-<li>Ссылка на jQuery объект DOM узла, с которым произошло взаимодействие</li>
-<li>Обновленные данные компонента (Cart, Products и т.д.)</li>
-<li>Остальное смотреть через console.log или EventBus.logger</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {String} eventId название события</span>
-<span class="cm"> * @param {function} callback функция обработчик события</span>
-<span class="cm"> */</span>
-</code></pre></div>
-<p><strong>Пример</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'event_id'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-<span class="p">});</span>
+<p>Состав данных зависит от события. Например, в событиях корзины <code>data.action.method</code> содержит имя операции, а в <code>data.action</code> также могут быть ссылки на элементы в виде jQuery-объектов. Чтобы увидеть данные конкретного события, выведите их в консоль из обработчика или подключите <code>EventBus.logger</code>.</p>
+<h3 id="unsubscribe">unsubscribe</h3>
+<p>Метод <code>EventBus.unsubscribe(events, handler)</code> снимает все регистрации той же функции, сделанные через <code>subscribe</code> для указанных событий. Храните ссылку на исходную функцию. Для подписок через <code>listen</code> используйте возвращённую функцию отписки или отмену сигнала.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">onCartUpdate</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'add_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Товар добавлен'</span><span class="p">);</span>
-<span class="p">});</span>
+<span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'update_items:insales:cart'</span><span class="p">,</span><span class="w"> </span><span class="nx">onCartUpdate</span><span class="p">);</span>
+
+<span class="c1">// Вызовите при завершении работы компонента.</span>
+<span class="c1">// EventBus.unsubscribe('update_items:insales:cart', onCartUpdate);</span>
 </code></pre></div>
 <h3 id="publish">publish</h3>
-<p>Публикация события</p>
-<p><strong>Параметры</strong></p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * @param {String} eventId название события</span>
-<span class="cm"> * @param {Object} data любой тип данных, преимущественно `Object`</span>
-<span class="cm"> */</span>
-</code></pre></div>
-<p><strong>Пример</strong></p>
+<p>Метод <code>EventBus.publish(events, data)</code> публикует данные для одного события или для массива имён событий. Обработчик получает <code>data</code> как первый аргумент. Можно передать значение любого типа.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">EventBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">'event_id'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">isTest</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">'Test'</span><span class="p">,</span>
@@ -4186,10 +4318,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../../js/jquery.min.js"></script>
       

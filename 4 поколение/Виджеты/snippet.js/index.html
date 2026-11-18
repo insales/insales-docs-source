@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="JavaScript виджета InSales в snippet.js: доступ к jQuery, обёртка кода платформой и работа скрипта внутри виджета.">
+        <meta name="description" content="Как устроен snippet.js виджета InSales, как инициализировать экземпляры через WidgetLifecycle и подписываться на события редактора.">
       
       
       
@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../img/favicon-32x32.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
   
@@ -32,7 +32,7 @@
   
 
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
       
 
@@ -70,11 +70,11 @@
     <meta property="og:site_name" content="LiquidHub">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="snippet.js — JavaScript виджета InSales - LiquidHub">
-    <meta property="og:description" content="JavaScript виджета InSales в snippet.js: доступ к jQuery, обёртка кода платформой и работа скрипта внутри виджета.">
+    <meta property="og:description" content="Как устроен snippet.js виджета InSales, как инициализировать экземпляры через WidgetLifecycle и подписываться на события редактора.">
     <meta property="og:url" content="https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.js/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="snippet.js — JavaScript виджета InSales - LiquidHub">
-    <meta name="twitter:description" content="JavaScript виджета InSales в snippet.js: доступ к jQuery, обёртка кода платформой и работа скрипта внутри виджета.">
+    <meta name="twitter:description" content="Как устроен snippet.js виджета InSales, как инициализировать экземпляры через WidgetLifecycle и подписываться на события редактора.">
     
   
 
@@ -1383,6 +1383,8 @@
       
         
       
+        
+      
     
     
     
@@ -1756,6 +1758,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../common.v2.js/widget-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Жизненный цикл виджетов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../common.v2.js/8ajaxAPI/" class="md-nav__link">
         
   
@@ -1802,7 +1832,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1824,14 +1854,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4047,39 +4077,40 @@
 <span class="w">    </span><span class="nx">elements_selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'.lazyload'</span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>Можно использовать встроенные события EventBus, подробнее можно ознакомиться <a href="/common.v2.js/7EventBus/" target="_blank">здесь</a></p>
-<p>Подписку, которая меняет разметку, размещайте внутри <code>$widget.each</code> и проверяйте, что событие относится к текущему экземпляру:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">'change_variant:insales:product'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<p>Для виджетов с подписками, DOM-обработчиками или другими ресурсами используйте <code>WidgetLifecycle.mount(widget, initialize)</code>. Для каждого корня он создаёт отдельный объект <code>lifecycle</code>, через который можно настроить очистку ресурсов. <a href="../../../common.v2.js/widget-lifecycle/">Жизненный цикл виджетов</a></p>
+<p>Размещайте подписку внутри <code>initialize</code> и проверяйте, что событие относится к текущему корню. Передайте <code>lifecycle.signal</code> в <code>EventBus.listen</code>, чтобы снять подписку при уничтожении экземпляра. <a href="../../../common.v2.js/7EventBus/#listen">Методы EventBus</a></p>
+<div class="highlight"><pre><span></span><code><span class="nx">WidgetLifecycle</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="nx">widget</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="s1">'change_variant:insales:product'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="o">?</span><span class="p">.</span><span class="nx">action</span><span class="o">?</span><span class="p">.</span><span class="nx">product</span><span class="o">?</span><span class="p">.[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">product</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nx">element</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">product</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">product</span><span class="p">.</span><span class="nx">parentElement</span><span class="o">?</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'.modal-product-preview.is-open'</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!</span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]).</span><span class="nx">parents</span><span class="p">(</span><span class="s2">".modal-product-preview.is-open"</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">is_product_instance_in_modal_panel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">let</span><span class="w"> </span><span class="nx">product_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">product</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
-<span class="w">      </span><span class="nx">product_node</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">".product-preview__photo img"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"src"</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">medium_url</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">product</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.product-preview__photo img'</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">image</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="o">?</span><span class="p">.</span><span class="nx">medium_url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">image</span><span class="p">.</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">first_image</span><span class="p">.</span><span class="nx">medium_url</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">.</span><span class="nx">signal</span><span class="w"> </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
 <h4 id="_1">События редактора</h4>
-<p>Пока открыт редактор шаблона, изменение настройки виджета публикует событие без перезагрузки страницы. Подписка на витрине:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">$widget</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s1">'widget-drop-item-id'</span><span class="p">);</span>
+<p>В редакторе шаблона изменение настройки виджета публикует событие без перезагрузки страницы. Если виджет уже использует <code>mount</code>, добавьте подписку на настройки в ту же функцию <code>initialize</code>. Пример подписки через ID размещения:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">WidgetLifecycle</span><span class="p">.</span><span class="nx">mount</span><span class="p">(</span><span class="nx">widget</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">.</span><span class="nx">widgetItemId</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">widgetItemId</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">([</span>
+<span class="w">  </span><span class="nx">EventBus</span><span class="p">.</span><span class="nx">listen</span><span class="p">([</span>
 <span class="w">    </span><span class="s1">'widget:input-setting:insales:system:editor'</span><span class="p">,</span>
 <span class="w">    </span><span class="s1">'widget:change-setting:insales:system:editor'</span><span class="p">,</span>
 <span class="w">    </span><span class="s1">'widget:input-color:insales:system:editor'</span><span class="p">,</span>
 <span class="w">    </span><span class="s1">'widget:change-color:insales:system:editor'</span>
-<span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">widget_item_id</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">widget_item_id</span><span class="p">)</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">widgetItemId</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// data.setting_name, data.value, data.unit, data.type, data.widget_id</span>
-<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">.</span><span class="nx">signal</span><span class="w"> </span><span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
 <p><code>widget_item_id</code> совпадает с атрибутом <code>data-widget-drop-item-id</code> обёртки виджета. <code>widget_id</code> — идентификатор виджета в редакторе.</p>
+<p>Если настройки меняют CSS-переменные и JavaScript должен прочитать уже применённые значения, используйте <a href="../../../common.v2.js/widget-lifecycle/#css-settings"><code>lifecycle.onCssChange</code></a>.</p>
 <h4 id="_2">Доступные зависимости (плагины). Зависимости используются только, те которые установлены на стороне платформы:</h4>
 <p>Можно посмотреть <a href="/4%20поколение/Виджеты/info/#libraries">здесь</a>.</p>
 
@@ -4134,10 +4165,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../../../js/jquery.min.js"></script>
       

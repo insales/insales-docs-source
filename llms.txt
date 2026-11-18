@@ -1,0 +1,41 @@
+# LiquidHub
+
+> Русскоязычная документация для разработчиков InSales по шаблонам и виджетам 4 поколения, Liquid, библиотеке common.v2.js и API магазина.
+
+API сайта предназначен для запросов с витрины и использует сессию посетителя. InSales API предназначен для интеграций с бэк-офисом магазина и использует учётные данные приложения.
+
+## Шаблоны и виджеты 4 поколения
+
+- [Шаблоны InSales 4 поколения](https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD/): Структура архива темы, layout страниц, виджеты и файлы настроек шаблона.
+- [Виджеты InSales 4 поколения](https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/): Структура виджета, разметка Liquid, стили SCSS, JavaScript, настройки и переводы.
+- [Разметка виджета](https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/snippet.liquid/): Файл `snippet.liquid` и доступ к настройкам виджета из разметки.
+- [Форма настроек виджета](https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/settings_form/): Группы, типы полей и примеры конфигурации `settings_form.json`.
+- [Создание простого виджета](https://docs.liquidhub.ru/4%20%D0%BF%D0%BE%D0%BA%D0%BE%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5/%D0%92%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B/SimpleWidgetType/): Пошаговый пример виджета с текстом, изображением и настройками.
+
+## Библиотека common.v2.js
+
+- [Обзор common.v2.js](https://docs.liquidhub.ru/common.v2.js/1readme/): Модули товара, корзины, поиска, сравнения, избранного и других компонентов витрины.
+- [Товар](https://docs.liquidhub.ru/common.v2.js/2Products/): Селектор модификаций, методы класса `Products` и события товара.
+- [Корзина](https://docs.liquidhub.ru/common.v2.js/3Cart/): Методы и события корзины в JavaScript-библиотеке витрины.
+- [EventBus](https://docs.liquidhub.ru/common.v2.js/7EventBus/): Публикация событий, подписка и снятие подписок.
+- [Жизненный цикл виджетов](https://docs.liquidhub.ru/common.v2.js/widget-lifecycle/): Инициализация виджета через `WidgetLifecycle` и освобождение ресурсов.
+
+## API сайта
+
+- [Обзор API сайта](https://docs.liquidhub.ru/API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/): Правила запросов из браузера, cookie сессии и примеры на JavaScript.
+- [API корзины](https://docs.liquidhub.ru/API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0/): Чтение и изменение корзины через `/front_api/cart.json`.
+- [API товаров](https://docs.liquidhub.ru/API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/): Запросы к данным товаров на витрине.
+- [Быстрый заказ](https://docs.liquidhub.ru/API%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0/%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7/): Создание заказа по текущей корзине, поля покупателя, доставка и оплата.
+
+## InSales API
+
+- [Подключение приложения](https://docs.liquidhub.ru/InSales%20API/01%20readme/): Установка приложения, домен магазина, HTTP Basic, форматы запросов и ограничения.
+- [Синхронизация изменившихся данных](https://docs.liquidhub.ru/InSales%20API/03%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B8%D0%B2%D1%88%D0%B8%D1%85%D1%81%D1%8F%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85/): Использование `updated_since` и `from_id` для чтения изменившихся записей.
+- [Вебхуки](https://docs.liquidhub.ru/InSales%20API/07%20InSales%20API%20-%20Webhooks/): Подписки на события магазина, POST-уведомления и сверка данных.
+- [Товары](https://docs.liquidhub.ru/InSales%20API/10%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/): Товары, варианты и связанные данные в API бэк-офиса.
+- [Заказы и клиенты](https://docs.liquidhub.ru/InSales%20API/12%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D1%8B/): Работа с заказами и данными клиентов из внешнего приложения.
+
+## Optional
+
+- [Изображения для опций товара](https://docs.liquidhub.ru/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/images_for_options/): Пример вывода изображений для значений опций товара.
+- [Валюты магазина](https://docs.liquidhub.ru/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0/site_currencies/): Пример работы с валютами на витрине.
